@@ -1,6 +1,5 @@
 #ifndef _GAGENT_TYPEDEF_H_H_
 #define _GAGENT_TYPEDEF_H_H_ 
-#include "platform.h"
 
 typedef unsigned char  uint8;
 typedef unsigned short uint16;
