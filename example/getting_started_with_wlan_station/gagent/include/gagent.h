@@ -1,6 +1,9 @@
 #ifndef _GAGENT_H_
 
 #define _GAGENT_H_ 
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "gagent_typedef.h"
 #include "iof_arch.h"
 #include "utils.h"

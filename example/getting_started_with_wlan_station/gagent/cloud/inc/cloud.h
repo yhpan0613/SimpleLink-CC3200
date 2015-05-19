@@ -19,10 +19,10 @@ int32 Cloud_InitSocket( int32 iSocketId,int8 *p_szServerIPAddr,int32 port,int8 f
 uint32 Cloud_ReqRegister( pgcontext pgc );
 int8 Cloud_ResRegister( uint8 *cloudConfiRxbuf,int32 buflen,int8 *pDID,int32 respondCode );
 uint32 Cloud_ReqGetFid( pgcontext pgc,enum OTATYPE_T type );
-int8 Cloud_ResGetFid( uint8 *download_url, uint8 *fwver, uint8 *cloudConfiRxbuf,int32 respondCode );
+int8 Cloud_ResGetFid( int8 *download_url, int8 *fwver, int8 *cloudConfiRxbuf,int32 respondCode );
 uint32 Cloud_ReqProvision( pgcontext pgc );
 uint32 Cloud_ResProvision( int8 *szdomain,int32 *port,uint8 *cloudConfiRxbuf,int32 respondCode );
-uint32 Cloud_ReqConnect( pgcontext pgc,const int8 *username,const int8 *password );
+uint32 Cloud_ReqConnect( pgcontext pgc,const uint8 *username,const uint8 *password );
 uint32 Cloud_ResConnect( uint8* buf );
 uint32 Cloud_ReqSubTopic( pgcontext pgc,uint16 mqttstatus );
 uint32 Cloud_ResSubTopic( const uint8* buf,int8 msgsubId );
