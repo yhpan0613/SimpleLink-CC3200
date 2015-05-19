@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<importSpec>
+    <source root="..">
+        <file regex="main.c"/>
+		<file regex="startup_ccs.c"/>
+    </source>
+</importSpec>

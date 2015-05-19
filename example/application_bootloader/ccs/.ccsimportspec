@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<importSpec>
+    <source root="..">
+        <file regex="main.c"/>
+		<file regex="bootmgr.h"/>
+		<file regex="startup_ccs.c"/>
+		<file regex="udma_if.c"/>
+		<file regex="udma_if.h"/>
+    </source>
+</importSpec>
