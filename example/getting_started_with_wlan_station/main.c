@@ -137,8 +137,6 @@ extern uVectorEntry __vector_table;
 //****************************************************************************
 static long WlanConnect();
 void WlanStationMode( void *pvParameters );
-static long CheckLanConnection();
-static long CheckInternetConnection();
 static void InitializeAppVariables();
 static long ConfigureSimpleLinkToDefaultState();
 
@@ -625,117 +623,6 @@ static long ConfigureSimpleLinkToDefaultState()
     return lRetVal; // Success
 }
 
-//*****************************************************************************
-//! \brief This function checks the LAN connection by pinging the AP's gateway
-//!
-//! \param  None
-//!
-//! \return 0 on success, negative error-code on error
-//!
-//*****************************************************************************
-static long CheckLanConnection()
-{
-    SlPingStartCommand_t pingParams = {0};
-    SlPingReport_t pingReport = {0};
-
-    long lRetVal = -1;
-
-    CLR_STATUS_BIT(g_ulStatus, STATUS_BIT_PING_DONE);
-    g_ulPingPacketsRecv = 0;
-
-    // Set the ping parameters
-    pingParams.PingIntervalTime = PING_INTERVAL;
-    pingParams.PingSize = PING_PKT_SIZE;
-    pingParams.PingRequestTimeout = PING_TIMEOUT;
-    pingParams.TotalNumberOfAttempts = NO_OF_ATTEMPTS;
-    pingParams.Flags = 0;
-    pingParams.Ip = g_ulGatewayIP;
-
-    // Check for LAN connection
-    lRetVal = sl_NetAppPingStart((SlPingStartCommand_t*)&pingParams, SL_AF_INET,
-                            (SlPingReport_t*)&pingReport, SimpleLinkPingReport);
-    ASSERT_ON_ERROR(lRetVal);
-
-    // Wait for NetApp Event
-    while(!IS_PING_DONE(g_ulStatus))
-    {
-#ifndef SL_PLATFORM_MULTI_THREADED
-        _SlNonOsMainLoopTask(); 
-#endif
-    }
-
-    if(0 == g_ulPingPacketsRecv)
-    {
-        //Problem with LAN connection
-        ASSERT_ON_ERROR(LAN_CONNECTION_FAILED);
-    }
-
-    // LAN connection is successful
-    return SUCCESS;
-}
-
-
-//*****************************************************************************
-//! \brief This function checks the internet connection by pinging 
-//!     the external-host (HOST_NAME)
-//!
-//! \param  None
-//!
-//! \return  0 on success, negative error-code on error
-//!
-//*****************************************************************************
-static long CheckInternetConnection()
-{
-    SlPingStartCommand_t pingParams = {0};
-    SlPingReport_t pingReport = {0};
-
-    unsigned long ulIpAddr = 0;
-    long lRetVal = -1;
-
-    CLR_STATUS_BIT(g_ulStatus, STATUS_BIT_PING_DONE);
-    g_ulPingPacketsRecv = 0;
-
-    // Set the ping parameters
-    pingParams.PingIntervalTime = PING_INTERVAL;
-    pingParams.PingSize = PING_PKT_SIZE;
-    pingParams.PingRequestTimeout = PING_TIMEOUT;
-    pingParams.TotalNumberOfAttempts = NO_OF_ATTEMPTS;
-    pingParams.Flags = 0;
-    pingParams.Ip = g_ulGatewayIP;
-
-    // Get external host IP address
-    lRetVal = sl_NetAppDnsGetHostByName((signed char*)HOST_NAME, sizeof(HOST_NAME),
-                                                &ulIpAddr, SL_AF_INET);
-    ASSERT_ON_ERROR(lRetVal);
-
-    // Replace the ping address to match HOST_NAME's IP address
-    pingParams.Ip = ulIpAddr;
-
-    // Try to ping HOST_NAME
-    lRetVal = sl_NetAppPingStart((SlPingStartCommand_t*)&pingParams, SL_AF_INET,
-                            (SlPingReport_t*)&pingReport, SimpleLinkPingReport);
-    ASSERT_ON_ERROR(lRetVal);
-
-    // Wait
-    while(!IS_PING_DONE(g_ulStatus))
-    { 
-      // Wait for Ping Event 
-#ifndef SL_PLATFORM_MULTI_THREADED
-        _SlNonOsMainLoopTask(); 
-#endif
-    }
-
-    if (0 == g_ulPingPacketsRecv)
-    {
-        // Problem with internet connection
-        ASSERT_ON_ERROR(INTERNET_CONNECTION_FAILED);
-    }
-
-    // Internet connection is successful
-    return SUCCESS;
-}
-
-
 //****************************************************************************
 //
 //! \brief Connecting to a WLAN Accesspoint
@@ -844,42 +731,8 @@ void WlanStationMode( void *pvParameters )
     }
 
     UART_PRINT("Connection established w/ AP and IP is aquired \n\r");
-    UART_PRINT("Pinging...! \n\r");
 
-    //
-    // Checking the Lan connection by pinging to AP gateway
-    //
-    lRetVal = CheckLanConnection();
-    if(lRetVal < 0)
-    {
-        UART_PRINT("Device couldn't ping the gateway \n\r");
-        LOOP_FOREVER();
-    }
-    
-    // Turn on GREEN LED when device gets PING response from AP
-    GPIO_IF_LedOn(MCU_EXECUTE_SUCCESS_IND);
 
-    //
-    // Checking the internet connection by pinging to external host
-    //
-    lRetVal = CheckInternetConnection();
-    if(lRetVal < 0)
-    {
-        UART_PRINT("Device couldn't ping the external host \n\r");
-        LOOP_FOREVER();
-    }
-
-    // Turn on ORAGE LED when device gets PING response from AP
-    GPIO_IF_LedOn(MCU_ORANGE_LED_GPIO);
-
-    UART_PRINT("Device pinged both the gateway and the external host \n\r");
-
-    UART_PRINT("WLAN STATION example executed successfully \n\r");
-
-    //
-    // power off the network processor
-    //
-    lRetVal = sl_Stop(SL_STOP_TIMEOUT);
 
     LOOP_FOREVER();
     
