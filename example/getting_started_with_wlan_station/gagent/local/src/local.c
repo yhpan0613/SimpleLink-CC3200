@@ -152,10 +152,10 @@ void Local_HalInit()
     hal_ReceiveInit( );
 
     pLocalAckbuf = (ppacket)malloc(sizeof(packet));
-    pLocalAckbuf->allbuf = malloc( totalCap );
+    pLocalAckbuf->allbuf = (uint8 *)malloc( totalCap );
     while( pLocalAckbuf->allbuf==NULL )
     {
-        pLocalAckbuf->allbuf = malloc( totalCap );
+        pLocalAckbuf->allbuf = (uint8 *)malloc( totalCap );
         sleep(1);
     }
     memset( pLocalAckbuf->allbuf,0,totalCap );

@@ -459,6 +459,9 @@ int XPGmqtt_publish_with_qos(mqtt_broker_handle_t* broker,
     int var_headerLen;
     int fixed_headerLen;
     int packetLen;
+    uint8_t var_header[1024];
+    uint8_t fixed_header[1024];
+    uint8_t packet[1024];
 
     
     uint8_t fixedHeaderSize = 2;
@@ -473,7 +476,9 @@ int XPGmqtt_publish_with_qos(mqtt_broker_handle_t* broker,
         qos_size = 2; // 2 bytes for QoS
         qos_flag = MQTT_QOS2_FLAG;
     }
-    uint8_t var_header[topiclen+qos_size+2];
+    
+    var_header[topiclen+4] = '\0';
+    
 /************************add by alex*******************************/
     // Variable header
     //var_header = ( uint8_t* )malloc( topiclen+2+qos_size );
@@ -512,7 +517,7 @@ int XPGmqtt_publish_with_qos(mqtt_broker_handle_t* broker,
     }
 
     /***********************add by alex *******************/
-    uint8_t fixed_header[fixedHeaderSize];
+    fixed_header[fixedHeaderSize] = '\0';
     fixed_headerLen = fixedHeaderSize;
     /******************************************************/
     
@@ -533,7 +538,7 @@ int XPGmqtt_publish_with_qos(mqtt_broker_handle_t* broker,
     }
     /**********************add by alex******************************/
     packetLen = fixed_headerLen+var_headerLen+msgLen;
-    uint8_t packet[packetLen];
+    packet[packetLen] = '\0';
     memset(packet, 0, packetLen);
     memcpy(packet, fixed_header, fixed_headerLen);
     memcpy(packet+fixed_headerLen, var_header, var_headerLen);
