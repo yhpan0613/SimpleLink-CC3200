@@ -26,6 +26,7 @@
  */
 //#include ".h"
 #ifndef __LIBEMQTT_H__
+
 #define __LIBEMQTT_H__
 
 #include <stdint.h>

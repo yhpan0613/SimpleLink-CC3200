@@ -1,6 +1,5 @@
 #include "gagent.h"
 #include "lan.h"
-#include "platform.h"
 
 
 /****************************************************************
@@ -275,7 +274,6 @@ void CreateUDPBroadCastServer(pgcontext pgc)
     {
        pgc->ls.addr = Lan_CreateUDPBroadCastServer(&(pgc->ls.udpBroadCastServerFd),LAN_UDP_BROADCAST_SERVER_PORT);
     }
-    signal(SIGPIPE, SIG_IGN); 
 }
 /****************************************************************
         FunctionName        :   DestroyUDPBroadCastServer.

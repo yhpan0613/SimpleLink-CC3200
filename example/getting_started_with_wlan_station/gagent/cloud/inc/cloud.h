@@ -1,4 +1,5 @@
 #ifndef _CLOUD_H_
+
 #define _CLOUD_H_
 
 #define MQTT_STATUS_START               1

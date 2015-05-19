@@ -1,6 +1,10 @@
 #ifndef _GAGENT_TYPEDEF_H_H_
 #define _GAGENT_TYPEDEF_H_H_ 
 
+#include "simplelink.h"
+
+#define sockaddr_t sockaddr_in
+
 typedef unsigned char  uint8;
 typedef unsigned short uint16;
 typedef unsigned int   uint32;

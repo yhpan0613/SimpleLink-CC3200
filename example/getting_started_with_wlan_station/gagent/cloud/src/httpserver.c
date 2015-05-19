@@ -1,3 +1,7 @@
+#include "gagent.h"
+
+#define NULL 0
+
 int handleWebConfig(int fd)
 {
     int read_len;
@@ -52,8 +56,8 @@ int handleWebConfig(int fd)
     }
     else{
         //GET /web_config.cgi?fname=chensf&lname=pinelinda HTTP/1.1
-        index_ssid = GAgent_strstr(buf_head, "ssid=");
-        index_pass = GAgent_strstr(buf_head, "pass=");
+        index_ssid = strstr(buf_head, "ssid=");
+        index_pass = strstr(buf_head, "pass=");
         if(index_ssid && index_pass)
         {
             index_ssid += strlen("ssid=");
@@ -119,7 +123,7 @@ void Socket_DoTcpWebConfig(void)
     int newClientfd;
     int i;
     struct sockaddr_t addr;
-    struct timeval_t t;
+    struct timeval t;
 
     int addrlen= sizeof(addr);
 

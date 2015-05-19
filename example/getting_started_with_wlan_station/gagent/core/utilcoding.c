@@ -1,5 +1,6 @@
 #include "gagent.h"
 #include "lan.h"
+
 static uint8 g_SN;
 
 void make_rand(int8* data)

@@ -2,6 +2,7 @@
 #include "http.h"
 #include "mqttxpg.h"
 #include "cloud.h"
+
 /*
 return 0 OTA SUCCESS
 */
@@ -102,8 +103,8 @@ uint32 Cloud_ReqRegister( pgcontext pgc )
         return RET_FAILED;
     }
     
-    ret = Http_POST( socket, HTTP_SERVER,pConfigData->wifipasscode,pGlobalVar->minfo.szmac,
-                        pGlobalVar->mcu.product_key );
+    ret = Http_POST( socket, HTTP_SERVER,(const int8 *) (pConfigData->wifipasscode),(const int8 *)(pGlobalVar->minfo.szmac),
+                        (const uint8 *)(pGlobalVar->mcu.product_key) );
     
     if( RET_SUCCESS!=ret )
     {
@@ -135,7 +136,6 @@ int8 Cloud_ResRegister( uint8 *cloudConfiRxbuf,int32 buflen,int8 *pDID,int32 res
 uint32 Cloud_ReqGetFid( pgcontext pgc,enum OTATYPE_T type )
 {
     int32 socket = 0;
-    int8 ret = 0;
     uint8 *hver, *sver;
     pgcontext pGlobalVar=NULL;
     pgconfig pConfigData=NULL;
@@ -167,6 +167,8 @@ uint32 Cloud_ReqGetFid( pgcontext pgc,enum OTATYPE_T type )
     
     HTTP_DoGetTargetId( type,HTTP_SERVER,pConfigData->DID,pGlobalVar->mcu.product_key,
                         hver,sver,/*pConfigData->FirmwareId,*/socket );
+    
+    return 0;
     
 }
 
@@ -315,7 +317,6 @@ uint32 Cloud_ReqConnect( pgcontext pgc,const int8 *username,const int8 *password
 ****************************************************************/
 uint32 Cloud_ResConnect( uint8* buf )
 {
-    int32 i=0;
     if(NULL == buf)
         return RET_FAILED;
 
@@ -364,7 +365,7 @@ uint32 Cloud_ResSubTopic( const uint8* buf,int8 msgsubId )
 
 uint32 Cloud_Disconnect()
 {
-
+    return 0;
 }
 
 uint32 Cloud_ReqDisable( pgcontext pgc )
@@ -384,7 +385,7 @@ uint32 Cloud_ReqDisable( pgcontext pgc )
         return RET_FAILED;
 
     ret = Http_Delete( socket,HTTP_SERVER,pConfigData->old_did,pConfigData->old_wifipasscode );
-    return 0;
+    return ret;
 }
 uint32 Cloud_ResDisable( int32 respondCode )
 {
@@ -396,8 +397,9 @@ uint32 Cloud_ResDisable( int32 respondCode )
 
 uint32 Cloud_JD_Post_ReqFeed_Key( pgcontext pgc )
 {
-    int32 ret = 0;
     int32 socket = 0;
+    uint32 ret = 0;
+    
     pgcontext pGlobalVar=NULL;
     pgconfig pConfigData=NULL;
     
@@ -414,7 +416,7 @@ uint32 Cloud_JD_Post_ReqFeed_Key( pgcontext pgc )
                                      pConfigData->DID,HTTP_SERVER );
     pConfigData->cloud3info.jdinfo.ischanged=0;
     GAgent_DevSaveConfigData( pConfigData );
-    return 0;
+    return ret;
 }
 
 uint32 Cloud_JD_Post_ResFeed_Key( pgcontext pgc,int32 respondCode )

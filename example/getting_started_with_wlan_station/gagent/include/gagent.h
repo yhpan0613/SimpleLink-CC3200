@@ -5,6 +5,15 @@
 #include "iof_arch.h"
 #include "utils.h"
 
+extern int8 isPacketTypeSet( int32 currentType,int32 type );
+extern void GAgent_Printf(unsigned int level, char *fmt, ...);
+extern int32 SetPacketType( int32 currentType,int32 type,int8 flag );
+extern int32 Http_GetFid_Url( int32 *target_fid,int8 *download_url, int8 *fwver, int8 *buf );
+extern int32 Http_Response_Code( uint8 *Http_recevieBuf );
+
+#define WIFI_SOFTVAR    "04010003"
+#define WIFI_HARDVER    "00-CC3200"
+
 #define GAGENT_RELEASE 1
 
 #define GAGENT_MAGIC_NUM    0x55aa1122

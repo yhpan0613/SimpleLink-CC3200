@@ -9,6 +9,7 @@ ppacket pLocalAckbuf=NULL;
 pfMasterMCU_ReciveData PF_ReceiveDataformMCU = NULL;
 pfMasertMCU_SendData   PF_SendData2MCU = NULL;
 
+void GAgent_Clean_Config( pgcontext pgc );
 
 /* 注册GAgent接收local  数据函数 */
 void GAgent_RegisterReceiveDataHook(pfMasterMCU_ReciveData fun)
@@ -496,7 +497,7 @@ void GAgent_LocalInit( pgcontext pgc )
     GAgent_LocalDataIOInit( pgc );
     Local_HalInit();
     GAgent_RegisterReceiveDataHook( GAgent_Local_GetPacket );
-    GAgent_RegisterSendDataHook( serial_write );
+    //GAgent_RegisterSendDataHook( serial_write );
     Local_GetInfo( pgc );
 }
 void GAgent_LocalTick( pgcontext pgc,uint32 dTime_s )

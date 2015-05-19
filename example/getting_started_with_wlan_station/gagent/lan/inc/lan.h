@@ -1,8 +1,6 @@
 #ifndef _LAN_H_
 #define _LAN_H_
 
-#include "platform.h"
-
 #define LAN_CLIENT_LOGIN_SUCCESS        0
 #define LAN_CLIENT_LOGIN_FAIL           1
 

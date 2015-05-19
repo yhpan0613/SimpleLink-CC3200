@@ -1,4 +1,5 @@
 #ifndef __HTTP_H_
+
 #define __HTTP_H_
 #include  "gagent_typedef.h"
 
