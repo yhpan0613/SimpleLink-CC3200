@@ -133,7 +133,7 @@
         </option>
         <option>
           <name>RTConfigPath2</name>
-          <state>$TOOLKIT_DIR$\inc/c\DLib_Config_Normal.h</state>
+          <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Normal.h</state>
         </option>
         <option>
           <name>GFPUCoreSlave</name>
@@ -172,7 +172,7 @@
         </option>
         <option>
           <name>CCDefines</name>
-          <state>ewarm</state>  
+          <state>ewarm</state>
           <state>USE_FREERTOS</state>
           <state>SL_PLATFORM_MULTI_THREADED</state>
         </option>
@@ -692,7 +692,6 @@
         </option>
         <option>
           <name>IlinkConfigDefines</name>
-          
           <state>CC3200_ES_1_2_1=0</state>
         </option>
         <option>
@@ -959,20 +958,86 @@
       <data/>
     </settings>
   </configuration>
+  <group>
+    <name>gagent</name>
+    <group>
+      <name>cloud</name>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\cloud\src\cloud.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\cloud\src\http.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\cloud\src\httpserver.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\cloud\src\mqttbase.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\cloud\src\mqttlib.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\cloud\src\mqttxpg.c</name>
+      </file>
+    </group>
+    <group>
+      <name>core</name>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\core\user_misc.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\core\utilcoding.c</name>
+      </file>
+    </group>
+    <group>
+      <name>lan</name>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\lan\src\lan.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\lan\src\lantcp.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\lan\src\lanudp.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\lan\src\webconfig.c</name>
+      </file>
+    </group>
+    <group>
+      <name>local</name>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\local\src\hal_receive.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\local\src\local.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\gagent\local\src\mcu_common.c</name>
+      </file>
+    </group>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\gagent.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\gagent_netevent.c</name>
+    </file>
+  </group>
   <file>
-    <name>$PROJ_DIR$/../../common/gpio_if.c</name>
+    <name>$PROJ_DIR$\..\..\common\gpio_if.c</name>
   </file>
   <file>
-    <name>$PROJ_DIR$/../main.c</name>
+    <name>$PROJ_DIR$\..\main.c</name>
   </file>
   <file>
-    <name>$PROJ_DIR$/../pinmux.c</name>
+    <name>$PROJ_DIR$\..\pinmux.c</name>
   </file>
   <file>
-    <name>$PROJ_DIR$/../../common/startup_ewarm.c</name>
+    <name>$PROJ_DIR$\..\..\common\startup_ewarm.c</name>
   </file>
   <file>
-    <name>$PROJ_DIR$/../../common/uart_if.c</name>
+    <name>$PROJ_DIR$\..\..\common\uart_if.c</name>
   </file>
 </project>
 
