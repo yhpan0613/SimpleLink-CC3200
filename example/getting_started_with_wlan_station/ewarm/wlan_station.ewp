@@ -319,6 +319,7 @@
           <state>$PROJ_DIR$/../gagent/cloud/inc</state>
           <state>$PROJ_DIR$/../gagent/lan/inc</state>
           <state>$PROJ_DIR$/../gagent/local/inc</state>
+          <state>$PROJ_DIR$/../gagent/iof</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -971,9 +972,6 @@
       </file>
       <file>
         <name>$PROJ_DIR$\..\gagent\cloud\src\http.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\..\gagent\cloud\src\httpserver.c</name>
       </file>
       <file>
         <name>$PROJ_DIR$\..\gagent\cloud\src\mqttbase.c</name>
