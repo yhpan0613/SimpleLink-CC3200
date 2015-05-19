@@ -315,6 +315,10 @@
           <state>$PROJ_DIR$/../../../simplelink/</state>
           <state>$PROJ_DIR$/../../../simplelink/source</state>
           <state>$PROJ_DIR$/../../../simplelink/include</state>
+          <state>$PROJ_DIR$/../gagent/include</state>
+          <state>$PROJ_DIR$/../gagent/cloud/inc</state>
+          <state>$PROJ_DIR$/../gagent/lan/inc</state>
+          <state>$PROJ_DIR$/../gagent/local/inc</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
