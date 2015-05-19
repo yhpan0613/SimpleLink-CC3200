@@ -1,4 +1,4 @@
-﻿#ifndef _GAGENT_TYPEDEF_H_H_
+#ifndef _GAGENT_TYPEDEF_H_H_
 #define _GAGENT_TYPEDEF_H_H_ 
 #include "platform.h"
 
