@@ -242,13 +242,17 @@ int32 GAgent_connect( int32 iSocketId, uint16 port,
 {
     int8 ret=0;
 	unsigned long pDestinationIP;
+	unsigned char TmpIp[5];
     
     struct sockaddr_in Msocket_address;
     GAgent_Printf(GAGENT_INFO,"do connect ip:%s port=%d",ServerIpAddr,port );
 
+	sscanf(ServerIpAddr, "%d.%d.%d.%d", TmpIp);
+	pDestinationIP = (TmpIp[0]<<24) + (TmpIp[1]<<16) + (TmpIp[2]<<8) + TmpIp[3];
+
     Msocket_address.sin_family = SL_AF_INET;
     Msocket_address.sin_port= sl_Htons((unsigned short)port);
-    Msocket_address.sin_addr.s_addr = inet_addr(ServerIpAddr);
+    Msocket_address.sin_addr.s_addr = sl_Htonl((unsigned int)pDestinationIP); //inet_addr(ServerIpAddr);
     ret = sl_Connect(iSocketId, (struct sockaddr *)&Msocket_address, sizeof( struct sockaddr_in));  
 
     return ret;
