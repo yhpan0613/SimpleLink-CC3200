@@ -52,7 +52,7 @@ static void Lan_dispatchUdpData(pgcontext pgc, struct sockaddr_t *paddr,
     int32 dataLen;
     uint32 offsetPayload;
     uint16 cmd;
-    int32 ret;
+    //int32 ret;
     uint8 *buf;
 
     buf = prxBuf->phead;

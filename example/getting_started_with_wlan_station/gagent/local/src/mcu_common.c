@@ -10,12 +10,12 @@
 *******************************************************************/
 int GAgent_CheckAck( int fd, pgcontext pgc,unsigned char *buf,int bufLen,ppacket pRxbuf,u32 time )
 {
-    int i=0;
+    //int i=0;
     int PacketLen=0;
     int resend_time=1;
     unsigned char checksum=0;
     uint8 *phead =NULL;
-    int sum=0;
+    //int sum=0;
     int8 cmd =0;
     while(1)
     {

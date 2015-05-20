@@ -33,7 +33,7 @@ Add by Alex.lin     --2015-04-24.
 int32 GAgent_CreateTcpServer( uint16 tcp_port )
 {
     struct sockaddr_t addr;
-    int32 bufferSize=0;
+    //int32 bufferSize=0;
     int32 serversocketid=0;
 
     serversocketid = socket( AF_INET, SOCK_STREAM, IPPROTO_TCP );
@@ -43,7 +43,7 @@ int32 GAgent_CreateTcpServer( uint16 tcp_port )
         GAgent_Printf(GAGENT_ERROR, "TCPServer socket create error");
         return RET_FAILED;
     }
-    bufferSize = SOCKET_TCPSOCKET_BUFFERSIZE;
+    //bufferSize = SOCKET_TCPSOCKET_BUFFERSIZE;
     //setsockopt( serversocketid, SOL_SOCKET, SO_RCVBUF, &bufferSize, 4 );
     //setsockopt( serversocketid, SOL_SOCKET, SO_SNDBUF, &bufferSize, 4 );
     memset(&addr, 0x0, sizeof(addr));
@@ -102,7 +102,7 @@ int32 GAgent_CreateUDPServer( uint16 udp_port )
 }
 int32 GAgent_CreateUDPBroadCastServer( uint16 udpbroadcast_port, struct sockaddr_t *sockaddr)
 {
-    int udpbufsize=2;
+    //int udpbufsize=2;
     int32 serversocketid = 0;
     struct sockaddr_t addr;
     memset( &addr, 0, sizeof(addr) );

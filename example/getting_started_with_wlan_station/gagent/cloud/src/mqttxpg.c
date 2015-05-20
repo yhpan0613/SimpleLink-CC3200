@@ -289,7 +289,7 @@ int32 MQTT_DoCloudMCUCmd(u8 clientid[32], u8 did[32], u8 *pHiP0Data, int32 P0Dat
     pP0Data = &pHiP0Data[7+varlen]; 
 
     //i = GAgentV4_Write2Mcu_with_p0( 0, MCU_CTRL_CMD,pP0Data,pP0DataLen );
-    GAgent_Printf(GAGENT_INFO, "MCU Do CLOUD CMD return:%d", i);
+    //GAgent_Printf(GAGENT_INFO, "MCU Do CLOUD CMD return:%d", i);
     
     return 0;
 }

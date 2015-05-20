@@ -23,6 +23,27 @@ typedef enum{
     STATUS_CODE_MAX = -0xBB8
 }e_AppStatusCodes;
 
+int32 GAgent_SelectFd(pgcontext pgc,int32 sec,int32 usec )
+{
+    int32 ret=0;
+    int32 select_fd=0;
+    struct timeval t;
+
+    t.tv_sec = sec;// Ãë
+    t.tv_usec = usec;// Î¢Ãë
+
+    GAgent_AddSelectFD( pgc );
+    select_fd = GAgent_MaxFd( pgc );
+    if( select_fd>0 )
+    {
+        ret = select( select_fd+1,&(pgc->rtinfo.readfd),NULL,NULL,&t );
+        if( ret==0 )
+        {
+            //Time out.
+        }
+    }
+    return ret;
+}
 
 void msleep(int m_seconds)
 { 
@@ -242,12 +263,12 @@ int32 GAgent_connect( int32 iSocketId, uint16 port,
 {
     int8 ret=0;
 	unsigned long pDestinationIP;
-	unsigned char TmpIp[5];
+	char TmpIp[5];
     
     struct sockaddr_in Msocket_address;
     GAgent_Printf(GAGENT_INFO,"do connect ip:%s port=%d",ServerIpAddr,port );
 
-	sscanf(ServerIpAddr, "%d.%d.%d.%d", TmpIp);
+	sscanf((const char *)ServerIpAddr, "%d.%d.%d.%d", TmpIp);
 	pDestinationIP = (TmpIp[0]<<24) + (TmpIp[1]<<16) + (TmpIp[2]<<8) + TmpIp[3];
 
     Msocket_address.sin_family = SL_AF_INET;

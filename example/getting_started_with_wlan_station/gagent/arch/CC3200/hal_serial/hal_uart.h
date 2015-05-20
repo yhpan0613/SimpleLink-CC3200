@@ -1,4 +1,5 @@
 #ifndef _UART_H_
+
 #define _UART_H_
 #include "platform.h"
 int serial_open(char  *comport, int bandrate,int nBits,char nEvent,int nStop );

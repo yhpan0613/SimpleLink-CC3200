@@ -135,7 +135,7 @@ int8 Cloud_ResRegister( uint8 *cloudConfiRxbuf,int32 buflen,int8 *pDID,int32 res
 uint32 Cloud_ReqGetFid( pgcontext pgc,enum OTATYPE_T type )
 {
     int32 socket = 0;
-    int8 ret = 0;
+    //int8 ret = 0;
     uint8 *hver, *sver;
     pgcontext pGlobalVar=NULL;
     pgconfig pConfigData=NULL;
@@ -168,6 +168,7 @@ uint32 Cloud_ReqGetFid( pgcontext pgc,enum OTATYPE_T type )
     HTTP_DoGetTargetId( type,HTTP_SERVER,pConfigData->DID,pGlobalVar->mcu.product_key,
                         hver,sver,/*pConfigData->FirmwareId,*/socket );
     
+    return 0;
 }
 
 /****************************************************************
@@ -315,7 +316,6 @@ uint32 Cloud_ReqConnect( pgcontext pgc,const int8 *username,const int8 *password
 ****************************************************************/
 uint32 Cloud_ResConnect( uint8* buf )
 {
-    int32 i=0;
     if(NULL == buf)
         return RET_FAILED;
 
@@ -364,12 +364,11 @@ uint32 Cloud_ResSubTopic( const uint8* buf,int8 msgsubId )
 
 uint32 Cloud_Disconnect()
 {
-
+    return 0;
 }
 
 uint32 Cloud_ReqDisable( pgcontext pgc )
 {
-    int32 ret = 0;
     int32 socket = 0;
     pgcontext pGlobalVar=NULL;
     pgconfig pConfigData=NULL;
@@ -383,7 +382,7 @@ uint32 Cloud_ReqDisable( pgcontext pgc )
     if( socket<=0 )
         return RET_FAILED;
 
-    ret = Http_Delete( socket,HTTP_SERVER,pConfigData->old_did,pConfigData->old_wifipasscode );
+    Http_Delete( socket,HTTP_SERVER,pConfigData->old_did,pConfigData->old_wifipasscode );
     return 0;
 }
 uint32 Cloud_ResDisable( int32 respondCode )
@@ -396,7 +395,6 @@ uint32 Cloud_ResDisable( int32 respondCode )
 
 uint32 Cloud_JD_Post_ReqFeed_Key( pgcontext pgc )
 {
-    int32 ret = 0;
     int32 socket = 0;
     pgcontext pGlobalVar=NULL;
     pgconfig pConfigData=NULL;
@@ -410,7 +408,7 @@ uint32 Cloud_JD_Post_ReqFeed_Key( pgcontext pgc )
     if( socket<=0 )
         return RET_FAILED;
     
-    ret = Http_JD_Post_Feed_Key_req( socket,pConfigData->cloud3info.jdinfo.feed_id,pConfigData->cloud3info.jdinfo.access_key,
+    Http_JD_Post_Feed_Key_req( socket,pConfigData->cloud3info.jdinfo.feed_id,pConfigData->cloud3info.jdinfo.access_key,
                                      pConfigData->DID,HTTP_SERVER );
     pConfigData->cloud3info.jdinfo.ischanged=0;
     GAgent_DevSaveConfigData( pConfigData );
@@ -811,6 +809,8 @@ uint32 Cloud_ConfigDataHandle( pgcontext pgc /*int32 cloudstatus*/ )
         }  
         pGlobalVar->rtinfo.waninfo.send2HttpLastTime = GAgent_GetDevTime_S(); 
     }
+  
+    return 0;
 }
 
 /****************************************************************
@@ -993,7 +993,7 @@ int32 Cloud_M2MDataHandle(  pgcontext pgc,ppacket pbuf /*, ppacket poutBuf*/, ui
         }
         else if( packetLen>0 && ( mqttstatus == MQTT_STATUS_RUNNING ) )
         {
-            int varlen=0,p0datalen=0;
+            //int varlen=0,p0datalen=0;
             switch( mqttpackType )
             {
                 case MQTT_MSG_PINGRESP:
@@ -1020,7 +1020,7 @@ int32 Cloud_M2MDataHandle(  pgcontext pgc,ppacket pbuf /*, ppacket poutBuf*/, ui
 
 int32 GAgent_Cloud_GetPacket( pgcontext pgc,ppacket pRxbuf, int32 buflen)
 {
-	int32 Mret=0,Hret=0;
+	int32 Mret=0;
 	uint16 GAgentstatus = 0;
     ppacket pbuf = pRxbuf;
 	GAgentstatus = pgc->rtinfo.GAgentStatus;
@@ -1028,14 +1028,13 @@ int32 GAgent_Cloud_GetPacket( pgcontext pgc,ppacket pRxbuf, int32 buflen)
 	if( (GAgentstatus&WIFI_STATION_CONNECTED) != WIFI_STATION_CONNECTED)
 	    return -1 ;
 
-	Hret = Cloud_ConfigDataHandle( pgc );
+	Cloud_ConfigDataHandle( pgc );
 	Mret = Cloud_M2MDataHandle( pgc,pbuf, buflen );
 	    return Mret;
 }
 void GAgent_Cloud_Handle( pgcontext pgc, ppacket Rxbuf,int32 length )
 {
     int32 cloudDataLen = 0;
-    int32 ret=0;
 
     cloudDataLen = GAgent_Cloud_GetPacket( pgc,Rxbuf ,length );
     if( cloudDataLen>0 )

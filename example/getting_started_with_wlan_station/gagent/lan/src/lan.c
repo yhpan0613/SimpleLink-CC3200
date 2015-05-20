@@ -307,7 +307,7 @@ void GAgent_LanTick( pgcontext pgc,uint32 dTime_s )
 {
     //uint32 cTime=0,dTime=0;
     int32 i;
-    static uint32 preTime = 0;
+    //static uint32 preTime = 0;
     uint16 GAgentStatus = 0;
 	uint32 GAgentConStatus = 0;
     uint8 *ptxBuf = NULL;

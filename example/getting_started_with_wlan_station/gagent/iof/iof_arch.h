@@ -1,4 +1,5 @@
 #ifndef _IOF_ARCH_H_
+
 #define _IOF_ARCH_H_
 #include "gagent_typedef.h"
 #include "platform.h"

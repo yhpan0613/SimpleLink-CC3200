@@ -120,7 +120,7 @@ int32 Local_DataAdapter( uint8 *pData,int32 dataLen )
 {
 
     int32 i=0,j=0,len = 0;
-    uint8 *p_start=NULL,*p_end=NULL;
+   // uint8 *p_start=NULL,*p_end=NULL;
 
     len = 2;//MCU_LEN_NO_PAYLOAD;
     len += dataLen;
@@ -245,7 +245,7 @@ Add by Alex.lin     --2015-04-07
 int32 GAgent_Local_GetPacket( pgcontext pgc, ppacket Rxbuf )
 {
     int32 dataLen=0;
-    int32 i=0;
+    //int32 i=0;
     if(FD_ISSET( pgc->rtinfo.local.uart_fd,&(pgc->rtinfo.readfd)) )
     {
          int8 ret=0;
@@ -276,10 +276,10 @@ Add by Alex.lin     --2015-04-07
 int32 GAgent_LocalDataWriteP0( pgcontext pgc,int32 fd,ppacket pTxBuf,uint8 cmd )
 {
     int8 ret =0;
-    uint16 datalen = 0,i=0;
+    uint16 datalen = 0;
     uint16 flag = 0;
     uint16 sendLen = 0;
-    uint8 checksum = 0;
+    //uint8 checksum = 0;
     /* head(0xffff)| len(2B) | cmd(1B) | sn(1B) | flag(2B) |  payload(xB) | checksum(1B) */
     pTxBuf->phead = pTxBuf->ppayload - 8;
     pTxBuf->phead[0] = MCU_HDR_FF;
@@ -521,7 +521,7 @@ void GAgent_LocalTick( pgcontext pgc,uint32 dTime_s )
 }
 uint32 GAgent_LocalDataHandle( pgcontext pgc,ppacket Rxbuf,int32 RxLen /*,ppacket Txbuf*/ )
 {
-    int32 i=0;
+    //int32 i=0;
     int8 cmd=0;
     uint8 sn=0,checksum=0;
     uint8 *localRxbuf=NULL;

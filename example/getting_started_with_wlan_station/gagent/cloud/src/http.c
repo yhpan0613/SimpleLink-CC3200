@@ -15,7 +15,7 @@ int32 Http_POST( int32 socketid, const int8 *host,const int8 *passcode,const int
     int8 Content[100]={0};
     int32 ContentLen=0;
     int32 totalLen=0;
-    int8 *contentType="application/x-www-form-urlencoded";
+    //int8 *contentType="application/x-www-form-urlencoded";
     
     postBuf = (uint8*)malloc(400);
     if (postBuf==NULL) return 1;
@@ -158,8 +158,8 @@ int32 Http_Delete( int32 socketid, const int8 *host,const int8 *did,const int8 *
 ******************************************************/
 int32 Http_ReadSocket( int32 socket,int8 *Http_recevieBuf,int32 bufLen )
 {
-    fd_set readfds;
-    int32 i=0;
+    //fd_set readfds;
+    //int32 i=0;
     int32 bytes_rcvd = 0; 
     if( socket<=0 )
         return bytes_rcvd;
@@ -210,7 +210,7 @@ int32 Http_Response_Code( uint8 *Http_recevieBuf )
 int32 Http_Response_DID( uint8 *Http_recevieBuf,int8 *DID )
 {
     int8 *p_start = NULL;
-    int8 *p_end =NULL;
+    //int8 *p_end =NULL;
     memset(DID,0,DID_LEN);
     p_start = strstr( Http_recevieBuf,"did=");
     if( p_start==NULL )
@@ -302,10 +302,9 @@ int32 Http_GetTarget( const int8 *host,
 int32 HTTP_DoGetTargetId(enum OTATYPE_T type,const int8 *host,int8 *szDID,uint8 *szPK,uint8 *szHver,
                          uint8 *szSver,int32 socketid )
 {
-    int32 ret=0, otatype, targetid = 1;
     int32 temp_fid=0;
  
-    ret = Http_GetTarget( host,szPK,szDID,type,szHver,szSver,temp_fid,socketid );
+    Http_GetTarget( host,szPK,szDID,type,szHver,szSver,temp_fid,socketid );
     return 0;
 }
 /******************************************************
@@ -416,13 +415,13 @@ int32 Http_JD_Get_uuid_req( const int8 *host,const int8 *product_key )
  ********************************************************/
 int32 Http_JD_Post_Feed_Key_req( int32 socketid,int8 *feed_id,int8 *access_key,int8 *DId,int8 *host )
 {
-    int32 ret=0;
+    //int32 ret=0;
     uint8 *postBuf=NULL;
     int8 *url = "/dev/jd/"; 
     int8 Content[200]={0};
     int32 ContentLen=0;
     int32 totalLen=0;
-    int8 *contentType="application/x-www-form-urlencoded";
+    //int8 *contentType="application/x-www-form-urlencoded";
     
     if(strlen(DId)<=0)
         return 1;
@@ -442,7 +441,7 @@ int32 Http_JD_Post_Feed_Key_req( int32 socketid,int8 *feed_id,int8 *access_key,i
               Content,kCRLFLineEnding                           
         );
     totalLen = strlen( postBuf );
-    ret = send( socketid,postBuf,totalLen,0 );
+    send( socketid,postBuf,totalLen,0 );
     
     free( postBuf );    
     return 0;       
@@ -511,7 +510,7 @@ int32 Http_HeadLen( int8 *httpbuf )
 {
    int8 *p_start = NULL;
    int8 *p_end =NULL;
-   int8 temp;
+   //int8 temp;
    int32 headlen=0;
    p_start = httpbuf;
    p_end = strstr( httpbuf,kCRLFLineEnding);
@@ -536,7 +535,7 @@ int32 Http_BodyLen( int8 *httpbuf )
 {
    int8 *p_start = NULL;
    int8 *p_end =NULL;
-   int8 temp;
+   //int8 temp;
    int8 bodyLenbuf[10]={0};
    int32 bodylen=0;  //Content-Length: 
    p_start = strstr( httpbuf,"Content-Length: ");

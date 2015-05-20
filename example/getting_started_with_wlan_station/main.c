@@ -434,22 +434,6 @@ void SimpleLinkSockEventHandler(SlSockEvent_t *pSock)
 
 }
 
-
-//*****************************************************************************
-//
-//! \brief This function handles ping report events
-//!
-//! \param[in]     pPingReport - Ping report statistics
-//!
-//! \return None
-//!
-//*****************************************************************************
-static void SimpleLinkPingReport(SlPingReport_t *pPingReport)
-{
-    SET_STATUS_BIT(g_ulStatus, STATUS_BIT_PING_DONE);
-    g_ulPingPacketsRecv = pPingReport->PacketsReceived;
-}
-
 //*****************************************************************************
 // SimpleLink Asynchronous Event Handlers -- End
 //*****************************************************************************

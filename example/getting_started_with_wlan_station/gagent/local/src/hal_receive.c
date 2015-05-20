@@ -151,7 +151,7 @@ int32  hal_ReceivepOnePack( int32 fd,uint8 *buf )
     int32 recved_data_len = 0;
     int32 read_count=0;
     int32 check_data_len=0;
-    int32 i=0,j=0;
+    //int32 i=0,j=0;
 
     /* step 1.read data into loopbuf */
     available_len = get_available_buf_space( pos_current, pos_start );
@@ -268,7 +268,7 @@ int32  hal_ReceivepOnePack( int32 fd,uint8 *buf )
     while ( recved_data_len>=4 )
     {
         int32 pack_len=0;
-        int32 pos_replaced = 0;
+        //int32 pos_replaced = 0;
 
         pack_len = hal_RxBuffer[advance_pos(pos_start,2)]*256 + hal_RxBuffer[ advance_pos(pos_start,3)];
         if( recved_data_len >= (pack_len+4) )/* one package already */

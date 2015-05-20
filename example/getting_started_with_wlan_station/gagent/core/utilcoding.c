@@ -20,7 +20,7 @@ void make_rand(int8* data)
 // 返回长度
 int encodevarlen(int data, u8* buf)
 {
-    int l = 0, b = 0, ret = 0;
+    int l = 0;
     do
     {
         buf[l] = data % 128;
@@ -223,8 +223,8 @@ uint32 ParsePacket( ppacket pRxBuf )
 {
     int32 varlen=0;
     int32 datalen=0;
-    uint8* pHead=NULL;
-    int32 ret=0;
+    //uint8* pHead=NULL;
+    //int32 ret=0;
 
     uint16 cmd=0;
     uint16 *pcmd=NULL;

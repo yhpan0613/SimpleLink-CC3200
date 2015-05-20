@@ -15,6 +15,44 @@ extern pgcontext pgContextData;
 
 extern void GAgent_Printf(unsigned int level, char *fmt, ...);
 extern void GAgent_Clean_Config( pgcontext pgc );
+extern int Gagent_setsocketnonblock(int socketfd);
+extern int8 isPacketTypeSet( int32 currentType,int32 type );
+extern int32 SetPacketType( int32 currentType,int32 type,int8 flag );
+extern int32 Http_GetFid_Url( int32 *target_fid,int8 *download_url, int8 *fwver, int8 *buf );
+extern int32 Http_Response_Code( uint8 *Http_recevieBuf );
+extern uint16 mqtt_parse_rem_len(const uint8* buf);
+extern uint8 mqtt_num_rem_len_bytes(const uint8* buf);
+extern void GAgent_Lan_SendTcpData(pgcontext pgc,ppacket pTxBuf);
+extern int Socket_sendto(int sockfd, u8 *data, int len, void *addr, int addr_size);
+extern void Lan_udpDataHandle(pgcontext pgc, ppacket prxBuf, ppacket ptxBuf, int len);
+extern int32 Lan_TcpServerHandler(pgcontext pgc);
+extern int32 Lan_tcpClientDataHandle(pgcontext pgc, uint32 channel, 
+                ppacket prxBuf, ppacket ptxBuf, int32 buflen);
+extern int32 LAN_tcpClientInit(pgcontext pgc);
+extern int32 LAN_InitSocket(pgcontext pgc);
+extern int Socket_accept(int sockfd, void *addr, int *addr_size);
+extern int32 Lan_dispatchTCPData(pgcontext pgc, ppacket prxBuf, ppacket ptxBuf, int32 clientIndex);
+extern int32 GAgent_CreateUDPServer( uint16 udp_port );
+extern int32 GAgent_CreateUDPBroadCastServer( uint16 udpbroadcast_port, struct sockaddr_t *sockaddr);
+extern int Socket_recvfrom(int sockfd, u8 *buffer, int len, void *addr, int *addr_size);
+extern int32 combination_broadcast_packet(pgcontext pgc,u8* Udp_Broadcast,uint16 cmdWord);
+extern void msleep(int m_seconds);
+extern void sleep(int seconds);
+extern void hal_ReceiveInit(void);
+extern int32  hal_ReceivepOnePack( int32 fd,uint8 *buf );
+extern uint8 GAgent_NewSN(void);
+extern int GAgent_CheckAck( int fd, pgcontext pgc,unsigned char *buf,int bufLen,ppacket pRxbuf,u32 time );
+extern void GAgent_SetCloudConfigStatus( pgcontext pgc,int16 cloudstauts );
+extern void GAgent_DebugPacket(unsigned char *pData, int len);
+extern uint32 Cloud_ReqDisable( pgcontext pgc );
+extern int32 GAgent_SelectFd(pgcontext pgc,int32 sec,int32 usec );
+extern uint32 Local_SendData( int32 fd,uint8 *pData, int32 bufferMaxLen );
+extern void GAgent_LANInit(pgcontext pgc);
+extern int32 Lan_AddTcpNewClient(pgcontext pgc, int fd, struct sockaddr_t *addr);
+extern int8 GAgent_DRVGetWiFiMode( pgcontext pgc );
+extern void Lan_setClientTimeOut(pgcontext pgc, int32 channel);
+
+
 
 #if( GAGENT_RELEASE==1)
   #define HTTP_SERVER         "api.gizwits.com"

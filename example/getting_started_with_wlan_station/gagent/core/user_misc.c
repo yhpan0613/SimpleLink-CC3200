@@ -83,8 +83,8 @@ static LONG _C_formatter(const CHAR *format,
     CHAR zeropad;
     CHAR buf[FRMWRI_BUFSIZE];
 
-    ULONG ulDate;/* added by  2k/09/20 for "%t"*/
-    ULONG ulTime;/* added by  2k/09/20 for "%t"*/
+    //ULONG ulDate;/* added by  2k/09/20 for "%t"*/
+    //ULONG ulTime;/* added by  2k/09/20 for "%t"*/
 
     nr_of_chars = 0;
     for (;;)    /* Until full format string read */
@@ -495,7 +495,7 @@ void GAgent_DebugPacket(unsigned char *pData, int len)
 {
     int i;
     GAgent_Printf(GAGENT_DUMP, "\r\nDump Packet, len:%d", len);
-    for (i = 0; i < (len+7); 1)
+    for (i = 0; i < (len+7); )
     {
         GAgent_Printf(GAGENT_DUMP, "\r\nPacket %4d %02x%02x %02x%02x %02x%02x %02x%02x",
                       i,

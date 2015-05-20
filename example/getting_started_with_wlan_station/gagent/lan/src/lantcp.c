@@ -151,8 +151,8 @@ static uint32 Lan_checkAuthorization( pgcontext pgc,  int clientIndex)
 ****************************************************************/
 static void Lan_handleLogin( pgcontext pgc, ppacket src, ppacket dest, int clientIndex)
 {
-    int i;
-    int ret;
+    //int i;
+    //int ret;
     int32 fd;
     uint8 isLogin;
     uint8 *pbuf;
@@ -420,7 +420,7 @@ void Local_Ack2TcpClient(pgcontext pgc, uint32 channel)
 ****************************************************************/
 int32 Lan_dispatchTCPData(pgcontext pgc, ppacket prxBuf, ppacket ptxBuf, int32 clientIndex)
 {
-    int datalen;
+    //int datalen;
     int ret = 0;
     uint16 cmd;
     int32 bytesOfLen;

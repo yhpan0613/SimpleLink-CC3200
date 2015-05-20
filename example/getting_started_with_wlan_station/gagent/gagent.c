@@ -365,8 +365,8 @@ int8 GAgent_loglevelenable( uint16 level )
 ****************************************************************/
 void GAgent_RefreshIPTick( pgcontext pgc,uint32 dTime_s )
 {
-    uint32 cTime=0,dTime=0;
-    int8 tmpip[32] = {0},failed=0,ret=0,flag=0;
+    uint32 cTime=0;
+    int8 tmpip[32] = {0},failed=0,ret=0;
 
     if( (pgc->rtinfo.GAgentStatus)&WIFI_MODE_TEST == WIFI_MODE_TEST )
     {
