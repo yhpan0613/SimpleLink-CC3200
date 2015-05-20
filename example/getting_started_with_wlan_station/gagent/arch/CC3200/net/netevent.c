@@ -44,8 +44,8 @@ int32 GAgent_CreateTcpServer( uint16 tcp_port )
         return RET_FAILED;
     }
     bufferSize = SOCKET_TCPSOCKET_BUFFERSIZE;
-    setsockopt( serversocketid, SOL_SOCKET, SO_RCVBUF, &bufferSize, 4 );
-    setsockopt( serversocketid, SOL_SOCKET, SO_SNDBUF, &bufferSize, 4 );
+    //setsockopt( serversocketid, SOL_SOCKET, SO_RCVBUF, &bufferSize, 4 );
+    //setsockopt( serversocketid, SOL_SOCKET, SO_SNDBUF, &bufferSize, 4 );
     memset(&addr, 0x0, sizeof(addr));
     addr.sin_family = AF_INET;
     addr.sin_port = htons(tcp_port);
@@ -124,10 +124,13 @@ int32 GAgent_CreateUDPBroadCastServer( uint16 udpbroadcast_port, struct sockaddr
     addr.sin_port = htons(udpbroadcast_port);
     addr.sin_addr.s_addr = htonl(INADDR_BROADCAST);
 
+#if 0
     if( setsockopt(serversocketid, SOL_SOCKET, SO_BROADCAST, &udpbufsize,sizeof(int)) != 0 )
     {
         GAgent_Printf(GAGENT_DEBUG,"UDP BC Server setsockopt error!");
     }
+#endif
+    
     if(bind(serversocketid, (struct sockaddr *)&addr, sizeof(addr)) != 0)
     {
         GAgent_Printf(GAGENT_DEBUG,"UDP BC Server bind error!");

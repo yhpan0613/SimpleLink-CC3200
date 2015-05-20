@@ -1,17 +1,11 @@
 #ifndef __PLATFORM_H_
 #define __PLATFORM_H_
-#include <unistd.h>
+
 #include <stdlib.h>
 #include <stdio.h>
-#include <sys/types.h>          /* See NOTES */
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <inttypes.h>
-#include <sys/time.h>
-#include <time.h>
-#include <math.h>
 #include <errno.h>
-#include <signal.h>
+
+#include "simplelink.h"
 
 #define _POSIX_C_SOURCE 200809L
 #include "hal_uart.h"

@@ -319,6 +319,10 @@
           <state>$PROJ_DIR$/../gagent/cloud/inc</state>
           <state>$PROJ_DIR$/../gagent/lan/inc</state>
           <state>$PROJ_DIR$/../gagent/local/inc</state>
+          <state>$PROJ_DIR$/../gagent/iof</state>
+          <state>$PROJ_DIR$/../gagent/arch/CC3200</state>
+          <state>$PROJ_DIR$/../gagent/arch/CC3200/net</state>
+          <state>$PROJ_DIR$/../gagent/arch/CC3200/hal_serial</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>

@@ -1,4 +1,5 @@
 #ifndef _GAGENT_H_
+
 #define _GAGENT_H_ 
 #include "gagent_typedef.h"
 #include "iof_arch.h"
@@ -8,7 +9,12 @@
 
 #define GAGENT_MAGIC_NUM    0x55aa1122
 
+#define INADDR_BROADCAST 0xffffffff
+
 extern pgcontext pgContextData;
+
+extern void GAgent_Printf(unsigned int level, char *fmt, ...);
+extern void GAgent_Clean_Config( pgcontext pgc );
 
 #if( GAGENT_RELEASE==1)
   #define HTTP_SERVER         "api.gizwits.com"
