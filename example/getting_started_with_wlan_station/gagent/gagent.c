@@ -17,7 +17,7 @@ void GAgent_Init( pgcontext *pgc )
 {
     GAgent_DevInit( *pgc );
     GAgent_NewVar( pgc );
-    GAgent_logevelSet( /*GAGENT_DUMP*/ GAGENT_WARNING );
+    GAgent_logevelSet( GAGENT_DUMP);
 
     GAgent_VarInit( pgc );
     GAgent_LocalInit( *pgc );

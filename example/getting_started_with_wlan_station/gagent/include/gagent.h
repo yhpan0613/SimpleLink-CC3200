@@ -5,6 +5,12 @@
 #include "iof_arch.h"
 #include "utils.h"
 
+#ifndef NOTERM
+#include "uart_if.h"
+#endif
+#include "common.h"
+#include "pinmux.h"
+
 #define GAGENT_RELEASE 1
 
 #define GAGENT_MAGIC_NUM    0x55aa1122

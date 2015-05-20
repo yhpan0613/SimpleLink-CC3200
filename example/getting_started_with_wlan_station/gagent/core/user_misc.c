@@ -1,7 +1,13 @@
+#include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
+#include <string.h>
+
 #include "gagent.h"
 
-extern void DRV_ConAuxPrint(char *buffer, int len, int level);
+#if 0
+
+//extern void DRV_ConAuxPrint(char *buffer, int len, int level);
 u16 calc_sum(void *data, u32 len)
 {
     u32 cksum=0;
@@ -39,7 +45,7 @@ int check_sum(void *data, u32 len)
     return 1;
 }
 
-#if 1
+
 #define UCHAR unsigned char
 #define VOID void
 #define CHAR char
@@ -426,20 +432,25 @@ static LONG _C_formatter(const CHAR *format,
 }   /* _C_formatter(,,,) */
 #endif
 
-
 void GAgent_Printf(unsigned int level, char *fmt, ...)
 {
     char str[256];
     char *buffer;
-    LONG i;
-    LONG number=0;
-    va_list vl;
+    long i;
+    //LONG number=0;
+
+#ifndef NOTERM
+    int iRet;
+    va_list list;
+    char *pcTemp;
+    int iSize = 256;
+#endif		 
 
     /* only show enable log */
     if(GAgent_loglevelenable( level )!=0 )
         return ;
 
-    memset(str, 0x0, sizeof(str));
+    memset(str, 0, sizeof(str));
     switch(level & 0xFF)
     {
     case GAGENT_ERROR:
@@ -482,12 +493,36 @@ void GAgent_Printf(unsigned int level, char *fmt, ...)
         break;
     }
 
-    va_start(vl,fmt);
-    i += _C_formatter(fmt, comio, &number, vl, buffer);
-    va_end(vl);
 
-    DRV_ConAuxPrint(str, i, level );
-    return;
+#ifndef NOTERM
+	  while(1)
+	  {
+		  va_start(list,fmt);
+		  iRet = vsnprintf(buffer,iSize,fmt,list);
+		  va_end(list);
+		  if(iRet > -1 && iRet < iSize)
+		  {
+			  break;
+		  }
+		  else
+		  {
+			  iSize*=2;
+			  if((pcTemp=realloc(buffer,iSize))==NULL)
+			  { 
+				  Message("Could not reallocate memory\n\r");
+				  iRet = -1;
+				  break;
+			  }
+			  else
+			  {
+				  buffer=pcTemp;
+			  }
+			  
+		  }
+	  }
+	  Message(buffer);
+#endif
+	  return;
 }
 
 
