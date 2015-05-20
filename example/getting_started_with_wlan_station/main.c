@@ -84,19 +84,20 @@
 #include "common.h"
 #include "pinmux.h"
 
+#include "systick.h"
+
+
+#include "gagent.h"
+
 
 #define APPLICATION_NAME        "WLAN STATION"
 #define APPLICATION_VERSION     "1.1.1"
 
 #define HOST_NAME               "www.ti.com"
 
-//
-// Values for below macros shall be modified for setting the 'Ping' properties
-//
-#define PING_INTERVAL       1000    /* In msecs */
-#define PING_TIMEOUT        3000    /* In msecs */
-#define PING_PKT_SIZE       20      /* In bytes */
-#define NO_OF_ATTEMPTS      3
+#define SYSTICK_RELOAD_VALUE    0x0000C3500
+#define SYSTICKS_PER_SECOND     100
+
 
 #define OSI_STACK_SIZE      2048
 
@@ -119,6 +120,9 @@ unsigned long  g_ulPingPacketsRecv = 0; //Number of Ping Packets received
 unsigned long  g_ulGatewayIP = 0; //Network Gateway IP address
 unsigned char  g_ucConnectionSSID[SSID_LEN_MAX+1]; //Connection SSID
 unsigned char  g_ucConnectionBSSID[BSSID_LEN_MAX]; //Connection BSSID
+
+unsigned long g_ulSeconds = 0;
+
 
 #if defined(gcc)
 extern void (* const g_pfnVectors[])(void);
@@ -458,6 +462,37 @@ static void InitializeAppVariables()
     memset(g_ucConnectionBSSID,0,sizeof(g_ucConnectionBSSID));
 }
 
+//*****************************************************************************
+//!
+//! The interrupt handler for the SysTick timer.  This handler will increment a
+//! seconds counter whenever the appropriate number of ticks has occurred. 
+//!
+//! \param None
+//! 
+//! \return None
+//!
+//*****************************************************************************
+void
+SysTickHandler(void)
+{
+    static unsigned long ulTickCount = 0;
+    
+    //
+    // Increment the tick counter.
+    //
+    ulTickCount++;
+    
+    //
+    // If the number of ticks per second has occurred, then increment the
+    // seconds counter.
+    //
+    if(!(ulTickCount % SYSTICKS_PER_SECOND))
+    {
+        g_ulSeconds++;
+    }
+
+}
+
 
 //*****************************************************************************
 //! \brief This function puts the device in its default state. It:
@@ -648,6 +683,23 @@ static long WlanConnect()
    
 }
 
+int gizwits_main()
+{
+    GAgent_Init( &pgContextData );
+    GAgent_dumpInfo( pgContextData );
+    while(1)
+    {
+        GAgent_Tick( pgContextData );
+        GAgent_SelectFd( pgContextData,1,0 );
+
+        GAgent_Lan_Handle( pgContextData, pgContextData->rtinfo.Rxbuf , pgContextData->rtinfo.Txbuf, GAGENT_BUF_LEN );
+        GAgent_Local_Handle( pgContextData, pgContextData->rtinfo.Rxbuf, GAGENT_BUF_LEN );
+        GAgent_Cloud_Handle( pgContextData, pgContextData->rtinfo.Rxbuf, GAGENT_BUF_LEN );
+
+    }
+
+}
+
 //****************************************************************************
 //
 //! \brief Start simplelink, connect to the ap and run the ping test
@@ -717,8 +769,7 @@ void WlanStationMode( void *pvParameters )
     UART_PRINT("Connection established w/ AP and IP is aquired \n\r");
 
 
-
-    LOOP_FOREVER();
+	gizwits_main();
     
 }
 //*****************************************************************************
@@ -811,7 +862,14 @@ void main()
 
     // switch off all LEDs
     GPIO_IF_LedOff(MCU_ALL_LED_IND);
-    
+
+	//
+    // SysTick Enabling
+    //
+    SysTickIntRegister(SysTickHandler);
+    SysTickPeriodSet(SYSTICK_RELOAD_VALUE);
+    SysTickEnable();
+	
     //
     // Start the SimpleLink Host
     //

@@ -17,7 +17,8 @@ int32 handleWebConfig( pgcontext pgc,int32 fd)
     }
     memset(buf_head, 0, 1024);
 
-    read_len = read(fd, buf_head, 1024);
+    //read_len = read(fd, buf_head, 1024);
+	read_len = recv(fd, buf_head, 1024, 0);
     if(read_len <= 0)
     {
         free(buf_head);
