@@ -13,6 +13,9 @@ extern void GAgent_Printf(unsigned int level, char *fmt, ...);
 extern int32 SetPacketType( int32 currentType,int32 type,int8 flag );
 extern int32 Http_GetFid_Url( int32 *target_fid,int8 *download_url, int8 *fwver, int8 *buf );
 extern int32 Http_Response_Code( uint8 *Http_recevieBuf );
+extern void msleep(int m_seconds);
+
+extern void sleep(int seconds);
 
 #define WIFI_SOFTVAR    "04010003"
 #define WIFI_HARDVER    "00-CC3200"

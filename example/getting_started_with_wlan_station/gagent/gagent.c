@@ -20,9 +20,9 @@ void GAgent_Init( pgcontext *pgc )
     GAgent_logevelSet( /*GAGENT_DUMP*/ GAGENT_WARNING );
 
     GAgent_VarInit( pgc );
-    GAgent_LocalInit( *pgc );
-    GAgent_LANInit(*pgc);
-    GAgent_WiFiInit( *pgc );
+    //GAgent_LocalInit( *pgc );
+    //GAgent_LANInit(*pgc);
+    //GAgent_WiFiInit( *pgc );
     
     GAgent_Printf( GAGENT_CRITICAL,"GAgent Start...");
 }
@@ -587,9 +587,9 @@ void GAgent_Tick( pgcontext pgc )
 
     GAgent_DevTick();
     GAgent_CloudTick( pgc,dTime );
-    GAgent_LocalTick( pgc,dTime );
-    GAgent_LanTick( pgc,dTime );
-    GAgent_WiFiEventTick( pgc,dTime );
+    //GAgent_LocalTick( pgc,dTime );
+    //GAgent_LanTick( pgc,dTime );
+    //GAgent_WiFiEventTick( pgc,dTime );
     GAgent_RefreshIPTick( pgc,dTime );
 
 }

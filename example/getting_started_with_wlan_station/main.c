@@ -84,19 +84,17 @@
 #include "common.h"
 #include "pinmux.h"
 
+#include "gagent.h"
+#include "gagent_typedef.h"
 
 #define APPLICATION_NAME        "WLAN STATION"
 #define APPLICATION_VERSION     "1.1.1"
 
-#define HOST_NAME               "www.ti.com"
+#define SYSTICK_RELOAD_VALUE    0x0000C3500
 
 //
 // Values for below macros shall be modified for setting the 'Ping' properties
 //
-#define PING_INTERVAL       1000    /* In msecs */
-#define PING_TIMEOUT        3000    /* In msecs */
-#define PING_PKT_SIZE       20      /* In bytes */
-#define NO_OF_ATTEMPTS      3
 
 #define OSI_STACK_SIZE      2048
 
@@ -110,6 +108,8 @@ typedef enum{
     STATUS_CODE_MAX = -0xBB8
 }e_AppStatusCodes;
 
+#define SYSTICKS_PER_SECOND     100
+
 
 //*****************************************************************************
 //                 GLOBAL VARIABLES -- Start
@@ -119,6 +119,8 @@ unsigned long  g_ulPingPacketsRecv = 0; //Number of Ping Packets received
 unsigned long  g_ulGatewayIP = 0; //Network Gateway IP address
 unsigned char  g_ucConnectionSSID[SSID_LEN_MAX+1]; //Connection SSID
 unsigned char  g_ucConnectionBSSID[BSSID_LEN_MAX]; //Connection BSSID
+
+unsigned long g_ulSeconds = 0;
 
 #if defined(gcc)
 extern void (* const g_pfnVectors[])(void);
@@ -434,22 +436,6 @@ void SimpleLinkSockEventHandler(SlSockEvent_t *pSock)
 
 }
 
-
-//*****************************************************************************
-//
-//! \brief This function handles ping report events
-//!
-//! \param[in]     pPingReport - Ping report statistics
-//!
-//! \return None
-//!
-//*****************************************************************************
-static void SimpleLinkPingReport(SlPingReport_t *pPingReport)
-{
-    SET_STATUS_BIT(g_ulStatus, STATUS_BIT_PING_DONE);
-    g_ulPingPacketsRecv = pPingReport->PacketsReceived;
-}
-
 //*****************************************************************************
 // SimpleLink Asynchronous Event Handlers -- End
 //*****************************************************************************
@@ -664,6 +650,28 @@ static long WlanConnect()
    
 }
 
+int32 GAgent_SelectFd(pgcontext pgc,int32 sec,int32 usec )
+{
+    int32 ret=0;
+    int32 select_fd=0;
+    struct timeval t;
+
+    t.tv_sec = sec;// Ãë
+    t.tv_usec = usec;// Î¢Ãë
+
+    GAgent_AddSelectFD( pgc );
+    select_fd = GAgent_MaxFd( pgc );
+    if( select_fd>0 )
+    {
+        ret = select( select_fd+1,&(pgc->rtinfo.readfd),NULL,NULL,&t );
+        if( ret==0 )
+        {
+            //Time out.
+        }
+    }
+    return ret;
+}
+
 //****************************************************************************
 //
 //! \brief Start simplelink, connect to the ap and run the ping test
@@ -732,10 +740,18 @@ void WlanStationMode( void *pvParameters )
 
     UART_PRINT("Connection established w/ AP and IP is aquired \n\r");
 
+    GAgent_Init( &pgContextData );
+    GAgent_dumpInfo( pgContextData );
+    while(1)
+    {
+        GAgent_Tick( pgContextData );
+        GAgent_SelectFd( pgContextData,1,0 );
 
+        //GAgent_Lan_Handle( pgContextData, pgContextData->rtinfo.Rxbuf , pgContextData->rtinfo.Txbuf, GAGENT_BUF_LEN );
+        //GAgent_Local_Handle( pgContextData, pgContextData->rtinfo.Rxbuf, GAGENT_BUF_LEN );
+        GAgent_Cloud_Handle( pgContextData, pgContextData->rtinfo.Rxbuf, GAGENT_BUF_LEN );
 
-    LOOP_FOREVER();
-    
+    }
 }
 //*****************************************************************************
 //
@@ -790,6 +806,37 @@ BoardInit(void)
     PRCMCC3200MCUInit();
 }
 
+//*****************************************************************************
+//!
+//! The interrupt handler for the SysTick timer.  This handler will increment a
+//! seconds counter whenever the appropriate number of ticks has occurred. 
+//!
+//! \param None
+//! 
+//! \return None
+//!
+//*****************************************************************************
+void
+SysTickHandler(void)
+{
+    static unsigned long ulTickCount = 0;
+    
+    //
+    // Increment the tick counter.
+    //
+    ulTickCount++;
+    
+    //
+    // If the number of ticks per second has occurred, then increment the
+    // seconds counter.
+    //
+    if(!(ulTickCount % SYSTICKS_PER_SECOND))
+    {
+        g_ulSeconds++;
+    }
+
+}
+
 
 //*****************************************************************************
 //                            MAIN FUNCTION
@@ -819,7 +866,14 @@ void main()
     // Display Application Banner
     //
     DisplayBanner(APPLICATION_NAME);
-    
+
+	//
+    // SysTick Enabling
+    //
+    SysTickIntRegister(SysTickHandler);
+    SysTickPeriodSet(SYSTICK_RELOAD_VALUE);
+    SysTickEnable();
+	
     //
     // Configure all 3 LEDs
     //
