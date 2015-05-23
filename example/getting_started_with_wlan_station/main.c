@@ -96,7 +96,7 @@
 #define HOST_NAME               "www.ti.com"
 
 #define SYSTICK_RELOAD_VALUE    0x0000C3500
-#define SYSTICKS_PER_SECOND     100
+#define SYSTICKS_PER_SECOND     1000
 
 
 #define OSI_STACK_SIZE      2048
@@ -481,6 +481,8 @@ SysTickHandler(void)
     // Increment the tick counter.
     //
     ulTickCount++;
+
+	//UART_PRINT("TickCount is:%d\r\n", ulTickCount);
     
     //
     // If the number of ticks per second has occurred, then increment the
@@ -489,6 +491,7 @@ SysTickHandler(void)
     if(!(ulTickCount % SYSTICKS_PER_SECOND))
     {
         g_ulSeconds++;
+		UART_PRINT("g_ulSeconds is:%d\r\n", g_ulSeconds);
     }
 
 }
@@ -692,8 +695,8 @@ int gizwits_main()
         GAgent_Tick( pgContextData );
         GAgent_SelectFd( pgContextData,1,0 );
 
-        GAgent_Lan_Handle( pgContextData, pgContextData->rtinfo.Rxbuf , pgContextData->rtinfo.Txbuf, GAGENT_BUF_LEN );
-        GAgent_Local_Handle( pgContextData, pgContextData->rtinfo.Rxbuf, GAGENT_BUF_LEN );
+        //GAgent_Lan_Handle( pgContextData, pgContextData->rtinfo.Rxbuf , pgContextData->rtinfo.Txbuf, GAGENT_BUF_LEN );
+        //GAgent_Local_Handle( pgContextData, pgContextData->rtinfo.Rxbuf, GAGENT_BUF_LEN );
         GAgent_Cloud_Handle( pgContextData, pgContextData->rtinfo.Rxbuf, GAGENT_BUF_LEN );
 
     }

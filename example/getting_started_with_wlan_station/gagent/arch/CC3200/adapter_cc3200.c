@@ -5,6 +5,10 @@
 #include "osi.h"
 #include "uart_if.h"
 
+#include "common.h"
+#include "timer_if.h"
+
+
 #define GAGENT_CONFIG_FILE "/tmp/gizwitsConfig"
 
 extern unsigned long g_ulSeconds;
@@ -83,6 +87,12 @@ int Gagent_setsocketnonblock(int socketfd)
 	flags |= O_NONBLOCK;
 	return fcntl(socketfd, F_SETFL, flags | O_NONBLOCK);
 #else
+	long nonBlocking = 1;
+
+    sl_SetSockOpt(socketfd, SOL_SOCKET, SO_NONBLOCKING, \
+                            &nonBlocking,
+                            sizeof(nonBlocking));
+
     return 0;
 #endif
 }
@@ -93,6 +103,10 @@ uint32 GAgent_GetDevTime_MS()
 }
 uint32 GAgent_GetDevTime_S()
 {
+	unsigned long ticks;
+
+	ticks = SysTickValueGet();
+	UART_PRINT("system tick is:%d\r\n", ticks);
 	return g_ulSeconds;
 }
 /****************************************************************
@@ -114,15 +128,20 @@ void GAgent_DevInit( pgcontext pgc )
 int8 GAgent_DevGetMacAddress( uint8* szmac )
 {
 	_u8                 macAddressLen = SL_MAC_ADDR_LEN ;
+	_u8					tmpMac[SL_MAC_ADDR_LEN];
 	
-	sl_NetCfgGet (SL_MAC_ADDRESS_GET , NULL , &macAddressLen , szmac) ;
+	sl_NetCfgGet (SL_MAC_ADDRESS_GET , NULL , &macAddressLen , tmpMac) ;
+
+	sprintf(szmac, "%02x%02x%02x%02x%02x%02x", 
+		tmpMac[0], tmpMac[1],tmpMac[2],
+		tmpMac[3],tmpMac[4],tmpMac[5]);
 
 	return 0;
 }
 uint32 GAgent_DevGetConfigData( gconfig *pConfig )
 {
     int ret=0;
-
+#if 0
 	long lFileHandle;
     unsigned long ulToken;
 	long lRetVal = -1;
@@ -151,7 +170,11 @@ uint32 GAgent_DevGetConfigData( gconfig *pConfig )
 	
     GAgent_Printf( GAGENT_INFO,"%s %d ",__FUNCTION__,ret );
     sl_FsClose(lFileHandle, 0, 0, 0);
-	
+#else
+	pConfig->magicNumber = GAGENT_MAGIC_NUM;
+	memcpy(pConfig->wifi_ssid, SSID_NAME, strlen(SSID_NAME));
+	memcpy(pConfig->wifi_key, SECURITY_KEY, strlen(SECURITY_KEY));
+#endif
     return 0;
 }
 uint32 GAgent_DevSaveConfigData( gconfig *pConfig )

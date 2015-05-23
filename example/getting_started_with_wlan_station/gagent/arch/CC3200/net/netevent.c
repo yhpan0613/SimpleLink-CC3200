@@ -129,7 +129,6 @@ int32 GAgent_CreateUDPBroadCastServer( uint16 udpbroadcast_port, struct sockaddr
     {
         GAgent_Printf(GAGENT_DEBUG,"UDP BC Server setsockopt error!");
     }
-#endif
     
     if(bind(serversocketid, (struct sockaddr *)&addr, sizeof(addr)) != 0)
     {
@@ -137,6 +136,8 @@ int32 GAgent_CreateUDPBroadCastServer( uint16 udpbroadcast_port, struct sockaddr
         close(serversocketid);
         serversocketid = INVALID_SOCKET;
     }
+#endif
+
     GAgent_Printf(GAGENT_DEBUG,"UDP BC Server socketid:%d on port:%d", serversocketid, udpbroadcast_port);
     *sockaddr = addr;
     return serversocketid;

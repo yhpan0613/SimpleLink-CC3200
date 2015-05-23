@@ -32,8 +32,14 @@ void Lan_udpDataHandle(pgcontext pgc, ppacket prxBuf, ppacket ptxBuf, int len)
     if(FD_ISSET(pgc->ls.udpServerFd, &(pgc->rtinfo.readfd)))
     {
         resetPacket(prxBuf);
-        recLen = Socket_recvfrom(pgc->ls.udpServerFd, prxBuf->phead, len,
-            &addr, &addrLen);
+        
+        while(recLen <= 0)
+        {
+            recLen = Socket_recvfrom(pgc->ls.udpServerFd, prxBuf->phead, len,
+                &addr, &addrLen);
+            
+            msleep(300);
+        }
 
         Lan_dispatchUdpData(pgc, &addr, prxBuf, ptxBuf, recLen);
     }

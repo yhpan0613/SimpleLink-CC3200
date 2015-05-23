@@ -20,8 +20,8 @@ void GAgent_Init( pgcontext *pgc )
     GAgent_logevelSet( GAGENT_DUMP);
 
     GAgent_VarInit( pgc );
-    GAgent_LocalInit( *pgc );
-    GAgent_LANInit(*pgc);
+    //GAgent_LocalInit( *pgc );
+    //GAgent_LANInit(*pgc);
     GAgent_WiFiInit( *pgc );
     
     GAgent_Printf( GAGENT_CRITICAL,"GAgent Start...");
@@ -370,9 +370,14 @@ void GAgent_RefreshIPTick( pgcontext pgc,uint32 dTime_s )
 
     if( (pgc->rtinfo.GAgentStatus)&WIFI_MODE_TEST == WIFI_MODE_TEST )
     {
+    	GAgent_Printf( GAGENT_DEBUG,"@@@Gagent mode is test\r\n");
         return ;
     }
     pgc->rtinfo.waninfo.RefreshIPLastTime+=dTime_s;
+	GAgent_Printf( GAGENT_DEBUG,"@@@GAgentStatus:%04x",(pgc->rtinfo.GAgentStatus) );
+	GAgent_Printf( GAGENT_DEBUG,"@@@RefreshIPTime=%d ms,lsst:%d,ctimd %d",(pgc->rtinfo.waninfo.RefreshIPTime),(pgc->rtinfo.waninfo.RefreshIPLastTime) ,cTime);
+	GAgent_Printf( GAGENT_DEBUG,"@@@RefreshIPTime=%d s",(pgc->rtinfo.waninfo.RefreshIPTime) );
+
     if( (pgc->rtinfo.waninfo.RefreshIPLastTime) >= (pgc->rtinfo.waninfo.RefreshIPTime) )
     {
         GAgent_Printf( GAGENT_DEBUG,"GAgentStatus:%04x",(pgc->rtinfo.GAgentStatus) );
@@ -587,8 +592,8 @@ void GAgent_Tick( pgcontext pgc )
 
     GAgent_DevTick();
     GAgent_CloudTick( pgc,dTime );
-    GAgent_LocalTick( pgc,dTime );
-    GAgent_LanTick( pgc,dTime );
+    //GAgent_LocalTick( pgc,dTime );
+    //GAgent_LanTick( pgc,dTime );
     GAgent_WiFiEventTick( pgc,dTime );
     GAgent_RefreshIPTick( pgc,dTime );
 

@@ -447,8 +447,8 @@ void GAgent_Printf(unsigned int level, char *fmt, ...)
 #endif		 
 
     /* only show enable log */
-    if(GAgent_loglevelenable( level )!=0 )
-        return ;
+    //if(GAgent_loglevelenable( level )!=0 )
+    //    return ;
 
     memset(str, 0, sizeof(str));
     switch(level & 0xFF)
@@ -521,6 +521,7 @@ void GAgent_Printf(unsigned int level, char *fmt, ...)
 		  }
 	  }
 	  Message(buffer);
+	  Message("\r\n");
 #endif
 	  return;
 }
