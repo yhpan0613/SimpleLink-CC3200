@@ -101,7 +101,8 @@ uint32 Cloud_ReqRegister( pgcontext pgc )
     {
         return RET_FAILED;
     }
-    
+
+	memcpy(pGlobalVar->mcu.product_key, PRODUCT_KEY, strlen(PRODUCT_KEY));
     ret = Http_POST( socket, HTTP_SERVER,pConfigData->wifipasscode,pGlobalVar->minfo.szmac,
                         pGlobalVar->mcu.product_key );
     
@@ -476,13 +477,18 @@ void GAgent_CloudTick( pgcontext pgc,uint32 dTime_s )
 {
 
     if( pgc->rtinfo.waninfo.mqttstatus != MQTT_STATUS_RUNNING )
+    {
+    	GAgent_Printf(GAGENT_INFO, "MQTT is not running\r\n");
         return;
+    }
     
     pgc->rtinfo.waninfo.send2MqttLastTime +=dTime_s;
     if( pgc->rtinfo.waninfo.send2MqttLastTime >= CLOUD_HEARTBEAT )
     {
+    	GAgent_Printf(GAGENT_DEBUG, "send2MqttLastTime >= CLOUD_HEARTBEAT\r\n");
+		
         pgc->rtinfo.waninfo.send2MqttLastTime  = 0;
-        if( pgc->rtinfo.waninfo.cloudPingTime > 2 )
+        if(0) // pgc->rtinfo.waninfo.cloudPingTime > 2 )
         {
             ERRORCODE
             pgc->rtinfo.waninfo.cloudPingTime=0;
@@ -498,6 +504,10 @@ void GAgent_CloudTick( pgcontext pgc,uint32 dTime_s )
             GAgent_Printf( GAGENT_CRITICAL,"GAgent Cloud Ping ..." );
         }
     }
+	else
+		GAgent_Printf(GAGENT_DEBUG, "send2MqttLastTime:%d CLOUD_HEARTBEAT:%d\r\n", 
+				pgc->rtinfo.waninfo.send2MqttLastTime, 	CLOUD_HEARTBEAT);
+	
 }
 /****************************************************************
 *
@@ -535,10 +545,10 @@ uint32 Cloud_ConfigDataHandle( pgcontext pgc /*int32 cloudstatus*/ )
     {
         return 1 ;
     }
-    
+	
     if(strlen(pgc->gc.GServer_ip) > IP_LEN_MAX || strlen(pgc->gc.GServer_ip) < IP_LEN_MIN)
     {
-        GAgent_Printf(GAGENT_WARNING,"GServer IP is illegal!!");
+        //GAgent_Printf(GAGENT_WARNING,"GServer IP is illegal!!");
         return 1;
     }
     
@@ -610,7 +620,7 @@ uint32 Cloud_ConfigDataHandle( pgcontext pgc /*int32 cloudstatus*/ )
             }
         }
 
-        GAgent_Printf(GAGENT_INFO,"http read ret:%d cloudStatus : %d，response code: %d",ret,cloudstatus,respondCode );
+        GAgent_Printf(GAGENT_INFO,"http read ret:%d cloudStatus : %d Response code: %d",ret,cloudstatus,respondCode );
         switch( cloudstatus )
         {
             case CLOUD_RES_GET_DID:
@@ -853,6 +863,13 @@ int32 Cloud_M2MDataHandle(  pgcontext pgc,ppacket pbuf /*, ppacket poutBuf*/, ui
         return 0;
     }
 
+    //FD_ZERO(&readfd);
+    //FD_SET(mqtt_fd, &readfd);
+
+    /* TODO: add timeout support to close dormant clients */
+    //if (select(mqtt_fd + 1, &readfd, NULL, NULL, NULL) == -1)
+    //		return 0;
+		
     dTime = abs( GAgent_GetDevTime_S()-pgc->rtinfo.waninfo.send2MqttLastTime );
     if( MQTT_STATUS_START==mqttstatus )
     {
@@ -881,9 +898,9 @@ int32 Cloud_M2MDataHandle(  pgcontext pgc,ppacket pbuf /*, ppacket poutBuf*/, ui
           {
               mqtt_fd=-1;
               pGlobalVar->rtinfo.waninfo.m2m_socketid=-1;
-              GAgent_SetCloudServerStatus( pgc,MQTT_STATUS_START );
-              GAgent_Printf(GAGENT_DEBUG,"MQTT fd was closed!!");
-              GAgent_Printf(GAGENT_DEBUG,"GAgent go to MQTT_STATUS_START");
+              //GAgent_SetCloudServerStatus( pgc,MQTT_STATUS_START );
+              //GAgent_Printf(GAGENT_DEBUG,"MQTT fd was closed!!");
+              //GAgent_Printf(GAGENT_DEBUG,"GAgent go to MQTT_STATUS_START");
               return -1;
           }
           else if( packetLen>0 )

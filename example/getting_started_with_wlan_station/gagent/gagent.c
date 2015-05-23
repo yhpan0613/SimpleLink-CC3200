@@ -370,13 +370,9 @@ void GAgent_RefreshIPTick( pgcontext pgc,uint32 dTime_s )
 
     if( (pgc->rtinfo.GAgentStatus)&WIFI_MODE_TEST == WIFI_MODE_TEST )
     {
-    	GAgent_Printf( GAGENT_DEBUG,"@@@Gagent mode is test\r\n");
         return ;
     }
     pgc->rtinfo.waninfo.RefreshIPLastTime+=dTime_s;
-	GAgent_Printf( GAGENT_DEBUG,"@@@GAgentStatus:%04x",(pgc->rtinfo.GAgentStatus) );
-	GAgent_Printf( GAGENT_DEBUG,"@@@RefreshIPTime=%d ms,lsst:%d,ctimd %d",(pgc->rtinfo.waninfo.RefreshIPTime),(pgc->rtinfo.waninfo.RefreshIPLastTime) ,cTime);
-	GAgent_Printf( GAGENT_DEBUG,"@@@RefreshIPTime=%d s",(pgc->rtinfo.waninfo.RefreshIPTime) );
 
     if( (pgc->rtinfo.waninfo.RefreshIPLastTime) >= (pgc->rtinfo.waninfo.RefreshIPTime) )
     {
@@ -588,13 +584,16 @@ void GAgent_Tick( pgcontext pgc )
 
     dTime = GAgent_BaseTick();
     if( dTime<1 )
+    {
+    	//GAgent_Printf(GAGENT_WARNING, "dTime is:%d\r\n", dTime);
         return ;
-
+    }
+	
     GAgent_DevTick();
     GAgent_CloudTick( pgc,dTime );
     //GAgent_LocalTick( pgc,dTime );
     //GAgent_LanTick( pgc,dTime );
-    GAgent_WiFiEventTick( pgc,dTime );
+    //GAgent_WiFiEventTick( pgc,dTime );
     GAgent_RefreshIPTick( pgc,dTime );
 
 }

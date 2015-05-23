@@ -520,7 +520,7 @@ void GAgent_Printf(unsigned int level, char *fmt, ...)
 			  
 		  }
 	  }
-	  Message(buffer);
+	  Message(str);
 	  Message("\r\n");
 #endif
 	  return;

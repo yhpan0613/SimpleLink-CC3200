@@ -70,6 +70,9 @@
 #include "rom.h"
 #include "rom_map.h"
 #include "interrupt.h"
+#include "hw_memmap.h"
+#include "timer.h"
+
 #include "prcm.h"
 #include "utils.h"
 
@@ -85,6 +88,7 @@
 #include "pinmux.h"
 
 #include "systick.h"
+#include "timer_if.h"
 
 
 #include "gagent.h"
@@ -96,7 +100,7 @@
 #define HOST_NAME               "www.ti.com"
 
 #define SYSTICK_RELOAD_VALUE    0x0000C3500
-#define SYSTICKS_PER_SECOND     1000
+#define SYSTICKS_PER_SECOND     100
 
 
 #define OSI_STACK_SIZE      2048
@@ -122,6 +126,10 @@ unsigned char  g_ucConnectionSSID[SSID_LEN_MAX+1]; //Connection SSID
 unsigned char  g_ucConnectionBSSID[BSSID_LEN_MAX]; //Connection BSSID
 
 unsigned long g_ulSeconds = 0;
+static volatile unsigned long g_ulBase;
+unsigned long g_ulTimerInts;
+
+
 
 
 #if defined(gcc)
@@ -143,6 +151,62 @@ static long WlanConnect();
 void WlanStationMode( void *pvParameters );
 static void InitializeAppVariables();
 static long ConfigureSimpleLinkToDefaultState();
+
+//*****************************************************************************
+//!
+//! The interrupt handler for the SysTick timer.  This handler will increment a
+//! seconds counter whenever the appropriate number of ticks has occurred. 
+//!
+//! \param None
+//! 
+//! \return None
+//!
+//*****************************************************************************
+void
+SysTickHandler(void)
+{
+    static unsigned long ulTickCount = 0;
+    
+    //
+    // Increment the tick counter.
+    //
+    ulTickCount++;
+    
+    //
+    // If the number of ticks per second has occurred, then increment the
+    // seconds counter.
+    //
+    if(!(ulTickCount % SYSTICKS_PER_SECOND))
+    {
+        g_ulSeconds++;
+    }
+
+}
+
+//*****************************************************************************
+//
+//! The interrupt handler for the first timer interrupt.
+//!
+//! \param  None
+//!
+//! \return none
+//
+//*****************************************************************************
+void
+TimerBaseIntHandler(void)
+{
+    //
+    // Clear the timer interrupt.
+    //
+    Timer_IF_InterruptClear(g_ulBase);
+
+    g_ulTimerInts ++;
+	g_ulSeconds ++;
+
+	Timer_IF_Stop(g_ulBase,TIMERA0_BASE);
+
+	Timer_IF_Start(g_ulBase, TIMER_A, 1000);
+}
 
 
 #ifdef USE_FREERTOS
@@ -461,41 +525,6 @@ static void InitializeAppVariables()
     memset(g_ucConnectionSSID,0,sizeof(g_ucConnectionSSID));
     memset(g_ucConnectionBSSID,0,sizeof(g_ucConnectionBSSID));
 }
-
-//*****************************************************************************
-//!
-//! The interrupt handler for the SysTick timer.  This handler will increment a
-//! seconds counter whenever the appropriate number of ticks has occurred. 
-//!
-//! \param None
-//! 
-//! \return None
-//!
-//*****************************************************************************
-void
-SysTickHandler(void)
-{
-    static unsigned long ulTickCount = 0;
-    
-    //
-    // Increment the tick counter.
-    //
-    ulTickCount++;
-
-	//UART_PRINT("TickCount is:%d\r\n", ulTickCount);
-    
-    //
-    // If the number of ticks per second has occurred, then increment the
-    // seconds counter.
-    //
-    if(!(ulTickCount % SYSTICKS_PER_SECOND))
-    {
-        g_ulSeconds++;
-		UART_PRINT("g_ulSeconds is:%d\r\n", g_ulSeconds);
-    }
-
-}
-
 
 //*****************************************************************************
 //! \brief This function puts the device in its default state. It:
@@ -869,9 +898,28 @@ void main()
 	//
     // SysTick Enabling
     //
-    SysTickIntRegister(SysTickHandler);
-    SysTickPeriodSet(SYSTICK_RELOAD_VALUE);
-    SysTickEnable();
+    //SysTickIntRegister(SysTickHandler);
+    ///SysTickPeriodSet(SYSTICK_RELOAD_VALUE);
+    //SysTickEnable();
+
+    //
+    // Base address for first timer
+    //
+    g_ulBase = TIMERA0_BASE;
+    //
+    // Configuring the timers
+    //
+    Timer_IF_Init(PRCM_TIMERA0, g_ulBase, TIMER_CFG_PERIODIC, TIMER_A, 0);
+
+    //
+    // Setup the interrupts for the timer timeouts.
+    //
+    Timer_IF_IntSetup(g_ulBase, TIMER_A, TimerBaseIntHandler);
+
+    //
+    // Turn on the timers feeding values in mSec
+    //
+    Timer_IF_Start(g_ulBase, TIMER_A, 1000);
 	
     //
     // Start the SimpleLink Host

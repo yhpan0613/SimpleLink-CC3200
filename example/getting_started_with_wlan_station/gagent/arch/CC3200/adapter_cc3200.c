@@ -102,12 +102,7 @@ uint32 GAgent_GetDevTime_MS()
 	return g_ulSeconds*1000;
 }
 uint32 GAgent_GetDevTime_S()
-{
-	unsigned long ticks;
-
-	ticks = SysTickValueGet();
-	UART_PRINT("system tick is:%d\r\n", ticks);
-	return g_ulSeconds;
+{	return g_ulSeconds;
 }
 /****************************************************************
 FunctionName    :   GAgent_DevReset
@@ -281,23 +276,49 @@ void WifiStatusHandler(int event)
 {
 
 }
+
+unsigned long ipToNum(int8* ip)
+{
+	int8* p;
+	int sections[4]={0};
+	int i=0;
+	unsigned long num =0;
+	
+	p = strtok(ip,".");
+	while( p )
+	{
+		sections[i] = atoi(p);
+		p = strtok(NULL,".");
+		i++;
+	}
+
+	
+	for( int j=3,i=0 ; j>=0 ; j--,i++ )
+	{
+		num += (sections[i] <<(8*j));
+	}
+	
+	return num;
+}
+
 int32 GAgent_connect( int32 iSocketId, uint16 port,
                         int8 *ServerIpAddr,int8 flag)
 {
     int8 ret=0;
 	unsigned long pDestinationIP;
-	char TmpIp[5];
     
     struct sockaddr_in Msocket_address;
     GAgent_Printf(GAGENT_INFO,"do connect ip:%s port=%d",ServerIpAddr,port );
-
-	sscanf((const char *)ServerIpAddr, "%d.%d.%d.%d", TmpIp);
-	pDestinationIP = (TmpIp[0]<<24) + (TmpIp[1]<<16) + (TmpIp[2]<<8) + TmpIp[3];
+	
+	pDestinationIP = ipToNum(ServerIpAddr);
 
     Msocket_address.sin_family = SL_AF_INET;
     Msocket_address.sin_port= sl_Htons((unsigned short)port);
     Msocket_address.sin_addr.s_addr = sl_Htonl((unsigned int)pDestinationIP); //inet_addr(ServerIpAddr);
     ret = sl_Connect(iSocketId, (struct sockaddr *)&Msocket_address, sizeof( struct sockaddr_in));  
+
+	if(ret >= 0)
+		Gagent_setsocketnonblock(iSocketId);
 
     return ret;
 }

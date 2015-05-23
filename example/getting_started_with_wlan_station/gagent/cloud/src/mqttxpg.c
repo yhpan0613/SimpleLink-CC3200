@@ -21,7 +21,7 @@ int32 MQTT_readPacket( int32 socketid,ppacket pbuf,int32 bufferLen )
     bytes_rcvd = recv(socketid, pData , bufferLen, 0);
     if((bytes_rcvd) <= 0)
     {
-        MQTTclose_socket( &g_stMQTTBroker );
+        //MQTTclose_socket( &g_stMQTTBroker );
         return -1;
     }
     //pData = packetBuffer + 0;

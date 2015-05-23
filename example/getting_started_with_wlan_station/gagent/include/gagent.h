@@ -15,6 +15,8 @@
 
 #define GAGENT_MAGIC_NUM    0x55aa1122
 
+#define PRODUCT_KEY "f21ddcf14b6042e58ab6ad7af7683862"
+
 #define INADDR_BROADCAST 0xffffffff
 
 extern pgcontext pgContextData;
@@ -176,7 +178,7 @@ extern void Lan_setClientTimeOut(pgcontext pgc, int32 channel);
 #define CFG_FLAG_TESTMODE           (1<<4)
 #define XPG_CFG_FLAG_CONFIG_AIRKISS (1<<5) /* 平台用来标示是否airkiss配置过 需要发送airkiss配置包*/
 
-#define ERRORCODE GAgent_Printf(GAGENT_ERROR,"%s %d",__FUNCTION__,__LINE__ );
+#define ERRORCODE GAgent_Printf(GAGENT_ERROR,"ERROR: %s %d",__FUNCTION__,__LINE__ );
 
 /*V4 CMD of P0*/
 #define MCU_INFO_CMD        0X01
