@@ -866,9 +866,6 @@ int32 Cloud_M2MDataHandle(  pgcontext pgc,ppacket pbuf /*, ppacket poutBuf*/, ui
     //FD_ZERO(&readfd);
     //FD_SET(mqtt_fd, &readfd);
 
-    /* TODO: add timeout support to close dormant clients */
-    //if (select(mqtt_fd + 1, &readfd, NULL, NULL, NULL) == -1)
-    //		return 0;
 		
     dTime = abs( GAgent_GetDevTime_S()-pgc->rtinfo.waninfo.send2MqttLastTime );
     if( MQTT_STATUS_START==mqttstatus )
@@ -890,7 +887,7 @@ int32 Cloud_M2MDataHandle(  pgcontext pgc,ppacket pbuf /*, ppacket poutBuf*/, ui
     {
         if( FD_ISSET( mqtt_fd,&readfd ) )
         {
-          GAgent_Printf(GAGENT_DEBUG,"Data form M2M!!!");
+          //GAgent_Printf(GAGENT_DEBUG,"Data form M2M!!! and fd is:%d", mqtt_fd);
           resetPacket( pbuf );
           pMqttBuf = pbuf->phead;
           packetLen = MQTT_readPacket(mqtt_fd,pbuf,GAGENT_BUF_LEN );
@@ -898,17 +895,21 @@ int32 Cloud_M2MDataHandle(  pgcontext pgc,ppacket pbuf /*, ppacket poutBuf*/, ui
           {
               mqtt_fd=-1;
               pGlobalVar->rtinfo.waninfo.m2m_socketid=-1;
-              //GAgent_SetCloudServerStatus( pgc,MQTT_STATUS_START );
-              //GAgent_Printf(GAGENT_DEBUG,"MQTT fd was closed!!");
-              //GAgent_Printf(GAGENT_DEBUG,"GAgent go to MQTT_STATUS_START");
+              GAgent_SetCloudServerStatus( pgc,MQTT_STATUS_START );
+              GAgent_Printf(GAGENT_DEBUG,"**********MQTT fd was closed!!");
+              GAgent_Printf(GAGENT_DEBUG,"GAgent go to MQTT_STATUS_START");
               return -1;
           }
           else if( packetLen>0 )
           {
             pgc->rtinfo.waninfo.ReConnectMqttTime = GAGENT_MQTT_TIMEOUT;
             mqttpackType = MQTTParseMessageType( pMqttBuf );
-            GAgent_Printf( GAGENT_DEBUG,"MQTT message type %d",mqttpackType );
+            //GAgent_Printf( GAGENT_DEBUG,"MQTT message type %d",mqttpackType );
           }
+		  else if(packetLen == -11)
+		  {
+		  	return -11;
+		  }
           else
           {
             return -1;
@@ -1027,8 +1028,8 @@ int32 Cloud_M2MDataHandle(  pgcontext pgc,ppacket pbuf /*, ppacket poutBuf*/, ui
                     }
                 break;
                 default:
-                    GAgent_Printf(GAGENT_WARNING," data form m2m but msg type is %d",mqttpackType );
-                break;
+                    //GAgent_Printf(GAGENT_WARNING," data form m2m but msg type is %d",mqttpackType );
+                	break;
             }
         }
     }
@@ -1045,7 +1046,13 @@ int32 GAgent_Cloud_GetPacket( pgcontext pgc,ppacket pRxbuf, int32 buflen)
 	if( (GAgentstatus&WIFI_STATION_CONNECTED) != WIFI_STATION_CONNECTED)
 	    return -1 ;
 
-	Cloud_ConfigDataHandle( pgc );
+	//GAgent_Printf(GAGENT_WARNING, "@@@@@@@@@@@@@@m2m socket id:%d\r\n", pgc->rtinfo.waninfo.m2m_socketid);
+	
+	if(pgc->rtinfo.waninfo.m2m_socketid <= 0)
+	{
+		
+		Cloud_ConfigDataHandle( pgc );
+	}
 	Mret = Cloud_M2MDataHandle( pgc,pbuf, buflen );
 	    return Mret;
 }

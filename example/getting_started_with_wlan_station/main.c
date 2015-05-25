@@ -722,7 +722,7 @@ int gizwits_main()
     while(1)
     {
         GAgent_Tick( pgContextData );
-        GAgent_SelectFd( pgContextData,1,0 );
+        GAgent_SelectFd( pgContextData,0,200000 );
 
         //GAgent_Lan_Handle( pgContextData, pgContextData->rtinfo.Rxbuf , pgContextData->rtinfo.Txbuf, GAGENT_BUF_LEN );
         //GAgent_Local_Handle( pgContextData, pgContextData->rtinfo.Rxbuf, GAGENT_BUF_LEN );
