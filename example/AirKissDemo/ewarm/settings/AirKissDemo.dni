@@ -1,0 +1,48 @@
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[LMIFTDIDriver]
+LMI_ResetMode=0x00000000
+[DebugChecksum]
+Checksum=-403842729
+[LMIFTDI]
+LMIFTDIserialNo=cc3101A
+LMIFTDIfoundProbes=FF:cc3101A:
+[Exceptions]
+StopOnUncaught=_ 0
+StopOnThrow=_ 0
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[DriverProfiling]
+Enabled=0
+Mode=0
+Graph=0
+Symbiont=0
+Exclusions=
+[Disassemble mode]
+mode=0
+[Breakpoints]
+Count=0
+[Aliases]
+A0=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\driverlib\interrupt.c" ""
+A1=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\driverlib\spi.c" ""
+A2=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\simplelink\source\driver.c" ""
+A3=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\simplelink\source\netapp.c" ""
+Count=4
+SuppressDialog=1
