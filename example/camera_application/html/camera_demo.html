@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<!--[if lte IE 9 ]> <html class="ie"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="simple_link.css">
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+var HTTPrequest = new XMLHttpRequest();
+var ImgFrameCaptureLoop;
+function encode (input) {
+    var keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+    var output = "";
+    var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+    var i = 0;
+
+    while (i < input.length) {
+        chr1 = input[i++];
+        chr2 = i < input.length ? input[i++] : Number.NaN; 
+        chr3 = i < input.length ? input[i++] : Number.NaN;
+
+        enc1 = chr1 >> 2;
+        enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+        enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+        enc4 = chr3 & 63;
+
+        if (isNaN(chr2)) {
+            enc3 = enc4 = 64;
+        } else if (isNaN(chr3)) {
+            enc4 = 64;
+        }
+        output += keyStr.charAt(enc1) + keyStr.charAt(enc2) +
+                  keyStr.charAt(enc3) + keyStr.charAt(enc4);
+    }
+    return output;
+}
+function PostCaptureToken(type)
+{
+	var params = "__SL_P_U.C=";
+	if (type == "start")
+		params = params+"start";
+	else
+		params = params+"stop";
+
+	HTTPrequest.open("POST","No_content", true);
+	HTTPrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	HTTPrequest.setRequestHeader("Content-length", params.length);
+	HTTPrequest.setRequestHeader("Connection", "close");
+	HTTPrequest.onreadystatechange = function()
+	{
+		if (HTTPrequest.readyState==4 && HTTPrequest.status==200)
+		{
+		}
+	}
+	HTTPrequest.send(params);
+
+}
+function GetLatestFrame()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+		var cameraStream = new Uint8Array(xmlhttp.response);
+		var camerascreen = document.getElementById('camerascreen');
+		camerascreen.src = 'data:image/jpg;base64,'+encode(cameraStream);
+    }
+  }
+xmlhttp.open("GET","images/cc3200_camera_capture.jpg" + "?" + (new Date()).getTime(),true);
+xmlhttp.responseType    = "arraybuffer";
+xmlhttp.send();
+
+}
+function CaptureImage() 
+{
+	PostCaptureToken("start");
+	ImgFrameCaptureLoop = setInterval(function(){GetLatestFrame()}, 1000);
+}
+function CaptureStop() 
+{
+	PostCaptureToken("stop");
+	clearInterval(ImgFrameCaptureLoop);
+}
+
+
+
+
+</script>
+
+</head>
+
+<body class="in-frame" onload="UpdateStatus()">
+
+<table border="0"  width="100%" cellpadding="3" cellspacing="0">
+
+<tr>
+<td class="page-title" colspan=2 >
+	Camera Demo</td>
+</tr>
+
+
+<tr>
+<td align=center class = "in-a-box" colspan=2> <br>
+<img src="images/ti_simplelink.jpg" id="camerascreen" style="max-width:640px;height:480px\0/IE8+9;" />
+<br>
+<button onclick="CaptureImage()" >Start</button>
+<button onclick="CaptureStop()" >Stop</button>
+</td>
+</tr>
+
+<tr>
+  <td class="in-a-box" colspan=2 align=center> Click the Button to Capture Image from SimpleLink Device</td>
+ </tr>
+
+ <tr >
+  <td class = "border-l-top" colspan=2 >
+  </td>
+</tr>
+</table>
+
+</body>
+</html>

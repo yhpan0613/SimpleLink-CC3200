@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CC3xxx>
+   <Version>
+      <Platform>CC3xxx Simple Link device</Platform>
+      <BootLoader>
+         <SoftwareMajor>2</SoftwareMajor>
+         <SoftwareMinor>0</SoftwareMinor>
+         <SoftwareVersion>3</SoftwareVersion>
+         <SoftwareSubVersion>4</SoftwareSubVersion>
+      </BootLoader>
+      <NWP>
+         <SoftwareMajor>2</SoftwareMajor>
+         <SoftwareMinor>0</SoftwareMinor>
+         <SoftwareVersion>6</SoftwareVersion>
+         <SoftwareSubVersion>29</SoftwareSubVersion>
+      </NWP>
+      <MAC>
+         <SoftwareMajor>31</SoftwareMajor>
+         <SoftwareMinor>0</SoftwareMinor>
+         <SoftwareVersion>3</SoftwareVersion>
+         <SoftwareSubVersion>10</SoftwareSubVersion>
+      </MAC>
+      <PHY>
+         <SoftwareMajor>1</SoftwareMajor>
+         <SoftwareMinor>5</SoftwareMinor>
+         <SoftwareVersion>3</SoftwareVersion>
+         <SoftwareSubVersion>1</SoftwareSubVersion>
+      </PHY>
+      <Patches>
+         <SoftwareMajor>0</SoftwareMajor>
+         <SoftwareMinor>0</SoftwareMinor>
+         <SoftwareVersion>0</SoftwareVersion>
+         <SoftwareSubVersion>0</SoftwareSubVersion>
+      </Patches>
+   </Version>
+   <Values name="Security" type="enum">
+      <Value val="0">NONE</Value>
+      <Value val="1">WEP</Value>
+      <Value val="2">WPA</Value>
+   </Values>
+   <Values name="EapType" type="enum">
+      <Value val="13">TLS</Value>
+      <Value val="21">TTLS</Value>
+      <Value val="25">PEAP</Value>
+      <Value val="43">FAST</Value>
+   </Values>
+   <Values name="EapSubType" type="enum">
+      <Value val="0">MSCHAPV2</Value>
+      <Value val="8">TLS</Value>
+      <Value val="16">PSK</Value>
+   </Values>
+   <Values name="EAPFastProvisioning" type="enum">
+      <Value val="">Disabled</Value>
+      <Value val="0">Unauthenticated</Value>
+      <Value val="4">Authenticated</Value>
+   </Values>
+   <Values name="PEAPVersion" type="enum">
+      <Value val="0">Version0</Value>
+      <Value val="2">Version1</Value>
+   </Values>
+   <Values name="Role" type="enum">
+      <Value val="0">Station</Value>
+      <Value val="2">AP</Value>
+      <Value val="3">P2pDevice</Value>
+   </Values>
+   <Values name="P2pNegInit" type="enum">
+      <Value val="0">Active</Value>
+      <Value val="1">Passive</Value>
+      <Value val="2">Random</Value>
+   </Values>
+   <Values name="P2pSecurity" type="enum">
+      <Value val="0">P2P_NONE</Value>
+      <Value val="1">P2P_PBC</Value>
+      <Value val="2">P2P_PIN_KEYPAD</Value>
+      <Value val="3">P2P_PIN_DISPLAY</Value>
+   </Values>
+   <Values name="PowerPolicy" type="enum">
+      <Value val="0">PM_NORMAL</Value>
+      <Value val="1">PM_LOW_LATENCY</Value>
+      <Value val="2">PM_LOW_POWER</Value>
+      <Value val="3">PM_ACTIVE</Value>
+      <Value val="4">PM_LONG_SLEEP</Value>
+   </Values>
+   <Values name="Addressing" type="enum">
+      <Value val="0xE">Static</Value>
+      <Value val="0xA">Dynamic</Value>
+   </Values>
+   <Values name="Bool" type="enum">
+      <Value val="0">False</Value>
+      <Value val="1">True</Value>
+   </Values>
+   <Values name="State" type="enum">
+      <Value val="0">Disable</Value>
+      <Value val="1">Enable</Value>
+   </Values>
+   <Filename name="/sys/mcuimg.bin" category="system">
+      <Version>1</Version>
+      <Type>blob</Type>
+      <Storage>SFLASH</Storage>
+      <MaxSize>0</MaxSize>
+      <url>${sessionDir}/../../ewarm/Release/Exe/camera_application.bin</url>
+      <mode>
+         <ModeEntry name="Rollback" checked="false"/>
+         <ModeEntry name="Secured" checked="false"/>
+         <ModeEntry name="NoSignatureTest" checked="false"/>
+         <ModeEntry name="StaticToken" checked="false"/>
+         <ModeEntry name="VendorToken" checked="false"/>
+         <ModeEntry name="PublicWrite" checked="false"/>
+         <ModeEntry name="PublicRead" checked="false"/>
+      </mode>
+      <verify>true</verify>
+      <Update>true</Update>
+      <Erase>true</Erase>
+      <Certificate>&quot;&quot;</Certificate>
+      <Signature>&quot;&quot;</Signature>
+   </Filename>
+   <Filename name="www/main.html" category="user">
+      <Version>0</Version>
+      <Type>blob</Type>
+      <Storage>SFLASH</Storage>
+      <MaxSize>0</MaxSize>
+      <url>${sessionDir}/../main.html</url>
+      <mode>
+         <ModeEntry name="Rollback" checked="false"/>
+         <ModeEntry name="Secured" checked="false"/>
+         <ModeEntry name="NoSignatureTest" checked="false"/>
+         <ModeEntry name="StaticToken" checked="false"/>
+         <ModeEntry name="VendorToken" checked="false"/>
+         <ModeEntry name="PublicWrite" checked="false"/>
+         <ModeEntry name="PublicRead" checked="false"/>
+      </mode>
+      <verify>true</verify>
+      <Update>true</Update>
+      <Erase>true</Erase>
+      <Certificate></Certificate>
+      <Signature></Signature>
+   </Filename>
+   <Filename name="www/camera_demo.html" category="user">
+      <Version>0</Version>
+      <Type>blob</Type>
+      <Storage>SFLASH</Storage>
+      <MaxSize>0</MaxSize>
+      <url>${sessionDir}/../camera_demo.html</url>
+      <mode>
+         <ModeEntry name="Rollback" checked="false"/>
+         <ModeEntry name="Secured" checked="false"/>
+         <ModeEntry name="NoSignatureTest" checked="false"/>
+         <ModeEntry name="StaticToken" checked="false"/>
+         <ModeEntry name="VendorToken" checked="false"/>
+         <ModeEntry name="PublicWrite" checked="false"/>
+         <ModeEntry name="PublicRead" checked="false"/>
+      </mode>
+      <verify>true</verify>
+      <Update>true</Update>
+      <Erase>true</Erase>
+      <Certificate></Certificate>
+      <Signature></Signature>
+   </Filename>
+   <Filename name="www/images/ti_simplelink.jpg" category="user">
+      <Version>0</Version>
+      <Type>blob</Type>
+      <Storage>SFLASH</Storage>
+      <MaxSize>0</MaxSize>
+      <url>${sessionDir}/../images/ti_simplelink.jpg</url>
+      <mode>
+         <ModeEntry name="Rollback" checked="false"/>
+         <ModeEntry name="Secured" checked="false"/>
+         <ModeEntry name="NoSignatureTest" checked="false"/>
+         <ModeEntry name="StaticToken" checked="false"/>
+         <ModeEntry name="VendorToken" checked="false"/>
+         <ModeEntry name="PublicWrite" checked="false"/>
+         <ModeEntry name="PublicRead" checked="false"/>
+      </mode>
+      <verify>true</verify>
+      <Update>true</Update>
+      <Erase>true</Erase>
+      <Certificate></Certificate>
+      <Signature></Signature>
+   </Filename>
+   <Filename name="www/js/jquery-1.8.3.min.js" category="user">
+      <Version>0</Version>
+      <Type>blob</Type>
+      <Storage>SFLASH</Storage>
+      <MaxSize>0</MaxSize>
+      <url>${sessionDir}/../js/jquery-1.8.3.min.js</url>
+      <mode>
+         <ModeEntry name="Rollback" checked="false"/>
+         <ModeEntry name="Secured" checked="false"/>
+         <ModeEntry name="NoSignatureTest" checked="false"/>
+         <ModeEntry name="StaticToken" checked="false"/>
+         <ModeEntry name="VendorToken" checked="false"/>
+         <ModeEntry name="PublicWrite" checked="false"/>
+         <ModeEntry name="PublicRead" checked="false"/>
+      </mode>
+      <verify>true</verify>
+      <Update>true</Update>
+      <Erase>true</Erase>
+      <Certificate></Certificate>
+      <Signature></Signature>
+   </Filename>
+</CC3xxx>

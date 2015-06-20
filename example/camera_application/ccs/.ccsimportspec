@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<importSpec>
+    <source root="..">
+        <file regex="main.c"/>
+        <file regex="camera_app.c"/>
+        <file regex="i2cconfig.c"/>
+        <file regex="mt9d111.c"/>
+        <file regex="pinmux.c"/>
+		<file regex=".*\.h"/>
+    </source>
+</importSpec>
