@@ -27,22 +27,40 @@ void Lan_udpDataHandle(pgcontext pgc, ppacket prxBuf, ppacket ptxBuf, int len)
 {
     struct sockaddr_t addr;
     int addrLen = sizeof(struct sockaddr_t);
-    int32 recLen;
+    int32 recLen = 0;
     
+      #if 0
     if(FD_ISSET(pgc->ls.udpServerFd, &(pgc->rtinfo.readfd)))
     {
+          GAgent_Printf( GAGENT_CRITICAL,"fun:%s, line:%d\n", __FUNCTION__, __LINE__);
         resetPacket(prxBuf);
         
         while(recLen <= 0)
         {
+              GAgent_Printf( GAGENT_CRITICAL,"fun:%s, line:%d\n", __FUNCTION__, __LINE__);
             recLen = Socket_recvfrom(pgc->ls.udpServerFd, prxBuf->phead, len,
                 &addr, &addrLen);
             
             msleep(300);
         }
 
+         GAgent_Printf( GAGENT_CRITICAL,"fun:%s, line:%d\n", __FUNCTION__, __LINE__);
         Lan_dispatchUdpData(pgc, &addr, prxBuf, ptxBuf, recLen);
     }
+   #else
+         if( pgc->ls.udpServerFd<0 )
+                 return ;
+     if(FD_ISSET(pgc->ls.udpServerFd, &(pgc->rtinfo.readfd)))
+    {
+        FD_CLR(pgc->ls.udpServerFd ,&(pgc->rtinfo.readfd) );
+        GAgent_Printf( GAGENT_CRITICAL,"pgc->ls.udpServerFd= %d,fd_isset=%d, time:%d \n",(pgc->ls.udpServerFd), (FD_ISSET(pgc->ls.udpServerFd, &(pgc->rtinfo.readfd))),GAgent_GetDevTime_S());
+        resetPacket(prxBuf);
+        recLen = Socket_recvfrom(pgc->ls.udpServerFd, prxBuf->phead, len,
+            &addr, &addrLen);
+        GAgent_Printf( GAGENT_CRITICAL,"UDP RECEIVE LEN = %d, errno=%d",recLen, errno );
+         Lan_dispatchUdpData(pgc, &addr, prxBuf, ptxBuf, recLen);
+    }
+     #endif
 }
 
 /****************************************************************

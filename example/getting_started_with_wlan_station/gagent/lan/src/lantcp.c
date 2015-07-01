@@ -64,6 +64,10 @@ int32 Lan_TcpServerHandler(pgcontext pgc)
     if(FD_ISSET(pgc->ls.tcpServerFd, &(pgc->rtinfo.readfd)))
     {
         /* if nonblock, can be done in accept progress */
+        FD_CLR(pgc->ls.tcpServerFd ,&(pgc->rtinfo.readfd) );
+        GAgent_Printf( GAGENT_CRITICAL,"pgc->ls.tcpServerFd= %d, isset=%d, errno=%d\n",(pgc->ls.tcpServerFd), (FD_ISSET(pgc->ls.tcpServerFd, &(pgc->rtinfo.readfd))), errno);
+        GAgent_Printf( GAGENT_CRITICAL,"httpFD= %d \n",(FD_ISSET( pgc->rtinfo.waninfo.http_socketid,&(pgc->rtinfo.readfd) ))); 
+        GAgent_Printf( GAGENT_CRITICAL,"mqttFD= %d \n",(FD_ISSET( pgc->rtinfo.waninfo.m2m_socketid,&(pgc->rtinfo.readfd) )));
         newfd = Socket_accept(pgc->ls.tcpServerFd, &addr, &addrLen);
         if(newfd > 0)
         {

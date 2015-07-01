@@ -488,7 +488,7 @@ void GAgent_CloudTick( pgcontext pgc,uint32 dTime_s )
     	GAgent_Printf(GAGENT_DEBUG, "send2MqttLastTime >= CLOUD_HEARTBEAT\r\n");
 		
         pgc->rtinfo.waninfo.send2MqttLastTime  = 0;
-        if(0) // pgc->rtinfo.waninfo.cloudPingTime > 2 )
+        if(pgc->rtinfo.waninfo.cloudPingTime > 2 )
         {
             ERRORCODE
             pgc->rtinfo.waninfo.cloudPingTime=0;
@@ -591,7 +591,9 @@ uint32 Cloud_ConfigDataHandle( pgcontext pgc /*int32 cloudstatus*/ )
 
     if(FD_ISSET( http_fd,&readfd ) || ((cloudstatus != CLOUD_CONFIG_OK) && (dTime > pgc->rtinfo.waninfo.ReConnectHttpTime)))
     {
-        GAgent_Printf(GAGENT_DEBUG,"HTTP Data from Gserver!%d", 2);
+        GAgent_Printf(GAGENT_DEBUG,"HTTP Data from Gserver!%d, errno=%d", 2, errno);
+        if(FD_ISSET( http_fd,&readfd ))
+             FD_CLR(http_fd ,&readfd );
         if(dTime > pgc->rtinfo.waninfo.ReConnectHttpTime)
         {
             if(pGlobalVar->rtinfo.waninfo.http_socketid > 0)
@@ -888,6 +890,7 @@ int32 Cloud_M2MDataHandle(  pgcontext pgc,ppacket pbuf /*, ppacket poutBuf*/, ui
         if( FD_ISSET( mqtt_fd,&readfd ) )
         {
           //GAgent_Printf(GAGENT_DEBUG,"Data form M2M!!! and fd is:%d", mqtt_fd);
+          FD_CLR(mqtt_fd ,&readfd  );
           resetPacket( pbuf );
           pMqttBuf = pbuf->phead;
           packetLen = MQTT_readPacket(mqtt_fd,pbuf,GAGENT_BUF_LEN );

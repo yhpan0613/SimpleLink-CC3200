@@ -411,6 +411,7 @@ uint32 GAgent_Lan_Handle(pgcontext pgc, ppacket prxBuf , ppacket ptxBuf,int32 le
                 continue;
             if(FD_ISSET(fd, &(pgc->rtinfo.readfd)))
             {
+                FD_CLR(fd, &(pgc->rtinfo.readfd) );
                 ret = Lan_tcpClientDataHandle(pgc, i, prxBuf, ptxBuf, len);
                 if(ret > 0)
                 {
