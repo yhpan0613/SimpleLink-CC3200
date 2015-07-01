@@ -367,6 +367,40 @@ void SimpleLinkWlanEventHandler(SlWlanEvent_t *pWlanEvent)
         }
         break;
 
+        case SL_WLAN_STA_CONNECTED_EVENT:
+        {
+            // when device is in AP mode and any client connects to device cc3xxx
+            SET_STATUS_BIT(g_ulStatus, STATUS_BIT_CONNECTION);
+
+            //
+            // Information about the connected client (like SSID, MAC etc) will be
+            // available in 'slPeerInfoAsyncResponse_t' - Applications
+            // can use it if required
+            //
+            // slPeerInfoAsyncResponse_t *pEventData = NULL;
+            // pEventData = &pSlWlanEvent->EventData.APModeStaConnected;
+            //
+
+        }
+        break;
+
+        case SL_WLAN_STA_DISCONNECTED_EVENT:
+        {
+            // when client disconnects from device (AP)
+            CLR_STATUS_BIT(g_ulStatus, STATUS_BIT_CONNECTION);
+            CLR_STATUS_BIT(g_ulStatus, STATUS_BIT_IP_LEASED);
+
+            //
+            // Information about the connected client (like SSID, MAC etc) will
+            // be available in 'slPeerInfoAsyncResponse_t' - Applications
+            // can use it if required
+            //
+            // slPeerInfoAsyncResponse_t *pEventData = NULL;
+            // pEventData = &pSlWlanEvent->EventData.APModestaDisconnected;
+            //            
+        }
+        break;
+
         default:
         {
             UART_PRINT("[WLAN EVENT] Unexpected event [0x%x]\n\r",
@@ -722,9 +756,9 @@ int gizwits_main()
     while(1)
     {
         GAgent_Tick( pgContextData );
-        GAgent_SelectFd( pgContextData,0,200000 );
+        GAgent_SelectFd( pgContextData,1,0 ); //200000
 
-        //GAgent_Lan_Handle( pgContextData, pgContextData->rtinfo.Rxbuf , pgContextData->rtinfo.Txbuf, GAGENT_BUF_LEN );
+        GAgent_Lan_Handle( pgContextData, pgContextData->rtinfo.Rxbuf , pgContextData->rtinfo.Txbuf, GAGENT_BUF_LEN );
         //GAgent_Local_Handle( pgContextData, pgContextData->rtinfo.Rxbuf, GAGENT_BUF_LEN );
         GAgent_Cloud_Handle( pgContextData, pgContextData->rtinfo.Rxbuf, GAGENT_BUF_LEN );
 

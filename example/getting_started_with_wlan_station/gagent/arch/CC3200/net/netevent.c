@@ -46,6 +46,11 @@ int32 GAgent_CreateTcpServer( uint16 tcp_port )
     //bufferSize = SOCKET_TCPSOCKET_BUFFERSIZE;
     //setsockopt( serversocketid, SOL_SOCKET, SO_RCVBUF, &bufferSize, 4 );
     //setsockopt( serversocketid, SOL_SOCKET, SO_SNDBUF, &bufferSize, 4 );
+     if(Gagent_setsocketnonblock(serversocketid) != 0)
+    {
+        GAgent_Printf(GAGENT_ERROR,"TCP Server Gagent_setsocketnonblock fail.");
+    }
+    
     memset(&addr, 0x0, sizeof(addr));
     addr.sin_family = AF_INET;
     addr.sin_port = htons(tcp_port);
@@ -97,7 +102,7 @@ int32 GAgent_CreateUDPServer( uint16 udp_port )
         return RET_FAILED;
     }
 
-    GAgent_Printf(GAGENT_DEBUG,"UDP Server socketid:%d on port:%d", serversocketid, udp_port);
+    GAgent_Printf(GAGENT_CRITICAL,"UDP Server socketid:%d on port:%d", serversocketid, udp_port);
     return serversocketid;
 }
 int32 GAgent_CreateUDPBroadCastServer( uint16 udpbroadcast_port, struct sockaddr_t *sockaddr)

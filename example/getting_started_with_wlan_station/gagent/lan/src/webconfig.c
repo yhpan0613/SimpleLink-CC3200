@@ -153,6 +153,7 @@ void GAgent_DoTcpWebConfig( pgcontext pgc )
 
     if(FD_ISSET(pgc->ls.tcpWebConfigFd, &(pgc->rtinfo.readfd)))
     {
+         FD_CLR(pgc->ls.tcpWebConfigFd ,&(pgc->rtinfo.readfd) );
         /* if nonblock, can be done in accept progress */
         newfd = Socket_accept(pgc->ls.tcpWebConfigFd, &addr, &addrLen);
         if(newfd > 0)
@@ -169,6 +170,7 @@ void GAgent_DoTcpWebConfig( pgcontext pgc )
             continue;
         if(FD_ISSET(fd, &(pgc->rtinfo.readfd)))
         {
+             FD_CLR(fd, &(pgc->rtinfo.readfd) );
             Lan_setClientTimeOut(pgc, i);
             handleWebConfig( pgc,fd);
             close(fd);
