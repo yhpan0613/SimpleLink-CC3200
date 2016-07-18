@@ -10,6 +10,7 @@
 #include "gpio_if.h"
 #include "rom_map.h"
 
+#include "hw_types.h"
 #include "prcm.h"
 #include "gpio_if.h"
 
