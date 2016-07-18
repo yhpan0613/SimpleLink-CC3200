@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>2715357391</fileChecksum>
+  <configuration>
+    <name>Release</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\gagent\arch\CC3200\adapter_cc3200.c</file>
+      <file>$PROJ_DIR$\..\gagent\arch\CC3200\hal_serial\hal_uart.c</file>
+      <file>$PROJ_DIR$\..\gagent\arch\CC3200\net\netevent.c</file>
+      <file>$PROJ_DIR$\..\gagent\arch\CC3200\ota\src\ota.c</file>
+      <file>$PROJ_DIR$\..\gagent\cloud\src\cloud.c</file>
+      <file>$PROJ_DIR$\..\gagent\cloud\src\gagent_md5.c</file>
+      <file>$PROJ_DIR$\..\gagent\cloud\src\http.c</file>
+      <file>$PROJ_DIR$\..\gagent\cloud\src\mqttbase.c</file>
+      <file>$PROJ_DIR$\..\gagent\cloud\src\mqttlib.c</file>
+      <file>$PROJ_DIR$\..\gagent\cloud\src\mqttxpg.c</file>
+      <file>$PROJ_DIR$\..\gagent\core\user_misc.c</file>
+      <file>$PROJ_DIR$\..\gagent\core\utilcoding.c</file>
+      <file>$PROJ_DIR$\..\gagent\lan\src\3rdlan.c</file>
+      <file>$PROJ_DIR$\..\gagent\lan\src\lan.c</file>
+      <file>$PROJ_DIR$\..\gagent\lan\src\lantcp.c</file>
+      <file>$PROJ_DIR$\..\gagent\lan\src\lanudp.c</file>
+      <file>$PROJ_DIR$\..\gagent\lan\src\webconfig.c</file>
+      <file>$PROJ_DIR$\..\gagent\local\src\hal_receive.c</file>
+      <file>$PROJ_DIR$\..\gagent\local\src\local.c</file>
+      <file>$PROJ_DIR$\..\gagent\local\src\local_common.c</file>
+      <file>$PROJ_DIR$\..\gagent\local\src\mcu_common.c</file>
+      <file>$PROJ_DIR$\..\gagent\gagent.c</file>
+      <file>$PROJ_DIR$\..\gagent\gagent_netevent.c</file>
+      <file>$PROJ_DIR$\..\gagent\common\button_if.c</file>
+      <file>$PROJ_DIR$\..\..\common\gpio_if.c</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$PROJ_DIR$\..\..\common\network_common.c</file>
+      <file>$PROJ_DIR$\..\gagent\arch\CC3200\ota\inc\ota.h</file>
+      <file>$PROJ_DIR$\..\pinmux.c</file>
+      <file>$PROJ_DIR$\..\..\common\startup_ewarm.c</file>
+      <file>$PROJ_DIR$\..\..\common\timer_if.c</file>
+      <file>$PROJ_DIR$\..\gagent\common\uart_if.c</file>
+      <file>$PROJ_DIR$\..\..\common\udma_if.c</file>
+      <file>$PROJ_DIR$\..\..\common\wdt_if.c</file>
+      <file>$PROJ_DIR$\Release\Obj\user_misc.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\adapter_cc3200.o</file>
+      <file>$PROJ_DIR$\Release\Obj\mqttxpg.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\mqttlib.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\lantcp.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\uart_if.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\lan.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_uart.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\3rdlan.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\mqttbase.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\gagent_md5.o</file>
+      <file>$PROJ_DIR$\Release\Obj\adapter_cc3200.pbi</file>
+      <file>$PROJ_DIR$\..\..\..\inc\hw_memmap.h</file>
+      <file>$PROJ_DIR$\Release\Exe\wlan_station.out</file>
+      <file>$PROJ_DIR$\..\..\..\simplelink\include\wlan.h</file>
+      <file>$PROJ_DIR$\..\gagent\arch\CC3200\platform.h</file>
+      <file>$PROJ_DIR$\..\gagent\include\gagent_typedef.h</file>
+      <file>$PROJ_DIR$\..\..\..\driverlib\prcm.h</file>
+      <file>$PROJ_DIR$\..\..\..\simplelink\include\simplelink.h</file>
+      <file>$PROJ_DIR$\..\..\..\driverlib\wdt.h</file>
+      <file>$PROJ_DIR$\..\..\common\wdt_if.h</file>
+      <file>$PROJ_DIR$\..\..\..\simplelink\include\wlan_rx_filters.h</file>
+      <file>$PROJ_DIR$\..\..\..\simplelink\include\device.h</file>
+      <file>$PROJ_DIR$\..\..\..\simplelink\include\netcfg.h</file>
+      <file>$PROJ_DIR$\..\gagent\iof\iof_arch.h</file>
+      <file>$PROJ_DIR$\..\..\..\simplelink\source\spawn.h</file>
+      <file>$PROJ_DIR$\..\gagent\common\common.h</file>
+      <file>$PROJ_DIR$\..\gagent\cloud\inc\mqttxpg.h</file>
+      <file>$PROJ_DIR$\..\gagent\cloud\inc\mqttbase.h</file>
+      <file>$PROJ_DIR$\..\..\..\driverlib\rom.h</file>
+      <file>$PROJ_DIR$\..\gagent\cloud\inc\mqttlib.h</file>
+      <file>$PROJ_DIR$\..\gagent\local\inc\local.h</file>
+      <file>$PROJ_DIR$\..\..\..\inc\hw_apps_rcm.h</file>
+      <file>$PROJ_DIR$\..\gagent\cloud\inc\http.h</file>
+      <file>$PROJ_DIR$\..\..\..\inc\hw_ints.h</file>
+      <file>$PROJ_DIR$\..\..\..\driverlib\interrupt.h</file>
+      <file>$PROJ_DIR$\..\gagent\common\uart_if.h</file>
+      <file>$PROJ_DIR$\..\gagent\common\button_if.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\errno.h</file>
+      <file>$PROJ_DIR$\Release\Obj\netevent.o</file>
+      <file>$PROJ_DIR$\Release\Obj\cloud.o</file>
+      <file>$PROJ_DIR$\..\..\..\driverlib\timer.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\..\..\..\driverlib\utils.h</file>
+      <file>$PROJ_DIR$\..\..\..\driverlib\systick.h</file>
+      <file>$PROJ_DIR$\..\..\..\inc\hw_uart.h</file>
+      <file>$PROJ_DIR$\..\..\..\driverlib\udma.h</file>
+      <file>$PROJ_DIR$\..\..\..\driverlib\uart.h</file>
+      <file>$PROJ_DIR$\..\..\common\udma_if.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+      <file>$PROJ_DIR$\..\gagent\arch\CC3200\net\netevent.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdarg.h</file>
+      <file>$PROJ_DIR$\..\gagent\lan\inc\lanudp.h</file>
+      <file>$PROJ_DIR$\..\gagent\lan\inc\lan.h</file>
+      <file>$PROJ_DIR$\..\gagent\local\inc\hal_receive.h</file>
+      <file>$PROJ_DIR$\..\..\..\inc\hw_udma.h</file>
+      <file>$PROJ_DIR$\..\..\..\driverlib\gpio.h</file>
+      <file>$PROJ_DIR$\..\..\..\driverlib\pin.h</file>
+      <file>$PROJ_DIR$\Release\Obj\timer_if.pbi</file>
+      <file>$PROJ_DIR$\..\gagent\cloud\inc\3rdcloud.h</file>
+      <file>$PROJ_DIR$\..\..\..\driverlib\debug.h</file>
+      <file>$PROJ_DIR$\..\gagent\cloud\inc\cloud.h</file>
+      <file>$PROJ_DIR$\..\..\..\inc\hw_gpio.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+      <file>$PROJ_DIR$\..\gagent\include\utils.h</file>
+      <file>$PROJ_DIR$\..\..\..\simplelink\user.h</file>
+      <file>$PROJ_DIR$\..\..\..\simplelink\cc_pal.h</file>
+      <file>$PROJ_DIR$\..\gagent\arch\CC3200\hal_serial\hal_uart.h</file>
+      <file>$PROJ_DIR$\..\..\..\oslib\osi.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+      <file>$PROJ_DIR$\..\..\common\timer_if.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+      <file>$PROJ_DIR$\Release\Obj\3rdlan.o</file>
+      <file>$PROJ_DIR$\Release\Obj\lan.o</file>
+      <file>$PROJ_DIR$\..\..\..\driverlib\rom_map.h</file>
+      <file>$PROJ_DIR$\Release\Obj\ota.o</file>
+      <file>$PROJ_DIR$\Release\Obj\local_common.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\ystdio.h</file>
+      <file>$PROJ_DIR$\..\..\..\inc\hw_types.h</file>
+      <file>$PROJ_DIR$\Release\Obj\network_common.o</file>
+      <file>$PROJ_DIR$\Release\Obj\network_common.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_uart.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
+      <file>$PROJ_DIR$\Release\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\..\..\..\simplelink\include\netapp.h</file>
+      <file>$PROJ_DIR$\Release\Obj\http.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\local.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\gagent.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\local_common.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\webconfig.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\mcu_common.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_receive.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\lanudp.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\button_if.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\gagent_netevent.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\startup_ewarm.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\pinmux.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\gpio_if.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\udma_if.pbi</file>
+      <file>$PROJ_DIR$\..\..\..\simplelink\include\fs.h</file>
+      <file>$PROJ_DIR$\..\gagent\lan\inc\3rdlan.h</file>
+      <file>$PROJ_DIR$\..\..\..\simplelink\include\socket.h</file>
+      <file>$PROJ_DIR$\Release\Exe\cc3200_gizwits.out</file>
+      <file>$PROJ_DIR$\Release\Obj\local.o</file>
+      <file>$PROJ_DIR$\Release\Obj\ota.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\netevent.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\cloud.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\udma_if.o</file>
+      <file>$PROJ_DIR$\Release\Obj\wdt_if.o</file>
+      <file>$PROJ_DIR$\Release\Obj\uart_if.o</file>
+      <file>$PROJ_DIR$\Release\Obj\timer_if.o</file>
+      <file>$PROJ_DIR$\Release\Obj\startup_ewarm.o</file>
+      <file>$PROJ_DIR$\Release\Obj\pinmux.o</file>
+      <file>$PROJ_DIR$\Release\Obj\button_if.o</file>
+      <file>$PROJ_DIR$\Release\Obj\main.o</file>
+      <file>$PROJ_DIR$\Release\Obj\gagent.o</file>
+      <file>$PROJ_DIR$\Release\Obj\gagent_netevent.o</file>
+      <file>$PROJ_DIR$\Release\Obj\gpio_if.o</file>
+      <file>$PROJ_DIR$\Release\Obj\webconfig.o</file>
+      <file>$PROJ_DIR$\Release\Obj\http.o</file>
+      <file>$PROJ_DIR$\Release\Obj\lanudp.o</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_receive.o</file>
+      <file>$PROJ_DIR$\Release\Obj\lantcp.o</file>
+      <file>$PROJ_DIR$\Release\Obj\utilcoding.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\user_misc.o</file>
+      <file>$PROJ_DIR$\Release\Obj\gagent_md5.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\utilcoding.o</file>
+      <file>$PROJ_DIR$\Release\Exe\wlan_station.bin</file>
+      <file>$PROJ_DIR$\Release\Obj\mqttbase.o</file>
+      <file>$PROJ_DIR$\Release\Obj\mqttxpg.o</file>
+      <file>$PROJ_DIR$\Release\Obj\mqttlib.o</file>
+      <file>$PROJ_DIR$\..\..\common\gpio_if.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\..\..\..\simplelink\source\objInclusion.h</file>
+      <file>$PROJ_DIR$\..\..\..\simplelink_extlib\provisioninglib\provisioning_api.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\..\..\..\simplelink\include\trace.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+      <file>$PROJ_DIR$\..\gagent\include\gagent.h</file>
+      <file>$PROJ_DIR$\Release\Obj\mcu_common.o</file>
+      <file>$PROJ_DIR$\..\..\..\driverlib\rom_patch.h</file>
+      <file>$PROJ_DIR$\Release\Obj\wdt_if.pbi</file>
+      <file>$PROJ_DIR$\..\pinmux.h</file>
+      <file>$PROJ_DIR$\Release\Obj\cc3200_gizwits.pbd</file>
+      <file>$PROJ_DIR$\Release\Exe\cc3200_gizwits.bin</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 47 140</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\arch\CC3200\adapter_cc3200.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 35</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 85 58 170 178 51 52 83 103 60 54 180 174 49 169 46 70 76 48 59 105 112 53 50 99 108 102 173 106 115 139 57 101 176 98 72 104 107 100 171 137 122 56 55 109 172 120 116</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\arch\CC3200\hal_serial\hal_uart.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 119</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 41</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 72 52 49 83 85 174 98 104 170 76 48 103 70 108 102 173 106 115 139 57 101 107 100 171 137 122 56 55 59 109 172 120</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\arch\CC3200\net\netevent.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 73</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 143</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 180 108 85 57 52 58 102 173 106 83 115 139 109 70 49 170 76 174 48 104 176 50 99 60 98 72 107 100 171 137 122 56 55 172 120 116 84 59 101 103</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\arch\CC3200\ota\src\ota.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 113</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 142</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\cloud\src\cloud.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 74</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 144</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 49 106 115 70 102 173 83 101 64 94 139 52 50 61 58 180 108 85 57 176 175 67 96 77 99 60 170 76 174 48 59 103 98 72 104 107 100 171 137 122 56 55 109 172 120 116 62</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\cloud\src\gagent_md5.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 44</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 163</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\cloud\src\http.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 157</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 123</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 170 76 59 116 70 49 52 48 83 109 58 180 108 102 85 173 106 174 103 120 50 67 65 99 60 98 72 104 107 115 139 57 101 176 100 171 137 122 56 55 172</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\cloud\src\mqttbase.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 166</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 43</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 106 115 58 108 85 83 101 180 102 173 139 52 50 64 70 49 170 57 176 62 99 60 98 72 104 76 174 48 59 103 175 107 100 171 137 122 56 55 109 172 120 116</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\cloud\src\mqttlib.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 168</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 37</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 57 52 176 58 108 85 83 62 180 102 173 106 115 139 101 175 64 96 70 49 170 76 174 48 59 103 50 99 60 98 72 104 107 100 171 137 122 56 55 109 172 120 116</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\cloud\src\mqttxpg.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 167</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 36</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 180 137 52 64 58 107 85 104 109 62 70 98 83 56 61 96 50 99 60 72 100 171 122 55 172 120 49 116 176 108 102 170 173 106 76 115 174 139 48 57 59 101 103 175</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\core\user_misc.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 162</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 104 103 173 106 83 60 52 176 85 50 174 108 170 76 120 99 72 48 59 86 109 107 115 58 70 180 49 98 139 57 101 116 102 100 171 137 122 56 55 172</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\core\utilcoding.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 164</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 161</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 57 176 52 83 50 98 60 64 99 72 104 173 106 115 139 101 49 88 96 58 70 180 108 102 85 170 76 174 48 59 103 175 107 100 171 137 122 56 55 109 172 120 116</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\lan\src\3rdlan.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 110</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 42</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 109 104 52 99 72 137 138 50 60 98 83 107 85 56 96 94 58 70 180 49 108 102 170 173 106 76 100 171 122 55 172 120 116 176 115 174 139 48 57 59 101 103</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\lan\src\lan.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 111</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 40</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 106 115 170 83 101 49 70 52 139 87 58 180 108 102 85 173 57 176 88 138 50 99 60 98 72 104 107 76 174 48 59 103 100 171 137 122 56 55 109 172 120 116</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\lan\src\lantcp.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 160</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 38</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 70 49 98 83 56 104 64 58 180 107 85 137 109 52 88 77 50 99 60 72 100 171 122 55 172 120 116 176 108 102 170 173 106 76 115 174 139 48 57 59 101 103 175</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\lan\src\lanudp.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 158</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 130</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 174 52 49 64 99 72 104 83 85 103 87 50 60 98 107 48 59 88 138 58 70 180 108 102 170 173 106 76 115 139 57 101 176 100 171 137 122 56 55 109 172 120 116 175</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\lan\src\webconfig.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 156</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 127</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 52 59 49 70 170 76 48 83 85 174 103 58 180 108 102 173 106 115 139 57 88 50 99 60 98 72 104 107 100 171 137 122 56 55 101 176 109 172 120 116</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\local\src\hal_receive.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 159</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 129</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 85 172 99 52 122 72 104 83 100 171 55 50 60 98 107 137 56 109 103 49 89 58 70 180 108 102 170 173 106 76 115 174 139 48 57 59 101 176 120 116</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\local\src\local.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 141</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 124</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 56 50 98 104 49 83 89 88 67 60 107 85 137 109 52 77 65 96 99 72 100 171 122 55 172 120 116 176 58 70 180 108 102 170 173 106 76 115 174 139 48 57 59 101 103</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\local\src\local_common.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 114</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 126</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 180 102 173 52 106 49 100 171 50 89 58 108 85 83 55 120 88 70 170 76 122 172 116 77 65 96 99 60 98 72 104 107 137 56 109 176 115 174 139 48 57 59 101 103</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\local\src\mcu_common.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 177</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 128</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 109 107 85 50 104 137 52 60 98 83 56 99 72 100 171 122 55 172 120 58 70 180 49 108 102 170 173 106 76 115 174 139 48 57 59 101 103 116 176</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\gagent.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 153</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 125</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 55 99 72 120 104 83 52 100 171 49 50 96 85 122 172 116 88 60 98 107 137 56 109 176 58 70 180 108 102 170 173 106 76 115 174 139 48 57 59 101 103</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\gagent_netevent.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 154</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 132</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 49 70 52 170 83 76 56 104 58 180 108 102 85 173 106 137 109 96 50 99 60 98 72 107 100 171 122 55 172 120 116 176 115 174 139 48 57 59 101 103</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\common\button_if.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 151</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 131</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 85 122 46 52 112 176 104 60 172 68 69 103 107 178 50 98 100 171 55 120 116 63 91 92 71 169 170 173 106 76 99 72 137 56 109 49 58 70 180 108 102 115 174 139 48 57 59 101</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\common\gpio_if.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 155</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 135</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 178 51 170 66 83 173 106 68 92 112 103 104 76 116 46 69 91 63 98 169 85 115 107 108</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 152</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 121</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 55 52 83 180 46 81 50 98 49 68 103 176 173 106 104 100 171 112 51 70 105 82 85 122 172 60 109 116 63 69 75 77 169 78 71 80 79 170 76 120 137 56 99 72 107 174 139 48 57 59 101 178 58 108 102 115</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\common\network_common.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 117</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 118</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 174 173 106 85 52 170 76 48 103 83 104 107 139 57 101 98 100 171 137 122 56 55 59 109 172 120</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\pinmux.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 150</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 134</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51 178 92 46 112 116 97 63 91 180</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\common\startup_ewarm.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 149</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 133</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 68 116 69</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\common\timer_if.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 148</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 93</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 107 85 83 51 69 103 68 63 104 46 95 75 112 98 105 178 170 173 106 76 116</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\gagent\common\uart_if.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 147</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 39</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 85 79 81 107 83 120 172 52 116 103 122 108 51 112 104 100 171 55 98 109 46 92 63 70 80 60 173 170 106 76 115 178 137 56 86 174 139 48 57 59 101</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\common\udma_if.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 145</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 136</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 98 104 170 76 112 79 51 83 68 90 80 82 173 106 85 109 46 116 63 91 69 81 103 115 107 120 108 178</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\common\wdt_if.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 146</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 179</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 178 69 51 103 83 173 68 63 104 170 116 46 53 112 54 85 115 107 108 106 76</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release\Exe\wlan_station.out</name>
+      <outputs>
+        <tool>
+          <name>OBJCOPY</name>
+          <file> 165</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release\Exe\cc3200_gizwits.out</name>
+      <outputs>
+        <tool>
+          <name>OBJCOPY</name>
+          <file> 182</file>
+        </tool>
+      </outputs>
+    </file>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

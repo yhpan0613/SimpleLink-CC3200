@@ -1,0 +1,92 @@
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[LMIFTDIDriver]
+LMI_ResetMode=0x00000000
+LMIFTDIserialNo=cc3101A
+LMIFTDIfoundProbes=FFFFFFFF:cc3101A:
+[DebugChecksum]
+Checksum=2061447140
+[LMIFTDI]
+LMIFTDIserialNo=cc3101A
+LMIFTDIfoundProbes=
+[Exceptions]
+StopOnUncaught=_ 0
+StopOnThrow=_ 0
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[DriverProfiling]
+Enabled=0
+Mode=0
+Graph=0
+Symbiont=0
+Exclusions=
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Breakpoints]
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\gagent\gagent_netevent.c}.5.1" 0 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\gagent\gagent_netevent.c}.9.5" 0 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\..\gagent\cloud\src\cloud.c}.502.5" 1 0 0 0 "" 0 ""
+Bp3=_ "STD_CODE" "{$PROJ_DIR$\..\main.c}.538.5" 1 0 0 0 "" 0 ""
+Count=4
+[InterruptLog]
+LogEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+SumEnabled=0
+ShowTimeSum=1
+SumSortOrder=0
+[DataLog]
+LogEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+SumEnabled=0
+ShowTimeSum=1
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Count=0
+[Interrupts]
+Enabled=1
+[MemConfig]
+Base=1
+Manual=0
+Ddf=1
+TypeViol=0
+Stop=1
+[Trace1]
+Enabled=0
+ShowSource=1
+[Aliases]
+A0=_ "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\arm\inc\c\DLib_Product_string.h" ""
+A1=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\driverlib\cpu.c" ""
+A2=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\driverlib\gpio.c" ""
+A3=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\driverlib\prcm.c" ""
+A4=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\driverlib\uart.c" ""
+A5=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\driverlib\utils.c" ""
+A6=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\oslib\osi_freertos.c" ""
+A7=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\simplelink\source\driver.c" ""
+A8=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\simplelink\source\socket.c" ""
+A9=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\third_party\FreeRTOS\source\list.c" ""
+A10=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\third_party\FreeRTOS\source\portable\IAR\ARM_CM4\portasm.s" ""
+A11=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\third_party\FreeRTOS\source\portable\MemMang\heap_3.c" ""
+A12=_ "D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\third_party\FreeRTOS\source\tasks.c" ""
+Count=13
+SuppressDialog=0
+[Simulator]
+Freq=10000000
+MultiCoreRunAll=1
