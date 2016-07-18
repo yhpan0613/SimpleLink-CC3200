@@ -184,7 +184,7 @@ void GAgent_DoTcpWebConfig( pgcontext pgc ) //webconfig
 	// FD_CLR(pgc->ls.tcpWebConfigFd ,&(pgc->rtinfo.readfd) );
         
         /* if nonblock, can be done in accept progress */
-    newfd = Socket_accept(pgc->ls.tcpWebConfigFd, &addr, (socklen_t *)&addrLen);
+    newfd = Socket_accept(pgc->ls.tcpWebConfigFd, &addr, &addrLen);
     if(newfd < 0)
          return ;
 

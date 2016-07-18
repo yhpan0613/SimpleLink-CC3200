@@ -326,7 +326,7 @@ void GAgent3rdLan_Handle( pgcontext pgc )
             {
                 resetPacket(prxBuf);
                 recLen = Socket_recvfrom(pgc->ls.udp3rdCloudFd, prxBuf->phead, GAGENT_BUF_LEN,
-                    &addr, (socklen_t *)&addrLen);
+                    &addr, &addrLen);
                 GAgent_Printf( GAGENT_INFO,"3rdCloud Lan Receive len = %d error=%d ",recLen,errno );
                 if( recLen<=0 ) return ;
                 GAgent_Printf(GAGENT_INFO,"Do JD udp Data handle.");

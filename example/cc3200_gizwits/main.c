@@ -82,14 +82,14 @@
 //Common interface includes
 #include "gpio_if.h"
 #ifndef NOTERM
-#include "uart_if.h"
+#include "giz_uart_if.h"
 #endif
 #include "common.h"
 #include "pinmux.h"
 
 #include "systick.h"
 #include "timer_if.h"
-#include "button_if.h"
+#include "giz_button_if.h"
 
 
 #include "gagent.h"
@@ -112,6 +112,8 @@
 
 #define OSI_STACK_SIZE      8192////2048 //Nik.chen 
 #define MAX_MSG_LENGTH   32
+
+#define COMMU_BAUD_RATE 9600
 
 // Application specific status/error codes
 typedef enum{

@@ -55,7 +55,7 @@
 #include "osi.h"
 #endif
 
-#include "uart_if.h"
+#include "giz_uart_if.h"
 #include "simplelink.h"
 //#include "gagent.h"
 #include "udma.h"

@@ -48,7 +48,7 @@
 #ifdef SL_PLATFORM_MULTI_THREADED  /* If OS-based application */
 #include "osi.h"
 #endif
-#include "button_if.h"
+#include "giz_button_if.h"
 
 #include "gagent.h"
 #include "gpio_if.h"

@@ -750,7 +750,7 @@
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>lnk0t.icf</state>
+          <state>$TOOLKIT_DIR$\config\linker\TexasInstruments\cc3200.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>
@@ -798,7 +798,11 @@
         </option>
         <option>
           <name>IlinkAdditionalLibs</name>
-          <state></state>
+          <state>$PROJ_DIR$/../../../simplelink/ewarm/OS/Exe/simplelink.a</state>
+          <state>$PROJ_DIR$/../../../driverlib/ewarm/Release/Exe/driverlib.a</state>
+          <state>$PROJ_DIR$/../../../oslib/ewarm/free_rtos/Exe/free_rtos.a</state>
+          <state>$PROJ_DIR$/../../../simplelink_extlib/flc/ewarm/Release/exe/flc.a</state>
+          <state>$PROJ_DIR$/../../../simplelink_extlib/ota/ewarm/Release/exe/ota.a</state>
         </option>
         <option>
           <name>IlinkOverrideProgramEntryLabel</name>
@@ -810,7 +814,7 @@
         </option>
         <option>
           <name>IlinkProgramEntryLabel</name>
-          <state></state>
+          <state>__iar_program_start</state>
         </option>
         <option>
           <name>DoFill</name>
