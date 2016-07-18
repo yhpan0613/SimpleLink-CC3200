@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -235,43 +235,31 @@ __extern xdc_Ptr ti_sysbios_knl_Task_SupportProxy_Proxy__delegate__S( void );
 #define ti_sysbios_knl_Task_SupportProxy_start ti_sysbios_knl_Task_SupportProxy_start__E
 xdc__CODESECT(ti_sysbios_knl_Task_SupportProxy_start__E, "ti_sysbios_knl_Task_SupportProxy_start")
 __extern xdc_Ptr ti_sysbios_knl_Task_SupportProxy_start__E( xdc_Ptr curTask, ti_sysbios_interfaces_ITaskSupport_FuncPtr enter, ti_sysbios_interfaces_ITaskSupport_FuncPtr exit, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_knl_Task_SupportProxy_start__R, "ti_sysbios_knl_Task_SupportProxy_start")
-__extern xdc_Ptr ti_sysbios_knl_Task_SupportProxy_start__R( xdc_Ptr curTask, ti_sysbios_interfaces_ITaskSupport_FuncPtr enter, ti_sysbios_interfaces_ITaskSupport_FuncPtr exit, xdc_runtime_Error_Block *eb );
 
 /* swap__E */
 #define ti_sysbios_knl_Task_SupportProxy_swap ti_sysbios_knl_Task_SupportProxy_swap__E
 xdc__CODESECT(ti_sysbios_knl_Task_SupportProxy_swap__E, "ti_sysbios_knl_Task_SupportProxy_swap")
 __extern xdc_Void ti_sysbios_knl_Task_SupportProxy_swap__E( xdc_Ptr *oldtskContext, xdc_Ptr *newtskContext );
-xdc__CODESECT(ti_sysbios_knl_Task_SupportProxy_swap__R, "ti_sysbios_knl_Task_SupportProxy_swap")
-__extern xdc_Void ti_sysbios_knl_Task_SupportProxy_swap__R( xdc_Ptr *oldtskContext, xdc_Ptr *newtskContext );
 
 /* checkStack__E */
 #define ti_sysbios_knl_Task_SupportProxy_checkStack ti_sysbios_knl_Task_SupportProxy_checkStack__E
 xdc__CODESECT(ti_sysbios_knl_Task_SupportProxy_checkStack__E, "ti_sysbios_knl_Task_SupportProxy_checkStack")
 __extern xdc_Bool ti_sysbios_knl_Task_SupportProxy_checkStack__E( xdc_Char *stack, xdc_SizeT size );
-xdc__CODESECT(ti_sysbios_knl_Task_SupportProxy_checkStack__R, "ti_sysbios_knl_Task_SupportProxy_checkStack")
-__extern xdc_Bool ti_sysbios_knl_Task_SupportProxy_checkStack__R( xdc_Char *stack, xdc_SizeT size );
 
 /* stackUsed__E */
 #define ti_sysbios_knl_Task_SupportProxy_stackUsed ti_sysbios_knl_Task_SupportProxy_stackUsed__E
 xdc__CODESECT(ti_sysbios_knl_Task_SupportProxy_stackUsed__E, "ti_sysbios_knl_Task_SupportProxy_stackUsed")
 __extern xdc_SizeT ti_sysbios_knl_Task_SupportProxy_stackUsed__E( xdc_Char *stack, xdc_SizeT size );
-xdc__CODESECT(ti_sysbios_knl_Task_SupportProxy_stackUsed__R, "ti_sysbios_knl_Task_SupportProxy_stackUsed")
-__extern xdc_SizeT ti_sysbios_knl_Task_SupportProxy_stackUsed__R( xdc_Char *stack, xdc_SizeT size );
 
 /* getStackAlignment__E */
 #define ti_sysbios_knl_Task_SupportProxy_getStackAlignment ti_sysbios_knl_Task_SupportProxy_getStackAlignment__E
 xdc__CODESECT(ti_sysbios_knl_Task_SupportProxy_getStackAlignment__E, "ti_sysbios_knl_Task_SupportProxy_getStackAlignment")
 __extern xdc_UInt ti_sysbios_knl_Task_SupportProxy_getStackAlignment__E( void );
-xdc__CODESECT(ti_sysbios_knl_Task_SupportProxy_getStackAlignment__R, "ti_sysbios_knl_Task_SupportProxy_getStackAlignment")
-__extern xdc_UInt ti_sysbios_knl_Task_SupportProxy_getStackAlignment__R( void );
 
 /* getDefaultStackSize__E */
 #define ti_sysbios_knl_Task_SupportProxy_getDefaultStackSize ti_sysbios_knl_Task_SupportProxy_getDefaultStackSize__E
 xdc__CODESECT(ti_sysbios_knl_Task_SupportProxy_getDefaultStackSize__E, "ti_sysbios_knl_Task_SupportProxy_getDefaultStackSize")
 __extern xdc_SizeT ti_sysbios_knl_Task_SupportProxy_getDefaultStackSize__E( void );
-xdc__CODESECT(ti_sysbios_knl_Task_SupportProxy_getDefaultStackSize__R, "ti_sysbios_knl_Task_SupportProxy_getDefaultStackSize")
-__extern xdc_SizeT ti_sysbios_knl_Task_SupportProxy_getDefaultStackSize__R( void );
 
 
 /*

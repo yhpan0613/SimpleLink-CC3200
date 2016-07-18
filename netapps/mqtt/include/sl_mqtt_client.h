@@ -137,6 +137,9 @@ extern "C"
 #define SL_MQTT_CL_EVT_UNSUBACK 0x0B  /**< UNSUBACK has been received from the server */
         /** @} */ /* End Client events */
 
+#define SL_MQTT_NETCONN_IP6  0x04  /**< Assert for IPv6 connection, otherwise  IPv4 */
+#define SL_MQTT_NETCONN_URL  0x08  /**< Server address is an URL and not IP address */
+#define SL_MQTT_NETCONN_SEC  0x10  /**< Connection to server  must  be secure (TLS) */
 
       /* Define server structure which holds , server address and port number.
       These values are set by the sl_MqttSet API and retrieved by sl_MqttGet API*/
@@ -234,11 +237,6 @@ extern "C"
         where secure_files = security_file_list
         */
         typedef struct {
-
-#define SL_MQTT_NETCONN_IP6  0x04  /**< Assert for IPv6 connection, otherwise  IPv4 */
-#define SL_MQTT_NETCONN_URL  0x08  /**< Server address is an URL and not IP address */
-#define SL_MQTT_NETCONN_SEC  0x10  /**< Connection to server  must  be secure (TLS) */
-
                 _u32         netconn_flags; /**< Enumerate connection type  */
                 const char          *server_addr;   /**< Server Address: URL or IP  */
                 _u16       port_number;   /**< Port number of MQTT server */

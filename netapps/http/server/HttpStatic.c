@@ -94,6 +94,7 @@ int HttpStatic_ProcessRequest(struct HttpRequest* request)
 
 	if(content == NULL)
 	{
+		sl_FsClose(glFileHandle,0,0,0);
 		return 0;
 	}
 	location.pData = NULL;
@@ -173,8 +174,9 @@ int HttpStatic_ProcessRequest(struct HttpRequest* request)
 		Offset += content->uLength;
 	}
 
-	sl_FsClose(glFileHandle,0,0,0);
+
 end:
+	sl_FsClose(glFileHandle,0,0,0);
 	if(buffer != NULL)
 	{
 		free(buffer);

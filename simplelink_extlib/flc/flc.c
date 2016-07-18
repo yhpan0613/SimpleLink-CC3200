@@ -160,20 +160,78 @@ static _i32 _ReadBootInfo(sBootInfo_t *psBootInfo)
     return status;
 }
 
+#ifndef FAST_BOOT
 _i32 sl_extlib_FlcOpenFile(_u8 *file_name, _i32 file_size, _u32 *ulToken, _i32 *lFileHandle, _i32 open_flags)
 {
-    /* MCU image name should be changed */
-    if (strstr((char *)file_name, "/sys/mcuimgA") != NULL)
-    {
-        file_name[11] = (_u8)_McuImageGetNewIndex() + '1'; /* mcuimg1 is for factory default, mcuimg2,3 are for OTA updates */
-        Report("sl_extlib_FlcOpenFile: MCU image name converted to %s \r\n", file_name);
-    }
-
-    if (open_flags == _FS_MODE_OPEN_READ)
-        return sl_FsOpen((_u8 *)file_name, _FS_MODE_OPEN_READ, ulToken, lFileHandle);
-    else
-        return sl_FsOpen((_u8 *)file_name, FS_MODE_OPEN_CREATE(file_size, open_flags), ulToken, lFileHandle);
+	if(open_flags == _FS_MODE_OPEN_READ)
+	{
+		return sl_FsOpen((_u8 *)file_name,
+				_FS_MODE_OPEN_READ, ulToken, lFileHandle);
+	}
+	else
+	{
+		/* MCU image name should be changed */
+		if(strstr((char *)file_name, "/sys/mcuimgA") != NULL)
+		{
+			/* mcuimg1 is for factory default,
+	      mcuimg2,3 are for OTA updates */
+			file_name[11] = (_u8)_McuImageGetNewIndex() + '1';
+			/* make sure that the file is not opened as
+	      fail-safe since it might fill the entire SFLASH and
+	      it is not required for the MCU image */
+			open_flags &= ~_FS_FILE_OPEN_FLAG_COMMIT;
+			Report("sl_extlib_FlcOpenFile: MCU image"
+					"name converted to %s \r\n", file_name);
+		}
+		return sl_FsOpen((_u8 *)file_name,
+				FS_MODE_OPEN_CREATE(file_size, open_flags),
+				ulToken, lFileHandle);
+	}
 }
+#else
+_i32 sl_extlib_FlcOpenFile(_u8 *file_name, _i32 file_size, _u32 *ulToken, _i32 *lFileHandle, _i32 open_flags)
+{
+	char uclocalFilename[100];
+
+	if(open_flags == _FS_MODE_OPEN_READ)
+	{
+		return sl_FsOpen((_u8 *)file_name,
+				_FS_MODE_OPEN_READ, ulToken, lFileHandle);
+	}
+	else
+	{
+		/* MCU image name should be changed */
+		if(strstr((char *)file_name, "/sys/mcuimgA") != NULL)
+		{
+			switch(_McuImageGetNewIndex())
+			{
+			case IMG_ACT_USER1:
+				strcpy(uclocalFilename,IMG_USER_1);
+				break;
+
+			case IMG_ACT_USER2:
+				strcpy(uclocalFilename,IMG_USER_2);
+				break;
+			}
+
+			/* make sure that the file is not opened as
+			fail-safe since it might fill the entire SFLASH and
+	      		it is not required for the MCU image */
+
+			open_flags &= ~_FS_FILE_OPEN_FLAG_COMMIT;
+			Report("sl_extlib_FlcOpenFile: MCU image"
+					"name converted to %s \r\n", uclocalFilename);
+		}
+		else
+		{
+			strcpy(uclocalFilename,(char *)file_name);
+		}
+		return sl_FsOpen((_u8 *)uclocalFilename,
+				FS_MODE_OPEN_CREATE(file_size, open_flags),
+				ulToken, lFileHandle);
+	}
+}
+#endif
 
 _i32 sl_extlib_FlcWriteFile(_i32 fileHandle, _i32 offset, _u8 *buf, _i32 len)
 {

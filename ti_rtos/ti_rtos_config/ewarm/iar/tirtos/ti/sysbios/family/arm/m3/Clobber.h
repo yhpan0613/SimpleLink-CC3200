@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -167,25 +167,16 @@ __extern xdc_Bool ti_sysbios_family_arm_m3_Clobber_Module__startupDone__S( void 
 #define ti_sysbios_family_arm_m3_Clobber_trashRegs ti_sysbios_family_arm_m3_Clobber_trashRegs__E
 xdc__CODESECT(ti_sysbios_family_arm_m3_Clobber_trashRegs__E, "ti_sysbios_family_arm_m3_Clobber_trashRegs")
 __extern xdc_Void ti_sysbios_family_arm_m3_Clobber_trashRegs__E( xdc_UInt value );
-xdc__CODESECT(ti_sysbios_family_arm_m3_Clobber_trashRegs__F, "ti_sysbios_family_arm_m3_Clobber_trashRegs")
-__extern xdc_Void ti_sysbios_family_arm_m3_Clobber_trashRegs__F( xdc_UInt value );
-__extern xdc_Void ti_sysbios_family_arm_m3_Clobber_trashRegs__R( xdc_UInt value );
 
 /* postIntr__E */
 #define ti_sysbios_family_arm_m3_Clobber_postIntr ti_sysbios_family_arm_m3_Clobber_postIntr__E
 xdc__CODESECT(ti_sysbios_family_arm_m3_Clobber_postIntr__E, "ti_sysbios_family_arm_m3_Clobber_postIntr")
 __extern xdc_Void ti_sysbios_family_arm_m3_Clobber_postIntr__E( xdc_UInt intNum );
-xdc__CODESECT(ti_sysbios_family_arm_m3_Clobber_postIntr__F, "ti_sysbios_family_arm_m3_Clobber_postIntr")
-__extern xdc_Void ti_sysbios_family_arm_m3_Clobber_postIntr__F( xdc_UInt intNum );
-__extern xdc_Void ti_sysbios_family_arm_m3_Clobber_postIntr__R( xdc_UInt intNum );
 
 /* checkRegs__E */
 #define ti_sysbios_family_arm_m3_Clobber_checkRegs ti_sysbios_family_arm_m3_Clobber_checkRegs__E
 xdc__CODESECT(ti_sysbios_family_arm_m3_Clobber_checkRegs__E, "ti_sysbios_family_arm_m3_Clobber_checkRegs")
 __extern xdc_UInt ti_sysbios_family_arm_m3_Clobber_checkRegs__E( xdc_UInt value );
-xdc__CODESECT(ti_sysbios_family_arm_m3_Clobber_checkRegs__F, "ti_sysbios_family_arm_m3_Clobber_checkRegs")
-__extern xdc_UInt ti_sysbios_family_arm_m3_Clobber_checkRegs__F( xdc_UInt value );
-__extern xdc_UInt ti_sysbios_family_arm_m3_Clobber_checkRegs__R( xdc_UInt value );
 
 
 /*

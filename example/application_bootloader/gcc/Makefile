@@ -49,7 +49,7 @@ include makedefs
 # Where to find source files that do not live in this directory.
 #
 VPATH=..
-VPATH+=../../drivers
+VPATH+=../../common
 
 #
 # Where to find header files that do not live in the source directory.
@@ -62,6 +62,7 @@ IPATH+=../../../simplelink
 IPATH+=../../../simplelink/source
 IPATH+=../../../simplelink/include
 IPATH+=../../../simplelink_extlib/flc
+IPATH+=../../../simplelink_extlib/provisioninglib
 
 #
 # The default rule, which causes the driver library to be built.
@@ -91,6 +92,7 @@ ${BINDIR}:
 #
 ${BINDIR}/bootmgr.axf: ${OBJDIR}/main.o
 ${BINDIR}/bootmgr.axf: ${OBJDIR}/udma_if.o
+${BINDIR}/bootmgr.axf: ${OBJDIR}/network_common.o
 ${BINDIR}/bootmgr.axf: ${OBJDIR}/startup_${COMPILER}.o
 ${BINDIR}/bootmgr.axf: ${ROOT}/simplelink/${COMPILER}/${BINDIR}/libsimplelink_nonos_opt.a
 ${BINDIR}/bootmgr.axf: ${ROOT}/driverlib/${COMPILER}/${BINDIR}/libdriver.a

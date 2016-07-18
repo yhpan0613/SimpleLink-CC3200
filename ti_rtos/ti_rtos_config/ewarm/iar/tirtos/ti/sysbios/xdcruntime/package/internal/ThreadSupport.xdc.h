@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 #ifndef ti_sysbios_xdcruntime_ThreadSupport__INTERNAL__

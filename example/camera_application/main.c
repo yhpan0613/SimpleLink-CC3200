@@ -311,6 +311,11 @@ int main()
     InitTerm();
 #endif  //NOTERM
 
+  //
+  // Initilalize DMA
+  //
+  UDMAInit();
+
   // 
   // Simplelinkspawntask 
   //

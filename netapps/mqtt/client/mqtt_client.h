@@ -84,7 +84,7 @@
     @{
 */
 
-#define MQTT_CLIENT_VERSTR "1.0.3" /**< Version of Client LIB */
+#define MQTT_CLIENT_VERSTR "1.0.4" /**< Version of Client LIB */
 
 /** Provides a new MSG Identifier for a packet dispatch to server
 
@@ -443,13 +443,14 @@ i32 mqtt_client_send_progress(void *ctx);
     period of wait time and these messages are not the one that client is waiting
     for.
 
-    For platforms that can receive a MQTT message over multiple TCP packets or in
-    segments, it is neccessary for the application to provide the same packet
-    packet buffer 'mqp' across all iterations of this routine that returns with a
-    value of MQP_ERR_TIMEOUT. Such an arrangement enables the implementation to
-    iteratively build from consecutive multiple RX network packets / segements, a
-    MQTT message into the packet buffer 'mqp. The application can always choose
-    to assign a new 'mqp' once, a complete MQTT message has been received.
+    For platforms that can receive a MQTT message across multiple network packets
+    or in segments, it is neccessary for the application to provide the same and
+    unmodified packet buffer 'mqp' across all iterations of this routine when it
+    returns with a value of MQP_ERR_TIMEOUT. Such an arrangement enables the LIB
+    implementation to iteratively build from the consecutive multiple RX network
+    packets / segements, a MQTT message into the packet buffer 'mqp'. Of-course,
+    the application can always choose to assign a new 'mqp' once, a complete MQTT
+    message has been received.
 
     @param[in] ctx handle to the underlying network context in the LIB
     @see mqtt_client_ctx_create
@@ -523,6 +524,9 @@ i32 mqtt_client_ctx_run(void *ctx, u32 wait_secs);
 
     @note if the value of MQP_ERR_LIBQUIT is returned, then system must be
     restarted.
+
+    @warning This routine must not be used on platforms that can receive a MQTT
+    message across multiple network packets or segments.
 */
 i32 mqtt_client_await_msg(struct mqtt_packet *mqp, u32 wait_secs, void **app);
 

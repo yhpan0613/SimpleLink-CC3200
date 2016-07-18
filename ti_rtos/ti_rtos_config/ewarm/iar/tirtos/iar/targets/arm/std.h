@@ -68,9 +68,16 @@ typedef uint64_t      xdc_Bits64;
 typedef intptr_t        xdc_IArg;
 typedef uintptr_t       xdc_UArg;
 
+/*
+ *  ======== xdc__META ========
+ */
+#if (__VER__ >= 7010000)
+#define xdc__META(n,s) __no_alloc const char (n)[] @ "xdc.meta" = {s}
+#endif
+
 #endif /* iar_targets_arm_STD_ */
 /*
- *  @(#) iar.targets.arm; 1, 0, 0,133; 7-24-2014 16:51:12; /db/ztree/library/trees/xdctargets/xdctargets-h32x/src/ xlibrary
+ *  @(#) iar.targets.arm; 1, 0, 0,0; 12-11-2015 16:22:01; /db/ztree/library/trees/xdctargets/xdctargets-k07/src/ xlibrary
 
  */
 

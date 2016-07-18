@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -232,8 +232,6 @@ xdc__CODESECT(ti_sysbios_knl_Mailbox_Module_startup__E, "ti_sysbios_knl_Mailbox_
 __extern xdc_Int ti_sysbios_knl_Mailbox_Module_startup__E( xdc_Int state );
 xdc__CODESECT(ti_sysbios_knl_Mailbox_Module_startup__F, "ti_sysbios_knl_Mailbox_Module_startup")
 __extern xdc_Int ti_sysbios_knl_Mailbox_Module_startup__F( xdc_Int state );
-xdc__CODESECT(ti_sysbios_knl_Mailbox_Module_startup__R, "ti_sysbios_knl_Mailbox_Module_startup")
-__extern xdc_Int ti_sysbios_knl_Mailbox_Module_startup__R( xdc_Int state );
 
 /* Instance_init__E */
 xdc__CODESECT(ti_sysbios_knl_Mailbox_Instance_init__E, "ti_sysbios_knl_Mailbox_Instance_init")
@@ -242,14 +240,6 @@ __extern xdc_Int ti_sysbios_knl_Mailbox_Instance_init__E(ti_sysbios_knl_Mailbox_
 /* Instance_finalize__E */
 xdc__CODESECT(ti_sysbios_knl_Mailbox_Instance_finalize__E, "ti_sysbios_knl_Mailbox_Instance_finalize")
 __extern void ti_sysbios_knl_Mailbox_Instance_finalize__E( ti_sysbios_knl_Mailbox_Object* , int );
-
-/* Instance_init__R */
-xdc__CODESECT(ti_sysbios_knl_Mailbox_Instance_init__R, "ti_sysbios_knl_Mailbox_Instance_init")
-__extern xdc_Int ti_sysbios_knl_Mailbox_Instance_init__R(ti_sysbios_knl_Mailbox_Object *, xdc_SizeT msgSize, xdc_UInt numMsgs, const ti_sysbios_knl_Mailbox_Params *, xdc_runtime_Error_Block *);
-
-/* Instance_finalize__R */
-xdc__CODESECT(ti_sysbios_knl_Mailbox_Instance_finalize__R, "ti_sysbios_knl_Mailbox_Instance_finalize")
-__extern void ti_sysbios_knl_Mailbox_Instance_finalize__R( ti_sysbios_knl_Mailbox_Object* , int );
 
 /* Handle__label__S */
 xdc__CODESECT(ti_sysbios_knl_Mailbox_Handle__label__S, "ti_sysbios_knl_Mailbox_Handle__label__S")
@@ -277,7 +267,7 @@ __extern xdc_Void ti_sysbios_knl_Mailbox_Object__delete__S( xdc_Ptr instp );
 
 /* delete */
 xdc__CODESECT(ti_sysbios_knl_Mailbox_delete, "ti_sysbios_knl_Mailbox_delete")
-__extern Void ti_sysbios_knl_Mailbox_delete(ti_sysbios_knl_Mailbox_Handle *instp);
+__extern void ti_sysbios_knl_Mailbox_delete(ti_sysbios_knl_Mailbox_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_knl_Mailbox_Object__destruct__S, "ti_sysbios_knl_Mailbox_Object__destruct__S")
@@ -307,41 +297,26 @@ __extern xdc_Void ti_sysbios_knl_Mailbox_Params__init__S( xdc_Ptr dst, const xdc
 #define ti_sysbios_knl_Mailbox_getMsgSize ti_sysbios_knl_Mailbox_getMsgSize__E
 xdc__CODESECT(ti_sysbios_knl_Mailbox_getMsgSize__E, "ti_sysbios_knl_Mailbox_getMsgSize")
 __extern xdc_SizeT ti_sysbios_knl_Mailbox_getMsgSize__E( ti_sysbios_knl_Mailbox_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Mailbox_getMsgSize__F, "ti_sysbios_knl_Mailbox_getMsgSize")
-__extern xdc_SizeT ti_sysbios_knl_Mailbox_getMsgSize__F( ti_sysbios_knl_Mailbox_Object *__inst );
-__extern xdc_SizeT ti_sysbios_knl_Mailbox_getMsgSize__R( ti_sysbios_knl_Mailbox_Handle __inst );
 
 /* getNumFreeMsgs__E */
 #define ti_sysbios_knl_Mailbox_getNumFreeMsgs ti_sysbios_knl_Mailbox_getNumFreeMsgs__E
 xdc__CODESECT(ti_sysbios_knl_Mailbox_getNumFreeMsgs__E, "ti_sysbios_knl_Mailbox_getNumFreeMsgs")
 __extern xdc_Int ti_sysbios_knl_Mailbox_getNumFreeMsgs__E( ti_sysbios_knl_Mailbox_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Mailbox_getNumFreeMsgs__F, "ti_sysbios_knl_Mailbox_getNumFreeMsgs")
-__extern xdc_Int ti_sysbios_knl_Mailbox_getNumFreeMsgs__F( ti_sysbios_knl_Mailbox_Object *__inst );
-__extern xdc_Int ti_sysbios_knl_Mailbox_getNumFreeMsgs__R( ti_sysbios_knl_Mailbox_Handle __inst );
 
 /* getNumPendingMsgs__E */
 #define ti_sysbios_knl_Mailbox_getNumPendingMsgs ti_sysbios_knl_Mailbox_getNumPendingMsgs__E
 xdc__CODESECT(ti_sysbios_knl_Mailbox_getNumPendingMsgs__E, "ti_sysbios_knl_Mailbox_getNumPendingMsgs")
 __extern xdc_Int ti_sysbios_knl_Mailbox_getNumPendingMsgs__E( ti_sysbios_knl_Mailbox_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Mailbox_getNumPendingMsgs__F, "ti_sysbios_knl_Mailbox_getNumPendingMsgs")
-__extern xdc_Int ti_sysbios_knl_Mailbox_getNumPendingMsgs__F( ti_sysbios_knl_Mailbox_Object *__inst );
-__extern xdc_Int ti_sysbios_knl_Mailbox_getNumPendingMsgs__R( ti_sysbios_knl_Mailbox_Handle __inst );
 
 /* pend__E */
 #define ti_sysbios_knl_Mailbox_pend ti_sysbios_knl_Mailbox_pend__E
 xdc__CODESECT(ti_sysbios_knl_Mailbox_pend__E, "ti_sysbios_knl_Mailbox_pend")
 __extern xdc_Bool ti_sysbios_knl_Mailbox_pend__E( ti_sysbios_knl_Mailbox_Handle __inst, xdc_Ptr msg, xdc_UInt32 timeout );
-xdc__CODESECT(ti_sysbios_knl_Mailbox_pend__F, "ti_sysbios_knl_Mailbox_pend")
-__extern xdc_Bool ti_sysbios_knl_Mailbox_pend__F( ti_sysbios_knl_Mailbox_Object *__inst, xdc_Ptr msg, xdc_UInt32 timeout );
-__extern xdc_Bool ti_sysbios_knl_Mailbox_pend__R( ti_sysbios_knl_Mailbox_Handle __inst, xdc_Ptr msg, xdc_UInt32 timeout );
 
 /* post__E */
 #define ti_sysbios_knl_Mailbox_post ti_sysbios_knl_Mailbox_post__E
 xdc__CODESECT(ti_sysbios_knl_Mailbox_post__E, "ti_sysbios_knl_Mailbox_post")
 __extern xdc_Bool ti_sysbios_knl_Mailbox_post__E( ti_sysbios_knl_Mailbox_Handle __inst, xdc_Ptr msg, xdc_UInt32 timeout );
-xdc__CODESECT(ti_sysbios_knl_Mailbox_post__F, "ti_sysbios_knl_Mailbox_post")
-__extern xdc_Bool ti_sysbios_knl_Mailbox_post__F( ti_sysbios_knl_Mailbox_Object *__inst, xdc_Ptr msg, xdc_UInt32 timeout );
-__extern xdc_Bool ti_sysbios_knl_Mailbox_post__R( ti_sysbios_knl_Mailbox_Handle __inst, xdc_Ptr msg, xdc_UInt32 timeout );
 
 /* cleanQue__I */
 #define ti_sysbios_knl_Mailbox_cleanQue ti_sysbios_knl_Mailbox_cleanQue__I
@@ -438,7 +413,7 @@ static inline xdc_runtime_Types_Label *ti_sysbios_knl_Mailbox_Handle_label( ti_s
 }
 
 /* Handle_name */
-static inline String ti_sysbios_knl_Mailbox_Handle_name( ti_sysbios_knl_Mailbox_Handle inst )
+static inline xdc_String ti_sysbios_knl_Mailbox_Handle_name( ti_sysbios_knl_Mailbox_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return ti_sysbios_knl_Mailbox_Handle__label__S(inst, &lab)->iname;

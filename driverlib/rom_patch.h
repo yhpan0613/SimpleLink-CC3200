@@ -93,4 +93,9 @@
 #undef ROM_SDHostBlockCountSet
 #undef ROM_UARTModemControlSet
 #undef ROM_UARTModemControlClear
-
+#undef ROM_CameraXClkSet
+#undef ROM_PRCMMCUReset
+#undef ROM_SPIDmaDisable
+#undef ROM_PRCMSRAMRetentionEnable
+#undef ROM_PRCMSRAMRetentionDisable
+#undef ROM_PRCMDeepSleepEnter

@@ -245,11 +245,11 @@
         </option>
         <option>
           <name>IExtraOptionsCheck</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IExtraOptions</name>
-          <state></state>
+          <state>--diag_suppress Pa050</state>
         </option>
         <option>
           <name>CCLangConformance</name>
@@ -298,6 +298,7 @@
         <option>
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$/</state>
+          <state>$PROJ_DIR$/../../../inc</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -934,7 +935,7 @@
         </option>
         <option>
           <name>IarchiveOutput</name>
-          <state>D:\software_development_kit\sdk_packages\jan_09\cc3200-sdk\netapps\json\ewarm\Release\Exe\json.a</state>
+          <state>$PROJ_DIR$\Release\Exe\json.a</state>
         </option>
       </data>
     </settings>
@@ -946,6 +947,9 @@
   </configuration>
   <file>
     <name>$PROJ_DIR$\..\jsmn.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\json.c</name>
   </file>
 </project>
 

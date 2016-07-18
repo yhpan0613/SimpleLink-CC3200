@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 #ifndef ti_sysbios_heaps_HeapMem__INTERNAL__
@@ -55,6 +55,9 @@
 
 /* init */
 #define HeapMem_init ti_sysbios_heaps_HeapMem_init__I
+
+/* initPrimary */
+#define HeapMem_initPrimary ti_sysbios_heaps_HeapMem_initPrimary__I
 
 /* Module_startup */
 #undef ti_sysbios_heaps_HeapMem_Module_startup

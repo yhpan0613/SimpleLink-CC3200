@@ -29,7 +29,7 @@
         </option>
         <option>
           <name>Variant</name>
-          <version>20</version>
+          <version>21</version>
           <state>39</state>
         </option>
         <option>
@@ -60,7 +60,7 @@
         </option>
         <option>
           <name>FPU</name>
-          <version>2</version>
+          <version>3</version>
           <state>0</state>
         </option>
         <option>
@@ -87,7 +87,7 @@
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>7.20.1.7306</state>
+          <state>7.30.4.8186</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -137,12 +137,12 @@
         </option>
         <option>
           <name>GFPUCoreSlave</name>
-          <version>20</version>
+          <version>21</version>
           <state>39</state>
         </option>
         <option>
           <name>GBECoreSlave</name>
-          <version>20</version>
+          <version>21</version>
           <state>39</state>
         </option>
         <option>
@@ -247,11 +247,11 @@
         </option>
         <option>
           <name>IExtraOptionsCheck</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IExtraOptions</name>
-          <state></state>
+          <state>--diag_suppress Pa050</state>
         </option>
         <option>
           <name>CCLangConformance</name>
@@ -306,6 +306,7 @@
           <state>$PROJ_DIR$/../../../../simplelink/</state>
           <state>$PROJ_DIR$/../../../../simplelink/include</state>
           <state>$PROJ_DIR$/../../../../simplelink/source</state>
+		  <state>$PROJ_DIR$/../../../../simplelink_extlib/provisioninglib</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -619,6 +620,7 @@
       <data>
         <extensions></extensions>
         <cmdline></cmdline>
+        <hasPrio>0</hasPrio>
       </data>
     </settings>
     <settings>
@@ -952,10 +954,10 @@
     </settings>
   </configuration>
   <file>
-    <name>$PROJ_DIR$/../tftp.c</name>
+    <name>$PROJ_DIR$\..\tftp.c</name>
   </file>
   <file>
-    <name>$PROJ_DIR$/../tftp6.c</name>
+    <name>$PROJ_DIR$\..\tftp6.c</name>
   </file>
 </project>
 

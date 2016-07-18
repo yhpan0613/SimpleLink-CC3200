@@ -39,9 +39,9 @@
 :: Set the IAR installation path as per user's PC
 set CGTOOLS=C:/Program Files (x86)/IAR Systems/Embedded Workbench 7.0/arm
 :: Set the Latest XDC Tool path
-set XDCTOOLS=C:/ti/xdctools_3_30_04_52_core
+set XDCTOOLS=C:/ti/xdctools_3_32_00_06_core
 :: Set the latest TI-RTOS for SimpleLink path
-set SYSBIOS=C:/ti/tirtos_simplelink_2_01_00_03/products/bios_6_40_03_39
+set SYSBIOS=C:/ti/tirtos_cc32xx_2_15_00_17/products/bios_6_45_00_20
 
 set BASE=%CD%
 

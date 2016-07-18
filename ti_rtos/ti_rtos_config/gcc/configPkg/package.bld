@@ -11,7 +11,7 @@ var makeAssembly = false;
 var Executable = xdc.module('xdc.bld.Executable');
 
 var exeOpts = new Executable.Attrs({
-        cfgScript: 'D:/TI/CC3200_git/gcc/source-1p1-rahul/ti_rtos/ti_rtos_config/app.cfg',
+        cfgScript: 'D:/git/a0132167_cc3200_sdk_1.2.0/source-1p2-rahul/ti_rtos/ti_rtos_config/app.cfg',
         profile: 'release',
         cfgHome: 'configPkg',
 });
@@ -41,7 +41,7 @@ else {
 
 var thisObj = {
     cfg:        '../app.cfg',
-    outputPath: 'D:/TI/CC3200_git/gcc/source-1p1-rahul/ti_rtos/ti_rtos_config/gcc/configPkg',
+    outputPath: 'D:/git/a0132167_cc3200_sdk_1.2.0/source-1p2-rahul/ti_rtos/ti_rtos_config/gcc/configPkg',
     exeName:    'app' + suffix,
     exeIntName: 'app' + suffix.replace('.', '_'),
     targ:       targ,

@@ -247,11 +247,11 @@
         </option>
         <option>
           <name>IExtraOptionsCheck</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IExtraOptions</name>
-          <state></state>
+          <state>--diag_suppress Pa050</state>
         </option>
         <option>
           <name>CCLangConformance</name>
@@ -306,7 +306,8 @@
           <state>$PROJ_DIR$/../../../../simplelink/</state>
           <state>$PROJ_DIR$/../../../../simplelink/include</state>
           <state>$PROJ_DIR$/../../../../simplelink/source</state>
-          <state>$PROJ_DIR$\..\..\..</state>
+		  <state>$PROJ_DIR$/../../../../simplelink_extlib/provisioninglib</state>
+          <state>$PROJ_DIR$/../../..</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -943,7 +944,7 @@
         </option>
         <option>
           <name>IarchiveOutput</name>
-          <state>D:\git\a0132167_SDK_1p1\source-1p1-rahul\netapps\http\client\ewarm\HTTPClientMinLib\Exe\webclient.a</state>
+          <state>D:\people\aashish\feb_19th_R1_package\cc3200-source\cc3200-source\netapps\http\client\ewarm\HTTPClientMinLib\Exe\webclient.a</state>
         </option>
       </data>
     </settings>
@@ -1199,11 +1200,11 @@
         </option>
         <option>
           <name>IExtraOptionsCheck</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IExtraOptions</name>
-          <state></state>
+          <state>--diag_suppress Pa050</state>
         </option>
         <option>
           <name>CCLangConformance</name>
@@ -1258,7 +1259,8 @@
           <state>$PROJ_DIR$/../../../../simplelink/</state>
           <state>$PROJ_DIR$/../../../../simplelink/include</state>
           <state>$PROJ_DIR$/../../../../simplelink/source</state>
-          <state>$PROJ_DIR$\..\..\..</state>
+		  <state>$PROJ_DIR$/../../../../simplelink_extlib/provisioninglib</state>
+          <state>$PROJ_DIR$/../../..</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1895,7 +1897,7 @@
         </option>
         <option>
           <name>IarchiveOutput</name>
-          <state>D:\git\a0132167_SDK_1p1\source-1p1-rahul\netapps\http\client\ewarm\HTTPClientFullLib\Exe\webclient.a</state>
+          <state>D:\people\aashish\feb_19th_R1_package\cc3200-source\cc3200-source\netapps\http\client\ewarm\HTTPClientFullLib\Exe\webclient.a</state>
         </option>
       </data>
     </settings>

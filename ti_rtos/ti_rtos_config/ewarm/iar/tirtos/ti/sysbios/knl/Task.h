@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -166,6 +166,22 @@ typedef __ARRAY1_ti_sysbios_knl_Task_Module_State__idleTask __TA_ti_sysbios_knl_
 typedef ti_sysbios_knl_Task_Handle __T1_ti_sysbios_knl_Task_Module_State__constructedTasks;
 typedef ti_sysbios_knl_Task_Handle *__ARRAY1_ti_sysbios_knl_Task_Module_State__constructedTasks;
 typedef __ARRAY1_ti_sysbios_knl_Task_Module_State__constructedTasks __TA_ti_sysbios_knl_Task_Module_State__constructedTasks;
+
+/* RunQEntry */
+struct ti_sysbios_knl_Task_RunQEntry {
+    ti_sysbios_knl_Queue_Elem elem;
+    xdc_UInt coreId;
+    xdc_Int priority;
+};
+
+/* Module_StateSmp */
+typedef volatile ti_sysbios_knl_Task_RunQEntry __T1_ti_sysbios_knl_Task_Module_StateSmp__smpRunQ;
+typedef volatile ti_sysbios_knl_Task_RunQEntry *__ARRAY1_ti_sysbios_knl_Task_Module_StateSmp__smpRunQ;
+typedef __ARRAY1_ti_sysbios_knl_Task_Module_StateSmp__smpRunQ __TA_ti_sysbios_knl_Task_Module_StateSmp__smpRunQ;
+struct ti_sysbios_knl_Task_Module_StateSmp {
+    ti_sysbios_knl_Queue_Object *sortedRunQ;
+    __TA_ti_sysbios_knl_Task_Module_StateSmp__smpRunQ smpRunQ;
+};
 
 
 /*
@@ -488,8 +504,6 @@ xdc__CODESECT(ti_sysbios_knl_Task_Module_startup__E, "ti_sysbios_knl_Task_Module
 __extern xdc_Int ti_sysbios_knl_Task_Module_startup__E( xdc_Int state );
 xdc__CODESECT(ti_sysbios_knl_Task_Module_startup__F, "ti_sysbios_knl_Task_Module_startup")
 __extern xdc_Int ti_sysbios_knl_Task_Module_startup__F( xdc_Int state );
-xdc__CODESECT(ti_sysbios_knl_Task_Module_startup__R, "ti_sysbios_knl_Task_Module_startup")
-__extern xdc_Int ti_sysbios_knl_Task_Module_startup__R( xdc_Int state );
 
 /* Instance_init__E */
 xdc__CODESECT(ti_sysbios_knl_Task_Instance_init__E, "ti_sysbios_knl_Task_Instance_init")
@@ -498,14 +512,6 @@ __extern xdc_Int ti_sysbios_knl_Task_Instance_init__E(ti_sysbios_knl_Task_Object
 /* Instance_finalize__E */
 xdc__CODESECT(ti_sysbios_knl_Task_Instance_finalize__E, "ti_sysbios_knl_Task_Instance_finalize")
 __extern void ti_sysbios_knl_Task_Instance_finalize__E( ti_sysbios_knl_Task_Object* , int );
-
-/* Instance_init__R */
-xdc__CODESECT(ti_sysbios_knl_Task_Instance_init__R, "ti_sysbios_knl_Task_Instance_init")
-__extern xdc_Int ti_sysbios_knl_Task_Instance_init__R(ti_sysbios_knl_Task_Object *, ti_sysbios_knl_Task_FuncPtr fxn, const ti_sysbios_knl_Task_Params *, xdc_runtime_Error_Block *);
-
-/* Instance_finalize__R */
-xdc__CODESECT(ti_sysbios_knl_Task_Instance_finalize__R, "ti_sysbios_knl_Task_Instance_finalize")
-__extern void ti_sysbios_knl_Task_Instance_finalize__R( ti_sysbios_knl_Task_Object* , int );
 
 /* Handle__label__S */
 xdc__CODESECT(ti_sysbios_knl_Task_Handle__label__S, "ti_sysbios_knl_Task_Handle__label__S")
@@ -533,7 +539,7 @@ __extern xdc_Void ti_sysbios_knl_Task_Object__delete__S( xdc_Ptr instp );
 
 /* delete */
 xdc__CODESECT(ti_sysbios_knl_Task_delete, "ti_sysbios_knl_Task_delete")
-__extern Void ti_sysbios_knl_Task_delete(ti_sysbios_knl_Task_Handle *instp);
+__extern void ti_sysbios_knl_Task_delete(ti_sysbios_knl_Task_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_knl_Task_Object__destruct__S, "ti_sysbios_knl_Task_Object__destruct__S")
@@ -563,273 +569,171 @@ __extern xdc_Void ti_sysbios_knl_Task_Params__init__S( xdc_Ptr dst, const xdc_Vo
 #define ti_sysbios_knl_Task_startup ti_sysbios_knl_Task_startup__E
 xdc__CODESECT(ti_sysbios_knl_Task_startup__E, "ti_sysbios_knl_Task_startup")
 __extern xdc_Void ti_sysbios_knl_Task_startup__E( void );
-xdc__CODESECT(ti_sysbios_knl_Task_startup__F, "ti_sysbios_knl_Task_startup")
-__extern xdc_Void ti_sysbios_knl_Task_startup__F( void );
-__extern xdc_Void ti_sysbios_knl_Task_startup__R( void );
 
 /* enabled__E */
 #define ti_sysbios_knl_Task_enabled ti_sysbios_knl_Task_enabled__E
 xdc__CODESECT(ti_sysbios_knl_Task_enabled__E, "ti_sysbios_knl_Task_enabled")
 __extern xdc_Bool ti_sysbios_knl_Task_enabled__E( void );
-xdc__CODESECT(ti_sysbios_knl_Task_enabled__F, "ti_sysbios_knl_Task_enabled")
-__extern xdc_Bool ti_sysbios_knl_Task_enabled__F( void );
-__extern xdc_Bool ti_sysbios_knl_Task_enabled__R( void );
 
 /* unlockSched__E */
 #define ti_sysbios_knl_Task_unlockSched ti_sysbios_knl_Task_unlockSched__E
 xdc__CODESECT(ti_sysbios_knl_Task_unlockSched__E, "ti_sysbios_knl_Task_unlockSched")
 __extern xdc_Void ti_sysbios_knl_Task_unlockSched__E( void );
-xdc__CODESECT(ti_sysbios_knl_Task_unlockSched__F, "ti_sysbios_knl_Task_unlockSched")
-__extern xdc_Void ti_sysbios_knl_Task_unlockSched__F( void );
-__extern xdc_Void ti_sysbios_knl_Task_unlockSched__R( void );
 
 /* disable__E */
 #define ti_sysbios_knl_Task_disable ti_sysbios_knl_Task_disable__E
 xdc__CODESECT(ti_sysbios_knl_Task_disable__E, "ti_sysbios_knl_Task_disable")
 __extern xdc_UInt ti_sysbios_knl_Task_disable__E( void );
-xdc__CODESECT(ti_sysbios_knl_Task_disable__F, "ti_sysbios_knl_Task_disable")
-__extern xdc_UInt ti_sysbios_knl_Task_disable__F( void );
-__extern xdc_UInt ti_sysbios_knl_Task_disable__R( void );
 
 /* enable__E */
 #define ti_sysbios_knl_Task_enable ti_sysbios_knl_Task_enable__E
 xdc__CODESECT(ti_sysbios_knl_Task_enable__E, "ti_sysbios_knl_Task_enable")
 __extern xdc_Void ti_sysbios_knl_Task_enable__E( void );
-xdc__CODESECT(ti_sysbios_knl_Task_enable__F, "ti_sysbios_knl_Task_enable")
-__extern xdc_Void ti_sysbios_knl_Task_enable__F( void );
-__extern xdc_Void ti_sysbios_knl_Task_enable__R( void );
 
 /* restore__E */
 #define ti_sysbios_knl_Task_restore ti_sysbios_knl_Task_restore__E
 xdc__CODESECT(ti_sysbios_knl_Task_restore__E, "ti_sysbios_knl_Task_restore")
 __extern xdc_Void ti_sysbios_knl_Task_restore__E( xdc_UInt key );
-xdc__CODESECT(ti_sysbios_knl_Task_restore__F, "ti_sysbios_knl_Task_restore")
-__extern xdc_Void ti_sysbios_knl_Task_restore__F( xdc_UInt key );
-__extern xdc_Void ti_sysbios_knl_Task_restore__R( xdc_UInt key );
 
 /* restoreHwi__E */
 #define ti_sysbios_knl_Task_restoreHwi ti_sysbios_knl_Task_restoreHwi__E
 xdc__CODESECT(ti_sysbios_knl_Task_restoreHwi__E, "ti_sysbios_knl_Task_restoreHwi")
 __extern xdc_Void ti_sysbios_knl_Task_restoreHwi__E( xdc_UInt key );
-xdc__CODESECT(ti_sysbios_knl_Task_restoreHwi__F, "ti_sysbios_knl_Task_restoreHwi")
-__extern xdc_Void ti_sysbios_knl_Task_restoreHwi__F( xdc_UInt key );
-__extern xdc_Void ti_sysbios_knl_Task_restoreHwi__R( xdc_UInt key );
 
 /* self__E */
 #define ti_sysbios_knl_Task_self ti_sysbios_knl_Task_self__E
 xdc__CODESECT(ti_sysbios_knl_Task_self__E, "ti_sysbios_knl_Task_self")
 __extern ti_sysbios_knl_Task_Handle ti_sysbios_knl_Task_self__E( void );
-xdc__CODESECT(ti_sysbios_knl_Task_self__F, "ti_sysbios_knl_Task_self")
-__extern ti_sysbios_knl_Task_Handle ti_sysbios_knl_Task_self__F( void );
-__extern ti_sysbios_knl_Task_Handle ti_sysbios_knl_Task_self__R( void );
 
 /* checkStacks__E */
 #define ti_sysbios_knl_Task_checkStacks ti_sysbios_knl_Task_checkStacks__E
 xdc__CODESECT(ti_sysbios_knl_Task_checkStacks__E, "ti_sysbios_knl_Task_checkStacks")
 __extern xdc_Void ti_sysbios_knl_Task_checkStacks__E( ti_sysbios_knl_Task_Handle oldTask, ti_sysbios_knl_Task_Handle newTask );
-xdc__CODESECT(ti_sysbios_knl_Task_checkStacks__F, "ti_sysbios_knl_Task_checkStacks")
-__extern xdc_Void ti_sysbios_knl_Task_checkStacks__F( ti_sysbios_knl_Task_Handle oldTask, ti_sysbios_knl_Task_Handle newTask );
-__extern xdc_Void ti_sysbios_knl_Task_checkStacks__R( ti_sysbios_knl_Task_Handle oldTask, ti_sysbios_knl_Task_Handle newTask );
 
 /* exit__E */
 #define ti_sysbios_knl_Task_exit ti_sysbios_knl_Task_exit__E
 xdc__CODESECT(ti_sysbios_knl_Task_exit__E, "ti_sysbios_knl_Task_exit")
 __extern xdc_Void ti_sysbios_knl_Task_exit__E( void );
-xdc__CODESECT(ti_sysbios_knl_Task_exit__F, "ti_sysbios_knl_Task_exit")
-__extern xdc_Void ti_sysbios_knl_Task_exit__F( void );
-__extern xdc_Void ti_sysbios_knl_Task_exit__R( void );
 
 /* sleep__E */
 #define ti_sysbios_knl_Task_sleep ti_sysbios_knl_Task_sleep__E
 xdc__CODESECT(ti_sysbios_knl_Task_sleep__E, "ti_sysbios_knl_Task_sleep")
 __extern xdc_Void ti_sysbios_knl_Task_sleep__E( xdc_UInt32 nticks );
-xdc__CODESECT(ti_sysbios_knl_Task_sleep__F, "ti_sysbios_knl_Task_sleep")
-__extern xdc_Void ti_sysbios_knl_Task_sleep__F( xdc_UInt32 nticks );
-__extern xdc_Void ti_sysbios_knl_Task_sleep__R( xdc_UInt32 nticks );
 
 /* yield__E */
 #define ti_sysbios_knl_Task_yield ti_sysbios_knl_Task_yield__E
 xdc__CODESECT(ti_sysbios_knl_Task_yield__E, "ti_sysbios_knl_Task_yield")
 __extern xdc_Void ti_sysbios_knl_Task_yield__E( void );
-xdc__CODESECT(ti_sysbios_knl_Task_yield__F, "ti_sysbios_knl_Task_yield")
-__extern xdc_Void ti_sysbios_knl_Task_yield__F( void );
-__extern xdc_Void ti_sysbios_knl_Task_yield__R( void );
 
 /* getIdleTask__E */
 #define ti_sysbios_knl_Task_getIdleTask ti_sysbios_knl_Task_getIdleTask__E
 xdc__CODESECT(ti_sysbios_knl_Task_getIdleTask__E, "ti_sysbios_knl_Task_getIdleTask")
 __extern ti_sysbios_knl_Task_Handle ti_sysbios_knl_Task_getIdleTask__E( void );
-xdc__CODESECT(ti_sysbios_knl_Task_getIdleTask__F, "ti_sysbios_knl_Task_getIdleTask")
-__extern ti_sysbios_knl_Task_Handle ti_sysbios_knl_Task_getIdleTask__F( void );
-__extern ti_sysbios_knl_Task_Handle ti_sysbios_knl_Task_getIdleTask__R( void );
 
 /* getIdleTaskHandle__E */
 #define ti_sysbios_knl_Task_getIdleTaskHandle ti_sysbios_knl_Task_getIdleTaskHandle__E
 xdc__CODESECT(ti_sysbios_knl_Task_getIdleTaskHandle__E, "ti_sysbios_knl_Task_getIdleTaskHandle")
 __extern ti_sysbios_knl_Task_Handle ti_sysbios_knl_Task_getIdleTaskHandle__E( xdc_UInt coreId );
-xdc__CODESECT(ti_sysbios_knl_Task_getIdleTaskHandle__F, "ti_sysbios_knl_Task_getIdleTaskHandle")
-__extern ti_sysbios_knl_Task_Handle ti_sysbios_knl_Task_getIdleTaskHandle__F( xdc_UInt coreId );
-__extern ti_sysbios_knl_Task_Handle ti_sysbios_knl_Task_getIdleTaskHandle__R( xdc_UInt coreId );
 
 /* startCore__E */
 #define ti_sysbios_knl_Task_startCore ti_sysbios_knl_Task_startCore__E
 xdc__CODESECT(ti_sysbios_knl_Task_startCore__E, "ti_sysbios_knl_Task_startCore")
 __extern xdc_Void ti_sysbios_knl_Task_startCore__E( xdc_UInt coreId );
-xdc__CODESECT(ti_sysbios_knl_Task_startCore__F, "ti_sysbios_knl_Task_startCore")
-__extern xdc_Void ti_sysbios_knl_Task_startCore__F( xdc_UInt coreId );
-__extern xdc_Void ti_sysbios_knl_Task_startCore__R( xdc_UInt coreId );
 
 /* getArg0__E */
 #define ti_sysbios_knl_Task_getArg0 ti_sysbios_knl_Task_getArg0__E
 xdc__CODESECT(ti_sysbios_knl_Task_getArg0__E, "ti_sysbios_knl_Task_getArg0")
 __extern xdc_UArg ti_sysbios_knl_Task_getArg0__E( ti_sysbios_knl_Task_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Task_getArg0__F, "ti_sysbios_knl_Task_getArg0")
-__extern xdc_UArg ti_sysbios_knl_Task_getArg0__F( ti_sysbios_knl_Task_Object *__inst );
-__extern xdc_UArg ti_sysbios_knl_Task_getArg0__R( ti_sysbios_knl_Task_Handle __inst );
 
 /* getArg1__E */
 #define ti_sysbios_knl_Task_getArg1 ti_sysbios_knl_Task_getArg1__E
 xdc__CODESECT(ti_sysbios_knl_Task_getArg1__E, "ti_sysbios_knl_Task_getArg1")
 __extern xdc_UArg ti_sysbios_knl_Task_getArg1__E( ti_sysbios_knl_Task_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Task_getArg1__F, "ti_sysbios_knl_Task_getArg1")
-__extern xdc_UArg ti_sysbios_knl_Task_getArg1__F( ti_sysbios_knl_Task_Object *__inst );
-__extern xdc_UArg ti_sysbios_knl_Task_getArg1__R( ti_sysbios_knl_Task_Handle __inst );
 
 /* getEnv__E */
 #define ti_sysbios_knl_Task_getEnv ti_sysbios_knl_Task_getEnv__E
 xdc__CODESECT(ti_sysbios_knl_Task_getEnv__E, "ti_sysbios_knl_Task_getEnv")
 __extern xdc_Ptr ti_sysbios_knl_Task_getEnv__E( ti_sysbios_knl_Task_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Task_getEnv__F, "ti_sysbios_knl_Task_getEnv")
-__extern xdc_Ptr ti_sysbios_knl_Task_getEnv__F( ti_sysbios_knl_Task_Object *__inst );
-__extern xdc_Ptr ti_sysbios_knl_Task_getEnv__R( ti_sysbios_knl_Task_Handle __inst );
 
 /* getFunc__E */
 #define ti_sysbios_knl_Task_getFunc ti_sysbios_knl_Task_getFunc__E
 xdc__CODESECT(ti_sysbios_knl_Task_getFunc__E, "ti_sysbios_knl_Task_getFunc")
 __extern ti_sysbios_knl_Task_FuncPtr ti_sysbios_knl_Task_getFunc__E( ti_sysbios_knl_Task_Handle __inst, xdc_UArg *arg0, xdc_UArg *arg1 );
-xdc__CODESECT(ti_sysbios_knl_Task_getFunc__F, "ti_sysbios_knl_Task_getFunc")
-__extern ti_sysbios_knl_Task_FuncPtr ti_sysbios_knl_Task_getFunc__F( ti_sysbios_knl_Task_Object *__inst, xdc_UArg *arg0, xdc_UArg *arg1 );
-__extern ti_sysbios_knl_Task_FuncPtr ti_sysbios_knl_Task_getFunc__R( ti_sysbios_knl_Task_Handle __inst, xdc_UArg *arg0, xdc_UArg *arg1 );
 
 /* getHookContext__E */
 #define ti_sysbios_knl_Task_getHookContext ti_sysbios_knl_Task_getHookContext__E
 xdc__CODESECT(ti_sysbios_knl_Task_getHookContext__E, "ti_sysbios_knl_Task_getHookContext")
 __extern xdc_Ptr ti_sysbios_knl_Task_getHookContext__E( ti_sysbios_knl_Task_Handle __inst, xdc_Int id );
-xdc__CODESECT(ti_sysbios_knl_Task_getHookContext__F, "ti_sysbios_knl_Task_getHookContext")
-__extern xdc_Ptr ti_sysbios_knl_Task_getHookContext__F( ti_sysbios_knl_Task_Object *__inst, xdc_Int id );
-__extern xdc_Ptr ti_sysbios_knl_Task_getHookContext__R( ti_sysbios_knl_Task_Handle __inst, xdc_Int id );
 
 /* getPri__E */
 #define ti_sysbios_knl_Task_getPri ti_sysbios_knl_Task_getPri__E
 xdc__CODESECT(ti_sysbios_knl_Task_getPri__E, "ti_sysbios_knl_Task_getPri")
 __extern xdc_Int ti_sysbios_knl_Task_getPri__E( ti_sysbios_knl_Task_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Task_getPri__F, "ti_sysbios_knl_Task_getPri")
-__extern xdc_Int ti_sysbios_knl_Task_getPri__F( ti_sysbios_knl_Task_Object *__inst );
-__extern xdc_Int ti_sysbios_knl_Task_getPri__R( ti_sysbios_knl_Task_Handle __inst );
 
 /* setArg0__E */
 #define ti_sysbios_knl_Task_setArg0 ti_sysbios_knl_Task_setArg0__E
 xdc__CODESECT(ti_sysbios_knl_Task_setArg0__E, "ti_sysbios_knl_Task_setArg0")
 __extern xdc_Void ti_sysbios_knl_Task_setArg0__E( ti_sysbios_knl_Task_Handle __inst, xdc_UArg arg );
-xdc__CODESECT(ti_sysbios_knl_Task_setArg0__F, "ti_sysbios_knl_Task_setArg0")
-__extern xdc_Void ti_sysbios_knl_Task_setArg0__F( ti_sysbios_knl_Task_Object *__inst, xdc_UArg arg );
-__extern xdc_Void ti_sysbios_knl_Task_setArg0__R( ti_sysbios_knl_Task_Handle __inst, xdc_UArg arg );
 
 /* setArg1__E */
 #define ti_sysbios_knl_Task_setArg1 ti_sysbios_knl_Task_setArg1__E
 xdc__CODESECT(ti_sysbios_knl_Task_setArg1__E, "ti_sysbios_knl_Task_setArg1")
 __extern xdc_Void ti_sysbios_knl_Task_setArg1__E( ti_sysbios_knl_Task_Handle __inst, xdc_UArg arg );
-xdc__CODESECT(ti_sysbios_knl_Task_setArg1__F, "ti_sysbios_knl_Task_setArg1")
-__extern xdc_Void ti_sysbios_knl_Task_setArg1__F( ti_sysbios_knl_Task_Object *__inst, xdc_UArg arg );
-__extern xdc_Void ti_sysbios_knl_Task_setArg1__R( ti_sysbios_knl_Task_Handle __inst, xdc_UArg arg );
 
 /* setEnv__E */
 #define ti_sysbios_knl_Task_setEnv ti_sysbios_knl_Task_setEnv__E
 xdc__CODESECT(ti_sysbios_knl_Task_setEnv__E, "ti_sysbios_knl_Task_setEnv")
 __extern xdc_Void ti_sysbios_knl_Task_setEnv__E( ti_sysbios_knl_Task_Handle __inst, xdc_Ptr env );
-xdc__CODESECT(ti_sysbios_knl_Task_setEnv__F, "ti_sysbios_knl_Task_setEnv")
-__extern xdc_Void ti_sysbios_knl_Task_setEnv__F( ti_sysbios_knl_Task_Object *__inst, xdc_Ptr env );
-__extern xdc_Void ti_sysbios_knl_Task_setEnv__R( ti_sysbios_knl_Task_Handle __inst, xdc_Ptr env );
 
 /* setHookContext__E */
 #define ti_sysbios_knl_Task_setHookContext ti_sysbios_knl_Task_setHookContext__E
 xdc__CODESECT(ti_sysbios_knl_Task_setHookContext__E, "ti_sysbios_knl_Task_setHookContext")
 __extern xdc_Void ti_sysbios_knl_Task_setHookContext__E( ti_sysbios_knl_Task_Handle __inst, xdc_Int id, xdc_Ptr hookContext );
-xdc__CODESECT(ti_sysbios_knl_Task_setHookContext__F, "ti_sysbios_knl_Task_setHookContext")
-__extern xdc_Void ti_sysbios_knl_Task_setHookContext__F( ti_sysbios_knl_Task_Object *__inst, xdc_Int id, xdc_Ptr hookContext );
-__extern xdc_Void ti_sysbios_knl_Task_setHookContext__R( ti_sysbios_knl_Task_Handle __inst, xdc_Int id, xdc_Ptr hookContext );
 
 /* setPri__E */
 #define ti_sysbios_knl_Task_setPri ti_sysbios_knl_Task_setPri__E
 xdc__CODESECT(ti_sysbios_knl_Task_setPri__E, "ti_sysbios_knl_Task_setPri")
 __extern xdc_UInt ti_sysbios_knl_Task_setPri__E( ti_sysbios_knl_Task_Handle __inst, xdc_Int newpri );
-xdc__CODESECT(ti_sysbios_knl_Task_setPri__F, "ti_sysbios_knl_Task_setPri")
-__extern xdc_UInt ti_sysbios_knl_Task_setPri__F( ti_sysbios_knl_Task_Object *__inst, xdc_Int newpri );
-__extern xdc_UInt ti_sysbios_knl_Task_setPri__R( ti_sysbios_knl_Task_Handle __inst, xdc_Int newpri );
 
 /* stat__E */
 #define ti_sysbios_knl_Task_stat ti_sysbios_knl_Task_stat__E
 xdc__CODESECT(ti_sysbios_knl_Task_stat__E, "ti_sysbios_knl_Task_stat")
 __extern xdc_Void ti_sysbios_knl_Task_stat__E( ti_sysbios_knl_Task_Handle __inst, ti_sysbios_knl_Task_Stat *statbuf );
-xdc__CODESECT(ti_sysbios_knl_Task_stat__F, "ti_sysbios_knl_Task_stat")
-__extern xdc_Void ti_sysbios_knl_Task_stat__F( ti_sysbios_knl_Task_Object *__inst, ti_sysbios_knl_Task_Stat *statbuf );
-__extern xdc_Void ti_sysbios_knl_Task_stat__R( ti_sysbios_knl_Task_Handle __inst, ti_sysbios_knl_Task_Stat *statbuf );
 
 /* getMode__E */
 #define ti_sysbios_knl_Task_getMode ti_sysbios_knl_Task_getMode__E
 xdc__CODESECT(ti_sysbios_knl_Task_getMode__E, "ti_sysbios_knl_Task_getMode")
 __extern ti_sysbios_knl_Task_Mode ti_sysbios_knl_Task_getMode__E( ti_sysbios_knl_Task_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Task_getMode__F, "ti_sysbios_knl_Task_getMode")
-__extern ti_sysbios_knl_Task_Mode ti_sysbios_knl_Task_getMode__F( ti_sysbios_knl_Task_Object *__inst );
-__extern ti_sysbios_knl_Task_Mode ti_sysbios_knl_Task_getMode__R( ti_sysbios_knl_Task_Handle __inst );
 
 /* setAffinity__E */
 #define ti_sysbios_knl_Task_setAffinity ti_sysbios_knl_Task_setAffinity__E
 xdc__CODESECT(ti_sysbios_knl_Task_setAffinity__E, "ti_sysbios_knl_Task_setAffinity")
 __extern xdc_UInt ti_sysbios_knl_Task_setAffinity__E( ti_sysbios_knl_Task_Handle __inst, xdc_UInt coreId );
-xdc__CODESECT(ti_sysbios_knl_Task_setAffinity__F, "ti_sysbios_knl_Task_setAffinity")
-__extern xdc_UInt ti_sysbios_knl_Task_setAffinity__F( ti_sysbios_knl_Task_Object *__inst, xdc_UInt coreId );
-__extern xdc_UInt ti_sysbios_knl_Task_setAffinity__R( ti_sysbios_knl_Task_Handle __inst, xdc_UInt coreId );
 
 /* getAffinity__E */
 #define ti_sysbios_knl_Task_getAffinity ti_sysbios_knl_Task_getAffinity__E
 xdc__CODESECT(ti_sysbios_knl_Task_getAffinity__E, "ti_sysbios_knl_Task_getAffinity")
 __extern xdc_UInt ti_sysbios_knl_Task_getAffinity__E( ti_sysbios_knl_Task_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Task_getAffinity__F, "ti_sysbios_knl_Task_getAffinity")
-__extern xdc_UInt ti_sysbios_knl_Task_getAffinity__F( ti_sysbios_knl_Task_Object *__inst );
-__extern xdc_UInt ti_sysbios_knl_Task_getAffinity__R( ti_sysbios_knl_Task_Handle __inst );
 
 /* block__E */
 #define ti_sysbios_knl_Task_block ti_sysbios_knl_Task_block__E
 xdc__CODESECT(ti_sysbios_knl_Task_block__E, "ti_sysbios_knl_Task_block")
 __extern xdc_Void ti_sysbios_knl_Task_block__E( ti_sysbios_knl_Task_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Task_block__F, "ti_sysbios_knl_Task_block")
-__extern xdc_Void ti_sysbios_knl_Task_block__F( ti_sysbios_knl_Task_Object *__inst );
-__extern xdc_Void ti_sysbios_knl_Task_block__R( ti_sysbios_knl_Task_Handle __inst );
 
 /* unblock__E */
 #define ti_sysbios_knl_Task_unblock ti_sysbios_knl_Task_unblock__E
 xdc__CODESECT(ti_sysbios_knl_Task_unblock__E, "ti_sysbios_knl_Task_unblock")
 __extern xdc_Void ti_sysbios_knl_Task_unblock__E( ti_sysbios_knl_Task_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Task_unblock__F, "ti_sysbios_knl_Task_unblock")
-__extern xdc_Void ti_sysbios_knl_Task_unblock__F( ti_sysbios_knl_Task_Object *__inst );
-__extern xdc_Void ti_sysbios_knl_Task_unblock__R( ti_sysbios_knl_Task_Handle __inst );
 
 /* blockI__E */
 #define ti_sysbios_knl_Task_blockI ti_sysbios_knl_Task_blockI__E
 xdc__CODESECT(ti_sysbios_knl_Task_blockI__E, "ti_sysbios_knl_Task_blockI")
 __extern xdc_Void ti_sysbios_knl_Task_blockI__E( ti_sysbios_knl_Task_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Task_blockI__F, "ti_sysbios_knl_Task_blockI")
-__extern xdc_Void ti_sysbios_knl_Task_blockI__F( ti_sysbios_knl_Task_Object *__inst );
-__extern xdc_Void ti_sysbios_knl_Task_blockI__R( ti_sysbios_knl_Task_Handle __inst );
 
 /* unblockI__E */
 #define ti_sysbios_knl_Task_unblockI ti_sysbios_knl_Task_unblockI__E
 xdc__CODESECT(ti_sysbios_knl_Task_unblockI__E, "ti_sysbios_knl_Task_unblockI")
 __extern xdc_Void ti_sysbios_knl_Task_unblockI__E( ti_sysbios_knl_Task_Handle __inst, xdc_UInt hwiKey );
-xdc__CODESECT(ti_sysbios_knl_Task_unblockI__F, "ti_sysbios_knl_Task_unblockI")
-__extern xdc_Void ti_sysbios_knl_Task_unblockI__F( ti_sysbios_knl_Task_Object *__inst, xdc_UInt hwiKey );
-__extern xdc_Void ti_sysbios_knl_Task_unblockI__R( ti_sysbios_knl_Task_Handle __inst, xdc_UInt hwiKey );
 
 /* schedule__I */
 #define ti_sysbios_knl_Task_schedule ti_sysbios_knl_Task_schedule__I
@@ -951,7 +855,7 @@ static inline xdc_runtime_Types_Label *ti_sysbios_knl_Task_Handle_label( ti_sysb
 }
 
 /* Handle_name */
-static inline String ti_sysbios_knl_Task_Handle_name( ti_sysbios_knl_Task_Handle inst )
+static inline xdc_String ti_sysbios_knl_Task_Handle_name( ti_sysbios_knl_Task_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return ti_sysbios_knl_Task_Handle__label__S(inst, &lab)->iname;
@@ -994,7 +898,7 @@ static inline ti_sysbios_knl_Task_Struct *ti_sysbios_knl_Task_struct( ti_sysbios
 
 /* Module_State */
 struct ti_sysbios_knl_Task_Module_State {
-    xdc_Bool locked;
+    volatile xdc_Bool locked;
     volatile xdc_UInt curSet;
     xdc_Bool workFlag;
     xdc_UInt vitalTasks;
@@ -1078,6 +982,8 @@ static inline ti_sysbios_knl_Queue_Handle ti_sysbios_knl_Task_Module_State_termi
 #define Task_PendElem ti_sysbios_knl_Task_PendElem
 #define Task_Instance_State ti_sysbios_knl_Task_Instance_State
 #define Task_Module_State ti_sysbios_knl_Task_Module_State
+#define Task_RunQEntry ti_sysbios_knl_Task_RunQEntry
+#define Task_Module_StateSmp ti_sysbios_knl_Task_Module_StateSmp
 #define Task_Mode_RUNNING ti_sysbios_knl_Task_Mode_RUNNING
 #define Task_Mode_READY ti_sysbios_knl_Task_Mode_READY
 #define Task_Mode_BLOCKED ti_sysbios_knl_Task_Mode_BLOCKED

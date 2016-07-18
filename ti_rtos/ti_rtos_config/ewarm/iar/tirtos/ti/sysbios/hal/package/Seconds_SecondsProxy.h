@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -59,6 +59,9 @@
 /*
  * ======== AUXILIARY DEFINITIONS ========
  */
+
+/* Time */
+typedef ti_sysbios_interfaces_ISeconds_Time ti_sysbios_hal_Seconds_SecondsProxy_Time;
 
 
 /*
@@ -147,6 +150,7 @@ struct ti_sysbios_hal_Seconds_SecondsProxy_Fxns__ {
     xdc_runtime_Types_Base* __base;
     const xdc_runtime_Types_SysFxns2 *__sysp;
     xdc_UInt32 (*get)(void);
+    xdc_UInt32 (*getTime)(ti_sysbios_interfaces_ISeconds_Time*);
     xdc_Void (*set)(xdc_UInt32);
     xdc_runtime_Types_SysFxns2 __sfxns;
 };
@@ -210,15 +214,16 @@ __extern xdc_Ptr ti_sysbios_hal_Seconds_SecondsProxy_Proxy__delegate__S( void );
 #define ti_sysbios_hal_Seconds_SecondsProxy_get ti_sysbios_hal_Seconds_SecondsProxy_get__E
 xdc__CODESECT(ti_sysbios_hal_Seconds_SecondsProxy_get__E, "ti_sysbios_hal_Seconds_SecondsProxy_get")
 __extern xdc_UInt32 ti_sysbios_hal_Seconds_SecondsProxy_get__E( void );
-xdc__CODESECT(ti_sysbios_hal_Seconds_SecondsProxy_get__R, "ti_sysbios_hal_Seconds_SecondsProxy_get")
-__extern xdc_UInt32 ti_sysbios_hal_Seconds_SecondsProxy_get__R( void );
+
+/* getTime__E */
+#define ti_sysbios_hal_Seconds_SecondsProxy_getTime ti_sysbios_hal_Seconds_SecondsProxy_getTime__E
+xdc__CODESECT(ti_sysbios_hal_Seconds_SecondsProxy_getTime__E, "ti_sysbios_hal_Seconds_SecondsProxy_getTime")
+__extern xdc_UInt32 ti_sysbios_hal_Seconds_SecondsProxy_getTime__E( ti_sysbios_interfaces_ISeconds_Time *ts );
 
 /* set__E */
 #define ti_sysbios_hal_Seconds_SecondsProxy_set ti_sysbios_hal_Seconds_SecondsProxy_set__E
 xdc__CODESECT(ti_sysbios_hal_Seconds_SecondsProxy_set__E, "ti_sysbios_hal_Seconds_SecondsProxy_set")
 __extern xdc_Void ti_sysbios_hal_Seconds_SecondsProxy_set__E( xdc_UInt32 seconds );
-xdc__CODESECT(ti_sysbios_hal_Seconds_SecondsProxy_set__R, "ti_sysbios_hal_Seconds_SecondsProxy_set")
-__extern xdc_Void ti_sysbios_hal_Seconds_SecondsProxy_set__R( xdc_UInt32 seconds );
 
 
 /*
@@ -282,7 +287,9 @@ static inline CT__ti_sysbios_hal_Seconds_SecondsProxy_Module__id ti_sysbios_hal_
 #define ti_sysbios_hal_Seconds_SecondsProxy__localnames__done
 
 /* module prefix */
+#define Seconds_SecondsProxy_Time ti_sysbios_hal_Seconds_SecondsProxy_Time
 #define Seconds_SecondsProxy_get ti_sysbios_hal_Seconds_SecondsProxy_get
+#define Seconds_SecondsProxy_getTime ti_sysbios_hal_Seconds_SecondsProxy_getTime
 #define Seconds_SecondsProxy_set ti_sysbios_hal_Seconds_SecondsProxy_set
 #define Seconds_SecondsProxy_Module_name ti_sysbios_hal_Seconds_SecondsProxy_Module_name
 #define Seconds_SecondsProxy_Module_id ti_sysbios_hal_Seconds_SecondsProxy_Module_id

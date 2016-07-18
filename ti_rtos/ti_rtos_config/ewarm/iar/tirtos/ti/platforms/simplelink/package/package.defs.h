@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-z57
+ * @(#) xdc-B06
  */
 
 #ifndef ti_platforms_simplelink__

@@ -40,6 +40,6 @@ typedef xdc_runtime_Types_GateRef xdc_runtime_Gate_Ref;
 
 
 /*
- *  @(#) xdc.runtime; 2, 1, 0,488; 7-22-2014 09:52:28; /db/ztree/library/trees/xdc/xdc-A46x/src/packages/
+ *  @(#) xdc.runtime; 2, 1, 0,0; 12-9-2015 17:36:45; /db/ztree/library/trees/xdc/xdc-B06/src/packages/
  */
 

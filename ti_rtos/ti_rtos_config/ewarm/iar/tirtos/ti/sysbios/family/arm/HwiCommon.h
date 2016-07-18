@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -153,8 +153,6 @@ xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_Module_startup__E, "ti_sysbios_fam
 __extern xdc_Int ti_sysbios_family_arm_HwiCommon_Module_startup__E( xdc_Int state );
 xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_Module_startup__F, "ti_sysbios_family_arm_HwiCommon_Module_startup")
 __extern xdc_Int ti_sysbios_family_arm_HwiCommon_Module_startup__F( xdc_Int state );
-xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_Module_startup__R, "ti_sysbios_family_arm_HwiCommon_Module_startup")
-__extern xdc_Int ti_sysbios_family_arm_HwiCommon_Module_startup__R( xdc_Int state );
 
 /* Module__startupDone__S */
 xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_Module__startupDone__S, "ti_sysbios_family_arm_HwiCommon_Module__startupDone__S")
@@ -164,89 +162,56 @@ __extern xdc_Bool ti_sysbios_family_arm_HwiCommon_Module__startupDone__S( void )
 #define ti_sysbios_family_arm_HwiCommon_enable ti_sysbios_family_arm_HwiCommon_enable__E
 xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_enable__E, "ti_sysbios_family_arm_HwiCommon_enable")
 __extern xdc_UInt ti_sysbios_family_arm_HwiCommon_enable__E( void );
-xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_enable__F, "ti_sysbios_family_arm_HwiCommon_enable")
-__extern xdc_UInt ti_sysbios_family_arm_HwiCommon_enable__F( void );
-__extern xdc_UInt ti_sysbios_family_arm_HwiCommon_enable__R( void );
 
 /* disable__E */
 #define ti_sysbios_family_arm_HwiCommon_disable ti_sysbios_family_arm_HwiCommon_disable__E
 xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_disable__E, "ti_sysbios_family_arm_HwiCommon_disable")
 __extern xdc_UInt ti_sysbios_family_arm_HwiCommon_disable__E( void );
-xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_disable__F, "ti_sysbios_family_arm_HwiCommon_disable")
-__extern xdc_UInt ti_sysbios_family_arm_HwiCommon_disable__F( void );
-__extern xdc_UInt ti_sysbios_family_arm_HwiCommon_disable__R( void );
 
 /* restore__E */
 #define ti_sysbios_family_arm_HwiCommon_restore ti_sysbios_family_arm_HwiCommon_restore__E
 xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_restore__E, "ti_sysbios_family_arm_HwiCommon_restore")
 __extern xdc_Void ti_sysbios_family_arm_HwiCommon_restore__E( xdc_UInt key );
-xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_restore__F, "ti_sysbios_family_arm_HwiCommon_restore")
-__extern xdc_Void ti_sysbios_family_arm_HwiCommon_restore__F( xdc_UInt key );
-__extern xdc_Void ti_sysbios_family_arm_HwiCommon_restore__R( xdc_UInt key );
 
 /* enableFIQ__E */
 #define ti_sysbios_family_arm_HwiCommon_enableFIQ ti_sysbios_family_arm_HwiCommon_enableFIQ__E
 xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_enableFIQ__E, "ti_sysbios_family_arm_HwiCommon_enableFIQ")
 __extern xdc_UInt ti_sysbios_family_arm_HwiCommon_enableFIQ__E( void );
-xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_enableFIQ__F, "ti_sysbios_family_arm_HwiCommon_enableFIQ")
-__extern xdc_UInt ti_sysbios_family_arm_HwiCommon_enableFIQ__F( void );
-__extern xdc_UInt ti_sysbios_family_arm_HwiCommon_enableFIQ__R( void );
 
 /* disableFIQ__E */
 #define ti_sysbios_family_arm_HwiCommon_disableFIQ ti_sysbios_family_arm_HwiCommon_disableFIQ__E
 xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_disableFIQ__E, "ti_sysbios_family_arm_HwiCommon_disableFIQ")
 __extern xdc_UInt ti_sysbios_family_arm_HwiCommon_disableFIQ__E( void );
-xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_disableFIQ__F, "ti_sysbios_family_arm_HwiCommon_disableFIQ")
-__extern xdc_UInt ti_sysbios_family_arm_HwiCommon_disableFIQ__F( void );
-__extern xdc_UInt ti_sysbios_family_arm_HwiCommon_disableFIQ__R( void );
 
 /* restoreFIQ__E */
 #define ti_sysbios_family_arm_HwiCommon_restoreFIQ ti_sysbios_family_arm_HwiCommon_restoreFIQ__E
 xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_restoreFIQ__E, "ti_sysbios_family_arm_HwiCommon_restoreFIQ")
 __extern xdc_Void ti_sysbios_family_arm_HwiCommon_restoreFIQ__E( xdc_UInt key );
-xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_restoreFIQ__F, "ti_sysbios_family_arm_HwiCommon_restoreFIQ")
-__extern xdc_Void ti_sysbios_family_arm_HwiCommon_restoreFIQ__F( xdc_UInt key );
-__extern xdc_Void ti_sysbios_family_arm_HwiCommon_restoreFIQ__R( xdc_UInt key );
 
 /* enableIRQ__E */
 #define ti_sysbios_family_arm_HwiCommon_enableIRQ ti_sysbios_family_arm_HwiCommon_enableIRQ__E
 xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_enableIRQ__E, "ti_sysbios_family_arm_HwiCommon_enableIRQ")
 __extern xdc_UInt ti_sysbios_family_arm_HwiCommon_enableIRQ__E( void );
-xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_enableIRQ__F, "ti_sysbios_family_arm_HwiCommon_enableIRQ")
-__extern xdc_UInt ti_sysbios_family_arm_HwiCommon_enableIRQ__F( void );
-__extern xdc_UInt ti_sysbios_family_arm_HwiCommon_enableIRQ__R( void );
 
 /* disableIRQ__E */
 #define ti_sysbios_family_arm_HwiCommon_disableIRQ ti_sysbios_family_arm_HwiCommon_disableIRQ__E
 xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_disableIRQ__E, "ti_sysbios_family_arm_HwiCommon_disableIRQ")
 __extern xdc_UInt ti_sysbios_family_arm_HwiCommon_disableIRQ__E( void );
-xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_disableIRQ__F, "ti_sysbios_family_arm_HwiCommon_disableIRQ")
-__extern xdc_UInt ti_sysbios_family_arm_HwiCommon_disableIRQ__F( void );
-__extern xdc_UInt ti_sysbios_family_arm_HwiCommon_disableIRQ__R( void );
 
 /* restoreIRQ__E */
 #define ti_sysbios_family_arm_HwiCommon_restoreIRQ ti_sysbios_family_arm_HwiCommon_restoreIRQ__E
 xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_restoreIRQ__E, "ti_sysbios_family_arm_HwiCommon_restoreIRQ")
 __extern xdc_Void ti_sysbios_family_arm_HwiCommon_restoreIRQ__E( xdc_UInt key );
-xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_restoreIRQ__F, "ti_sysbios_family_arm_HwiCommon_restoreIRQ")
-__extern xdc_Void ti_sysbios_family_arm_HwiCommon_restoreIRQ__F( xdc_UInt key );
-__extern xdc_Void ti_sysbios_family_arm_HwiCommon_restoreIRQ__R( xdc_UInt key );
 
 /* getTaskSP__E */
 #define ti_sysbios_family_arm_HwiCommon_getTaskSP ti_sysbios_family_arm_HwiCommon_getTaskSP__E
 xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_getTaskSP__E, "ti_sysbios_family_arm_HwiCommon_getTaskSP")
 __extern xdc_Char *ti_sysbios_family_arm_HwiCommon_getTaskSP__E( void );
-xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_getTaskSP__F, "ti_sysbios_family_arm_HwiCommon_getTaskSP")
-__extern xdc_Char *ti_sysbios_family_arm_HwiCommon_getTaskSP__F( void );
-__extern xdc_Char *ti_sysbios_family_arm_HwiCommon_getTaskSP__R( void );
 
 /* switchFromBootStack__E */
 #define ti_sysbios_family_arm_HwiCommon_switchFromBootStack ti_sysbios_family_arm_HwiCommon_switchFromBootStack__E
 xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_switchFromBootStack__E, "ti_sysbios_family_arm_HwiCommon_switchFromBootStack")
 __extern xdc_Void ti_sysbios_family_arm_HwiCommon_switchFromBootStack__E( void );
-xdc__CODESECT(ti_sysbios_family_arm_HwiCommon_switchFromBootStack__F, "ti_sysbios_family_arm_HwiCommon_switchFromBootStack")
-__extern xdc_Void ti_sysbios_family_arm_HwiCommon_switchFromBootStack__F( void );
-__extern xdc_Void ti_sysbios_family_arm_HwiCommon_switchFromBootStack__R( void );
 
 /* switchToSystemMode__I */
 #define ti_sysbios_family_arm_HwiCommon_switchToSystemMode ti_sysbios_family_arm_HwiCommon_switchToSystemMode__I

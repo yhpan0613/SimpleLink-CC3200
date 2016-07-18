@@ -31,6 +31,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/main.c</locationURI>
 		</link>
 		<link>
+			<name>network_common.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/common/network_common.c</locationURI>
+		</link>
+		<link>
 			<name>startup_ccs.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/startup_ccs.c</locationURI>

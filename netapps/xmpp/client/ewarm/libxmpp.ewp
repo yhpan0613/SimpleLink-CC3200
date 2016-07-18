@@ -29,7 +29,7 @@
         </option>
         <option>
           <name>Variant</name>
-          <version>20</version>
+          <version>21</version>
           <state>39</state>
         </option>
         <option>
@@ -60,7 +60,7 @@
         </option>
         <option>
           <name>FPU</name>
-          <version>2</version>
+          <version>3</version>
           <state>0</state>
         </option>
         <option>
@@ -87,7 +87,7 @@
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>7.20.1.7306</state>
+          <state>7.30.4.8186</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -133,16 +133,16 @@
         </option>
         <option>
           <name>RTConfigPath2</name>
-          <state>$TOOLKIT_DIR$/INC/c/DLib_Config_Normal.h</state>
+          <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Normal.h</state>
         </option>
         <option>
           <name>GFPUCoreSlave</name>
-          <version>20</version>
+          <version>21</version>
           <state>39</state>
         </option>
         <option>
           <name>GBECoreSlave</name>
-          <version>20</version>
+          <version>21</version>
           <state>39</state>
         </option>
         <option>
@@ -250,11 +250,11 @@
         </option>
         <option>
           <name>IExtraOptionsCheck</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IExtraOptions</name>
-          <state></state>
+          <state>--diag_suppress Pa050</state>
         </option>
         <option>
           <name>CCLangConformance</name>
@@ -308,6 +308,7 @@
           <state>$PROJ_DIR$/../../../../simplelink/</state>
           <state>$PROJ_DIR$/../../../../simplelink/source</state>
           <state>$PROJ_DIR$/../../../../simplelink/include</state>
+          <state>$PROJ_DIR$/../../../../simplelink_extlib/provisioninglib</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -617,6 +618,7 @@
       <data>
         <extensions></extensions>
         <cmdline></cmdline>
+        <hasPrio>0</hasPrio>
       </data>
     </settings>
     <settings>
@@ -939,7 +941,7 @@
         </option>
         <option>
           <name>IarchiveOutput</name>
-          <state>D:/CC32xx/SDK_1.0.0/example/xmpp_client/lib/ewarm/Release/Exe/libxmpp.a</state>
+          <state>$PROJ_DIR$\Release\Exe\libxmpp.a</state>
         </option>
       </data>
     </settings>
@@ -976,7 +978,7 @@
         </option>
         <option>
           <name>Variant</name>
-          <version>20</version>
+          <version>21</version>
           <state>0</state>
         </option>
         <option>
@@ -990,7 +992,7 @@
         </option>
         <option>
           <name>Input description</name>
-          <state></state>
+          <state>Automatic choice of formatter.</state>
         </option>
         <option>
           <name>Output variant</name>
@@ -999,7 +1001,7 @@
         </option>
         <option>
           <name>Output description</name>
-          <state></state>
+          <state>Automatic choice of formatter.</state>
         </option>
         <option>
           <name>GOutputBinary</name>
@@ -1007,7 +1009,7 @@
         </option>
         <option>
           <name>FPU</name>
-          <version>2</version>
+          <version>3</version>
           <state>0</state>
         </option>
         <option>
@@ -1026,7 +1028,7 @@
         </option>
         <option>
           <name>RTDescription</name>
-          <state></state>
+          <state>Use the normal configuration of the C/C++ runtime library. No locale interface, C locale, no file descriptor support, no multibytes in printf and scanf, and no hex floats in strtod.</state>
         </option>
         <option>
           <name>OGProductVersion</name>
@@ -1034,7 +1036,7 @@
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state></state>
+          <state>7.30.4.8186</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -1046,7 +1048,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state></state>
+          <state>Default	None</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -1080,17 +1082,17 @@
         </option>
         <option>
           <name>RTConfigPath2</name>
-          <state></state>
+          <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Normal.h</state>
         </option>
         <option>
           <name>GFPUCoreSlave</name>
-          <version>20</version>
-          <state>1</state>
+          <version>21</version>
+          <state>0</state>
         </option>
         <option>
           <name>GBECoreSlave</name>
-          <version>20</version>
-          <state>1</state>
+          <version>21</version>
+          <state>0</state>
         </option>
         <option>
           <name>OGUseCmsis</name>
@@ -1232,7 +1234,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state></state>
+          <state>$FILE_BNAME$.o</state>
         </option>
         <option>
           <name>CCLibConfigHeader</name>
@@ -1248,7 +1250,12 @@
         </option>
         <option>
           <name>CCIncludePath2</name>
-          <state></state>
+          <state>$PROJ_DIR$/</state>
+          <state>$PROJ_DIR$/../</state>
+          <state>$PROJ_DIR$/../../../../simplelink/</state>
+          <state>$PROJ_DIR$/../../../../simplelink/source</state>
+          <state>$PROJ_DIR$/../../../../simplelink/include</state>
+          <state>$PROJ_DIR$/../../../../simplelink_extlib/provisioninglib</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1277,7 +1284,7 @@
         </option>
         <option>
           <name>CCOptLevelSlave</name>
-          <state>1</state>
+          <state>3</state>
         </option>
         <option>
           <name>CompilerMisraRules98</name>
@@ -1558,6 +1565,7 @@
       <data>
         <extensions></extensions>
         <cmdline></cmdline>
+        <hasPrio>0</hasPrio>
       </data>
     </settings>
     <settings>
@@ -1594,7 +1602,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>###Unitialized###</state>
+          <state>libxmpp.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -1891,10 +1899,10 @@
     </settings>
   </configuration>
   <file>
-    <name>$PROJ_DIR$/../base64.c</name>
+    <name>$PROJ_DIR$\..\base64.c</name>
   </file>
   <file>
-    <name>$PROJ_DIR$/../xmpp.c</name>
+    <name>$PROJ_DIR$\..\xmpp.c</name>
   </file>
 </project>
 

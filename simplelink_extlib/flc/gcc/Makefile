@@ -57,6 +57,8 @@ IPATH= ..
 IPATH+= ../../include
 IPATH+= ../../../simplelink/include
 IPATH+= ../../../simplelink/source
+IPATH+= ../../../simplelink_extlib/provisioninglib
+
 
 
 #

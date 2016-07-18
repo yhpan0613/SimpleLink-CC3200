@@ -184,26 +184,25 @@ void
 TimerConfigure(unsigned long ulBase, unsigned long ulConfig)
 {
 
-    ASSERT((ulConfig == TIMER_CFG_ONE_SHOT) ||
-           (ulConfig == TIMER_CFG_ONE_SHOT_UP) ||
-           (ulConfig == TIMER_CFG_PERIODIC) ||
-           (ulConfig == TIMER_CFG_PERIODIC_UP) ||
-           ((ulConfig & 0xff000000) == TIMER_CFG_SPLIT_PAIR));
-    ASSERT(((ulConfig & 0xff000000) != TIMER_CFG_SPLIT_PAIR) ||
-           ((((ulConfig & 0x000000ff) == TIMER_CFG_A_ONE_SHOT) ||
-             ((ulConfig & 0x000000ff) == TIMER_CFG_A_ONE_SHOT_UP) ||
-             ((ulConfig & 0x000000ff) == TIMER_CFG_A_PERIODIC) ||
-             ((ulConfig & 0x000000ff) == TIMER_CFG_A_PERIODIC_UP) ||
-             ((ulConfig & 0x000000ff) == TIMER_CFG_A_CAP_COUNT) ||
-             ((ulConfig & 0x000000ff) == TIMER_CFG_A_CAP_TIME) ||
-             ((ulConfig & 0x000000ff) == TIMER_CFG_A_PWM)) &&
+    ASSERT( (ulConfig == TIMER_CFG_ONE_SHOT) ||
+            (ulConfig == TIMER_CFG_ONE_SHOT_UP) ||
+            (ulConfig == TIMER_CFG_PERIODIC) ||
+            (ulConfig == TIMER_CFG_PERIODIC_UP) ||
+            (((ulConfig & 0xff000000) == TIMER_CFG_SPLIT_PAIR) &&
+            ((((ulConfig & 0x000000ff) == TIMER_CFG_A_ONE_SHOT) ||
+            ((ulConfig & 0x000000ff) == TIMER_CFG_A_ONE_SHOT_UP) ||
+            ((ulConfig & 0x000000ff) == TIMER_CFG_A_PERIODIC) ||
+            ((ulConfig & 0x000000ff) == TIMER_CFG_A_PERIODIC_UP) ||
+            ((ulConfig & 0x000000ff) == TIMER_CFG_A_CAP_COUNT) ||
+            ((ulConfig & 0x000000ff) == TIMER_CFG_A_CAP_TIME) ||
+            ((ulConfig & 0x000000ff) == TIMER_CFG_A_PWM)) ||
             (((ulConfig & 0x0000ff00) == TIMER_CFG_B_ONE_SHOT) ||
-             ((ulConfig & 0x0000ff00) == TIMER_CFG_B_ONE_SHOT_UP) ||
-             ((ulConfig & 0x0000ff00) == TIMER_CFG_B_PERIODIC) ||
-             ((ulConfig & 0x0000ff00) == TIMER_CFG_B_PERIODIC_UP) ||
-             ((ulConfig & 0x0000ff00) == TIMER_CFG_B_CAP_COUNT) ||
-             ((ulConfig & 0x0000ff00) == TIMER_CFG_B_CAP_TIME) ||
-             ((ulConfig & 0x0000ff00) == TIMER_CFG_B_PWM))));
+            ((ulConfig & 0x0000ff00) == TIMER_CFG_B_ONE_SHOT_UP) ||
+            ((ulConfig & 0x0000ff00) == TIMER_CFG_B_PERIODIC) ||
+            ((ulConfig & 0x0000ff00) == TIMER_CFG_B_PERIODIC_UP) ||
+            ((ulConfig & 0x0000ff00) == TIMER_CFG_B_CAP_COUNT) ||
+            ((ulConfig & 0x0000ff00) == TIMER_CFG_B_CAP_TIME) ||
+            ((ulConfig & 0x0000ff00) == TIMER_CFG_B_PWM)))));
 
     //
     // Enable CCP to IO path

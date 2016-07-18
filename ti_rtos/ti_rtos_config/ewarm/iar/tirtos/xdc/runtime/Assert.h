@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A46
+ * @(#) xdc-B06
  */
 
 /*
@@ -262,6 +262,6 @@ static inline xdc_Void xdc_runtime_Assert_Module_setMask( xdc_Bits16 mask )
 #endif /* xdc_runtime_Assert__localnames__done */
 #endif
 /*
- *  @(#) xdc.runtime; 2, 1, 0,488; 7-22-2014 09:52:28; /db/ztree/library/trees/xdc/xdc-A46x/src/packages/
+ *  @(#) xdc.runtime; 2, 1, 0,0; 12-9-2015 17:36:43; /db/ztree/library/trees/xdc/xdc-B06/src/packages/
  */
 

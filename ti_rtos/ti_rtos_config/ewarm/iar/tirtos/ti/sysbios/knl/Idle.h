@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -177,17 +177,11 @@ __extern xdc_Bool ti_sysbios_knl_Idle_Module__startupDone__S( void );
 #define ti_sysbios_knl_Idle_loop ti_sysbios_knl_Idle_loop__E
 xdc__CODESECT(ti_sysbios_knl_Idle_loop__E, "ti_sysbios_knl_Idle_loop")
 __extern xdc_Void ti_sysbios_knl_Idle_loop__E( xdc_UArg arg1, xdc_UArg arg2 );
-xdc__CODESECT(ti_sysbios_knl_Idle_loop__F, "ti_sysbios_knl_Idle_loop")
-__extern xdc_Void ti_sysbios_knl_Idle_loop__F( xdc_UArg arg1, xdc_UArg arg2 );
-__extern xdc_Void ti_sysbios_knl_Idle_loop__R( xdc_UArg arg1, xdc_UArg arg2 );
 
 /* run__E */
 #define ti_sysbios_knl_Idle_run ti_sysbios_knl_Idle_run__E
 xdc__CODESECT(ti_sysbios_knl_Idle_run__E, "ti_sysbios_knl_Idle_run")
 __extern xdc_Void ti_sysbios_knl_Idle_run__E( void );
-xdc__CODESECT(ti_sysbios_knl_Idle_run__F, "ti_sysbios_knl_Idle_run")
-__extern xdc_Void ti_sysbios_knl_Idle_run__F( void );
-__extern xdc_Void ti_sysbios_knl_Idle_run__R( void );
 
 
 /*

@@ -1,6 +1,6 @@
 #
 # This file was generated based on the configuration script:
-#     D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\ti_rtos\ti_rtos_config\app.cfg
+#     D:\git\a0132167_cc3200_sdk_1.2.0\source-1p2-rahul\ti_rtos\ti_rtos_config\app.cfg
 #
 # This makefile may be included in other makefiles that need to build
 # the libraries containing the compiled source files generated as
@@ -14,9 +14,9 @@
 #
 # The absolute path to the generated source directory (at the time the
 # sources were generated) is:
-#    D:\GIT\a0132167_sdk_1.1.0\source-1p1-rahul\ti_rtos\ti_rtos_config\src
+#    D:\git\a0132167_cc3200_sdk_1.2.0\source-1p2-rahul\ti_rtos\ti_rtos_config\src
 #
-GEN_SRC_DIR ?= ../../src
+GEN_SRC_DIR ?= ../src
 
 ifeq (,$(wildcard $(GEN_SRC_DIR)))
 $(error "ERROR: GEN_SRC_DIR must be set to the directory containing the generated sources")
@@ -33,7 +33,7 @@ endif
 # ======== library macros ========
 #
 sysbios_SRC = $(GEN_SRC_DIR)/sysbios
-sysbios_LIB = $(GEN_SRC_DIR)/sysbios/sysbios.aem4
+sysbios_LIB = $(GEN_SRC_DIR)/sysbios/sysbios.am4g
 
 #
 # ======== dependencies ========
@@ -44,7 +44,7 @@ clean: .sysbios_clean
 
 # ======== convenient build goals ========
 .PHONY: sysbios
-sysbios: $(GEN_SRC_DIR)/sysbios/sysbios.aem4
+sysbios: $(GEN_SRC_DIR)/sysbios/sysbios.am4g
 
 # CDT managed make executables depend on $(OBJS)
 OBJS += $(sysbios_LIB)

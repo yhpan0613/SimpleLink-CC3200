@@ -32,6 +32,7 @@ char    HTTP_VERSION_1P0[]              =  "http/1.0";
 
 // HTTP request/response header line strings
 char    HTTP_CONTENT_TYPE[]             =  "content-type";
+char    HTTP_UPGRADE_INSECURE_REQUESTS[] =  "upgrade-insecure-requests";
 char    HTTP_CONTENT_LENGTH[]           =  "content-length";
 char    HTTP_ACCEPT_ENCODING[]          =  "accept-encoding";
 char    HTTP_AUTHORIZATION[]            =  "authorization";

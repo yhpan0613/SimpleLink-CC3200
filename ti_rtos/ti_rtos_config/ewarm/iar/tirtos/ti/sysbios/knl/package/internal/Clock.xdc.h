@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 #ifndef ti_sysbios_knl_Clock__INTERNAL__
@@ -28,6 +28,10 @@
 /* getTimerHandle */
 #undef ti_sysbios_knl_Clock_getTimerHandle
 #define ti_sysbios_knl_Clock_getTimerHandle ti_sysbios_knl_Clock_getTimerHandle__E
+
+/* setTicks */
+#undef ti_sysbios_knl_Clock_setTicks
+#define ti_sysbios_knl_Clock_setTicks ti_sysbios_knl_Clock_setTicks__E
 
 /* tickStop */
 #undef ti_sysbios_knl_Clock_tickStop
@@ -69,9 +73,17 @@
 #undef ti_sysbios_knl_Clock_getTicksUntilInterrupt
 #define ti_sysbios_knl_Clock_getTicksUntilInterrupt ti_sysbios_knl_Clock_getTicksUntilInterrupt__E
 
+/* getTicksUntilTimeout */
+#undef ti_sysbios_knl_Clock_getTicksUntilTimeout
+#define ti_sysbios_knl_Clock_getTicksUntilTimeout ti_sysbios_knl_Clock_getTicksUntilTimeout__E
+
 /* walkQueueDynamic */
 #undef ti_sysbios_knl_Clock_walkQueueDynamic
 #define ti_sysbios_knl_Clock_walkQueueDynamic ti_sysbios_knl_Clock_walkQueueDynamic__E
+
+/* walkQueuePeriodic */
+#undef ti_sysbios_knl_Clock_walkQueuePeriodic
+#define ti_sysbios_knl_Clock_walkQueuePeriodic ti_sysbios_knl_Clock_walkQueuePeriodic__E
 
 /* scheduleNextTick */
 #undef ti_sysbios_knl_Clock_scheduleNextTick
@@ -123,6 +135,9 @@
 
 /* doTick */
 #define Clock_doTick ti_sysbios_knl_Clock_doTick__I
+
+/* triggerFunc */
+#define Clock_triggerFunc ti_sysbios_knl_Clock_triggerFunc__I
 
 /* Module_startup */
 #undef ti_sysbios_knl_Clock_Module_startup

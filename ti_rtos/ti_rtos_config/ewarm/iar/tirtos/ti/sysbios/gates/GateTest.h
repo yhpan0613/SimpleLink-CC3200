@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -205,10 +205,6 @@ __extern const ti_sysbios_gates_GateTest_Fxns__ ti_sysbios_gates_GateTest_Module
 xdc__CODESECT(ti_sysbios_gates_GateTest_Instance_init__E, "ti_sysbios_gates_GateTest_Instance_init")
 __extern xdc_Void ti_sysbios_gates_GateTest_Instance_init__E(ti_sysbios_gates_GateTest_Object *, const ti_sysbios_gates_GateTest_Params *);
 
-/* Instance_init__R */
-xdc__CODESECT(ti_sysbios_gates_GateTest_Instance_init__R, "ti_sysbios_gates_GateTest_Instance_init")
-__extern xdc_Void ti_sysbios_gates_GateTest_Instance_init__R(ti_sysbios_gates_GateTest_Object *, const ti_sysbios_gates_GateTest_Params *);
-
 /* Handle__label__S */
 xdc__CODESECT(ti_sysbios_gates_GateTest_Handle__label__S, "ti_sysbios_gates_GateTest_Handle__label__S")
 __extern xdc_runtime_Types_Label *ti_sysbios_gates_GateTest_Handle__label__S( xdc_Ptr obj, xdc_runtime_Types_Label *lab );
@@ -235,7 +231,7 @@ __extern xdc_Void ti_sysbios_gates_GateTest_Object__delete__S( xdc_Ptr instp );
 
 /* delete */
 xdc__CODESECT(ti_sysbios_gates_GateTest_delete, "ti_sysbios_gates_GateTest_delete")
-__extern Void ti_sysbios_gates_GateTest_delete(ti_sysbios_gates_GateTest_Handle *instp);
+__extern void ti_sysbios_gates_GateTest_delete(ti_sysbios_gates_GateTest_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_gates_GateTest_Object__destruct__S, "ti_sysbios_gates_GateTest_Object__destruct__S")
@@ -265,49 +261,31 @@ __extern xdc_Void ti_sysbios_gates_GateTest_Params__init__S( xdc_Ptr dst, const 
 #define ti_sysbios_gates_GateTest_query ti_sysbios_gates_GateTest_query__E
 xdc__CODESECT(ti_sysbios_gates_GateTest_query__E, "ti_sysbios_gates_GateTest_query")
 __extern xdc_Bool ti_sysbios_gates_GateTest_query__E( xdc_Int qual );
-xdc__CODESECT(ti_sysbios_gates_GateTest_query__F, "ti_sysbios_gates_GateTest_query")
-__extern xdc_Bool ti_sysbios_gates_GateTest_query__F( xdc_Int qual );
-__extern xdc_Bool ti_sysbios_gates_GateTest_query__R( xdc_Int qual );
 
 /* enter__E */
 #define ti_sysbios_gates_GateTest_enter ti_sysbios_gates_GateTest_enter__E
 xdc__CODESECT(ti_sysbios_gates_GateTest_enter__E, "ti_sysbios_gates_GateTest_enter")
 __extern xdc_IArg ti_sysbios_gates_GateTest_enter__E( ti_sysbios_gates_GateTest_Handle __inst );
-xdc__CODESECT(ti_sysbios_gates_GateTest_enter__F, "ti_sysbios_gates_GateTest_enter")
-__extern xdc_IArg ti_sysbios_gates_GateTest_enter__F( ti_sysbios_gates_GateTest_Object *__inst );
-__extern xdc_IArg ti_sysbios_gates_GateTest_enter__R( ti_sysbios_gates_GateTest_Handle __inst );
 
 /* leave__E */
 #define ti_sysbios_gates_GateTest_leave ti_sysbios_gates_GateTest_leave__E
 xdc__CODESECT(ti_sysbios_gates_GateTest_leave__E, "ti_sysbios_gates_GateTest_leave")
 __extern xdc_Void ti_sysbios_gates_GateTest_leave__E( ti_sysbios_gates_GateTest_Handle __inst, xdc_IArg key );
-xdc__CODESECT(ti_sysbios_gates_GateTest_leave__F, "ti_sysbios_gates_GateTest_leave")
-__extern xdc_Void ti_sysbios_gates_GateTest_leave__F( ti_sysbios_gates_GateTest_Object *__inst, xdc_IArg key );
-__extern xdc_Void ti_sysbios_gates_GateTest_leave__R( ti_sysbios_gates_GateTest_Handle __inst, xdc_IArg key );
 
 /* getEnterCount__E */
 #define ti_sysbios_gates_GateTest_getEnterCount ti_sysbios_gates_GateTest_getEnterCount__E
 xdc__CODESECT(ti_sysbios_gates_GateTest_getEnterCount__E, "ti_sysbios_gates_GateTest_getEnterCount")
 __extern xdc_Int ti_sysbios_gates_GateTest_getEnterCount__E( ti_sysbios_gates_GateTest_Handle __inst );
-xdc__CODESECT(ti_sysbios_gates_GateTest_getEnterCount__F, "ti_sysbios_gates_GateTest_getEnterCount")
-__extern xdc_Int ti_sysbios_gates_GateTest_getEnterCount__F( ti_sysbios_gates_GateTest_Object *__inst );
-__extern xdc_Int ti_sysbios_gates_GateTest_getEnterCount__R( ti_sysbios_gates_GateTest_Handle __inst );
 
 /* getLeaveCount__E */
 #define ti_sysbios_gates_GateTest_getLeaveCount ti_sysbios_gates_GateTest_getLeaveCount__E
 xdc__CODESECT(ti_sysbios_gates_GateTest_getLeaveCount__E, "ti_sysbios_gates_GateTest_getLeaveCount")
 __extern xdc_Int ti_sysbios_gates_GateTest_getLeaveCount__E( ti_sysbios_gates_GateTest_Handle __inst );
-xdc__CODESECT(ti_sysbios_gates_GateTest_getLeaveCount__F, "ti_sysbios_gates_GateTest_getLeaveCount")
-__extern xdc_Int ti_sysbios_gates_GateTest_getLeaveCount__F( ti_sysbios_gates_GateTest_Object *__inst );
-__extern xdc_Int ti_sysbios_gates_GateTest_getLeaveCount__R( ti_sysbios_gates_GateTest_Handle __inst );
 
 /* getCreateCount__E */
 #define ti_sysbios_gates_GateTest_getCreateCount ti_sysbios_gates_GateTest_getCreateCount__E
 xdc__CODESECT(ti_sysbios_gates_GateTest_getCreateCount__E, "ti_sysbios_gates_GateTest_getCreateCount")
 __extern xdc_Int ti_sysbios_gates_GateTest_getCreateCount__E( ti_sysbios_gates_GateTest_Handle __inst );
-xdc__CODESECT(ti_sysbios_gates_GateTest_getCreateCount__F, "ti_sysbios_gates_GateTest_getCreateCount")
-__extern xdc_Int ti_sysbios_gates_GateTest_getCreateCount__F( ti_sysbios_gates_GateTest_Object *__inst );
-__extern xdc_Int ti_sysbios_gates_GateTest_getCreateCount__R( ti_sysbios_gates_GateTest_Handle __inst );
 
 
 /*
@@ -427,7 +405,7 @@ static inline xdc_runtime_Types_Label *ti_sysbios_gates_GateTest_Handle_label( t
 }
 
 /* Handle_name */
-static inline String ti_sysbios_gates_GateTest_Handle_name( ti_sysbios_gates_GateTest_Handle inst )
+static inline xdc_String ti_sysbios_gates_GateTest_Handle_name( ti_sysbios_gates_GateTest_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return ti_sysbios_gates_GateTest_Handle__label__S(inst, &lab)->iname;

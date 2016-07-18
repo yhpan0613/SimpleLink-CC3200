@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -336,10 +336,6 @@ struct ti_sysbios_knl_Event_Struct {
 xdc__CODESECT(ti_sysbios_knl_Event_Instance_init__E, "ti_sysbios_knl_Event_Instance_init")
 __extern xdc_Void ti_sysbios_knl_Event_Instance_init__E(ti_sysbios_knl_Event_Object *, const ti_sysbios_knl_Event_Params *);
 
-/* Instance_init__R */
-xdc__CODESECT(ti_sysbios_knl_Event_Instance_init__R, "ti_sysbios_knl_Event_Instance_init")
-__extern xdc_Void ti_sysbios_knl_Event_Instance_init__R(ti_sysbios_knl_Event_Object *, const ti_sysbios_knl_Event_Params *);
-
 /* Handle__label__S */
 xdc__CODESECT(ti_sysbios_knl_Event_Handle__label__S, "ti_sysbios_knl_Event_Handle__label__S")
 __extern xdc_runtime_Types_Label *ti_sysbios_knl_Event_Handle__label__S( xdc_Ptr obj, xdc_runtime_Types_Label *lab );
@@ -366,7 +362,7 @@ __extern xdc_Void ti_sysbios_knl_Event_Object__delete__S( xdc_Ptr instp );
 
 /* delete */
 xdc__CODESECT(ti_sysbios_knl_Event_delete, "ti_sysbios_knl_Event_delete")
-__extern Void ti_sysbios_knl_Event_delete(ti_sysbios_knl_Event_Handle *instp);
+__extern void ti_sysbios_knl_Event_delete(ti_sysbios_knl_Event_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_knl_Event_Object__destruct__S, "ti_sysbios_knl_Event_Object__destruct__S")
@@ -396,33 +392,21 @@ __extern xdc_Void ti_sysbios_knl_Event_Params__init__S( xdc_Ptr dst, const xdc_V
 #define ti_sysbios_knl_Event_pend ti_sysbios_knl_Event_pend__E
 xdc__CODESECT(ti_sysbios_knl_Event_pend__E, "ti_sysbios_knl_Event_pend")
 __extern xdc_UInt ti_sysbios_knl_Event_pend__E( ti_sysbios_knl_Event_Handle __inst, xdc_UInt andMask, xdc_UInt orMask, xdc_UInt32 timeout );
-xdc__CODESECT(ti_sysbios_knl_Event_pend__F, "ti_sysbios_knl_Event_pend")
-__extern xdc_UInt ti_sysbios_knl_Event_pend__F( ti_sysbios_knl_Event_Object *__inst, xdc_UInt andMask, xdc_UInt orMask, xdc_UInt32 timeout );
-__extern xdc_UInt ti_sysbios_knl_Event_pend__R( ti_sysbios_knl_Event_Handle __inst, xdc_UInt andMask, xdc_UInt orMask, xdc_UInt32 timeout );
 
 /* post__E */
 #define ti_sysbios_knl_Event_post ti_sysbios_knl_Event_post__E
 xdc__CODESECT(ti_sysbios_knl_Event_post__E, "ti_sysbios_knl_Event_post")
 __extern xdc_Void ti_sysbios_knl_Event_post__E( ti_sysbios_knl_Event_Handle __inst, xdc_UInt eventMask );
-xdc__CODESECT(ti_sysbios_knl_Event_post__F, "ti_sysbios_knl_Event_post")
-__extern xdc_Void ti_sysbios_knl_Event_post__F( ti_sysbios_knl_Event_Object *__inst, xdc_UInt eventMask );
-__extern xdc_Void ti_sysbios_knl_Event_post__R( ti_sysbios_knl_Event_Handle __inst, xdc_UInt eventMask );
 
 /* getPostedEvents__E */
 #define ti_sysbios_knl_Event_getPostedEvents ti_sysbios_knl_Event_getPostedEvents__E
 xdc__CODESECT(ti_sysbios_knl_Event_getPostedEvents__E, "ti_sysbios_knl_Event_getPostedEvents")
 __extern xdc_UInt ti_sysbios_knl_Event_getPostedEvents__E( ti_sysbios_knl_Event_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Event_getPostedEvents__F, "ti_sysbios_knl_Event_getPostedEvents")
-__extern xdc_UInt ti_sysbios_knl_Event_getPostedEvents__F( ti_sysbios_knl_Event_Object *__inst );
-__extern xdc_UInt ti_sysbios_knl_Event_getPostedEvents__R( ti_sysbios_knl_Event_Handle __inst );
 
 /* sync__E */
 #define ti_sysbios_knl_Event_sync ti_sysbios_knl_Event_sync__E
 xdc__CODESECT(ti_sysbios_knl_Event_sync__E, "ti_sysbios_knl_Event_sync")
 __extern xdc_Void ti_sysbios_knl_Event_sync__E( ti_sysbios_knl_Event_Handle __inst, xdc_UInt eventId, xdc_UInt count );
-xdc__CODESECT(ti_sysbios_knl_Event_sync__F, "ti_sysbios_knl_Event_sync")
-__extern xdc_Void ti_sysbios_knl_Event_sync__F( ti_sysbios_knl_Event_Object *__inst, xdc_UInt eventId, xdc_UInt count );
-__extern xdc_Void ti_sysbios_knl_Event_sync__R( ti_sysbios_knl_Event_Handle __inst, xdc_UInt eventId, xdc_UInt count );
 
 /* pendTimeout__I */
 #define ti_sysbios_knl_Event_pendTimeout ti_sysbios_knl_Event_pendTimeout__I
@@ -519,7 +503,7 @@ static inline xdc_runtime_Types_Label *ti_sysbios_knl_Event_Handle_label( ti_sys
 }
 
 /* Handle_name */
-static inline String ti_sysbios_knl_Event_Handle_name( ti_sysbios_knl_Event_Handle inst )
+static inline xdc_String ti_sysbios_knl_Event_Handle_name( ti_sysbios_knl_Event_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return ti_sysbios_knl_Event_Handle__label__S(inst, &lab)->iname;

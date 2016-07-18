@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -234,8 +234,6 @@ xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_Module_startup__E, "ti_sysbios_heaps
 __extern xdc_Int ti_sysbios_heaps_HeapMultiBuf_Module_startup__E( xdc_Int state );
 xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_Module_startup__F, "ti_sysbios_heaps_HeapMultiBuf_Module_startup")
 __extern xdc_Int ti_sysbios_heaps_HeapMultiBuf_Module_startup__F( xdc_Int state );
-xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_Module_startup__R, "ti_sysbios_heaps_HeapMultiBuf_Module_startup")
-__extern xdc_Int ti_sysbios_heaps_HeapMultiBuf_Module_startup__R( xdc_Int state );
 
 /* Instance_init__E */
 xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_Instance_init__E, "ti_sysbios_heaps_HeapMultiBuf_Instance_init")
@@ -244,14 +242,6 @@ __extern xdc_Int ti_sysbios_heaps_HeapMultiBuf_Instance_init__E(ti_sysbios_heaps
 /* Instance_finalize__E */
 xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_Instance_finalize__E, "ti_sysbios_heaps_HeapMultiBuf_Instance_finalize")
 __extern void ti_sysbios_heaps_HeapMultiBuf_Instance_finalize__E( ti_sysbios_heaps_HeapMultiBuf_Object* , int );
-
-/* Instance_init__R */
-xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_Instance_init__R, "ti_sysbios_heaps_HeapMultiBuf_Instance_init")
-__extern xdc_Int ti_sysbios_heaps_HeapMultiBuf_Instance_init__R(ti_sysbios_heaps_HeapMultiBuf_Object *, const ti_sysbios_heaps_HeapMultiBuf_Params *, xdc_runtime_Error_Block *);
-
-/* Instance_finalize__R */
-xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_Instance_finalize__R, "ti_sysbios_heaps_HeapMultiBuf_Instance_finalize")
-__extern void ti_sysbios_heaps_HeapMultiBuf_Instance_finalize__R( ti_sysbios_heaps_HeapMultiBuf_Object* , int );
 
 /* Handle__label__S */
 xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_Handle__label__S, "ti_sysbios_heaps_HeapMultiBuf_Handle__label__S")
@@ -279,7 +269,7 @@ __extern xdc_Void ti_sysbios_heaps_HeapMultiBuf_Object__delete__S( xdc_Ptr instp
 
 /* delete */
 xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_delete, "ti_sysbios_heaps_HeapMultiBuf_delete")
-__extern Void ti_sysbios_heaps_HeapMultiBuf_delete(ti_sysbios_heaps_HeapMultiBuf_Handle *instp);
+__extern void ti_sysbios_heaps_HeapMultiBuf_delete(ti_sysbios_heaps_HeapMultiBuf_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_Object__destruct__S, "ti_sysbios_heaps_HeapMultiBuf_Object__destruct__S")
@@ -309,33 +299,21 @@ __extern xdc_Void ti_sysbios_heaps_HeapMultiBuf_Params__init__S( xdc_Ptr dst, co
 #define ti_sysbios_heaps_HeapMultiBuf_getStats ti_sysbios_heaps_HeapMultiBuf_getStats__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_getStats__E, "ti_sysbios_heaps_HeapMultiBuf_getStats")
 __extern xdc_Void ti_sysbios_heaps_HeapMultiBuf_getStats__E( ti_sysbios_heaps_HeapMultiBuf_Handle __inst, xdc_runtime_Memory_Stats *stats );
-xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_getStats__F, "ti_sysbios_heaps_HeapMultiBuf_getStats")
-__extern xdc_Void ti_sysbios_heaps_HeapMultiBuf_getStats__F( ti_sysbios_heaps_HeapMultiBuf_Object *__inst, xdc_runtime_Memory_Stats *stats );
-__extern xdc_Void ti_sysbios_heaps_HeapMultiBuf_getStats__R( ti_sysbios_heaps_HeapMultiBuf_Handle __inst, xdc_runtime_Memory_Stats *stats );
 
 /* alloc__E */
 #define ti_sysbios_heaps_HeapMultiBuf_alloc ti_sysbios_heaps_HeapMultiBuf_alloc__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_alloc__E, "ti_sysbios_heaps_HeapMultiBuf_alloc")
 __extern xdc_Ptr ti_sysbios_heaps_HeapMultiBuf_alloc__E( ti_sysbios_heaps_HeapMultiBuf_Handle __inst, xdc_SizeT size, xdc_SizeT align, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_alloc__F, "ti_sysbios_heaps_HeapMultiBuf_alloc")
-__extern xdc_Ptr ti_sysbios_heaps_HeapMultiBuf_alloc__F( ti_sysbios_heaps_HeapMultiBuf_Object *__inst, xdc_SizeT size, xdc_SizeT align, xdc_runtime_Error_Block *eb );
-__extern xdc_Ptr ti_sysbios_heaps_HeapMultiBuf_alloc__R( ti_sysbios_heaps_HeapMultiBuf_Handle __inst, xdc_SizeT size, xdc_SizeT align, xdc_runtime_Error_Block *eb );
 
 /* free__E */
 #define ti_sysbios_heaps_HeapMultiBuf_free ti_sysbios_heaps_HeapMultiBuf_free__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_free__E, "ti_sysbios_heaps_HeapMultiBuf_free")
 __extern xdc_Void ti_sysbios_heaps_HeapMultiBuf_free__E( ti_sysbios_heaps_HeapMultiBuf_Handle __inst, xdc_Ptr block, xdc_SizeT size );
-xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_free__F, "ti_sysbios_heaps_HeapMultiBuf_free")
-__extern xdc_Void ti_sysbios_heaps_HeapMultiBuf_free__F( ti_sysbios_heaps_HeapMultiBuf_Object *__inst, xdc_Ptr block, xdc_SizeT size );
-__extern xdc_Void ti_sysbios_heaps_HeapMultiBuf_free__R( ti_sysbios_heaps_HeapMultiBuf_Handle __inst, xdc_Ptr block, xdc_SizeT size );
 
 /* isBlocking__E */
 #define ti_sysbios_heaps_HeapMultiBuf_isBlocking ti_sysbios_heaps_HeapMultiBuf_isBlocking__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_isBlocking__E, "ti_sysbios_heaps_HeapMultiBuf_isBlocking")
 __extern xdc_Bool ti_sysbios_heaps_HeapMultiBuf_isBlocking__E( ti_sysbios_heaps_HeapMultiBuf_Handle __inst );
-xdc__CODESECT(ti_sysbios_heaps_HeapMultiBuf_isBlocking__F, "ti_sysbios_heaps_HeapMultiBuf_isBlocking")
-__extern xdc_Bool ti_sysbios_heaps_HeapMultiBuf_isBlocking__F( ti_sysbios_heaps_HeapMultiBuf_Object *__inst );
-__extern xdc_Bool ti_sysbios_heaps_HeapMultiBuf_isBlocking__R( ti_sysbios_heaps_HeapMultiBuf_Handle __inst );
 
 /* addrPairCompare__I */
 #define ti_sysbios_heaps_HeapMultiBuf_addrPairCompare ti_sysbios_heaps_HeapMultiBuf_addrPairCompare__I
@@ -475,7 +453,7 @@ static inline xdc_runtime_Types_Label *ti_sysbios_heaps_HeapMultiBuf_Handle_labe
 }
 
 /* Handle_name */
-static inline String ti_sysbios_heaps_HeapMultiBuf_Handle_name( ti_sysbios_heaps_HeapMultiBuf_Handle inst )
+static inline xdc_String ti_sysbios_heaps_HeapMultiBuf_Handle_name( ti_sysbios_heaps_HeapMultiBuf_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return ti_sysbios_heaps_HeapMultiBuf_Handle__label__S(inst, &lab)->iname;

@@ -44,8 +44,7 @@
 #include <stdarg.h>
 
 #elif defined(__SL__) || defined(__NDK__) || defined(__SLP__) /* __linux__ */
-//#include <ti/sysbios/knl/Task.h> //Aashish: Commented for Simplelink with FreeRTOS or NON-OS environment 
-//#include <xdc/runtime/System.h>  //Aashish: Commented for Simplelink with FreeRTOS or NON-OS environment 	
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -87,7 +86,6 @@ static inline void *xmalloc(size_t size)
 static inline int xvsnprintf(char *s, size_t n, const char *fmt, va_list arg)
 {
 #if defined(__SL__) || defined (__NDK__) || defined(__SLP__)
-    //return (System_vsnprintf(s, n, fmt, arg)); //Aashish: Commented for Simplelink with FreeRTOS or NON-OS environment 
     return (vsnprintf(s, n, fmt, arg));
 #else /* __SL__ || __NDK__ || __SLP__*/
     return (vsnprintf(s, n, fmt, arg));

@@ -258,6 +258,7 @@ _i32 comm_open(_u32 nwconn_opts, const char *server_addr, _u16 port_number,
                     strlen(server_addr), (_u32*) &uiIP, SL_AF_INET);
 
             if (Status < 0) {
+				sl_Close(MqttSocketFd);
                 PRINTF("\n\r ERROR: Could not resolve the ip address of the server \n\r");
                 return (-1);
             }
@@ -391,6 +392,7 @@ _i32 comm_close(_i32 comm) {
     _i32 Status;
 
     Status = sl_Close(comm);
+    osi_Sleep(1000);
     return (Status);
 
 }             // end of function
@@ -482,7 +484,7 @@ _i32 tcp_select(_i32 *recv_cvec, _i32 *send_cvec, _i32 *rsvd_cvec, _u32 wait_sec
             recv_cvec[wr_idx++] = fd;
     }
 
-    recv_cvec[wr_idx] = NULL;
+    recv_cvec[wr_idx] = -1;
 
     PRINTF("Number of sockets on which activity is observed = %d \n\r", wr_idx);
 
@@ -502,7 +504,7 @@ _i32 tcp_accept(_i32 listen_hnd, _u8 *client_ip, _u32 *ip_length)
 
     if (new_fd < 0) {
         PRINTF("\n\r ERROR: in accept \n\r");
-        return (NULL);
+        return (-1);
     }
 
     client_ip[0] = (client_addr.sin_addr.s_addr & 0xFF000000) >> 24;

@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 #ifndef ti_sysbios_knl_Queue__INTERNAL__
@@ -61,6 +61,10 @@
 #undef ti_sysbios_knl_Queue_get
 #define ti_sysbios_knl_Queue_get ti_sysbios_knl_Queue_get__E
 
+/* getTail */
+#undef ti_sysbios_knl_Queue_getTail
+#define ti_sysbios_knl_Queue_getTail ti_sysbios_knl_Queue_getTail__E
+
 /* head */
 #undef ti_sysbios_knl_Queue_head
 #define ti_sysbios_knl_Queue_head ti_sysbios_knl_Queue_head__E
@@ -68,6 +72,10 @@
 /* put */
 #undef ti_sysbios_knl_Queue_put
 #define ti_sysbios_knl_Queue_put ti_sysbios_knl_Queue_put__E
+
+/* putHead */
+#undef ti_sysbios_knl_Queue_putHead
+#define ti_sysbios_knl_Queue_putHead ti_sysbios_knl_Queue_putHead__E
 
 /* Module_startup */
 #undef ti_sysbios_knl_Queue_Module_startup

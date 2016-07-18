@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -58,6 +58,12 @@
  * ======== AUXILIARY DEFINITIONS ========
  */
 
+/* Time */
+struct ti_sysbios_interfaces_ISeconds_Time {
+    xdc_UInt32 secs;
+    xdc_UInt32 nsecs;
+};
+
 
 /*
  * ======== VIRTUAL FUNCTIONS ========
@@ -68,6 +74,7 @@ struct ti_sysbios_interfaces_ISeconds_Fxns__ {
     xdc_runtime_Types_Base* __base;
     const xdc_runtime_Types_SysFxns2 *__sysp;
     xdc_UInt32 (*get)(void);
+    xdc_UInt32 (*getTime)(ti_sysbios_interfaces_ISeconds_Time*);
     xdc_Void (*set)(xdc_UInt32);
     xdc_runtime_Types_SysFxns2 __sfxns;
 };
@@ -90,6 +97,12 @@ static inline xdc_runtime_Types_ModuleId ti_sysbios_interfaces_ISeconds_Module_i
 static inline xdc_UInt32 ti_sysbios_interfaces_ISeconds_get( ti_sysbios_interfaces_ISeconds_Module __inst )
 {
     return __inst->get();
+}
+
+/* getTime */
+static inline xdc_UInt32 ti_sysbios_interfaces_ISeconds_getTime( ti_sysbios_interfaces_ISeconds_Module __inst, ti_sysbios_interfaces_ISeconds_Time *ts )
+{
+    return __inst->getTime(ts);
 }
 
 /* set */
@@ -115,6 +128,13 @@ typedef xdc_UInt32 (*ti_sysbios_interfaces_ISeconds_get_FxnT)(void);
 static inline ti_sysbios_interfaces_ISeconds_get_FxnT ti_sysbios_interfaces_ISeconds_get_fxnP( ti_sysbios_interfaces_ISeconds_Module __inst )
 {
     return (ti_sysbios_interfaces_ISeconds_get_FxnT)__inst->get;
+}
+
+/* getTime_{FxnT,fxnP} */
+typedef xdc_UInt32 (*ti_sysbios_interfaces_ISeconds_getTime_FxnT)(ti_sysbios_interfaces_ISeconds_Time*);
+static inline ti_sysbios_interfaces_ISeconds_getTime_FxnT ti_sysbios_interfaces_ISeconds_getTime_fxnP( ti_sysbios_interfaces_ISeconds_Module __inst )
+{
+    return (ti_sysbios_interfaces_ISeconds_getTime_FxnT)__inst->getTime;
 }
 
 /* set_{FxnT,fxnP} */
@@ -147,9 +167,13 @@ static inline ti_sysbios_interfaces_ISeconds_set_FxnT ti_sysbios_interfaces_ISec
 
 /* module prefix */
 #define ISeconds_Module ti_sysbios_interfaces_ISeconds_Module
+#define ISeconds_Time ti_sysbios_interfaces_ISeconds_Time
 #define ISeconds_get ti_sysbios_interfaces_ISeconds_get
 #define ISeconds_get_fxnP ti_sysbios_interfaces_ISeconds_get_fxnP
 #define ISeconds_get_FxnT ti_sysbios_interfaces_ISeconds_get_FxnT
+#define ISeconds_getTime ti_sysbios_interfaces_ISeconds_getTime
+#define ISeconds_getTime_fxnP ti_sysbios_interfaces_ISeconds_getTime_fxnP
+#define ISeconds_getTime_FxnT ti_sysbios_interfaces_ISeconds_getTime_FxnT
 #define ISeconds_set ti_sysbios_interfaces_ISeconds_set
 #define ISeconds_set_fxnP ti_sysbios_interfaces_ISeconds_set_fxnP
 #define ISeconds_set_FxnT ti_sysbios_interfaces_ISeconds_set_FxnT

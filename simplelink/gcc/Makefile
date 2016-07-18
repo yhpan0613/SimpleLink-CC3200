@@ -46,13 +46,21 @@ ROOT=../..
 # If target is set to NONOS then build a non-os version of SimpleLink Library
 # else an os version 
 #
-ifneq "${target}" "NONOS"
-TARGET=${BINDIR}/libsimplelink.a
-OBJDIR=obj_os
-else
+
+ifeq "${target}" "NONOS"
 TARGET=${BINDIR}/libsimplelink_nonos.a
 OBJDIR=obj_nonos
+else ifeq "${target}" "NONOS_DEBUG"
+TARGET=${BINDIR}/libsimplelink_nonos_debug.a
+OBJDIR=obj_nonos_debug
+else ifeq "${target}" "OS_DEBUG"
+TARGET=${BINDIR}/libsimplelink_debug.a
+OBJDIR=obj_os_debug
+else
+TARGET=${BINDIR}/libsimplelink.a
+OBJDIR=obj_os
 endif
+
 
 #
 # Include the common make definitions.
@@ -60,8 +68,15 @@ endif
 include ${ROOT}/tools/gcc_scripts/makedefs
 
 
-ifneq "${target}" "NONOS"
+ifeq "${target}" "NONOS_DEBUG"
+
+else ifeq "${target}" "OS_DEBUG"
 CFLAGS+=-DSL_PLATFORM_MULTI_THREADED
+else ifeq "${target}" "NONOS"
+CFLAGS+=-DDISABLE_DEBUGGER_RECONNECT
+else
+CFLAGS+=-DSL_PLATFORM_MULTI_THREADED
+CFLAGS+=-DDISABLE_DEBUGGER_RECONNECT
 endif
 
 CFLAGS+=-DSL_FULL
@@ -83,6 +98,7 @@ IPATH+=../source
 IPATH+=../../oslib
 IPATH+=../../driverlib
 IPATH+=../../inc
+IPATH+=../../simplelink_extlib/provisioninglib
 
 #
 # The default rule, which causes the driver library to be built.
@@ -97,7 +113,9 @@ all: ${TARGET}
 #
 clean:
 	@rm -rf obj_nonos ${wildcard *~}
-	@rm -rf obj_os    ${wildcard *~}
+	@rm -rf obj_os ${wildcard *~}
+	@rm -rf obj_nonos_debug ${wildcard *~}
+	@rm -rf obj_os_debug ${wildcard *~}
 	@rm -rf ${BINDIR} ${wildcard *~}
 
 

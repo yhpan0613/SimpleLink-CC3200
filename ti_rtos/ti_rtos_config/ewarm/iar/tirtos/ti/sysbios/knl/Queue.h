@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -182,10 +182,6 @@ struct ti_sysbios_knl_Queue_Struct {
 xdc__CODESECT(ti_sysbios_knl_Queue_Instance_init__E, "ti_sysbios_knl_Queue_Instance_init")
 __extern xdc_Void ti_sysbios_knl_Queue_Instance_init__E(ti_sysbios_knl_Queue_Object *, const ti_sysbios_knl_Queue_Params *);
 
-/* Instance_init__R */
-xdc__CODESECT(ti_sysbios_knl_Queue_Instance_init__R, "ti_sysbios_knl_Queue_Instance_init")
-__extern xdc_Void ti_sysbios_knl_Queue_Instance_init__R(ti_sysbios_knl_Queue_Object *, const ti_sysbios_knl_Queue_Params *);
-
 /* Handle__label__S */
 xdc__CODESECT(ti_sysbios_knl_Queue_Handle__label__S, "ti_sysbios_knl_Queue_Handle__label__S")
 __extern xdc_runtime_Types_Label *ti_sysbios_knl_Queue_Handle__label__S( xdc_Ptr obj, xdc_runtime_Types_Label *lab );
@@ -212,7 +208,7 @@ __extern xdc_Void ti_sysbios_knl_Queue_Object__delete__S( xdc_Ptr instp );
 
 /* delete */
 xdc__CODESECT(ti_sysbios_knl_Queue_delete, "ti_sysbios_knl_Queue_delete")
-__extern Void ti_sysbios_knl_Queue_delete(ti_sysbios_knl_Queue_Handle *instp);
+__extern void ti_sysbios_knl_Queue_delete(ti_sysbios_knl_Queue_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_knl_Queue_Object__destruct__S, "ti_sysbios_knl_Queue_Object__destruct__S")
@@ -242,97 +238,71 @@ __extern xdc_Void ti_sysbios_knl_Queue_Params__init__S( xdc_Ptr dst, const xdc_V
 #define ti_sysbios_knl_Queue_elemClear ti_sysbios_knl_Queue_elemClear__E
 xdc__CODESECT(ti_sysbios_knl_Queue_elemClear__E, "ti_sysbios_knl_Queue_elemClear")
 __extern xdc_Void ti_sysbios_knl_Queue_elemClear__E( ti_sysbios_knl_Queue_Elem *qelem );
-xdc__CODESECT(ti_sysbios_knl_Queue_elemClear__F, "ti_sysbios_knl_Queue_elemClear")
-__extern xdc_Void ti_sysbios_knl_Queue_elemClear__F( ti_sysbios_knl_Queue_Elem *qelem );
-__extern xdc_Void ti_sysbios_knl_Queue_elemClear__R( ti_sysbios_knl_Queue_Elem *qelem );
 
 /* insert__E */
 #define ti_sysbios_knl_Queue_insert ti_sysbios_knl_Queue_insert__E
 xdc__CODESECT(ti_sysbios_knl_Queue_insert__E, "ti_sysbios_knl_Queue_insert")
 __extern xdc_Void ti_sysbios_knl_Queue_insert__E( ti_sysbios_knl_Queue_Elem *qelem, ti_sysbios_knl_Queue_Elem *elem );
-xdc__CODESECT(ti_sysbios_knl_Queue_insert__F, "ti_sysbios_knl_Queue_insert")
-__extern xdc_Void ti_sysbios_knl_Queue_insert__F( ti_sysbios_knl_Queue_Elem *qelem, ti_sysbios_knl_Queue_Elem *elem );
-__extern xdc_Void ti_sysbios_knl_Queue_insert__R( ti_sysbios_knl_Queue_Elem *qelem, ti_sysbios_knl_Queue_Elem *elem );
 
 /* next__E */
 #define ti_sysbios_knl_Queue_next ti_sysbios_knl_Queue_next__E
 xdc__CODESECT(ti_sysbios_knl_Queue_next__E, "ti_sysbios_knl_Queue_next")
 __extern xdc_Ptr ti_sysbios_knl_Queue_next__E( ti_sysbios_knl_Queue_Elem *qelem );
-xdc__CODESECT(ti_sysbios_knl_Queue_next__F, "ti_sysbios_knl_Queue_next")
-__extern xdc_Ptr ti_sysbios_knl_Queue_next__F( ti_sysbios_knl_Queue_Elem *qelem );
-__extern xdc_Ptr ti_sysbios_knl_Queue_next__R( ti_sysbios_knl_Queue_Elem *qelem );
 
 /* prev__E */
 #define ti_sysbios_knl_Queue_prev ti_sysbios_knl_Queue_prev__E
 xdc__CODESECT(ti_sysbios_knl_Queue_prev__E, "ti_sysbios_knl_Queue_prev")
 __extern xdc_Ptr ti_sysbios_knl_Queue_prev__E( ti_sysbios_knl_Queue_Elem *qelem );
-xdc__CODESECT(ti_sysbios_knl_Queue_prev__F, "ti_sysbios_knl_Queue_prev")
-__extern xdc_Ptr ti_sysbios_knl_Queue_prev__F( ti_sysbios_knl_Queue_Elem *qelem );
-__extern xdc_Ptr ti_sysbios_knl_Queue_prev__R( ti_sysbios_knl_Queue_Elem *qelem );
 
 /* remove__E */
 #define ti_sysbios_knl_Queue_remove ti_sysbios_knl_Queue_remove__E
 xdc__CODESECT(ti_sysbios_knl_Queue_remove__E, "ti_sysbios_knl_Queue_remove")
 __extern xdc_Void ti_sysbios_knl_Queue_remove__E( ti_sysbios_knl_Queue_Elem *qelem );
-xdc__CODESECT(ti_sysbios_knl_Queue_remove__F, "ti_sysbios_knl_Queue_remove")
-__extern xdc_Void ti_sysbios_knl_Queue_remove__F( ti_sysbios_knl_Queue_Elem *qelem );
-__extern xdc_Void ti_sysbios_knl_Queue_remove__R( ti_sysbios_knl_Queue_Elem *qelem );
 
 /* isQueued__E */
 #define ti_sysbios_knl_Queue_isQueued ti_sysbios_knl_Queue_isQueued__E
 xdc__CODESECT(ti_sysbios_knl_Queue_isQueued__E, "ti_sysbios_knl_Queue_isQueued")
 __extern xdc_Bool ti_sysbios_knl_Queue_isQueued__E( ti_sysbios_knl_Queue_Elem *qelem );
-xdc__CODESECT(ti_sysbios_knl_Queue_isQueued__F, "ti_sysbios_knl_Queue_isQueued")
-__extern xdc_Bool ti_sysbios_knl_Queue_isQueued__F( ti_sysbios_knl_Queue_Elem *qelem );
-__extern xdc_Bool ti_sysbios_knl_Queue_isQueued__R( ti_sysbios_knl_Queue_Elem *qelem );
 
 /* dequeue__E */
 #define ti_sysbios_knl_Queue_dequeue ti_sysbios_knl_Queue_dequeue__E
 xdc__CODESECT(ti_sysbios_knl_Queue_dequeue__E, "ti_sysbios_knl_Queue_dequeue")
 __extern xdc_Ptr ti_sysbios_knl_Queue_dequeue__E( ti_sysbios_knl_Queue_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Queue_dequeue__F, "ti_sysbios_knl_Queue_dequeue")
-__extern xdc_Ptr ti_sysbios_knl_Queue_dequeue__F( ti_sysbios_knl_Queue_Object *__inst );
-__extern xdc_Ptr ti_sysbios_knl_Queue_dequeue__R( ti_sysbios_knl_Queue_Handle __inst );
 
 /* empty__E */
 #define ti_sysbios_knl_Queue_empty ti_sysbios_knl_Queue_empty__E
 xdc__CODESECT(ti_sysbios_knl_Queue_empty__E, "ti_sysbios_knl_Queue_empty")
 __extern xdc_Bool ti_sysbios_knl_Queue_empty__E( ti_sysbios_knl_Queue_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Queue_empty__F, "ti_sysbios_knl_Queue_empty")
-__extern xdc_Bool ti_sysbios_knl_Queue_empty__F( ti_sysbios_knl_Queue_Object *__inst );
-__extern xdc_Bool ti_sysbios_knl_Queue_empty__R( ti_sysbios_knl_Queue_Handle __inst );
 
 /* enqueue__E */
 #define ti_sysbios_knl_Queue_enqueue ti_sysbios_knl_Queue_enqueue__E
 xdc__CODESECT(ti_sysbios_knl_Queue_enqueue__E, "ti_sysbios_knl_Queue_enqueue")
 __extern xdc_Void ti_sysbios_knl_Queue_enqueue__E( ti_sysbios_knl_Queue_Handle __inst, ti_sysbios_knl_Queue_Elem *elem );
-xdc__CODESECT(ti_sysbios_knl_Queue_enqueue__F, "ti_sysbios_knl_Queue_enqueue")
-__extern xdc_Void ti_sysbios_knl_Queue_enqueue__F( ti_sysbios_knl_Queue_Object *__inst, ti_sysbios_knl_Queue_Elem *elem );
-__extern xdc_Void ti_sysbios_knl_Queue_enqueue__R( ti_sysbios_knl_Queue_Handle __inst, ti_sysbios_knl_Queue_Elem *elem );
 
 /* get__E */
 #define ti_sysbios_knl_Queue_get ti_sysbios_knl_Queue_get__E
 xdc__CODESECT(ti_sysbios_knl_Queue_get__E, "ti_sysbios_knl_Queue_get")
 __extern xdc_Ptr ti_sysbios_knl_Queue_get__E( ti_sysbios_knl_Queue_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Queue_get__F, "ti_sysbios_knl_Queue_get")
-__extern xdc_Ptr ti_sysbios_knl_Queue_get__F( ti_sysbios_knl_Queue_Object *__inst );
-__extern xdc_Ptr ti_sysbios_knl_Queue_get__R( ti_sysbios_knl_Queue_Handle __inst );
+
+/* getTail__E */
+#define ti_sysbios_knl_Queue_getTail ti_sysbios_knl_Queue_getTail__E
+xdc__CODESECT(ti_sysbios_knl_Queue_getTail__E, "ti_sysbios_knl_Queue_getTail")
+__extern xdc_Ptr ti_sysbios_knl_Queue_getTail__E( ti_sysbios_knl_Queue_Handle __inst );
 
 /* head__E */
 #define ti_sysbios_knl_Queue_head ti_sysbios_knl_Queue_head__E
 xdc__CODESECT(ti_sysbios_knl_Queue_head__E, "ti_sysbios_knl_Queue_head")
 __extern xdc_Ptr ti_sysbios_knl_Queue_head__E( ti_sysbios_knl_Queue_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Queue_head__F, "ti_sysbios_knl_Queue_head")
-__extern xdc_Ptr ti_sysbios_knl_Queue_head__F( ti_sysbios_knl_Queue_Object *__inst );
-__extern xdc_Ptr ti_sysbios_knl_Queue_head__R( ti_sysbios_knl_Queue_Handle __inst );
 
 /* put__E */
 #define ti_sysbios_knl_Queue_put ti_sysbios_knl_Queue_put__E
 xdc__CODESECT(ti_sysbios_knl_Queue_put__E, "ti_sysbios_knl_Queue_put")
 __extern xdc_Void ti_sysbios_knl_Queue_put__E( ti_sysbios_knl_Queue_Handle __inst, ti_sysbios_knl_Queue_Elem *elem );
-xdc__CODESECT(ti_sysbios_knl_Queue_put__F, "ti_sysbios_knl_Queue_put")
-__extern xdc_Void ti_sysbios_knl_Queue_put__F( ti_sysbios_knl_Queue_Object *__inst, ti_sysbios_knl_Queue_Elem *elem );
-__extern xdc_Void ti_sysbios_knl_Queue_put__R( ti_sysbios_knl_Queue_Handle __inst, ti_sysbios_knl_Queue_Elem *elem );
+
+/* putHead__E */
+#define ti_sysbios_knl_Queue_putHead ti_sysbios_knl_Queue_putHead__E
+xdc__CODESECT(ti_sysbios_knl_Queue_putHead__E, "ti_sysbios_knl_Queue_putHead")
+__extern xdc_Void ti_sysbios_knl_Queue_putHead__E( ti_sysbios_knl_Queue_Handle __inst, ti_sysbios_knl_Queue_Elem *elem );
 
 
 /*
@@ -419,7 +389,7 @@ static inline xdc_runtime_Types_Label *ti_sysbios_knl_Queue_Handle_label( ti_sys
 }
 
 /* Handle_name */
-static inline String ti_sysbios_knl_Queue_Handle_name( ti_sysbios_knl_Queue_Handle inst )
+static inline xdc_String ti_sysbios_knl_Queue_Handle_name( ti_sysbios_knl_Queue_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return ti_sysbios_knl_Queue_Handle__label__S(inst, &lab)->iname;
@@ -496,8 +466,10 @@ struct ti_sysbios_knl_Queue_Object {
 #define Queue_empty ti_sysbios_knl_Queue_empty
 #define Queue_enqueue ti_sysbios_knl_Queue_enqueue
 #define Queue_get ti_sysbios_knl_Queue_get
+#define Queue_getTail ti_sysbios_knl_Queue_getTail
 #define Queue_head ti_sysbios_knl_Queue_head
 #define Queue_put ti_sysbios_knl_Queue_put
+#define Queue_putHead ti_sysbios_knl_Queue_putHead
 #define Queue_Module_name ti_sysbios_knl_Queue_Module_name
 #define Queue_Module_id ti_sysbios_knl_Queue_Module_id
 #define Queue_Module_startup ti_sysbios_knl_Queue_Module_startup

@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -208,14 +208,6 @@ __extern xdc_Void ti_sysbios_xdcruntime_GateThreadSupport_Instance_init__E(ti_sy
 xdc__CODESECT(ti_sysbios_xdcruntime_GateThreadSupport_Instance_finalize__E, "ti_sysbios_xdcruntime_GateThreadSupport_Instance_finalize")
 __extern void ti_sysbios_xdcruntime_GateThreadSupport_Instance_finalize__E( ti_sysbios_xdcruntime_GateThreadSupport_Object* );
 
-/* Instance_init__R */
-xdc__CODESECT(ti_sysbios_xdcruntime_GateThreadSupport_Instance_init__R, "ti_sysbios_xdcruntime_GateThreadSupport_Instance_init")
-__extern xdc_Void ti_sysbios_xdcruntime_GateThreadSupport_Instance_init__R(ti_sysbios_xdcruntime_GateThreadSupport_Object *, const ti_sysbios_xdcruntime_GateThreadSupport_Params *);
-
-/* Instance_finalize__R */
-xdc__CODESECT(ti_sysbios_xdcruntime_GateThreadSupport_Instance_finalize__R, "ti_sysbios_xdcruntime_GateThreadSupport_Instance_finalize")
-__extern void ti_sysbios_xdcruntime_GateThreadSupport_Instance_finalize__R( ti_sysbios_xdcruntime_GateThreadSupport_Object* );
-
 /* Handle__label__S */
 xdc__CODESECT(ti_sysbios_xdcruntime_GateThreadSupport_Handle__label__S, "ti_sysbios_xdcruntime_GateThreadSupport_Handle__label__S")
 __extern xdc_runtime_Types_Label *ti_sysbios_xdcruntime_GateThreadSupport_Handle__label__S( xdc_Ptr obj, xdc_runtime_Types_Label *lab );
@@ -242,7 +234,7 @@ __extern xdc_Void ti_sysbios_xdcruntime_GateThreadSupport_Object__delete__S( xdc
 
 /* delete */
 xdc__CODESECT(ti_sysbios_xdcruntime_GateThreadSupport_delete, "ti_sysbios_xdcruntime_GateThreadSupport_delete")
-__extern Void ti_sysbios_xdcruntime_GateThreadSupport_delete(ti_sysbios_xdcruntime_GateThreadSupport_Handle *instp);
+__extern void ti_sysbios_xdcruntime_GateThreadSupport_delete(ti_sysbios_xdcruntime_GateThreadSupport_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_xdcruntime_GateThreadSupport_Object__destruct__S, "ti_sysbios_xdcruntime_GateThreadSupport_Object__destruct__S")
@@ -272,25 +264,16 @@ __extern xdc_Void ti_sysbios_xdcruntime_GateThreadSupport_Params__init__S( xdc_P
 #define ti_sysbios_xdcruntime_GateThreadSupport_query ti_sysbios_xdcruntime_GateThreadSupport_query__E
 xdc__CODESECT(ti_sysbios_xdcruntime_GateThreadSupport_query__E, "ti_sysbios_xdcruntime_GateThreadSupport_query")
 __extern xdc_Bool ti_sysbios_xdcruntime_GateThreadSupport_query__E( xdc_Int qual );
-xdc__CODESECT(ti_sysbios_xdcruntime_GateThreadSupport_query__F, "ti_sysbios_xdcruntime_GateThreadSupport_query")
-__extern xdc_Bool ti_sysbios_xdcruntime_GateThreadSupport_query__F( xdc_Int qual );
-__extern xdc_Bool ti_sysbios_xdcruntime_GateThreadSupport_query__R( xdc_Int qual );
 
 /* enter__E */
 #define ti_sysbios_xdcruntime_GateThreadSupport_enter ti_sysbios_xdcruntime_GateThreadSupport_enter__E
 xdc__CODESECT(ti_sysbios_xdcruntime_GateThreadSupport_enter__E, "ti_sysbios_xdcruntime_GateThreadSupport_enter")
 __extern xdc_IArg ti_sysbios_xdcruntime_GateThreadSupport_enter__E( ti_sysbios_xdcruntime_GateThreadSupport_Handle __inst );
-xdc__CODESECT(ti_sysbios_xdcruntime_GateThreadSupport_enter__F, "ti_sysbios_xdcruntime_GateThreadSupport_enter")
-__extern xdc_IArg ti_sysbios_xdcruntime_GateThreadSupport_enter__F( ti_sysbios_xdcruntime_GateThreadSupport_Object *__inst );
-__extern xdc_IArg ti_sysbios_xdcruntime_GateThreadSupport_enter__R( ti_sysbios_xdcruntime_GateThreadSupport_Handle __inst );
 
 /* leave__E */
 #define ti_sysbios_xdcruntime_GateThreadSupport_leave ti_sysbios_xdcruntime_GateThreadSupport_leave__E
 xdc__CODESECT(ti_sysbios_xdcruntime_GateThreadSupport_leave__E, "ti_sysbios_xdcruntime_GateThreadSupport_leave")
 __extern xdc_Void ti_sysbios_xdcruntime_GateThreadSupport_leave__E( ti_sysbios_xdcruntime_GateThreadSupport_Handle __inst, xdc_IArg key );
-xdc__CODESECT(ti_sysbios_xdcruntime_GateThreadSupport_leave__F, "ti_sysbios_xdcruntime_GateThreadSupport_leave")
-__extern xdc_Void ti_sysbios_xdcruntime_GateThreadSupport_leave__F( ti_sysbios_xdcruntime_GateThreadSupport_Object *__inst, xdc_IArg key );
-__extern xdc_Void ti_sysbios_xdcruntime_GateThreadSupport_leave__R( ti_sysbios_xdcruntime_GateThreadSupport_Handle __inst, xdc_IArg key );
 
 
 /*
@@ -438,7 +421,7 @@ static inline xdc_runtime_Types_Label *ti_sysbios_xdcruntime_GateThreadSupport_H
 }
 
 /* Handle_name */
-static inline String ti_sysbios_xdcruntime_GateThreadSupport_Handle_name( ti_sysbios_xdcruntime_GateThreadSupport_Handle inst )
+static inline xdc_String ti_sysbios_xdcruntime_GateThreadSupport_Handle_name( ti_sysbios_xdcruntime_GateThreadSupport_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return ti_sysbios_xdcruntime_GateThreadSupport_Handle__label__S(inst, &lab)->iname;

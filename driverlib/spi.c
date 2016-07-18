@@ -640,7 +640,7 @@ SPIDmaDisable(unsigned long ulBase, unsigned long ulFlags)
   //
   // Disable DMA based on ulFlags
   //
-  HWREG(ulBase + MCSPI_O_CH0CONF) &= ulFlags;
+  HWREG(ulBase + MCSPI_O_CH0CONF) &= ~ulFlags;
 }
 
 //*****************************************************************************
@@ -762,7 +762,7 @@ SPIConfigSetExpClk(unsigned long ulBase,unsigned long ulSPIClk,
   // Enable software control Chip Select, Init delay
   // and 3-pin mode
   //
-  ulRegData |= (((ulConfig >> 24) | ulMode) & 0xFF); 
+  ulRegData |= (((ulConfig >> 24) | ulMode) & 0xFF);
 
   //
   // Write the configuration

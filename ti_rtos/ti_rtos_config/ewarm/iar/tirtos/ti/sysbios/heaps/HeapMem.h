@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -193,6 +193,16 @@ __extern __FAR__ const CT__ti_sysbios_heaps_HeapMem_E_memory ti_sysbios_heaps_He
 typedef xdc_runtime_Assert_Id CT__ti_sysbios_heaps_HeapMem_A_invalidFree;
 __extern __FAR__ const CT__ti_sysbios_heaps_HeapMem_A_invalidFree ti_sysbios_heaps_HeapMem_A_invalidFree__C;
 
+/* primaryHeapBaseAddr */
+#define ti_sysbios_heaps_HeapMem_primaryHeapBaseAddr (ti_sysbios_heaps_HeapMem_primaryHeapBaseAddr__C)
+typedef xdc_Char *CT__ti_sysbios_heaps_HeapMem_primaryHeapBaseAddr;
+__extern __FAR__ const CT__ti_sysbios_heaps_HeapMem_primaryHeapBaseAddr ti_sysbios_heaps_HeapMem_primaryHeapBaseAddr__C;
+
+/* primaryHeapEndAddr */
+#define ti_sysbios_heaps_HeapMem_primaryHeapEndAddr (ti_sysbios_heaps_HeapMem_primaryHeapEndAddr__C)
+typedef xdc_Char *CT__ti_sysbios_heaps_HeapMem_primaryHeapEndAddr;
+__extern __FAR__ const CT__ti_sysbios_heaps_HeapMem_primaryHeapEndAddr ti_sysbios_heaps_HeapMem_primaryHeapEndAddr__C;
+
 /* reqAlign */
 #ifdef ti_sysbios_heaps_HeapMem_reqAlign__D
 #define ti_sysbios_heaps_HeapMem_reqAlign (ti_sysbios_heaps_HeapMem_reqAlign__D)
@@ -260,10 +270,6 @@ __extern const ti_sysbios_heaps_HeapMem_Fxns__ ti_sysbios_heaps_HeapMem_Module__
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_Instance_init__E, "ti_sysbios_heaps_HeapMem_Instance_init")
 __extern xdc_Void ti_sysbios_heaps_HeapMem_Instance_init__E(ti_sysbios_heaps_HeapMem_Object *, const ti_sysbios_heaps_HeapMem_Params *);
 
-/* Instance_init__R */
-xdc__CODESECT(ti_sysbios_heaps_HeapMem_Instance_init__R, "ti_sysbios_heaps_HeapMem_Instance_init")
-__extern xdc_Void ti_sysbios_heaps_HeapMem_Instance_init__R(ti_sysbios_heaps_HeapMem_Object *, const ti_sysbios_heaps_HeapMem_Params *);
-
 /* Handle__label__S */
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_Handle__label__S, "ti_sysbios_heaps_HeapMem_Handle__label__S")
 __extern xdc_runtime_Types_Label *ti_sysbios_heaps_HeapMem_Handle__label__S( xdc_Ptr obj, xdc_runtime_Types_Label *lab );
@@ -290,7 +296,7 @@ __extern xdc_Void ti_sysbios_heaps_HeapMem_Object__delete__S( xdc_Ptr instp );
 
 /* delete */
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_delete, "ti_sysbios_heaps_HeapMem_delete")
-__extern Void ti_sysbios_heaps_HeapMem_delete(ti_sysbios_heaps_HeapMem_Handle *instp);
+__extern void ti_sysbios_heaps_HeapMem_delete(ti_sysbios_heaps_HeapMem_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_Object__destruct__S, "ti_sysbios_heaps_HeapMem_Object__destruct__S")
@@ -320,70 +326,51 @@ __extern xdc_Void ti_sysbios_heaps_HeapMem_Params__init__S( xdc_Ptr dst, const x
 #define ti_sysbios_heaps_HeapMem_enter ti_sysbios_heaps_HeapMem_enter__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_enter__E, "ti_sysbios_heaps_HeapMem_enter")
 __extern xdc_IArg ti_sysbios_heaps_HeapMem_enter__E( void );
-xdc__CODESECT(ti_sysbios_heaps_HeapMem_enter__F, "ti_sysbios_heaps_HeapMem_enter")
-__extern xdc_IArg ti_sysbios_heaps_HeapMem_enter__F( void );
-__extern xdc_IArg ti_sysbios_heaps_HeapMem_enter__R( void );
 
 /* leave__E */
 #define ti_sysbios_heaps_HeapMem_leave ti_sysbios_heaps_HeapMem_leave__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_leave__E, "ti_sysbios_heaps_HeapMem_leave")
 __extern xdc_Void ti_sysbios_heaps_HeapMem_leave__E( xdc_IArg key );
-xdc__CODESECT(ti_sysbios_heaps_HeapMem_leave__F, "ti_sysbios_heaps_HeapMem_leave")
-__extern xdc_Void ti_sysbios_heaps_HeapMem_leave__F( xdc_IArg key );
-__extern xdc_Void ti_sysbios_heaps_HeapMem_leave__R( xdc_IArg key );
 
 /* alloc__E */
 #define ti_sysbios_heaps_HeapMem_alloc ti_sysbios_heaps_HeapMem_alloc__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_alloc__E, "ti_sysbios_heaps_HeapMem_alloc")
 __extern xdc_Ptr ti_sysbios_heaps_HeapMem_alloc__E( ti_sysbios_heaps_HeapMem_Handle __inst, xdc_SizeT size, xdc_SizeT align, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_heaps_HeapMem_alloc__F, "ti_sysbios_heaps_HeapMem_alloc")
-__extern xdc_Ptr ti_sysbios_heaps_HeapMem_alloc__F( ti_sysbios_heaps_HeapMem_Object *__inst, xdc_SizeT size, xdc_SizeT align, xdc_runtime_Error_Block *eb );
-__extern xdc_Ptr ti_sysbios_heaps_HeapMem_alloc__R( ti_sysbios_heaps_HeapMem_Handle __inst, xdc_SizeT size, xdc_SizeT align, xdc_runtime_Error_Block *eb );
 
 /* free__E */
 #define ti_sysbios_heaps_HeapMem_free ti_sysbios_heaps_HeapMem_free__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_free__E, "ti_sysbios_heaps_HeapMem_free")
 __extern xdc_Void ti_sysbios_heaps_HeapMem_free__E( ti_sysbios_heaps_HeapMem_Handle __inst, xdc_Ptr block, xdc_SizeT size );
-xdc__CODESECT(ti_sysbios_heaps_HeapMem_free__F, "ti_sysbios_heaps_HeapMem_free")
-__extern xdc_Void ti_sysbios_heaps_HeapMem_free__F( ti_sysbios_heaps_HeapMem_Object *__inst, xdc_Ptr block, xdc_SizeT size );
-__extern xdc_Void ti_sysbios_heaps_HeapMem_free__R( ti_sysbios_heaps_HeapMem_Handle __inst, xdc_Ptr block, xdc_SizeT size );
 
 /* isBlocking__E */
 #define ti_sysbios_heaps_HeapMem_isBlocking ti_sysbios_heaps_HeapMem_isBlocking__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_isBlocking__E, "ti_sysbios_heaps_HeapMem_isBlocking")
 __extern xdc_Bool ti_sysbios_heaps_HeapMem_isBlocking__E( ti_sysbios_heaps_HeapMem_Handle __inst );
-xdc__CODESECT(ti_sysbios_heaps_HeapMem_isBlocking__F, "ti_sysbios_heaps_HeapMem_isBlocking")
-__extern xdc_Bool ti_sysbios_heaps_HeapMem_isBlocking__F( ti_sysbios_heaps_HeapMem_Object *__inst );
-__extern xdc_Bool ti_sysbios_heaps_HeapMem_isBlocking__R( ti_sysbios_heaps_HeapMem_Handle __inst );
 
 /* getStats__E */
 #define ti_sysbios_heaps_HeapMem_getStats ti_sysbios_heaps_HeapMem_getStats__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_getStats__E, "ti_sysbios_heaps_HeapMem_getStats")
 __extern xdc_Void ti_sysbios_heaps_HeapMem_getStats__E( ti_sysbios_heaps_HeapMem_Handle __inst, xdc_runtime_Memory_Stats *stats );
-xdc__CODESECT(ti_sysbios_heaps_HeapMem_getStats__F, "ti_sysbios_heaps_HeapMem_getStats")
-__extern xdc_Void ti_sysbios_heaps_HeapMem_getStats__F( ti_sysbios_heaps_HeapMem_Object *__inst, xdc_runtime_Memory_Stats *stats );
-__extern xdc_Void ti_sysbios_heaps_HeapMem_getStats__R( ti_sysbios_heaps_HeapMem_Handle __inst, xdc_runtime_Memory_Stats *stats );
 
 /* restore__E */
 #define ti_sysbios_heaps_HeapMem_restore ti_sysbios_heaps_HeapMem_restore__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_restore__E, "ti_sysbios_heaps_HeapMem_restore")
 __extern xdc_Void ti_sysbios_heaps_HeapMem_restore__E( ti_sysbios_heaps_HeapMem_Handle __inst );
-xdc__CODESECT(ti_sysbios_heaps_HeapMem_restore__F, "ti_sysbios_heaps_HeapMem_restore")
-__extern xdc_Void ti_sysbios_heaps_HeapMem_restore__F( ti_sysbios_heaps_HeapMem_Object *__inst );
-__extern xdc_Void ti_sysbios_heaps_HeapMem_restore__R( ti_sysbios_heaps_HeapMem_Handle __inst );
 
 /* getExtendedStats__E */
 #define ti_sysbios_heaps_HeapMem_getExtendedStats ti_sysbios_heaps_HeapMem_getExtendedStats__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_getExtendedStats__E, "ti_sysbios_heaps_HeapMem_getExtendedStats")
 __extern xdc_Void ti_sysbios_heaps_HeapMem_getExtendedStats__E( ti_sysbios_heaps_HeapMem_Handle __inst, ti_sysbios_heaps_HeapMem_ExtendedStats *stats );
-xdc__CODESECT(ti_sysbios_heaps_HeapMem_getExtendedStats__F, "ti_sysbios_heaps_HeapMem_getExtendedStats")
-__extern xdc_Void ti_sysbios_heaps_HeapMem_getExtendedStats__F( ti_sysbios_heaps_HeapMem_Object *__inst, ti_sysbios_heaps_HeapMem_ExtendedStats *stats );
-__extern xdc_Void ti_sysbios_heaps_HeapMem_getExtendedStats__R( ti_sysbios_heaps_HeapMem_Handle __inst, ti_sysbios_heaps_HeapMem_ExtendedStats *stats );
 
 /* init__I */
 #define ti_sysbios_heaps_HeapMem_init ti_sysbios_heaps_HeapMem_init__I
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_init__I, "ti_sysbios_heaps_HeapMem_init")
 __extern xdc_Void ti_sysbios_heaps_HeapMem_init__I( void );
+
+/* initPrimary__I */
+#define ti_sysbios_heaps_HeapMem_initPrimary ti_sysbios_heaps_HeapMem_initPrimary__I
+xdc__CODESECT(ti_sysbios_heaps_HeapMem_initPrimary__I, "ti_sysbios_heaps_HeapMem_initPrimary")
+__extern xdc_Void ti_sysbios_heaps_HeapMem_initPrimary__I( void );
 
 
 /*
@@ -503,7 +490,7 @@ static inline xdc_runtime_Types_Label *ti_sysbios_heaps_HeapMem_Handle_label( ti
 }
 
 /* Handle_name */
-static inline String ti_sysbios_heaps_HeapMem_Handle_name( ti_sysbios_heaps_HeapMem_Handle inst )
+static inline xdc_String ti_sysbios_heaps_HeapMem_Handle_name( ti_sysbios_heaps_HeapMem_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return ti_sysbios_heaps_HeapMem_Handle__label__S(inst, &lab)->iname;
@@ -579,6 +566,8 @@ struct ti_sysbios_heaps_HeapMem_Object {
 #define HeapMem_A_align ti_sysbios_heaps_HeapMem_A_align
 #define HeapMem_E_memory ti_sysbios_heaps_HeapMem_E_memory
 #define HeapMem_A_invalidFree ti_sysbios_heaps_HeapMem_A_invalidFree
+#define HeapMem_primaryHeapBaseAddr ti_sysbios_heaps_HeapMem_primaryHeapBaseAddr
+#define HeapMem_primaryHeapEndAddr ti_sysbios_heaps_HeapMem_primaryHeapEndAddr
 #define HeapMem_reqAlign ti_sysbios_heaps_HeapMem_reqAlign
 #define HeapMem_Params ti_sysbios_heaps_HeapMem_Params
 #define HeapMem_enter ti_sysbios_heaps_HeapMem_enter

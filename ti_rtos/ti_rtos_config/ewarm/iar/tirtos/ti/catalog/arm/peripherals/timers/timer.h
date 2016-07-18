@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2014 by Texas Instruments and others.
+ *  Copyright (c) 2015 by Texas Instruments and others.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -76,6 +76,6 @@ typedef volatile struct ti_catalog_arm_peripherals_timers_TimerRegsM4 {
 
 #endif
 /*
- *  @(#) ti.catalog.arm.peripherals.timers; 1,0,0,250; 7-29-2014 14:01:48; /db/ztree/library/trees/platform/platform-o58x/src/
+ *  @(#) ti.catalog.arm.peripherals.timers; 1,0,0,; 12-4-2015 21:39:59; /db/ztree/library/trees/platform/platform-q16/src/
  */
 

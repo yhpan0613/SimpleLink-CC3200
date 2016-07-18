@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -184,9 +184,6 @@ __extern xdc_Bool ti_sysbios_family_arm_m3_Power_Module__startupDone__S( void );
 #define ti_sysbios_family_arm_m3_Power_idleCPU ti_sysbios_family_arm_m3_Power_idleCPU__E
 xdc__CODESECT(ti_sysbios_family_arm_m3_Power_idleCPU__E, "ti_sysbios_family_arm_m3_Power_idleCPU")
 __extern xdc_Void ti_sysbios_family_arm_m3_Power_idleCPU__E( void );
-xdc__CODESECT(ti_sysbios_family_arm_m3_Power_idleCPU__F, "ti_sysbios_family_arm_m3_Power_idleCPU")
-__extern xdc_Void ti_sysbios_family_arm_m3_Power_idleCPU__F( void );
-__extern xdc_Void ti_sysbios_family_arm_m3_Power_idleCPU__R( void );
 
 
 /*

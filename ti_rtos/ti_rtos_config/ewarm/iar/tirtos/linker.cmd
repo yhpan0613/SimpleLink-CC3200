@@ -1,6 +1,6 @@
 /*
  * Do not modify this file; it is automatically generated from the template
- * linkcmd.xdt in the ti.platforms.tiva package and will be overwritten.
+ * linkcmd.xdt in the ti.platforms.simplelink package and will be overwritten.
  */
 
 "app\package\cfg\app_prm4.orm4"
@@ -68,12 +68,12 @@
 
 /* Content from ti.sysbios.hal (null): */
 
-/* Content from ti.sysbios.knl (null): */
-
 /* Content from ti.sysbios.family.arm.m3 (ti/sysbios/family/arm/m3/linkcmd.xdt): */
 --entry __iar_program_start
 --keep __vector_table
 --define_symbol ti_sysbios_family_arm_m3_Hwi_nvic=0xe000e000
+
+/* Content from ti.sysbios.knl (null): */
 
 /* Content from ti.sysbios.gates (null): */
 
@@ -86,8 +86,6 @@
 /* Content from app (null): */
 
 /* Content from xdc.services.io (null): */
-
-/* Content from ti.sysbios.family.arm.ducati (undefined): */
 
 /* Content from ti.targets (null): */
 

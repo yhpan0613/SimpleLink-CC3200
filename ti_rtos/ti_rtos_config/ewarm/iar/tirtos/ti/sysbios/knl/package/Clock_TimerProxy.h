@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -258,7 +258,7 @@ __extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_Object__delete__S( xdc_Ptr ins
 
 /* delete */
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_delete, "ti_sysbios_knl_Clock_TimerProxy_delete")
-__extern Void ti_sysbios_knl_Clock_TimerProxy_delete(ti_sysbios_knl_Clock_TimerProxy_Handle *instp);
+__extern void ti_sysbios_knl_Clock_TimerProxy_delete(ti_sysbios_knl_Clock_TimerProxy_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_Object__destruct__S, "ti_sysbios_knl_Clock_TimerProxy_Object__destruct__S")
@@ -292,127 +292,91 @@ __extern xdc_Ptr ti_sysbios_knl_Clock_TimerProxy_Proxy__delegate__S( void );
 #define ti_sysbios_knl_Clock_TimerProxy_getNumTimers ti_sysbios_knl_Clock_TimerProxy_getNumTimers__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getNumTimers__E, "ti_sysbios_knl_Clock_TimerProxy_getNumTimers")
 __extern xdc_UInt ti_sysbios_knl_Clock_TimerProxy_getNumTimers__E( void );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getNumTimers__R, "ti_sysbios_knl_Clock_TimerProxy_getNumTimers")
-__extern xdc_UInt ti_sysbios_knl_Clock_TimerProxy_getNumTimers__R( void );
 
 /* getStatus__E */
 #define ti_sysbios_knl_Clock_TimerProxy_getStatus ti_sysbios_knl_Clock_TimerProxy_getStatus__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getStatus__E, "ti_sysbios_knl_Clock_TimerProxy_getStatus")
 __extern ti_sysbios_interfaces_ITimer_Status ti_sysbios_knl_Clock_TimerProxy_getStatus__E( xdc_UInt id );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getStatus__R, "ti_sysbios_knl_Clock_TimerProxy_getStatus")
-__extern ti_sysbios_interfaces_ITimer_Status ti_sysbios_knl_Clock_TimerProxy_getStatus__R( xdc_UInt id );
 
 /* startup__E */
 #define ti_sysbios_knl_Clock_TimerProxy_startup ti_sysbios_knl_Clock_TimerProxy_startup__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_startup__E, "ti_sysbios_knl_Clock_TimerProxy_startup")
 __extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_startup__E( void );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_startup__R, "ti_sysbios_knl_Clock_TimerProxy_startup")
-__extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_startup__R( void );
 
 /* getMaxTicks__E */
 #define ti_sysbios_knl_Clock_TimerProxy_getMaxTicks ti_sysbios_knl_Clock_TimerProxy_getMaxTicks__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getMaxTicks__E, "ti_sysbios_knl_Clock_TimerProxy_getMaxTicks")
 __extern xdc_UInt32 ti_sysbios_knl_Clock_TimerProxy_getMaxTicks__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getMaxTicks__R, "ti_sysbios_knl_Clock_TimerProxy_getMaxTicks")
-__extern xdc_UInt32 ti_sysbios_knl_Clock_TimerProxy_getMaxTicks__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst );
 
 /* setNextTick__E */
 #define ti_sysbios_knl_Clock_TimerProxy_setNextTick ti_sysbios_knl_Clock_TimerProxy_setNextTick__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_setNextTick__E, "ti_sysbios_knl_Clock_TimerProxy_setNextTick")
 __extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_setNextTick__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_UInt32 ticks );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_setNextTick__R, "ti_sysbios_knl_Clock_TimerProxy_setNextTick")
-__extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_setNextTick__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_UInt32 ticks );
 
 /* start__E */
 #define ti_sysbios_knl_Clock_TimerProxy_start ti_sysbios_knl_Clock_TimerProxy_start__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_start__E, "ti_sysbios_knl_Clock_TimerProxy_start")
 __extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_start__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_start__R, "ti_sysbios_knl_Clock_TimerProxy_start")
-__extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_start__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst );
 
 /* stop__E */
 #define ti_sysbios_knl_Clock_TimerProxy_stop ti_sysbios_knl_Clock_TimerProxy_stop__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_stop__E, "ti_sysbios_knl_Clock_TimerProxy_stop")
 __extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_stop__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_stop__R, "ti_sysbios_knl_Clock_TimerProxy_stop")
-__extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_stop__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst );
 
 /* setPeriod__E */
 #define ti_sysbios_knl_Clock_TimerProxy_setPeriod ti_sysbios_knl_Clock_TimerProxy_setPeriod__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_setPeriod__E, "ti_sysbios_knl_Clock_TimerProxy_setPeriod")
 __extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_setPeriod__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_UInt32 period );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_setPeriod__R, "ti_sysbios_knl_Clock_TimerProxy_setPeriod")
-__extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_setPeriod__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_UInt32 period );
 
 /* setPeriodMicroSecs__E */
 #define ti_sysbios_knl_Clock_TimerProxy_setPeriodMicroSecs ti_sysbios_knl_Clock_TimerProxy_setPeriodMicroSecs__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_setPeriodMicroSecs__E, "ti_sysbios_knl_Clock_TimerProxy_setPeriodMicroSecs")
 __extern xdc_Bool ti_sysbios_knl_Clock_TimerProxy_setPeriodMicroSecs__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_UInt32 microsecs );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_setPeriodMicroSecs__R, "ti_sysbios_knl_Clock_TimerProxy_setPeriodMicroSecs")
-__extern xdc_Bool ti_sysbios_knl_Clock_TimerProxy_setPeriodMicroSecs__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_UInt32 microsecs );
 
 /* getPeriod__E */
 #define ti_sysbios_knl_Clock_TimerProxy_getPeriod ti_sysbios_knl_Clock_TimerProxy_getPeriod__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getPeriod__E, "ti_sysbios_knl_Clock_TimerProxy_getPeriod")
 __extern xdc_UInt32 ti_sysbios_knl_Clock_TimerProxy_getPeriod__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getPeriod__R, "ti_sysbios_knl_Clock_TimerProxy_getPeriod")
-__extern xdc_UInt32 ti_sysbios_knl_Clock_TimerProxy_getPeriod__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst );
 
 /* getCount__E */
 #define ti_sysbios_knl_Clock_TimerProxy_getCount ti_sysbios_knl_Clock_TimerProxy_getCount__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getCount__E, "ti_sysbios_knl_Clock_TimerProxy_getCount")
 __extern xdc_UInt32 ti_sysbios_knl_Clock_TimerProxy_getCount__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getCount__R, "ti_sysbios_knl_Clock_TimerProxy_getCount")
-__extern xdc_UInt32 ti_sysbios_knl_Clock_TimerProxy_getCount__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst );
 
 /* getFreq__E */
 #define ti_sysbios_knl_Clock_TimerProxy_getFreq ti_sysbios_knl_Clock_TimerProxy_getFreq__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getFreq__E, "ti_sysbios_knl_Clock_TimerProxy_getFreq")
 __extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_getFreq__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_runtime_Types_FreqHz *freq );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getFreq__R, "ti_sysbios_knl_Clock_TimerProxy_getFreq")
-__extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_getFreq__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_runtime_Types_FreqHz *freq );
 
 /* getFunc__E */
 #define ti_sysbios_knl_Clock_TimerProxy_getFunc ti_sysbios_knl_Clock_TimerProxy_getFunc__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getFunc__E, "ti_sysbios_knl_Clock_TimerProxy_getFunc")
 __extern ti_sysbios_interfaces_ITimer_FuncPtr ti_sysbios_knl_Clock_TimerProxy_getFunc__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_UArg *arg );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getFunc__R, "ti_sysbios_knl_Clock_TimerProxy_getFunc")
-__extern ti_sysbios_interfaces_ITimer_FuncPtr ti_sysbios_knl_Clock_TimerProxy_getFunc__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_UArg *arg );
 
 /* setFunc__E */
 #define ti_sysbios_knl_Clock_TimerProxy_setFunc ti_sysbios_knl_Clock_TimerProxy_setFunc__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_setFunc__E, "ti_sysbios_knl_Clock_TimerProxy_setFunc")
 __extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_setFunc__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, ti_sysbios_interfaces_ITimer_FuncPtr fxn, xdc_UArg arg );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_setFunc__R, "ti_sysbios_knl_Clock_TimerProxy_setFunc")
-__extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_setFunc__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, ti_sysbios_interfaces_ITimer_FuncPtr fxn, xdc_UArg arg );
 
 /* trigger__E */
 #define ti_sysbios_knl_Clock_TimerProxy_trigger ti_sysbios_knl_Clock_TimerProxy_trigger__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_trigger__E, "ti_sysbios_knl_Clock_TimerProxy_trigger")
 __extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_trigger__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_UInt32 cycles );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_trigger__R, "ti_sysbios_knl_Clock_TimerProxy_trigger")
-__extern xdc_Void ti_sysbios_knl_Clock_TimerProxy_trigger__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_UInt32 cycles );
 
 /* getExpiredCounts__E */
 #define ti_sysbios_knl_Clock_TimerProxy_getExpiredCounts ti_sysbios_knl_Clock_TimerProxy_getExpiredCounts__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getExpiredCounts__E, "ti_sysbios_knl_Clock_TimerProxy_getExpiredCounts")
 __extern xdc_UInt32 ti_sysbios_knl_Clock_TimerProxy_getExpiredCounts__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getExpiredCounts__R, "ti_sysbios_knl_Clock_TimerProxy_getExpiredCounts")
-__extern xdc_UInt32 ti_sysbios_knl_Clock_TimerProxy_getExpiredCounts__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst );
 
 /* getExpiredTicks__E */
 #define ti_sysbios_knl_Clock_TimerProxy_getExpiredTicks ti_sysbios_knl_Clock_TimerProxy_getExpiredTicks__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getExpiredTicks__E, "ti_sysbios_knl_Clock_TimerProxy_getExpiredTicks")
 __extern xdc_UInt32 ti_sysbios_knl_Clock_TimerProxy_getExpiredTicks__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_UInt32 tickPeriod );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getExpiredTicks__R, "ti_sysbios_knl_Clock_TimerProxy_getExpiredTicks")
-__extern xdc_UInt32 ti_sysbios_knl_Clock_TimerProxy_getExpiredTicks__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_UInt32 tickPeriod );
 
 /* getCurrentTick__E */
 #define ti_sysbios_knl_Clock_TimerProxy_getCurrentTick ti_sysbios_knl_Clock_TimerProxy_getCurrentTick__E
 xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getCurrentTick__E, "ti_sysbios_knl_Clock_TimerProxy_getCurrentTick")
 __extern xdc_UInt32 ti_sysbios_knl_Clock_TimerProxy_getCurrentTick__E( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_Bool save );
-xdc__CODESECT(ti_sysbios_knl_Clock_TimerProxy_getCurrentTick__R, "ti_sysbios_knl_Clock_TimerProxy_getCurrentTick")
-__extern xdc_UInt32 ti_sysbios_knl_Clock_TimerProxy_getCurrentTick__R( ti_sysbios_knl_Clock_TimerProxy_Handle __inst, xdc_Bool save );
 
 
 /*

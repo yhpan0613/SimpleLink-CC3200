@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -62,6 +62,9 @@
 /*
  * ======== AUXILIARY DEFINITIONS ========
  */
+
+/* Time */
+typedef ti_sysbios_interfaces_ISeconds_Time ti_sysbios_hal_SecondsClock_Time;
 
 
 /*
@@ -155,6 +158,7 @@ struct ti_sysbios_hal_SecondsClock_Fxns__ {
     xdc_runtime_Types_Base* __base;
     const xdc_runtime_Types_SysFxns2 *__sysp;
     xdc_UInt32 (*get)(void);
+    xdc_UInt32 (*getTime)(ti_sysbios_interfaces_ISeconds_Time*);
     xdc_Void (*set)(xdc_UInt32);
     xdc_runtime_Types_SysFxns2 __sfxns;
 };
@@ -168,7 +172,11 @@ __extern const ti_sysbios_hal_SecondsClock_Fxns__ ti_sysbios_hal_SecondsClock_Mo
  */
 
 /* Module_startup */
-#define ti_sysbios_hal_SecondsClock_Module_startup( state ) (-1)
+#define ti_sysbios_hal_SecondsClock_Module_startup ti_sysbios_hal_SecondsClock_Module_startup__E
+xdc__CODESECT(ti_sysbios_hal_SecondsClock_Module_startup__E, "ti_sysbios_hal_SecondsClock_Module_startup")
+__extern xdc_Int ti_sysbios_hal_SecondsClock_Module_startup__E( xdc_Int state );
+xdc__CODESECT(ti_sysbios_hal_SecondsClock_Module_startup__F, "ti_sysbios_hal_SecondsClock_Module_startup")
+__extern xdc_Int ti_sysbios_hal_SecondsClock_Module_startup__F( xdc_Int state );
 
 /* Module__startupDone__S */
 xdc__CODESECT(ti_sysbios_hal_SecondsClock_Module__startupDone__S, "ti_sysbios_hal_SecondsClock_Module__startupDone__S")
@@ -178,17 +186,16 @@ __extern xdc_Bool ti_sysbios_hal_SecondsClock_Module__startupDone__S( void );
 #define ti_sysbios_hal_SecondsClock_get ti_sysbios_hal_SecondsClock_get__E
 xdc__CODESECT(ti_sysbios_hal_SecondsClock_get__E, "ti_sysbios_hal_SecondsClock_get")
 __extern xdc_UInt32 ti_sysbios_hal_SecondsClock_get__E( void );
-xdc__CODESECT(ti_sysbios_hal_SecondsClock_get__F, "ti_sysbios_hal_SecondsClock_get")
-__extern xdc_UInt32 ti_sysbios_hal_SecondsClock_get__F( void );
-__extern xdc_UInt32 ti_sysbios_hal_SecondsClock_get__R( void );
+
+/* getTime__E */
+#define ti_sysbios_hal_SecondsClock_getTime ti_sysbios_hal_SecondsClock_getTime__E
+xdc__CODESECT(ti_sysbios_hal_SecondsClock_getTime__E, "ti_sysbios_hal_SecondsClock_getTime")
+__extern xdc_UInt32 ti_sysbios_hal_SecondsClock_getTime__E( ti_sysbios_interfaces_ISeconds_Time *ts );
 
 /* set__E */
 #define ti_sysbios_hal_SecondsClock_set ti_sysbios_hal_SecondsClock_set__E
 xdc__CODESECT(ti_sysbios_hal_SecondsClock_set__E, "ti_sysbios_hal_SecondsClock_set")
 __extern xdc_Void ti_sysbios_hal_SecondsClock_set__E( xdc_UInt32 seconds );
-xdc__CODESECT(ti_sysbios_hal_SecondsClock_set__F, "ti_sysbios_hal_SecondsClock_set")
-__extern xdc_Void ti_sysbios_hal_SecondsClock_set__F( xdc_UInt32 seconds );
-__extern xdc_Void ti_sysbios_hal_SecondsClock_set__R( xdc_UInt32 seconds );
 
 /* increment__I */
 #define ti_sysbios_hal_SecondsClock_increment ti_sysbios_hal_SecondsClock_increment__I
@@ -271,6 +278,12 @@ static inline xdc_Void ti_sysbios_hal_SecondsClock_Module_setMask( xdc_Bits16 ma
 /* Module_State */
 struct ti_sysbios_hal_SecondsClock_Module_State {
     xdc_UInt32 seconds;
+    xdc_UInt32 c1;
+    xdc_UInt32 c2;
+    xdc_Int32 c1Inc;
+    xdc_UInt32 count1;
+    xdc_UInt32 count2;
+    xdc_UInt32 ticks;
     char __dummy;
 };
 
@@ -299,9 +312,11 @@ static inline ti_sysbios_knl_Clock_Handle ti_sysbios_hal_SecondsClock_Module_Sta
 #define ti_sysbios_hal_SecondsClock__localnames__done
 
 /* module prefix */
+#define SecondsClock_Time ti_sysbios_hal_SecondsClock_Time
 #define SecondsClock_Module_State ti_sysbios_hal_SecondsClock_Module_State
 #define SecondsClock_Module_State_clock ti_sysbios_hal_SecondsClock_Module_State_clock
 #define SecondsClock_get ti_sysbios_hal_SecondsClock_get
+#define SecondsClock_getTime ti_sysbios_hal_SecondsClock_getTime
 #define SecondsClock_set ti_sysbios_hal_SecondsClock_set
 #define SecondsClock_Module_name ti_sysbios_hal_SecondsClock_Module_name
 #define SecondsClock_Module_id ti_sysbios_hal_SecondsClock_Module_id

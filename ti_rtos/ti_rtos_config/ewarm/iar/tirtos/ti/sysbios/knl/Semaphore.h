@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -292,14 +292,6 @@ __extern xdc_Void ti_sysbios_knl_Semaphore_Instance_init__E(ti_sysbios_knl_Semap
 xdc__CODESECT(ti_sysbios_knl_Semaphore_Instance_finalize__E, "ti_sysbios_knl_Semaphore_Instance_finalize")
 __extern void ti_sysbios_knl_Semaphore_Instance_finalize__E( ti_sysbios_knl_Semaphore_Object* );
 
-/* Instance_init__R */
-xdc__CODESECT(ti_sysbios_knl_Semaphore_Instance_init__R, "ti_sysbios_knl_Semaphore_Instance_init")
-__extern xdc_Void ti_sysbios_knl_Semaphore_Instance_init__R(ti_sysbios_knl_Semaphore_Object *, xdc_Int count, const ti_sysbios_knl_Semaphore_Params *);
-
-/* Instance_finalize__R */
-xdc__CODESECT(ti_sysbios_knl_Semaphore_Instance_finalize__R, "ti_sysbios_knl_Semaphore_Instance_finalize")
-__extern void ti_sysbios_knl_Semaphore_Instance_finalize__R( ti_sysbios_knl_Semaphore_Object* );
-
 /* Handle__label__S */
 xdc__CODESECT(ti_sysbios_knl_Semaphore_Handle__label__S, "ti_sysbios_knl_Semaphore_Handle__label__S")
 __extern xdc_runtime_Types_Label *ti_sysbios_knl_Semaphore_Handle__label__S( xdc_Ptr obj, xdc_runtime_Types_Label *lab );
@@ -326,7 +318,7 @@ __extern xdc_Void ti_sysbios_knl_Semaphore_Object__delete__S( xdc_Ptr instp );
 
 /* delete */
 xdc__CODESECT(ti_sysbios_knl_Semaphore_delete, "ti_sysbios_knl_Semaphore_delete")
-__extern Void ti_sysbios_knl_Semaphore_delete(ti_sysbios_knl_Semaphore_Handle *instp);
+__extern void ti_sysbios_knl_Semaphore_delete(ti_sysbios_knl_Semaphore_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_knl_Semaphore_Object__destruct__S, "ti_sysbios_knl_Semaphore_Object__destruct__S")
@@ -356,41 +348,26 @@ __extern xdc_Void ti_sysbios_knl_Semaphore_Params__init__S( xdc_Ptr dst, const x
 #define ti_sysbios_knl_Semaphore_getCount ti_sysbios_knl_Semaphore_getCount__E
 xdc__CODESECT(ti_sysbios_knl_Semaphore_getCount__E, "ti_sysbios_knl_Semaphore_getCount")
 __extern xdc_Int ti_sysbios_knl_Semaphore_getCount__E( ti_sysbios_knl_Semaphore_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Semaphore_getCount__F, "ti_sysbios_knl_Semaphore_getCount")
-__extern xdc_Int ti_sysbios_knl_Semaphore_getCount__F( ti_sysbios_knl_Semaphore_Object *__inst );
-__extern xdc_Int ti_sysbios_knl_Semaphore_getCount__R( ti_sysbios_knl_Semaphore_Handle __inst );
 
 /* pend__E */
 #define ti_sysbios_knl_Semaphore_pend ti_sysbios_knl_Semaphore_pend__E
 xdc__CODESECT(ti_sysbios_knl_Semaphore_pend__E, "ti_sysbios_knl_Semaphore_pend")
 __extern xdc_Bool ti_sysbios_knl_Semaphore_pend__E( ti_sysbios_knl_Semaphore_Handle __inst, xdc_UInt32 timeout );
-xdc__CODESECT(ti_sysbios_knl_Semaphore_pend__F, "ti_sysbios_knl_Semaphore_pend")
-__extern xdc_Bool ti_sysbios_knl_Semaphore_pend__F( ti_sysbios_knl_Semaphore_Object *__inst, xdc_UInt32 timeout );
-__extern xdc_Bool ti_sysbios_knl_Semaphore_pend__R( ti_sysbios_knl_Semaphore_Handle __inst, xdc_UInt32 timeout );
 
 /* post__E */
 #define ti_sysbios_knl_Semaphore_post ti_sysbios_knl_Semaphore_post__E
 xdc__CODESECT(ti_sysbios_knl_Semaphore_post__E, "ti_sysbios_knl_Semaphore_post")
 __extern xdc_Void ti_sysbios_knl_Semaphore_post__E( ti_sysbios_knl_Semaphore_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Semaphore_post__F, "ti_sysbios_knl_Semaphore_post")
-__extern xdc_Void ti_sysbios_knl_Semaphore_post__F( ti_sysbios_knl_Semaphore_Object *__inst );
-__extern xdc_Void ti_sysbios_knl_Semaphore_post__R( ti_sysbios_knl_Semaphore_Handle __inst );
 
 /* registerEvent__E */
 #define ti_sysbios_knl_Semaphore_registerEvent ti_sysbios_knl_Semaphore_registerEvent__E
 xdc__CODESECT(ti_sysbios_knl_Semaphore_registerEvent__E, "ti_sysbios_knl_Semaphore_registerEvent")
 __extern xdc_Void ti_sysbios_knl_Semaphore_registerEvent__E( ti_sysbios_knl_Semaphore_Handle __inst, ti_sysbios_knl_Event_Handle event, xdc_UInt eventId );
-xdc__CODESECT(ti_sysbios_knl_Semaphore_registerEvent__F, "ti_sysbios_knl_Semaphore_registerEvent")
-__extern xdc_Void ti_sysbios_knl_Semaphore_registerEvent__F( ti_sysbios_knl_Semaphore_Object *__inst, ti_sysbios_knl_Event_Handle event, xdc_UInt eventId );
-__extern xdc_Void ti_sysbios_knl_Semaphore_registerEvent__R( ti_sysbios_knl_Semaphore_Handle __inst, ti_sysbios_knl_Event_Handle event, xdc_UInt eventId );
 
 /* reset__E */
 #define ti_sysbios_knl_Semaphore_reset ti_sysbios_knl_Semaphore_reset__E
 xdc__CODESECT(ti_sysbios_knl_Semaphore_reset__E, "ti_sysbios_knl_Semaphore_reset")
 __extern xdc_Void ti_sysbios_knl_Semaphore_reset__E( ti_sysbios_knl_Semaphore_Handle __inst, xdc_Int count );
-xdc__CODESECT(ti_sysbios_knl_Semaphore_reset__F, "ti_sysbios_knl_Semaphore_reset")
-__extern xdc_Void ti_sysbios_knl_Semaphore_reset__F( ti_sysbios_knl_Semaphore_Object *__inst, xdc_Int count );
-__extern xdc_Void ti_sysbios_knl_Semaphore_reset__R( ti_sysbios_knl_Semaphore_Handle __inst, xdc_Int count );
 
 /* pendTimeout__I */
 #define ti_sysbios_knl_Semaphore_pendTimeout ti_sysbios_knl_Semaphore_pendTimeout__I
@@ -482,7 +459,7 @@ static inline xdc_runtime_Types_Label *ti_sysbios_knl_Semaphore_Handle_label( ti
 }
 
 /* Handle_name */
-static inline String ti_sysbios_knl_Semaphore_Handle_name( ti_sysbios_knl_Semaphore_Handle inst )
+static inline xdc_String ti_sysbios_knl_Semaphore_Handle_name( ti_sysbios_knl_Semaphore_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return ti_sysbios_knl_Semaphore_Handle__label__S(inst, &lab)->iname;

@@ -51,11 +51,13 @@
 #include "inc/hw_gprcm.h"
 #include "inc/hw_hib1p2.h"
 #include "inc/hw_hib3p3.h"
+#include "inc/hw_common_reg.h"
 #include "prcm.h"
 #include "interrupt.h"
 #include "cpu.h"
 #include "flash.h"
 #include "utils.h"
+
 
 
 //*****************************************************************************
@@ -256,24 +258,6 @@ static const PRCM_PeriphRegs_t PRCM_PeriphRegsList[] =
 
 //*****************************************************************************
 //
-//! Performs a software reset of a SOC
-//!
-//! This function performs a software reset of a SOC
-//!
-//! \return None.
-//
-//*****************************************************************************
-void PRCMSOCReset()
-{
-  //
-  // Reset MCU
-  //
-  HWREG(GPRCM_BASE+ GPRCM_O_MCU_GLOBAL_SOFT_RESET) |= 0x1;
-
-}
-
-//*****************************************************************************
-//
 //! Performs a software reset of a MCU and associated peripherals
 //!
 //! \param bIncludeSubsystem is \b true to reset associated peripherals.
@@ -300,6 +284,19 @@ void PRCMMCUReset(tBoolean bIncludeSubsystem)
     // Reset Apps processor only
     //
     HWREG(GPRCM_BASE+ GPRCM_O_APPS_SOFT_RESET) = 0x1;
+  }
+
+  //
+  // Wait for system to reset
+  //
+  __asm("    wfi\n");
+
+  //
+  // Infinite loop
+  //
+  while(1)
+  {
+
   }
 }
 
@@ -359,7 +356,6 @@ unsigned long PRCMSysResetCauseGet()
 //! The parameter \e ulClkFlags can be logical OR of the following:
 //! -\b PRCM_RUN_MODE_CLK - Ungates clock to the peripheral
 //! -\b PRCM_SLP_MODE_CLK - Keeps the clocks ungated in sleep.
-//! -\b PRCM_DSLP_MODE_CLK - Keeps the clock ungated in deepsleep.
 //!
 //! \return None.
 //
@@ -616,25 +612,27 @@ PRCMLPDSRestoreInfoSet(unsigned long ulStackPtr, unsigned long ulProgCntr)
 //!
 //! \return None.
 //!
-//! \note The Test Power Domain is shutdown whenever the system
-//!  enters LPDS (by default). In order to avoid this and allow for
-//!  connecting back the debugger after waking up from LPDS,
-//!  the macro KEEP_TESTPD_ALIVE has to be defined while building the library.
-//!  This is recommended for development purposes only as it adds to
-//!  the current consumption of the system.
+//! \note  External debugger will always disconnect whenever the system
+//!  enters LPDS and debug interface is shutdown until next POR reset. In order
+//!  to avoid this and allow for connecting back the debugger after waking up
+//!  from LPDS \sa PRCMLPDSEnterKeepDebugIf().
 //!
 //
 //*****************************************************************************
 void
 PRCMLPDSEnter()
 {
-  volatile unsigned long ulDelay;
+  unsigned long ulChipId;
+
+  //
+  // Read the Chip ID
+  //
+  ulChipId = ((HWREG(GPRCM_BASE + GPRCM_O_GPRCM_EFUSE_READ_REG2) >> 16) & 0x1F);
 
   //
   // Check if flash exists
   //
-  if( (HWREG(GPRCM_BASE + GPRCM_O_GPRCM_EFUSE_READ_REG2) & 0x00110000)
-                                                            == 0x00110000 )
+  if( (0x11 == ulChipId) || (0x19 == ulChipId))
   {
 
     //
@@ -662,10 +660,85 @@ PRCMLPDSEnter()
   HWREG(ARCM_BASE + APPS_RCM_O_APPS_LPDS_REQ)
           = APPS_RCM_APPS_LPDS_REQ_APPS_LPDS_REQ;
 
-  __asm("    nop\n"
-        "    nop\n"
-        "    nop\n"
-        "    nop\n");
+  //
+  // Wait for system to enter LPDS
+  //
+  __asm("    wfi\n");
+
+  //
+  // Infinite loop
+  //
+  while(1)
+  {
+
+  }
+
+}
+
+
+//*****************************************************************************
+//
+//! Puts the system into Low Power Deel Sleep (LPDS) power mode keeping
+//! debug interface alive.
+//!
+//! This function puts the system into Low Power Deel Sleep (LPDS) power mode
+//! keeping debug interface alive. A call to this function never returns and the
+//! execution starts from Reset \sa PRCMLPDSRestoreInfoSet().
+//!
+//! \return None.
+//!
+//! \note External debugger will always disconnect whenever the system
+//!  enters LPDS, using this API will allow connecting back the debugger after
+//!  waking up from LPDS. This API is recommended for development purposes
+//!  only as it adds to the current consumption of the system.
+//!
+//
+//*****************************************************************************
+void
+PRCMLPDSEnterKeepDebugIf()
+{
+  unsigned long ulChipId;
+
+  //
+  // Read the Chip ID
+  //
+  ulChipId = ((HWREG(GPRCM_BASE + GPRCM_O_GPRCM_EFUSE_READ_REG2) >> 16) & 0x1F);
+
+  //
+  // Check if flash exists
+  //
+  if( (0x11 == ulChipId) || (0x19 == ulChipId))
+  {
+
+    //
+    // Disable the flash
+    //
+    FlashDisable();
+  }
+
+  //
+  // Set bandgap duty cycle to 1
+  //
+  HWREG(HIB1P2_BASE + HIB1P2_O_BGAP_DUTY_CYCLING_EXIT_CFG) = 0x1;
+
+  //
+  // Request LPDS
+  //
+  HWREG(ARCM_BASE + APPS_RCM_O_APPS_LPDS_REQ)
+          = APPS_RCM_APPS_LPDS_REQ_APPS_LPDS_REQ;
+
+  //
+  // Wait for system to enter LPDS
+  //
+  __asm("    wfi\n");
+
+  //
+  // Infinite loop
+  //
+  while(1)
+  {
+
+  }
 
 }
 
@@ -838,52 +911,14 @@ PRCMSleepEnter()
 
 //*****************************************************************************
 //
-//! Puts the system into Deep Sleep power mode.
-//!
-//! This function puts the system into Deep Sleep power mode. System exits the
-//! power state on any one of the available interrupt. On exit from deep
-//! sleep the function returns to the calling function with all the processor
-//! core registers retained.
-//!
-//! \return None.
-//
-//*****************************************************************************
-void
-PRCMDeepSleepEnter()
-{
-  //
-  // Set bandgap duty cycle to 1
-  //
-  HWREG(HIB1P2_BASE + HIB1P2_O_BGAP_DUTY_CYCLING_EXIT_CFG) = 0x1;
-
-  //
-  // Enable DSLP in cortex
-  //
-  HWREG(0xE000ED10)|=1<<2;
-
-  //
-  // Request Deep Sleep
-  //
-  CPUwfi();
-
-  //
-  // Disable DSLP in cortex before
-  // returning to the caller
-  //
-  HWREG(0xE000ED10) &= ~(1<<2);
-
-}
-
-//*****************************************************************************
-//
-//! Enable SRAM column retention during Deep Sleep and/or LPDS Power mode(s)
+//! Enable SRAM column retention during LPDS Power mode(s)
 //!
 //! \param ulSramColSel is bit mask of valid SRAM columns.
 //! \param ulModeFlags is the bit mask of power modes.
 //!
 //! This functions enables the SRAM retention. The device supports configurable
-//! SRAM column retention in Low Power Deep Sleep (LPDS) and Deep Sleep power
-//! modes. Each column is of 64 KB size.
+//! SRAM column retention in Low Power Deep Sleep (LPDS). Each column is of
+//! 64 KB size.
 //!
 //! The parameter \e ulSramColSel should be logical OR of the following:-
 //! -\b PRCM_SRAM_COL_1
@@ -893,7 +928,6 @@ PRCMDeepSleepEnter()
 //!
 //! The parameter \e ulModeFlags selects the power modes and sholud be logical
 //! OR of one or more of the following
-//! -\b PRCM_SRAM_DSLP_RET
 //! -\b PRCM_SRAM_LPDS_RET
 //!
 //! \return None.
@@ -902,14 +936,6 @@ PRCMDeepSleepEnter()
 void
 PRCMSRAMRetentionEnable(unsigned long ulSramColSel, unsigned long ulModeFlags)
 {
-  if(ulModeFlags & PRCM_SRAM_DSLP_RET)
-  {
-    //
-    // Configure deep sleep SRAM retention register
-    //
-    HWREG(GPRCM_BASE+ GPRCM_O_APPS_SRAM_DSLP_CFG) = (ulSramColSel & 0xF);
-  }
-
   if(ulModeFlags & PRCM_SRAM_LPDS_RET)
   {
     //
@@ -921,14 +947,14 @@ PRCMSRAMRetentionEnable(unsigned long ulSramColSel, unsigned long ulModeFlags)
 
 //*****************************************************************************
 //
-//! Disable SRAM column retention during Deep Sleep and/or LPDS Power mode(s).
+//! Disable SRAM column retention during LPDS Power mode(s).
 //!
 //! \param ulSramColSel is bit mask of valid SRAM columns.
 //! \param ulFlags is the bit mask of power modes.
 //!
 //! This functions disable the SRAM retention. The device supports configurable
-//! SRAM column retention in Low Power Deep Sleep (LPDS) and Deep Sleep power
-//! modes. Each column is of 64 KB size.
+//! SRAM column retention in Low Power Deep Sleep (LPDS). Each column is
+//! of 64 KB size.
 //!
 //! The parameter \e ulSramColSel should be logical OR of the following:-
 //! -\b PRCM_SRAM_COL_1
@@ -938,7 +964,6 @@ PRCMSRAMRetentionEnable(unsigned long ulSramColSel, unsigned long ulModeFlags)
 //!
 //! The parameter \e ulFlags selects the power modes and sholud be logical OR
 //! of one or more of the following
-//! -\b PRCM_SRAM_DSLP_RET
 //! -\b PRCM_SRAM_LPDS_RET
 //!
 //! \return None.
@@ -947,14 +972,6 @@ PRCMSRAMRetentionEnable(unsigned long ulSramColSel, unsigned long ulModeFlags)
 void
 PRCMSRAMRetentionDisable(unsigned long ulSramColSel, unsigned long ulFlags)
 {
-  if(ulFlags & PRCM_SRAM_DSLP_RET)
-  {
-    //
-    // Configure deep sleep SRAM retention register
-    //
-    HWREG(GPRCM_BASE+ GPRCM_O_APPS_SRAM_DSLP_CFG) &= ~(ulSramColSel & 0xF);
-  }
-
   if(ulFlags & PRCM_SRAM_LPDS_RET)
   {
     //
@@ -1180,7 +1197,7 @@ PRCMHibernateWakeUpGPIOSelect(unsigned long ulGPIOBitMap, unsigned long ulType)
     if(ulGPIOBitMap & (1<<ucLoop))
     {
       ulRegValue  = PRCMHIBRegRead(HIB3P3_BASE+HIB3P3_O_MEM_GPIO_WAKE_CONF);
-      ulRegValue |= (ulType << (ucLoop*2));
+      ulRegValue = (ulRegValue & (~(0x3 << (ucLoop*2)))) | (ulType <<(ucLoop*2));
       PRCMHIBRegWrite(HIB3P3_BASE+HIB3P3_O_MEM_GPIO_WAKE_CONF, ulRegValue);
     }
   }
@@ -1206,10 +1223,18 @@ PRCMHibernateEnter()
   //
   PRCMHIBRegWrite((HIB3P3_BASE+HIB3P3_O_MEM_HIB_REQ),0x1);
 
-  __asm("    nop\n"
-        "    nop\n"
-        "    nop\n"
-        "    nop\n");
+  //
+  // Wait for system to enter hibernate
+  //
+  __asm("    wfi\n");
+
+  //
+  // Infinite loop
+  //
+  while(1)
+  {
+
+  }
 }
 
 //*****************************************************************************
@@ -1690,6 +1715,8 @@ void PRCMRTCMatchGet(unsigned long *ulSecs, unsigned short *usMsec)
 void PRCMCC3200MCUInit()
 {
 
+  if( PRCMSysResetCauseGet() != PRCM_LPDS_EXIT )
+  {
 #ifdef CC3200_ES_1_2_1
 
     unsigned long ulRegVal;
@@ -1859,6 +1886,26 @@ void PRCMCC3200MCUInit()
     // Disable the sleep for ANA DCDC
     //
     HWREG(0x4402F0A8) |= 0x00000004 ;
+  }
+  else
+  {
+    unsigned long ulRegVal;
+
+    //
+    // I2C Configuration
+    //
+    ulRegVal = HWREG(COMMON_REG_BASE + COMMON_REG_O_I2C_Properties_Register);
+    ulRegVal = (ulRegVal & ~0x3) | 0x1;
+    HWREG(COMMON_REG_BASE + COMMON_REG_O_I2C_Properties_Register) = ulRegVal;
+
+    //
+    // GPIO configuration
+    //
+    ulRegVal = HWREG(COMMON_REG_BASE + COMMON_REG_O_GPIO_properties_register);
+    ulRegVal = (ulRegVal & ~0x3FF) | 0x155;
+    HWREG(COMMON_REG_BASE + COMMON_REG_O_GPIO_properties_register) = ulRegVal;
+
+  }
 
 
 }

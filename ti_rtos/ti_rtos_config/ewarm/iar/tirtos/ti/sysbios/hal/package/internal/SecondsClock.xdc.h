@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 #ifndef ti_sysbios_hal_SecondsClock__INTERNAL__
@@ -24,6 +24,10 @@
 /* get */
 #undef ti_sysbios_hal_SecondsClock_get
 #define ti_sysbios_hal_SecondsClock_get ti_sysbios_hal_SecondsClock_get__E
+
+/* getTime */
+#undef ti_sysbios_hal_SecondsClock_getTime
+#define ti_sysbios_hal_SecondsClock_getTime ti_sysbios_hal_SecondsClock_getTime__E
 
 /* set */
 #undef ti_sysbios_hal_SecondsClock_set

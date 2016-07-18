@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -182,9 +182,9 @@ struct ti_sysbios_gates_GateMutexPri_Params {
 /* Struct */
 struct ti_sysbios_gates_GateMutexPri_Struct {
     const ti_sysbios_gates_GateMutexPri_Fxns__ *__fxns;
-    xdc_UInt __f0;
-    xdc_Int __f1;
-    ti_sysbios_knl_Task_Handle __f2;
+    volatile xdc_UInt __f0;
+    volatile xdc_Int __f1;
+    volatile ti_sysbios_knl_Task_Handle __f2;
     ti_sysbios_knl_Queue_Struct __f3;
     xdc_runtime_Types_CordAddr __name;
 };
@@ -223,14 +223,6 @@ __extern xdc_Void ti_sysbios_gates_GateMutexPri_Instance_init__E(ti_sysbios_gate
 xdc__CODESECT(ti_sysbios_gates_GateMutexPri_Instance_finalize__E, "ti_sysbios_gates_GateMutexPri_Instance_finalize")
 __extern void ti_sysbios_gates_GateMutexPri_Instance_finalize__E( ti_sysbios_gates_GateMutexPri_Object* );
 
-/* Instance_init__R */
-xdc__CODESECT(ti_sysbios_gates_GateMutexPri_Instance_init__R, "ti_sysbios_gates_GateMutexPri_Instance_init")
-__extern xdc_Void ti_sysbios_gates_GateMutexPri_Instance_init__R(ti_sysbios_gates_GateMutexPri_Object *, const ti_sysbios_gates_GateMutexPri_Params *);
-
-/* Instance_finalize__R */
-xdc__CODESECT(ti_sysbios_gates_GateMutexPri_Instance_finalize__R, "ti_sysbios_gates_GateMutexPri_Instance_finalize")
-__extern void ti_sysbios_gates_GateMutexPri_Instance_finalize__R( ti_sysbios_gates_GateMutexPri_Object* );
-
 /* Handle__label__S */
 xdc__CODESECT(ti_sysbios_gates_GateMutexPri_Handle__label__S, "ti_sysbios_gates_GateMutexPri_Handle__label__S")
 __extern xdc_runtime_Types_Label *ti_sysbios_gates_GateMutexPri_Handle__label__S( xdc_Ptr obj, xdc_runtime_Types_Label *lab );
@@ -257,7 +249,7 @@ __extern xdc_Void ti_sysbios_gates_GateMutexPri_Object__delete__S( xdc_Ptr instp
 
 /* delete */
 xdc__CODESECT(ti_sysbios_gates_GateMutexPri_delete, "ti_sysbios_gates_GateMutexPri_delete")
-__extern Void ti_sysbios_gates_GateMutexPri_delete(ti_sysbios_gates_GateMutexPri_Handle *instp);
+__extern void ti_sysbios_gates_GateMutexPri_delete(ti_sysbios_gates_GateMutexPri_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_gates_GateMutexPri_Object__destruct__S, "ti_sysbios_gates_GateMutexPri_Object__destruct__S")
@@ -287,25 +279,16 @@ __extern xdc_Void ti_sysbios_gates_GateMutexPri_Params__init__S( xdc_Ptr dst, co
 #define ti_sysbios_gates_GateMutexPri_query ti_sysbios_gates_GateMutexPri_query__E
 xdc__CODESECT(ti_sysbios_gates_GateMutexPri_query__E, "ti_sysbios_gates_GateMutexPri_query")
 __extern xdc_Bool ti_sysbios_gates_GateMutexPri_query__E( xdc_Int qual );
-xdc__CODESECT(ti_sysbios_gates_GateMutexPri_query__F, "ti_sysbios_gates_GateMutexPri_query")
-__extern xdc_Bool ti_sysbios_gates_GateMutexPri_query__F( xdc_Int qual );
-__extern xdc_Bool ti_sysbios_gates_GateMutexPri_query__R( xdc_Int qual );
 
 /* enter__E */
 #define ti_sysbios_gates_GateMutexPri_enter ti_sysbios_gates_GateMutexPri_enter__E
 xdc__CODESECT(ti_sysbios_gates_GateMutexPri_enter__E, "ti_sysbios_gates_GateMutexPri_enter")
 __extern xdc_IArg ti_sysbios_gates_GateMutexPri_enter__E( ti_sysbios_gates_GateMutexPri_Handle __inst );
-xdc__CODESECT(ti_sysbios_gates_GateMutexPri_enter__F, "ti_sysbios_gates_GateMutexPri_enter")
-__extern xdc_IArg ti_sysbios_gates_GateMutexPri_enter__F( ti_sysbios_gates_GateMutexPri_Object *__inst );
-__extern xdc_IArg ti_sysbios_gates_GateMutexPri_enter__R( ti_sysbios_gates_GateMutexPri_Handle __inst );
 
 /* leave__E */
 #define ti_sysbios_gates_GateMutexPri_leave ti_sysbios_gates_GateMutexPri_leave__E
 xdc__CODESECT(ti_sysbios_gates_GateMutexPri_leave__E, "ti_sysbios_gates_GateMutexPri_leave")
 __extern xdc_Void ti_sysbios_gates_GateMutexPri_leave__E( ti_sysbios_gates_GateMutexPri_Handle __inst, xdc_IArg key );
-xdc__CODESECT(ti_sysbios_gates_GateMutexPri_leave__F, "ti_sysbios_gates_GateMutexPri_leave")
-__extern xdc_Void ti_sysbios_gates_GateMutexPri_leave__F( ti_sysbios_gates_GateMutexPri_Object *__inst, xdc_IArg key );
-__extern xdc_Void ti_sysbios_gates_GateMutexPri_leave__R( ti_sysbios_gates_GateMutexPri_Handle __inst, xdc_IArg key );
 
 /* insertPri__I */
 #define ti_sysbios_gates_GateMutexPri_insertPri ti_sysbios_gates_GateMutexPri_insertPri__I
@@ -430,7 +413,7 @@ static inline xdc_runtime_Types_Label *ti_sysbios_gates_GateMutexPri_Handle_labe
 }
 
 /* Handle_name */
-static inline String ti_sysbios_gates_GateMutexPri_Handle_name( ti_sysbios_gates_GateMutexPri_Handle inst )
+static inline xdc_String ti_sysbios_gates_GateMutexPri_Handle_name( ti_sysbios_gates_GateMutexPri_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return ti_sysbios_gates_GateMutexPri_Handle__label__S(inst, &lab)->iname;
@@ -472,9 +455,9 @@ static inline ti_sysbios_gates_GateMutexPri_Struct *ti_sysbios_gates_GateMutexPr
 /* Object */
 struct ti_sysbios_gates_GateMutexPri_Object {
     const ti_sysbios_gates_GateMutexPri_Fxns__ *__fxns;
-    xdc_UInt mutexCnt;
-    xdc_Int ownerOrigPri;
-    ti_sysbios_knl_Task_Handle owner;
+    volatile xdc_UInt mutexCnt;
+    volatile xdc_Int ownerOrigPri;
+    volatile ti_sysbios_knl_Task_Handle owner;
     char __dummy;
 };
 

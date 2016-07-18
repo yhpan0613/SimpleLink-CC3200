@@ -47,6 +47,10 @@ extern "C" {
 #include <string.h>  
 #include "cc_pal.h"
 
+/* static installation of the provisioning extarnal library*/
+#include "provisioning_api.h"
+#define SL_EXT_LIB_1		sl_Provisioning
+
 /*!
 	\def		MAX_CONCURRENT_ACTIONS
 
@@ -352,6 +356,16 @@ extern "C" {
     \note       belongs to \ref configuration_sec
 */
 #define sl_DeviceDisable() 			NwpPowerOff()
+
+/*!
+    \brief      Disable the Network Processor after making sure the network processor has
+                entered low power mode
+
+    \sa         sl_DeviceEnable
+
+    \note       belongs to \ref configuration_sec
+*/
+#define sl_DeviceDisable_WithNwpLpdsPoll()          NwpPowerOff_WithNwpLpdsPoll()
 
 /*!
 
@@ -973,9 +987,9 @@ typedef OsiLockObj_t                            _SlLockObj_t;
     \warning
 */
 
-/*
-#define sl_GeneralEvtHdlr
-*/
+
+#define _SlDrvHandleGeneralEvents       SimpleLinkGeneralEventHandler
+
 
 /*!
     \brief WLAN Async event handler

@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 #ifndef ti_sysbios_knl__
@@ -102,6 +102,8 @@ typedef struct ti_sysbios_knl_Task_Stat ti_sysbios_knl_Task_Stat;
 typedef struct ti_sysbios_knl_Task_HookSet ti_sysbios_knl_Task_HookSet;
 typedef struct ti_sysbios_knl_Task_PendElem ti_sysbios_knl_Task_PendElem;
 typedef struct ti_sysbios_knl_Task_Module_State ti_sysbios_knl_Task_Module_State;
+typedef struct ti_sysbios_knl_Task_RunQEntry ti_sysbios_knl_Task_RunQEntry;
+typedef struct ti_sysbios_knl_Task_Module_StateSmp ti_sysbios_knl_Task_Module_StateSmp;
 typedef struct ti_sysbios_knl_Task_Params ti_sysbios_knl_Task_Params;
 typedef struct ti_sysbios_knl_Task_Object ti_sysbios_knl_Task_Object;
 typedef struct ti_sysbios_knl_Task_Struct ti_sysbios_knl_Task_Struct;

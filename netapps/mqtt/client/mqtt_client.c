@@ -773,10 +773,10 @@ i32 connect_msg_send(struct client_ctx *cl_ctx, bool clean_session, u16 ka_secs)
 
         ref = MQP_FHEADER_BUF(mqp);
 
-        /* Following routine frees up MQP - whether error or not */
-        return cl_ctx_conn_state_try_locked(cl_ctx, ref, buf - ref,
+        rv = cl_ctx_conn_state_try_locked(cl_ctx, ref, buf - ref,
                                             ka_secs, clean_session,
                                             mqp);
+											
  connect_msg_send_exit1:
         if(mqp)
                 mqp_free_locked(mqp);

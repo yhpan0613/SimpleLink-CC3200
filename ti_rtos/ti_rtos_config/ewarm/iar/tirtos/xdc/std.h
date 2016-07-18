@@ -232,7 +232,9 @@ typedef xdc_Int16       Int16;
 typedef xdc_Int32       Int32;
 typedef xdc_Fxn         Fxn;
 typedef xdc_Ptr         Ptr;
+#ifndef xdc__nolocalstring
 typedef xdc_String      String;
+#endif
 typedef xdc_CString     CString;
 
 typedef xdc_UInt8       UInt8;
@@ -349,6 +351,6 @@ typedef xdc_Bits64      Bits64;
 
 #endif /* xdc_std__include */
 /*
- *  @(#) xdc; 1, 1, 1,494; 7-22-2014 09:51:58; /db/ztree/library/trees/xdc/xdc-A46x/src/packages/
+ *  @(#) xdc; 1, 1, 1,0; 12-9-2015 17:34:58; /db/ztree/library/trees/xdc/xdc-B06/src/packages/
  */
 

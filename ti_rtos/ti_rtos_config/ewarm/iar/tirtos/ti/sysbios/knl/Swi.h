@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -292,8 +292,6 @@ xdc__CODESECT(ti_sysbios_knl_Swi_Module_startup__E, "ti_sysbios_knl_Swi_Module_s
 __extern xdc_Int ti_sysbios_knl_Swi_Module_startup__E( xdc_Int state );
 xdc__CODESECT(ti_sysbios_knl_Swi_Module_startup__F, "ti_sysbios_knl_Swi_Module_startup")
 __extern xdc_Int ti_sysbios_knl_Swi_Module_startup__F( xdc_Int state );
-xdc__CODESECT(ti_sysbios_knl_Swi_Module_startup__R, "ti_sysbios_knl_Swi_Module_startup")
-__extern xdc_Int ti_sysbios_knl_Swi_Module_startup__R( xdc_Int state );
 
 /* Instance_init__E */
 xdc__CODESECT(ti_sysbios_knl_Swi_Instance_init__E, "ti_sysbios_knl_Swi_Instance_init")
@@ -302,14 +300,6 @@ __extern xdc_Int ti_sysbios_knl_Swi_Instance_init__E(ti_sysbios_knl_Swi_Object *
 /* Instance_finalize__E */
 xdc__CODESECT(ti_sysbios_knl_Swi_Instance_finalize__E, "ti_sysbios_knl_Swi_Instance_finalize")
 __extern void ti_sysbios_knl_Swi_Instance_finalize__E( ti_sysbios_knl_Swi_Object* , int );
-
-/* Instance_init__R */
-xdc__CODESECT(ti_sysbios_knl_Swi_Instance_init__R, "ti_sysbios_knl_Swi_Instance_init")
-__extern xdc_Int ti_sysbios_knl_Swi_Instance_init__R(ti_sysbios_knl_Swi_Object *, ti_sysbios_knl_Swi_FuncPtr swiFxn, const ti_sysbios_knl_Swi_Params *, xdc_runtime_Error_Block *);
-
-/* Instance_finalize__R */
-xdc__CODESECT(ti_sysbios_knl_Swi_Instance_finalize__R, "ti_sysbios_knl_Swi_Instance_finalize")
-__extern void ti_sysbios_knl_Swi_Instance_finalize__R( ti_sysbios_knl_Swi_Object* , int );
 
 /* Handle__label__S */
 xdc__CODESECT(ti_sysbios_knl_Swi_Handle__label__S, "ti_sysbios_knl_Swi_Handle__label__S")
@@ -337,7 +327,7 @@ __extern xdc_Void ti_sysbios_knl_Swi_Object__delete__S( xdc_Ptr instp );
 
 /* delete */
 xdc__CODESECT(ti_sysbios_knl_Swi_delete, "ti_sysbios_knl_Swi_delete")
-__extern Void ti_sysbios_knl_Swi_delete(ti_sysbios_knl_Swi_Handle *instp);
+__extern void ti_sysbios_knl_Swi_delete(ti_sysbios_knl_Swi_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_knl_Swi_Object__destruct__S, "ti_sysbios_knl_Swi_Object__destruct__S")
@@ -367,177 +357,111 @@ __extern xdc_Void ti_sysbios_knl_Swi_Params__init__S( xdc_Ptr dst, const xdc_Voi
 #define ti_sysbios_knl_Swi_startup ti_sysbios_knl_Swi_startup__E
 xdc__CODESECT(ti_sysbios_knl_Swi_startup__E, "ti_sysbios_knl_Swi_startup")
 __extern xdc_Void ti_sysbios_knl_Swi_startup__E( void );
-xdc__CODESECT(ti_sysbios_knl_Swi_startup__F, "ti_sysbios_knl_Swi_startup")
-__extern xdc_Void ti_sysbios_knl_Swi_startup__F( void );
-__extern xdc_Void ti_sysbios_knl_Swi_startup__R( void );
 
 /* enabled__E */
 #define ti_sysbios_knl_Swi_enabled ti_sysbios_knl_Swi_enabled__E
 xdc__CODESECT(ti_sysbios_knl_Swi_enabled__E, "ti_sysbios_knl_Swi_enabled")
 __extern xdc_Bool ti_sysbios_knl_Swi_enabled__E( void );
-xdc__CODESECT(ti_sysbios_knl_Swi_enabled__F, "ti_sysbios_knl_Swi_enabled")
-__extern xdc_Bool ti_sysbios_knl_Swi_enabled__F( void );
-__extern xdc_Bool ti_sysbios_knl_Swi_enabled__R( void );
 
 /* unlockSched__E */
 #define ti_sysbios_knl_Swi_unlockSched ti_sysbios_knl_Swi_unlockSched__E
 xdc__CODESECT(ti_sysbios_knl_Swi_unlockSched__E, "ti_sysbios_knl_Swi_unlockSched")
 __extern xdc_Void ti_sysbios_knl_Swi_unlockSched__E( void );
-xdc__CODESECT(ti_sysbios_knl_Swi_unlockSched__F, "ti_sysbios_knl_Swi_unlockSched")
-__extern xdc_Void ti_sysbios_knl_Swi_unlockSched__F( void );
-__extern xdc_Void ti_sysbios_knl_Swi_unlockSched__R( void );
 
 /* disable__E */
 #define ti_sysbios_knl_Swi_disable ti_sysbios_knl_Swi_disable__E
 xdc__CODESECT(ti_sysbios_knl_Swi_disable__E, "ti_sysbios_knl_Swi_disable")
 __extern xdc_UInt ti_sysbios_knl_Swi_disable__E( void );
-xdc__CODESECT(ti_sysbios_knl_Swi_disable__F, "ti_sysbios_knl_Swi_disable")
-__extern xdc_UInt ti_sysbios_knl_Swi_disable__F( void );
-__extern xdc_UInt ti_sysbios_knl_Swi_disable__R( void );
 
 /* enable__E */
 #define ti_sysbios_knl_Swi_enable ti_sysbios_knl_Swi_enable__E
 xdc__CODESECT(ti_sysbios_knl_Swi_enable__E, "ti_sysbios_knl_Swi_enable")
 __extern xdc_Void ti_sysbios_knl_Swi_enable__E( void );
-xdc__CODESECT(ti_sysbios_knl_Swi_enable__F, "ti_sysbios_knl_Swi_enable")
-__extern xdc_Void ti_sysbios_knl_Swi_enable__F( void );
-__extern xdc_Void ti_sysbios_knl_Swi_enable__R( void );
 
 /* restore__E */
 #define ti_sysbios_knl_Swi_restore ti_sysbios_knl_Swi_restore__E
 xdc__CODESECT(ti_sysbios_knl_Swi_restore__E, "ti_sysbios_knl_Swi_restore")
 __extern xdc_Void ti_sysbios_knl_Swi_restore__E( xdc_UInt key );
-xdc__CODESECT(ti_sysbios_knl_Swi_restore__F, "ti_sysbios_knl_Swi_restore")
-__extern xdc_Void ti_sysbios_knl_Swi_restore__F( xdc_UInt key );
-__extern xdc_Void ti_sysbios_knl_Swi_restore__R( xdc_UInt key );
 
 /* restoreHwi__E */
 #define ti_sysbios_knl_Swi_restoreHwi ti_sysbios_knl_Swi_restoreHwi__E
 xdc__CODESECT(ti_sysbios_knl_Swi_restoreHwi__E, "ti_sysbios_knl_Swi_restoreHwi")
 __extern xdc_Void ti_sysbios_knl_Swi_restoreHwi__E( xdc_UInt key );
-xdc__CODESECT(ti_sysbios_knl_Swi_restoreHwi__F, "ti_sysbios_knl_Swi_restoreHwi")
-__extern xdc_Void ti_sysbios_knl_Swi_restoreHwi__F( xdc_UInt key );
-__extern xdc_Void ti_sysbios_knl_Swi_restoreHwi__R( xdc_UInt key );
 
 /* self__E */
 #define ti_sysbios_knl_Swi_self ti_sysbios_knl_Swi_self__E
 xdc__CODESECT(ti_sysbios_knl_Swi_self__E, "ti_sysbios_knl_Swi_self")
 __extern ti_sysbios_knl_Swi_Handle ti_sysbios_knl_Swi_self__E( void );
-xdc__CODESECT(ti_sysbios_knl_Swi_self__F, "ti_sysbios_knl_Swi_self")
-__extern ti_sysbios_knl_Swi_Handle ti_sysbios_knl_Swi_self__F( void );
-__extern ti_sysbios_knl_Swi_Handle ti_sysbios_knl_Swi_self__R( void );
 
 /* getTrigger__E */
 #define ti_sysbios_knl_Swi_getTrigger ti_sysbios_knl_Swi_getTrigger__E
 xdc__CODESECT(ti_sysbios_knl_Swi_getTrigger__E, "ti_sysbios_knl_Swi_getTrigger")
 __extern xdc_UInt ti_sysbios_knl_Swi_getTrigger__E( void );
-xdc__CODESECT(ti_sysbios_knl_Swi_getTrigger__F, "ti_sysbios_knl_Swi_getTrigger")
-__extern xdc_UInt ti_sysbios_knl_Swi_getTrigger__F( void );
-__extern xdc_UInt ti_sysbios_knl_Swi_getTrigger__R( void );
 
 /* raisePri__E */
 #define ti_sysbios_knl_Swi_raisePri ti_sysbios_knl_Swi_raisePri__E
 xdc__CODESECT(ti_sysbios_knl_Swi_raisePri__E, "ti_sysbios_knl_Swi_raisePri")
 __extern xdc_UInt ti_sysbios_knl_Swi_raisePri__E( xdc_UInt priority );
-xdc__CODESECT(ti_sysbios_knl_Swi_raisePri__F, "ti_sysbios_knl_Swi_raisePri")
-__extern xdc_UInt ti_sysbios_knl_Swi_raisePri__F( xdc_UInt priority );
-__extern xdc_UInt ti_sysbios_knl_Swi_raisePri__R( xdc_UInt priority );
 
 /* restorePri__E */
 #define ti_sysbios_knl_Swi_restorePri ti_sysbios_knl_Swi_restorePri__E
 xdc__CODESECT(ti_sysbios_knl_Swi_restorePri__E, "ti_sysbios_knl_Swi_restorePri")
 __extern xdc_Void ti_sysbios_knl_Swi_restorePri__E( xdc_UInt key );
-xdc__CODESECT(ti_sysbios_knl_Swi_restorePri__F, "ti_sysbios_knl_Swi_restorePri")
-__extern xdc_Void ti_sysbios_knl_Swi_restorePri__F( xdc_UInt key );
-__extern xdc_Void ti_sysbios_knl_Swi_restorePri__R( xdc_UInt key );
 
 /* andn__E */
 #define ti_sysbios_knl_Swi_andn ti_sysbios_knl_Swi_andn__E
 xdc__CODESECT(ti_sysbios_knl_Swi_andn__E, "ti_sysbios_knl_Swi_andn")
 __extern xdc_Void ti_sysbios_knl_Swi_andn__E( ti_sysbios_knl_Swi_Handle __inst, xdc_UInt mask );
-xdc__CODESECT(ti_sysbios_knl_Swi_andn__F, "ti_sysbios_knl_Swi_andn")
-__extern xdc_Void ti_sysbios_knl_Swi_andn__F( ti_sysbios_knl_Swi_Object *__inst, xdc_UInt mask );
-__extern xdc_Void ti_sysbios_knl_Swi_andn__R( ti_sysbios_knl_Swi_Handle __inst, xdc_UInt mask );
 
 /* dec__E */
 #define ti_sysbios_knl_Swi_dec ti_sysbios_knl_Swi_dec__E
 xdc__CODESECT(ti_sysbios_knl_Swi_dec__E, "ti_sysbios_knl_Swi_dec")
 __extern xdc_Void ti_sysbios_knl_Swi_dec__E( ti_sysbios_knl_Swi_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Swi_dec__F, "ti_sysbios_knl_Swi_dec")
-__extern xdc_Void ti_sysbios_knl_Swi_dec__F( ti_sysbios_knl_Swi_Object *__inst );
-__extern xdc_Void ti_sysbios_knl_Swi_dec__R( ti_sysbios_knl_Swi_Handle __inst );
 
 /* getHookContext__E */
 #define ti_sysbios_knl_Swi_getHookContext ti_sysbios_knl_Swi_getHookContext__E
 xdc__CODESECT(ti_sysbios_knl_Swi_getHookContext__E, "ti_sysbios_knl_Swi_getHookContext")
 __extern xdc_Ptr ti_sysbios_knl_Swi_getHookContext__E( ti_sysbios_knl_Swi_Handle __inst, xdc_Int id );
-xdc__CODESECT(ti_sysbios_knl_Swi_getHookContext__F, "ti_sysbios_knl_Swi_getHookContext")
-__extern xdc_Ptr ti_sysbios_knl_Swi_getHookContext__F( ti_sysbios_knl_Swi_Object *__inst, xdc_Int id );
-__extern xdc_Ptr ti_sysbios_knl_Swi_getHookContext__R( ti_sysbios_knl_Swi_Handle __inst, xdc_Int id );
 
 /* setHookContext__E */
 #define ti_sysbios_knl_Swi_setHookContext ti_sysbios_knl_Swi_setHookContext__E
 xdc__CODESECT(ti_sysbios_knl_Swi_setHookContext__E, "ti_sysbios_knl_Swi_setHookContext")
 __extern xdc_Void ti_sysbios_knl_Swi_setHookContext__E( ti_sysbios_knl_Swi_Handle __inst, xdc_Int id, xdc_Ptr hookContext );
-xdc__CODESECT(ti_sysbios_knl_Swi_setHookContext__F, "ti_sysbios_knl_Swi_setHookContext")
-__extern xdc_Void ti_sysbios_knl_Swi_setHookContext__F( ti_sysbios_knl_Swi_Object *__inst, xdc_Int id, xdc_Ptr hookContext );
-__extern xdc_Void ti_sysbios_knl_Swi_setHookContext__R( ti_sysbios_knl_Swi_Handle __inst, xdc_Int id, xdc_Ptr hookContext );
 
 /* getPri__E */
 #define ti_sysbios_knl_Swi_getPri ti_sysbios_knl_Swi_getPri__E
 xdc__CODESECT(ti_sysbios_knl_Swi_getPri__E, "ti_sysbios_knl_Swi_getPri")
 __extern xdc_UInt ti_sysbios_knl_Swi_getPri__E( ti_sysbios_knl_Swi_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Swi_getPri__F, "ti_sysbios_knl_Swi_getPri")
-__extern xdc_UInt ti_sysbios_knl_Swi_getPri__F( ti_sysbios_knl_Swi_Object *__inst );
-__extern xdc_UInt ti_sysbios_knl_Swi_getPri__R( ti_sysbios_knl_Swi_Handle __inst );
 
 /* getFunc__E */
 #define ti_sysbios_knl_Swi_getFunc ti_sysbios_knl_Swi_getFunc__E
 xdc__CODESECT(ti_sysbios_knl_Swi_getFunc__E, "ti_sysbios_knl_Swi_getFunc")
 __extern ti_sysbios_knl_Swi_FuncPtr ti_sysbios_knl_Swi_getFunc__E( ti_sysbios_knl_Swi_Handle __inst, xdc_UArg *arg0, xdc_UArg *arg1 );
-xdc__CODESECT(ti_sysbios_knl_Swi_getFunc__F, "ti_sysbios_knl_Swi_getFunc")
-__extern ti_sysbios_knl_Swi_FuncPtr ti_sysbios_knl_Swi_getFunc__F( ti_sysbios_knl_Swi_Object *__inst, xdc_UArg *arg0, xdc_UArg *arg1 );
-__extern ti_sysbios_knl_Swi_FuncPtr ti_sysbios_knl_Swi_getFunc__R( ti_sysbios_knl_Swi_Handle __inst, xdc_UArg *arg0, xdc_UArg *arg1 );
 
 /* getAttrs__E */
 #define ti_sysbios_knl_Swi_getAttrs ti_sysbios_knl_Swi_getAttrs__E
 xdc__CODESECT(ti_sysbios_knl_Swi_getAttrs__E, "ti_sysbios_knl_Swi_getAttrs")
 __extern xdc_Void ti_sysbios_knl_Swi_getAttrs__E( ti_sysbios_knl_Swi_Handle __inst, ti_sysbios_knl_Swi_FuncPtr *swiFxn, ti_sysbios_knl_Swi_Params *params );
-xdc__CODESECT(ti_sysbios_knl_Swi_getAttrs__F, "ti_sysbios_knl_Swi_getAttrs")
-__extern xdc_Void ti_sysbios_knl_Swi_getAttrs__F( ti_sysbios_knl_Swi_Object *__inst, ti_sysbios_knl_Swi_FuncPtr *swiFxn, ti_sysbios_knl_Swi_Params *params );
-__extern xdc_Void ti_sysbios_knl_Swi_getAttrs__R( ti_sysbios_knl_Swi_Handle __inst, ti_sysbios_knl_Swi_FuncPtr *swiFxn, ti_sysbios_knl_Swi_Params *params );
 
 /* setAttrs__E */
 #define ti_sysbios_knl_Swi_setAttrs ti_sysbios_knl_Swi_setAttrs__E
 xdc__CODESECT(ti_sysbios_knl_Swi_setAttrs__E, "ti_sysbios_knl_Swi_setAttrs")
 __extern xdc_Void ti_sysbios_knl_Swi_setAttrs__E( ti_sysbios_knl_Swi_Handle __inst, ti_sysbios_knl_Swi_FuncPtr swiFxn, ti_sysbios_knl_Swi_Params *params );
-xdc__CODESECT(ti_sysbios_knl_Swi_setAttrs__F, "ti_sysbios_knl_Swi_setAttrs")
-__extern xdc_Void ti_sysbios_knl_Swi_setAttrs__F( ti_sysbios_knl_Swi_Object *__inst, ti_sysbios_knl_Swi_FuncPtr swiFxn, ti_sysbios_knl_Swi_Params *params );
-__extern xdc_Void ti_sysbios_knl_Swi_setAttrs__R( ti_sysbios_knl_Swi_Handle __inst, ti_sysbios_knl_Swi_FuncPtr swiFxn, ti_sysbios_knl_Swi_Params *params );
 
 /* inc__E */
 #define ti_sysbios_knl_Swi_inc ti_sysbios_knl_Swi_inc__E
 xdc__CODESECT(ti_sysbios_knl_Swi_inc__E, "ti_sysbios_knl_Swi_inc")
 __extern xdc_Void ti_sysbios_knl_Swi_inc__E( ti_sysbios_knl_Swi_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Swi_inc__F, "ti_sysbios_knl_Swi_inc")
-__extern xdc_Void ti_sysbios_knl_Swi_inc__F( ti_sysbios_knl_Swi_Object *__inst );
-__extern xdc_Void ti_sysbios_knl_Swi_inc__R( ti_sysbios_knl_Swi_Handle __inst );
 
 /* or__E */
 #define ti_sysbios_knl_Swi_or ti_sysbios_knl_Swi_or__E
 xdc__CODESECT(ti_sysbios_knl_Swi_or__E, "ti_sysbios_knl_Swi_or")
 __extern xdc_Void ti_sysbios_knl_Swi_or__E( ti_sysbios_knl_Swi_Handle __inst, xdc_UInt mask );
-xdc__CODESECT(ti_sysbios_knl_Swi_or__F, "ti_sysbios_knl_Swi_or")
-__extern xdc_Void ti_sysbios_knl_Swi_or__F( ti_sysbios_knl_Swi_Object *__inst, xdc_UInt mask );
-__extern xdc_Void ti_sysbios_knl_Swi_or__R( ti_sysbios_knl_Swi_Handle __inst, xdc_UInt mask );
 
 /* post__E */
 #define ti_sysbios_knl_Swi_post ti_sysbios_knl_Swi_post__E
 xdc__CODESECT(ti_sysbios_knl_Swi_post__E, "ti_sysbios_knl_Swi_post")
 __extern xdc_Void ti_sysbios_knl_Swi_post__E( ti_sysbios_knl_Swi_Handle __inst );
-xdc__CODESECT(ti_sysbios_knl_Swi_post__F, "ti_sysbios_knl_Swi_post")
-__extern xdc_Void ti_sysbios_knl_Swi_post__F( ti_sysbios_knl_Swi_Object *__inst );
-__extern xdc_Void ti_sysbios_knl_Swi_post__R( ti_sysbios_knl_Swi_Handle __inst );
 
 /* schedule__I */
 #define ti_sysbios_knl_Swi_schedule ti_sysbios_knl_Swi_schedule__I
@@ -649,7 +573,7 @@ static inline xdc_runtime_Types_Label *ti_sysbios_knl_Swi_Handle_label( ti_sysbi
 }
 
 /* Handle_name */
-static inline String ti_sysbios_knl_Swi_Handle_name( ti_sysbios_knl_Swi_Handle inst )
+static inline xdc_String ti_sysbios_knl_Swi_Handle_name( ti_sysbios_knl_Swi_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return ti_sysbios_knl_Swi_Handle__label__S(inst, &lab)->iname;
@@ -690,7 +614,7 @@ static inline ti_sysbios_knl_Swi_Struct *ti_sysbios_knl_Swi_struct( ti_sysbios_k
 
 /* Module_State */
 struct ti_sysbios_knl_Swi_Module_State {
-    xdc_Bool locked;
+    volatile xdc_Bool locked;
     xdc_UInt curSet;
     xdc_UInt curTrigger;
     ti_sysbios_knl_Swi_Handle curSwi;

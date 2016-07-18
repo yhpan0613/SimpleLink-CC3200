@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 #ifndef ti_sysbios_utils_Load__INTERNAL__
@@ -84,6 +84,10 @@
 /* idleFxnPwr */
 #undef ti_sysbios_utils_Load_idleFxnPwr
 #define ti_sysbios_utils_Load_idleFxnPwr ti_sysbios_utils_Load_idleFxnPwr__E
+
+/* startup */
+#undef ti_sysbios_utils_Load_startup
+#define ti_sysbios_utils_Load_startup ti_sysbios_utils_Load_startup__E
 
 /* taskCreateHook */
 #undef ti_sysbios_utils_Load_taskCreateHook

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2014, Texas Instruments Incorporated
+ * Copyright (c) 2015, Texas Instruments Incorporated
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -40,9 +40,9 @@ extern "C" {
 #ifdef ti_sysbios_hal_Core_delegate_getId
     extern UInt ti_sysbios_hal_Core_delegate_getId();
 #define ti_sysbios_hal_Core_getId() (ti_sysbios_hal_Core_delegate_getId())
-#else
+#else /* !ti_sysbios_hal_Core_delegate_getId */
 #define ti_sysbios_hal_Core_getId() (ti_sysbios_hal_Core_CoreProxy_getId())
-#endif
+#endif /* ti_sysbios_hal_Core_delegate_getId */
 
 /*
  *  ======== Core_interruptCore ========
@@ -50,19 +50,19 @@ extern "C" {
 #ifdef ti_sysbios_hal_Core_delegate_interruptCore
     extern Void ti_sysbios_hal_Core_delegate_interruptCore(UInt);
 #define ti_sysbios_hal_Core_interruptCore(x) ti_sysbios_hal_Core_delegate_interruptCore(x)
-#else
+#else /* !ti_sysbios_hal_Core_delegate_interruptCore */
 #define ti_sysbios_hal_Core_interruptCore(x) ti_sysbios_hal_Core_CoreProxy_interruptCore(x)
-#endif
+#endif /* ti_sysbios_hal_Core_delegate_interruptCore */
 
 /*
  *  ======== Core_lock ========
  */
 #ifdef ti_sysbios_hal_Core_delegate_lock
-    extern Void ti_sysbios_hal_Core_delegate_lock();
-#define ti_sysbios_hal_Core_lock() ti_sysbios_hal_Core_delegate_lock()
-#else
-#define ti_sysbios_hal_Core_lock() ti_sysbios_hal_Core_CoreProxy_lock()
-#endif
+    extern IArg ti_sysbios_hal_Core_delegate_lock();
+#define ti_sysbios_hal_Core_lock() (ti_sysbios_hal_Core_delegate_lock())
+#else /* !ti_sysbios_hal_Core_delegate_lock */
+#define ti_sysbios_hal_Core_lock() (ti_sysbios_hal_Core_CoreProxy_lock())
+#endif /* ti_sysbios_hal_Core_delegate_lock */
 
 /*
  *  ======== Core_unlock ========
@@ -70,9 +70,9 @@ extern "C" {
 #ifdef ti_sysbios_hal_Core_delegate_unlock
     extern Void ti_sysbios_hal_Core_delegate_unlock();
 #define ti_sysbios_hal_Core_unlock() ti_sysbios_hal_Core_delegate_unlock()
-#else
+#else /* !ti_sysbios_hal_Core_delegate_unlock */
 #define ti_sysbios_hal_Core_unlock() ti_sysbios_hal_Core_CoreProxy_unlock()
-#endif
+#endif /* ti_sysbios_hal_Core_delegate_unlock */
 
 #if defined(xdc_target__isaCompatible_v7M) || defined(xdc_target__isaCompatible_v7M4)
 
@@ -95,7 +95,7 @@ extern "C" {
  */
 #define ti_sysbios_hal_Core_hwiRestore(key) _set_interrupt_priority(key)
 
-#else
+#else /* !__ti__ */
 
 /*
  *  ======== Core_hwiDisable ========
@@ -103,7 +103,12 @@ extern "C" {
 static inline UInt ti_sysbios_hal_Core_hwiDisable()
 {
     UInt key;
+
+#if defined(__IAR_SYSTEMS_ICC__)
     asm volatile (
+#else /* !__IAR_SYSTEMS_ICC__ */
+    __asm__ __volatile__ (
+#endif
             "mrs %0, basepri\n\t"
             "msr basepri, %1"
             : "=&r" (key)
@@ -118,7 +123,12 @@ static inline UInt ti_sysbios_hal_Core_hwiDisable()
 static inline UInt ti_sysbios_hal_Core_hwiEnable()
 {
     UInt key;
+
+#if defined(__IAR_SYSTEMS_ICC__)
     asm volatile (
+#else /* !__IAR_SYSTEMS_ICC__ */
+    __asm__ __volatile__ (
+#endif
             "movw r12, #0\n\t"
             "mrs %0, basepri\n\t"
             "msr basepri, r12"
@@ -134,30 +144,90 @@ static inline UInt ti_sysbios_hal_Core_hwiEnable()
  */
 static inline Void ti_sysbios_hal_Core_hwiRestore(UInt key)
 {
+#if defined(__IAR_SYSTEMS_ICC__)
     asm volatile (
+#else /* !__IAR_SYSTEMS_ICC__ */
+    __asm__ __volatile__ (
+#endif
             "msr basepri, %0"
             :: "r" (key)
             );
 }
 
-#endif
+#endif /* __ti__ */
 
-#else /* all other targets */
+#elif (!defined(__ti__) &&  \
+       (defined(xdc_target__isaCompatible_v7A8) ||   \
+        defined(xdc_target__isaCompatible_v7A9) ||   \
+        defined(xdc_target__isaCompatible_v7A15)))
 
 /*
  *  ======== Core_hwiDisable ========
  */
-#define ti_sysbios_hal_Core_hwiDisable() (ti_sysbios_hal_Hwi_disable())
+static inline UInt ti_sysbios_hal_Core_hwiDisable()
+{
+    UInt key;
+    __asm__ __volatile__ (
+            "mrs %0, cpsr_cf\n\t"
+            "cpsid i"
+            : "=r" (key)
+            :: "cc", "memory"
+            );
+    return key;
+}
 
 /*
  *  ======== Core_hwiEnable ========
  */
-#define ti_sysbios_hal_Core_hwiEnable() (ti_sysbios_hal_Hwi_enable())
+static inline UInt ti_sysbios_hal_Core_hwiEnable()
+{
+    UInt key;
+    __asm__ __volatile__ (
+            "mrs %0, cpsr_cf\n\t"
+            "cpsie i"
+            : "=r" (key)
+            :: "cc", "memory"
+            );
+    return key;
+}
+
 
 /*
  *  ======== Core_hwiRestore ========
  */
-#define ti_sysbios_hal_Core_hwiRestore(key) (ti_sysbios_hal_Hwi_restore(key))
+static inline Void ti_sysbios_hal_Core_hwiRestore(UInt key)
+{
+    __asm__ __volatile__ (
+            "and r12, %0, #128\n\t"
+            "mrs r0, cpsr_cf\n\t"
+            "bic r0, r0, #128\n\t"
+            "orr r12, r12, r0\n\t"
+            "msr cpsr_cf, r12"
+            :: "r" (key)
+            : "r0", "r12", "cc", "memory"
+            );
+}
+
+#else /* all other targets */
+
+extern UInt ti_sysbios_hal_Hwi_disable__E();
+extern UInt ti_sysbios_hal_Hwi_enable__E();
+extern Void ti_sysbios_hal_Hwi_restore__E(UInt key);
+
+/*
+ *  ======== Core_hwiDisable ========
+ */
+#define ti_sysbios_hal_Core_hwiDisable() (ti_sysbios_hal_Hwi_disable__E())
+
+/*
+ *  ======== Core_hwiEnable ========
+ */
+#define ti_sysbios_hal_Core_hwiEnable() (ti_sysbios_hal_Hwi_enable__E())
+
+/*
+ *  ======== Core_hwiRestore ========
+ */
+#define ti_sysbios_hal_Core_hwiRestore(key) (ti_sysbios_hal_Hwi_restore__E(key))
 
 #endif
 

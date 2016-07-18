@@ -324,6 +324,8 @@ exit:
         return retval;
 }
 
+i8 is_uartdrv_reset = 0;
+
 /*
    This function should be called from centralized & RTOS specific
     initialization sequence.
@@ -343,9 +345,14 @@ i32 uart_driver_load(struct soc_module *uart_module)
                 (struct cc_uart_config *)uart_module->hw_detail;
         cc_hndl hndl;
         struct cc_dma_chan_cfg chan_config;
-
-        /* Reset the UART driver structure once in the begining */
-        reset_uart_rtosdrv();
+        
+        if(is_uartdrv_reset == 0)
+        {
+          /* Reset the UART driver structure once in the begining */
+          reset_uart_rtosdrv();
+          is_uartdrv_reset = 1;
+        }
+          
 
         /* Initialize the UART RTOS driver */
         uart_rtos_drv_hndl = check_uart_rtosdrv_inuse(uart_config->module_id);

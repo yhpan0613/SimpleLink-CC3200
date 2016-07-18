@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-z57
+ * @(#) xdc-B06
  */
 
 #ifndef ti_catalog_arm_peripherals_timers__

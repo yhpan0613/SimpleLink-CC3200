@@ -138,6 +138,7 @@ i32 sl_ExtLib_MqttServerInit(_const SlMqttServerCfg_t  *cfg,
     }
     server_cfg.listener_port=cfg->server_info.port_number;
     server_cfg.debug_printf = cfg->dbg_print;
+    server_cfg.loopback_port = cfg->loopback_port;
     cbs_ptr=&cbs_obj;
     memcpy(cbs_ptr,app_cbs,sizeof(SlMqttServerCbs_t ));
    

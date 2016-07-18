@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A46
+ * @(#) xdc-B06
  */
 
 #ifndef ti_sysbios_BIOS_RtsGateProxy__INTERNAL__

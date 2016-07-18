@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -238,14 +238,6 @@ __extern xdc_Void ti_sysbios_xdcruntime_SemProcessSupport_Instance_init__E(ti_sy
 xdc__CODESECT(ti_sysbios_xdcruntime_SemProcessSupport_Instance_finalize__E, "ti_sysbios_xdcruntime_SemProcessSupport_Instance_finalize")
 __extern void ti_sysbios_xdcruntime_SemProcessSupport_Instance_finalize__E( ti_sysbios_xdcruntime_SemProcessSupport_Object* );
 
-/* Instance_init__R */
-xdc__CODESECT(ti_sysbios_xdcruntime_SemProcessSupport_Instance_init__R, "ti_sysbios_xdcruntime_SemProcessSupport_Instance_init")
-__extern xdc_Void ti_sysbios_xdcruntime_SemProcessSupport_Instance_init__R(ti_sysbios_xdcruntime_SemProcessSupport_Object *, xdc_Int count, xdc_Int key, const ti_sysbios_xdcruntime_SemProcessSupport_Params *);
-
-/* Instance_finalize__R */
-xdc__CODESECT(ti_sysbios_xdcruntime_SemProcessSupport_Instance_finalize__R, "ti_sysbios_xdcruntime_SemProcessSupport_Instance_finalize")
-__extern void ti_sysbios_xdcruntime_SemProcessSupport_Instance_finalize__R( ti_sysbios_xdcruntime_SemProcessSupport_Object* );
-
 /* Handle__label__S */
 xdc__CODESECT(ti_sysbios_xdcruntime_SemProcessSupport_Handle__label__S, "ti_sysbios_xdcruntime_SemProcessSupport_Handle__label__S")
 __extern xdc_runtime_Types_Label *ti_sysbios_xdcruntime_SemProcessSupport_Handle__label__S( xdc_Ptr obj, xdc_runtime_Types_Label *lab );
@@ -272,7 +264,7 @@ __extern xdc_Void ti_sysbios_xdcruntime_SemProcessSupport_Object__delete__S( xdc
 
 /* delete */
 xdc__CODESECT(ti_sysbios_xdcruntime_SemProcessSupport_delete, "ti_sysbios_xdcruntime_SemProcessSupport_delete")
-__extern Void ti_sysbios_xdcruntime_SemProcessSupport_delete(ti_sysbios_xdcruntime_SemProcessSupport_Handle *instp);
+__extern void ti_sysbios_xdcruntime_SemProcessSupport_delete(ti_sysbios_xdcruntime_SemProcessSupport_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_xdcruntime_SemProcessSupport_Object__destruct__S, "ti_sysbios_xdcruntime_SemProcessSupport_Object__destruct__S")
@@ -302,17 +294,11 @@ __extern xdc_Void ti_sysbios_xdcruntime_SemProcessSupport_Params__init__S( xdc_P
 #define ti_sysbios_xdcruntime_SemProcessSupport_pend ti_sysbios_xdcruntime_SemProcessSupport_pend__E
 xdc__CODESECT(ti_sysbios_xdcruntime_SemProcessSupport_pend__E, "ti_sysbios_xdcruntime_SemProcessSupport_pend")
 __extern xdc_Int ti_sysbios_xdcruntime_SemProcessSupport_pend__E( ti_sysbios_xdcruntime_SemProcessSupport_Handle __inst, xdc_UInt timeout, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_SemProcessSupport_pend__F, "ti_sysbios_xdcruntime_SemProcessSupport_pend")
-__extern xdc_Int ti_sysbios_xdcruntime_SemProcessSupport_pend__F( ti_sysbios_xdcruntime_SemProcessSupport_Object *__inst, xdc_UInt timeout, xdc_runtime_Error_Block *eb );
-__extern xdc_Int ti_sysbios_xdcruntime_SemProcessSupport_pend__R( ti_sysbios_xdcruntime_SemProcessSupport_Handle __inst, xdc_UInt timeout, xdc_runtime_Error_Block *eb );
 
 /* post__E */
 #define ti_sysbios_xdcruntime_SemProcessSupport_post ti_sysbios_xdcruntime_SemProcessSupport_post__E
 xdc__CODESECT(ti_sysbios_xdcruntime_SemProcessSupport_post__E, "ti_sysbios_xdcruntime_SemProcessSupport_post")
 __extern xdc_Bool ti_sysbios_xdcruntime_SemProcessSupport_post__E( ti_sysbios_xdcruntime_SemProcessSupport_Handle __inst, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_SemProcessSupport_post__F, "ti_sysbios_xdcruntime_SemProcessSupport_post")
-__extern xdc_Bool ti_sysbios_xdcruntime_SemProcessSupport_post__F( ti_sysbios_xdcruntime_SemProcessSupport_Object *__inst, xdc_runtime_Error_Block *eb );
-__extern xdc_Bool ti_sysbios_xdcruntime_SemProcessSupport_post__R( ti_sysbios_xdcruntime_SemProcessSupport_Handle __inst, xdc_runtime_Error_Block *eb );
 
 
 /*
@@ -460,7 +446,7 @@ static inline xdc_runtime_Types_Label *ti_sysbios_xdcruntime_SemProcessSupport_H
 }
 
 /* Handle_name */
-static inline String ti_sysbios_xdcruntime_SemProcessSupport_Handle_name( ti_sysbios_xdcruntime_SemProcessSupport_Handle inst )
+static inline xdc_String ti_sysbios_xdcruntime_SemProcessSupport_Handle_name( ti_sysbios_xdcruntime_SemProcessSupport_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return ti_sysbios_xdcruntime_SemProcessSupport_Handle__label__S(inst, &lab)->iname;

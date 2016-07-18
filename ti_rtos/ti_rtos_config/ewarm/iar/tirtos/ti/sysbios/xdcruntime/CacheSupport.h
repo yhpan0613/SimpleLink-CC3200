@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -179,33 +179,21 @@ __extern xdc_Bool ti_sysbios_xdcruntime_CacheSupport_Module__startupDone__S( voi
 #define ti_sysbios_xdcruntime_CacheSupport_inv ti_sysbios_xdcruntime_CacheSupport_inv__E
 xdc__CODESECT(ti_sysbios_xdcruntime_CacheSupport_inv__E, "ti_sysbios_xdcruntime_CacheSupport_inv")
 __extern xdc_Bool ti_sysbios_xdcruntime_CacheSupport_inv__E( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bool wait, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_CacheSupport_inv__F, "ti_sysbios_xdcruntime_CacheSupport_inv")
-__extern xdc_Bool ti_sysbios_xdcruntime_CacheSupport_inv__F( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bool wait, xdc_runtime_Error_Block *eb );
-__extern xdc_Bool ti_sysbios_xdcruntime_CacheSupport_inv__R( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bool wait, xdc_runtime_Error_Block *eb );
 
 /* wb__E */
 #define ti_sysbios_xdcruntime_CacheSupport_wb ti_sysbios_xdcruntime_CacheSupport_wb__E
 xdc__CODESECT(ti_sysbios_xdcruntime_CacheSupport_wb__E, "ti_sysbios_xdcruntime_CacheSupport_wb")
 __extern xdc_Bool ti_sysbios_xdcruntime_CacheSupport_wb__E( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bool wait, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_CacheSupport_wb__F, "ti_sysbios_xdcruntime_CacheSupport_wb")
-__extern xdc_Bool ti_sysbios_xdcruntime_CacheSupport_wb__F( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bool wait, xdc_runtime_Error_Block *eb );
-__extern xdc_Bool ti_sysbios_xdcruntime_CacheSupport_wb__R( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bool wait, xdc_runtime_Error_Block *eb );
 
 /* wbInv__E */
 #define ti_sysbios_xdcruntime_CacheSupport_wbInv ti_sysbios_xdcruntime_CacheSupport_wbInv__E
 xdc__CODESECT(ti_sysbios_xdcruntime_CacheSupport_wbInv__E, "ti_sysbios_xdcruntime_CacheSupport_wbInv")
 __extern xdc_Bool ti_sysbios_xdcruntime_CacheSupport_wbInv__E( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bool wait, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_CacheSupport_wbInv__F, "ti_sysbios_xdcruntime_CacheSupport_wbInv")
-__extern xdc_Bool ti_sysbios_xdcruntime_CacheSupport_wbInv__F( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bool wait, xdc_runtime_Error_Block *eb );
-__extern xdc_Bool ti_sysbios_xdcruntime_CacheSupport_wbInv__R( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bool wait, xdc_runtime_Error_Block *eb );
 
 /* wait__E */
 #define ti_sysbios_xdcruntime_CacheSupport_wait ti_sysbios_xdcruntime_CacheSupport_wait__E
 xdc__CODESECT(ti_sysbios_xdcruntime_CacheSupport_wait__E, "ti_sysbios_xdcruntime_CacheSupport_wait")
 __extern xdc_Bool ti_sysbios_xdcruntime_CacheSupport_wait__E( xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_CacheSupport_wait__F, "ti_sysbios_xdcruntime_CacheSupport_wait")
-__extern xdc_Bool ti_sysbios_xdcruntime_CacheSupport_wait__F( xdc_runtime_Error_Block *eb );
-__extern xdc_Bool ti_sysbios_xdcruntime_CacheSupport_wait__R( xdc_runtime_Error_Block *eb );
 
 
 /*

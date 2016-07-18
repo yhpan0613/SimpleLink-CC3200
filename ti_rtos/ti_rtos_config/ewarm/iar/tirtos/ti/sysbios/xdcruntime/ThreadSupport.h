@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -356,14 +356,6 @@ __extern xdc_Int ti_sysbios_xdcruntime_ThreadSupport_Instance_init__E(ti_sysbios
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_Instance_finalize__E, "ti_sysbios_xdcruntime_ThreadSupport_Instance_finalize")
 __extern void ti_sysbios_xdcruntime_ThreadSupport_Instance_finalize__E( ti_sysbios_xdcruntime_ThreadSupport_Object* , int );
 
-/* Instance_init__R */
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_Instance_init__R, "ti_sysbios_xdcruntime_ThreadSupport_Instance_init")
-__extern xdc_Int ti_sysbios_xdcruntime_ThreadSupport_Instance_init__R(ti_sysbios_xdcruntime_ThreadSupport_Object *, xdc_runtime_knl_IThreadSupport_RunFxn fxn, const ti_sysbios_xdcruntime_ThreadSupport_Params *, xdc_runtime_Error_Block *);
-
-/* Instance_finalize__R */
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_Instance_finalize__R, "ti_sysbios_xdcruntime_ThreadSupport_Instance_finalize")
-__extern void ti_sysbios_xdcruntime_ThreadSupport_Instance_finalize__R( ti_sysbios_xdcruntime_ThreadSupport_Object* , int );
-
 /* Handle__label__S */
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_Handle__label__S, "ti_sysbios_xdcruntime_ThreadSupport_Handle__label__S")
 __extern xdc_runtime_Types_Label *ti_sysbios_xdcruntime_ThreadSupport_Handle__label__S( xdc_Ptr obj, xdc_runtime_Types_Label *lab );
@@ -390,7 +382,7 @@ __extern xdc_Void ti_sysbios_xdcruntime_ThreadSupport_Object__delete__S( xdc_Ptr
 
 /* delete */
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_delete, "ti_sysbios_xdcruntime_ThreadSupport_delete")
-__extern Void ti_sysbios_xdcruntime_ThreadSupport_delete(ti_sysbios_xdcruntime_ThreadSupport_Handle *instp);
+__extern void ti_sysbios_xdcruntime_ThreadSupport_delete(ti_sysbios_xdcruntime_ThreadSupport_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_Object__destruct__S, "ti_sysbios_xdcruntime_ThreadSupport_Object__destruct__S")
@@ -420,113 +412,71 @@ __extern xdc_Void ti_sysbios_xdcruntime_ThreadSupport_Params__init__S( xdc_Ptr d
 #define ti_sysbios_xdcruntime_ThreadSupport_self ti_sysbios_xdcruntime_ThreadSupport_self__E
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_self__E, "ti_sysbios_xdcruntime_ThreadSupport_self")
 __extern xdc_runtime_knl_IThreadSupport_Handle ti_sysbios_xdcruntime_ThreadSupport_self__E( xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_self__F, "ti_sysbios_xdcruntime_ThreadSupport_self")
-__extern xdc_runtime_knl_IThreadSupport_Handle ti_sysbios_xdcruntime_ThreadSupport_self__F( xdc_runtime_Error_Block *eb );
-__extern xdc_runtime_knl_IThreadSupport_Handle ti_sysbios_xdcruntime_ThreadSupport_self__R( xdc_runtime_Error_Block *eb );
 
 /* start__E */
 #define ti_sysbios_xdcruntime_ThreadSupport_start ti_sysbios_xdcruntime_ThreadSupport_start__E
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_start__E, "ti_sysbios_xdcruntime_ThreadSupport_start")
 __extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_start__E( xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_start__F, "ti_sysbios_xdcruntime_ThreadSupport_start")
-__extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_start__F( xdc_runtime_Error_Block *eb );
-__extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_start__R( xdc_runtime_Error_Block *eb );
 
 /* yield__E */
 #define ti_sysbios_xdcruntime_ThreadSupport_yield ti_sysbios_xdcruntime_ThreadSupport_yield__E
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_yield__E, "ti_sysbios_xdcruntime_ThreadSupport_yield")
 __extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_yield__E( xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_yield__F, "ti_sysbios_xdcruntime_ThreadSupport_yield")
-__extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_yield__F( xdc_runtime_Error_Block *eb );
-__extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_yield__R( xdc_runtime_Error_Block *eb );
 
 /* compareOsPriorities__E */
 #define ti_sysbios_xdcruntime_ThreadSupport_compareOsPriorities ti_sysbios_xdcruntime_ThreadSupport_compareOsPriorities__E
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_compareOsPriorities__E, "ti_sysbios_xdcruntime_ThreadSupport_compareOsPriorities")
 __extern xdc_Int ti_sysbios_xdcruntime_ThreadSupport_compareOsPriorities__E( xdc_Int p1, xdc_Int p2, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_compareOsPriorities__F, "ti_sysbios_xdcruntime_ThreadSupport_compareOsPriorities")
-__extern xdc_Int ti_sysbios_xdcruntime_ThreadSupport_compareOsPriorities__F( xdc_Int p1, xdc_Int p2, xdc_runtime_Error_Block *eb );
-__extern xdc_Int ti_sysbios_xdcruntime_ThreadSupport_compareOsPriorities__R( xdc_Int p1, xdc_Int p2, xdc_runtime_Error_Block *eb );
 
 /* sleep__E */
 #define ti_sysbios_xdcruntime_ThreadSupport_sleep ti_sysbios_xdcruntime_ThreadSupport_sleep__E
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_sleep__E, "ti_sysbios_xdcruntime_ThreadSupport_sleep")
 __extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_sleep__E( xdc_UInt timeout, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_sleep__F, "ti_sysbios_xdcruntime_ThreadSupport_sleep")
-__extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_sleep__F( xdc_UInt timeout, xdc_runtime_Error_Block *eb );
-__extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_sleep__R( xdc_UInt timeout, xdc_runtime_Error_Block *eb );
 
 /* join__E */
 #define ti_sysbios_xdcruntime_ThreadSupport_join ti_sysbios_xdcruntime_ThreadSupport_join__E
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_join__E, "ti_sysbios_xdcruntime_ThreadSupport_join")
 __extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_join__E( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_join__F, "ti_sysbios_xdcruntime_ThreadSupport_join")
-__extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_join__F( ti_sysbios_xdcruntime_ThreadSupport_Object *__inst, xdc_runtime_Error_Block *eb );
-__extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_join__R( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst, xdc_runtime_Error_Block *eb );
 
 /* getPriority__E */
 #define ti_sysbios_xdcruntime_ThreadSupport_getPriority ti_sysbios_xdcruntime_ThreadSupport_getPriority__E
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_getPriority__E, "ti_sysbios_xdcruntime_ThreadSupport_getPriority")
 __extern xdc_runtime_knl_IThreadSupport_Priority ti_sysbios_xdcruntime_ThreadSupport_getPriority__E( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_getPriority__F, "ti_sysbios_xdcruntime_ThreadSupport_getPriority")
-__extern xdc_runtime_knl_IThreadSupport_Priority ti_sysbios_xdcruntime_ThreadSupport_getPriority__F( ti_sysbios_xdcruntime_ThreadSupport_Object *__inst, xdc_runtime_Error_Block *eb );
-__extern xdc_runtime_knl_IThreadSupport_Priority ti_sysbios_xdcruntime_ThreadSupport_getPriority__R( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst, xdc_runtime_Error_Block *eb );
 
 /* setPriority__E */
 #define ti_sysbios_xdcruntime_ThreadSupport_setPriority ti_sysbios_xdcruntime_ThreadSupport_setPriority__E
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_setPriority__E, "ti_sysbios_xdcruntime_ThreadSupport_setPriority")
 __extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_setPriority__E( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst, xdc_runtime_knl_IThreadSupport_Priority newPri, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_setPriority__F, "ti_sysbios_xdcruntime_ThreadSupport_setPriority")
-__extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_setPriority__F( ti_sysbios_xdcruntime_ThreadSupport_Object *__inst, xdc_runtime_knl_IThreadSupport_Priority newPri, xdc_runtime_Error_Block *eb );
-__extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_setPriority__R( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst, xdc_runtime_knl_IThreadSupport_Priority newPri, xdc_runtime_Error_Block *eb );
 
 /* getOsPriority__E */
 #define ti_sysbios_xdcruntime_ThreadSupport_getOsPriority ti_sysbios_xdcruntime_ThreadSupport_getOsPriority__E
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_getOsPriority__E, "ti_sysbios_xdcruntime_ThreadSupport_getOsPriority")
 __extern xdc_Int ti_sysbios_xdcruntime_ThreadSupport_getOsPriority__E( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_getOsPriority__F, "ti_sysbios_xdcruntime_ThreadSupport_getOsPriority")
-__extern xdc_Int ti_sysbios_xdcruntime_ThreadSupport_getOsPriority__F( ti_sysbios_xdcruntime_ThreadSupport_Object *__inst, xdc_runtime_Error_Block *eb );
-__extern xdc_Int ti_sysbios_xdcruntime_ThreadSupport_getOsPriority__R( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst, xdc_runtime_Error_Block *eb );
 
 /* setOsPriority__E */
 #define ti_sysbios_xdcruntime_ThreadSupport_setOsPriority ti_sysbios_xdcruntime_ThreadSupport_setOsPriority__E
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_setOsPriority__E, "ti_sysbios_xdcruntime_ThreadSupport_setOsPriority")
 __extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_setOsPriority__E( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst, xdc_Int newPri, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_setOsPriority__F, "ti_sysbios_xdcruntime_ThreadSupport_setOsPriority")
-__extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_setOsPriority__F( ti_sysbios_xdcruntime_ThreadSupport_Object *__inst, xdc_Int newPri, xdc_runtime_Error_Block *eb );
-__extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_setOsPriority__R( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst, xdc_Int newPri, xdc_runtime_Error_Block *eb );
 
 /* getOsHandle__E */
 #define ti_sysbios_xdcruntime_ThreadSupport_getOsHandle ti_sysbios_xdcruntime_ThreadSupport_getOsHandle__E
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_getOsHandle__E, "ti_sysbios_xdcruntime_ThreadSupport_getOsHandle")
 __extern xdc_Ptr ti_sysbios_xdcruntime_ThreadSupport_getOsHandle__E( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst );
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_getOsHandle__F, "ti_sysbios_xdcruntime_ThreadSupport_getOsHandle")
-__extern xdc_Ptr ti_sysbios_xdcruntime_ThreadSupport_getOsHandle__F( ti_sysbios_xdcruntime_ThreadSupport_Object *__inst );
-__extern xdc_Ptr ti_sysbios_xdcruntime_ThreadSupport_getOsHandle__R( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst );
 
 /* getTls__E */
 #define ti_sysbios_xdcruntime_ThreadSupport_getTls ti_sysbios_xdcruntime_ThreadSupport_getTls__E
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_getTls__E, "ti_sysbios_xdcruntime_ThreadSupport_getTls")
 __extern xdc_Ptr ti_sysbios_xdcruntime_ThreadSupport_getTls__E( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst );
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_getTls__F, "ti_sysbios_xdcruntime_ThreadSupport_getTls")
-__extern xdc_Ptr ti_sysbios_xdcruntime_ThreadSupport_getTls__F( ti_sysbios_xdcruntime_ThreadSupport_Object *__inst );
-__extern xdc_Ptr ti_sysbios_xdcruntime_ThreadSupport_getTls__R( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst );
 
 /* setTls__E */
 #define ti_sysbios_xdcruntime_ThreadSupport_setTls ti_sysbios_xdcruntime_ThreadSupport_setTls__E
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_setTls__E, "ti_sysbios_xdcruntime_ThreadSupport_setTls")
 __extern xdc_Void ti_sysbios_xdcruntime_ThreadSupport_setTls__E( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst, xdc_Ptr tls );
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_setTls__F, "ti_sysbios_xdcruntime_ThreadSupport_setTls")
-__extern xdc_Void ti_sysbios_xdcruntime_ThreadSupport_setTls__F( ti_sysbios_xdcruntime_ThreadSupport_Object *__inst, xdc_Ptr tls );
-__extern xdc_Void ti_sysbios_xdcruntime_ThreadSupport_setTls__R( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst, xdc_Ptr tls );
 
 /* stat__E */
 #define ti_sysbios_xdcruntime_ThreadSupport_stat ti_sysbios_xdcruntime_ThreadSupport_stat__E
 xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_stat__E, "ti_sysbios_xdcruntime_ThreadSupport_stat")
 __extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_stat__E( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst, xdc_runtime_knl_IThreadSupport_Stat *buf, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_xdcruntime_ThreadSupport_stat__F, "ti_sysbios_xdcruntime_ThreadSupport_stat")
-__extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_stat__F( ti_sysbios_xdcruntime_ThreadSupport_Object *__inst, xdc_runtime_knl_IThreadSupport_Stat *buf, xdc_runtime_Error_Block *eb );
-__extern xdc_Bool ti_sysbios_xdcruntime_ThreadSupport_stat__R( ti_sysbios_xdcruntime_ThreadSupport_Handle __inst, xdc_runtime_knl_IThreadSupport_Stat *buf, xdc_runtime_Error_Block *eb );
 
 /* runStub__I */
 #define ti_sysbios_xdcruntime_ThreadSupport_runStub ti_sysbios_xdcruntime_ThreadSupport_runStub__I
@@ -651,7 +601,7 @@ static inline xdc_runtime_Types_Label *ti_sysbios_xdcruntime_ThreadSupport_Handl
 }
 
 /* Handle_name */
-static inline String ti_sysbios_xdcruntime_ThreadSupport_Handle_name( ti_sysbios_xdcruntime_ThreadSupport_Handle inst )
+static inline xdc_String ti_sysbios_xdcruntime_ThreadSupport_Handle_name( ti_sysbios_xdcruntime_ThreadSupport_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return ti_sysbios_xdcruntime_ThreadSupport_Handle__label__S(inst, &lab)->iname;

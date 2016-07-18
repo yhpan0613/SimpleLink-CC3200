@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -219,57 +219,41 @@ __extern xdc_Ptr ti_sysbios_hal_Cache_CacheProxy_Proxy__delegate__S( void );
 #define ti_sysbios_hal_Cache_CacheProxy_enable ti_sysbios_hal_Cache_CacheProxy_enable__E
 xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_enable__E, "ti_sysbios_hal_Cache_CacheProxy_enable")
 __extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_enable__E( xdc_Bits16 type );
-xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_enable__R, "ti_sysbios_hal_Cache_CacheProxy_enable")
-__extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_enable__R( xdc_Bits16 type );
 
 /* disable__E */
 #define ti_sysbios_hal_Cache_CacheProxy_disable ti_sysbios_hal_Cache_CacheProxy_disable__E
 xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_disable__E, "ti_sysbios_hal_Cache_CacheProxy_disable")
 __extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_disable__E( xdc_Bits16 type );
-xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_disable__R, "ti_sysbios_hal_Cache_CacheProxy_disable")
-__extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_disable__R( xdc_Bits16 type );
 
 /* inv__E */
 #define ti_sysbios_hal_Cache_CacheProxy_inv ti_sysbios_hal_Cache_CacheProxy_inv__E
 xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_inv__E, "ti_sysbios_hal_Cache_CacheProxy_inv")
 __extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_inv__E( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
-xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_inv__R, "ti_sysbios_hal_Cache_CacheProxy_inv")
-__extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_inv__R( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
 
 /* wb__E */
 #define ti_sysbios_hal_Cache_CacheProxy_wb ti_sysbios_hal_Cache_CacheProxy_wb__E
 xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_wb__E, "ti_sysbios_hal_Cache_CacheProxy_wb")
 __extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_wb__E( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
-xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_wb__R, "ti_sysbios_hal_Cache_CacheProxy_wb")
-__extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_wb__R( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
 
 /* wbInv__E */
 #define ti_sysbios_hal_Cache_CacheProxy_wbInv ti_sysbios_hal_Cache_CacheProxy_wbInv__E
 xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_wbInv__E, "ti_sysbios_hal_Cache_CacheProxy_wbInv")
 __extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_wbInv__E( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
-xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_wbInv__R, "ti_sysbios_hal_Cache_CacheProxy_wbInv")
-__extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_wbInv__R( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
 
 /* wbAll__E */
 #define ti_sysbios_hal_Cache_CacheProxy_wbAll ti_sysbios_hal_Cache_CacheProxy_wbAll__E
 xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_wbAll__E, "ti_sysbios_hal_Cache_CacheProxy_wbAll")
 __extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_wbAll__E( void );
-xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_wbAll__R, "ti_sysbios_hal_Cache_CacheProxy_wbAll")
-__extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_wbAll__R( void );
 
 /* wbInvAll__E */
 #define ti_sysbios_hal_Cache_CacheProxy_wbInvAll ti_sysbios_hal_Cache_CacheProxy_wbInvAll__E
 xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_wbInvAll__E, "ti_sysbios_hal_Cache_CacheProxy_wbInvAll")
 __extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_wbInvAll__E( void );
-xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_wbInvAll__R, "ti_sysbios_hal_Cache_CacheProxy_wbInvAll")
-__extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_wbInvAll__R( void );
 
 /* wait__E */
 #define ti_sysbios_hal_Cache_CacheProxy_wait ti_sysbios_hal_Cache_CacheProxy_wait__E
 xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_wait__E, "ti_sysbios_hal_Cache_CacheProxy_wait")
 __extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_wait__E( void );
-xdc__CODESECT(ti_sysbios_hal_Cache_CacheProxy_wait__R, "ti_sysbios_hal_Cache_CacheProxy_wait")
-__extern xdc_Void ti_sysbios_hal_Cache_CacheProxy_wait__R( void );
 
 
 /*

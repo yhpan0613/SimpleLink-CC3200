@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -206,7 +206,9 @@ struct ti_sysbios_heaps_HeapTrack_Struct {
     xdc_runtime_IHeap_Handle __f0;
     xdc_SizeT __f1;
     xdc_SizeT __f2;
-    ti_sysbios_knl_Queue_Struct __f3;
+    xdc_SizeT __f3;
+    xdc_SizeT __f4;
+    ti_sysbios_knl_Queue_Struct __f5;
     xdc_runtime_Types_CordAddr __name;
 };
 
@@ -245,14 +247,6 @@ __extern xdc_Void ti_sysbios_heaps_HeapTrack_Instance_init__E(ti_sysbios_heaps_H
 xdc__CODESECT(ti_sysbios_heaps_HeapTrack_Instance_finalize__E, "ti_sysbios_heaps_HeapTrack_Instance_finalize")
 __extern void ti_sysbios_heaps_HeapTrack_Instance_finalize__E( ti_sysbios_heaps_HeapTrack_Object* );
 
-/* Instance_init__R */
-xdc__CODESECT(ti_sysbios_heaps_HeapTrack_Instance_init__R, "ti_sysbios_heaps_HeapTrack_Instance_init")
-__extern xdc_Void ti_sysbios_heaps_HeapTrack_Instance_init__R(ti_sysbios_heaps_HeapTrack_Object *, const ti_sysbios_heaps_HeapTrack_Params *);
-
-/* Instance_finalize__R */
-xdc__CODESECT(ti_sysbios_heaps_HeapTrack_Instance_finalize__R, "ti_sysbios_heaps_HeapTrack_Instance_finalize")
-__extern void ti_sysbios_heaps_HeapTrack_Instance_finalize__R( ti_sysbios_heaps_HeapTrack_Object* );
-
 /* Handle__label__S */
 xdc__CODESECT(ti_sysbios_heaps_HeapTrack_Handle__label__S, "ti_sysbios_heaps_HeapTrack_Handle__label__S")
 __extern xdc_runtime_Types_Label *ti_sysbios_heaps_HeapTrack_Handle__label__S( xdc_Ptr obj, xdc_runtime_Types_Label *lab );
@@ -279,7 +273,7 @@ __extern xdc_Void ti_sysbios_heaps_HeapTrack_Object__delete__S( xdc_Ptr instp );
 
 /* delete */
 xdc__CODESECT(ti_sysbios_heaps_HeapTrack_delete, "ti_sysbios_heaps_HeapTrack_delete")
-__extern Void ti_sysbios_heaps_HeapTrack_delete(ti_sysbios_heaps_HeapTrack_Handle *instp);
+__extern void ti_sysbios_heaps_HeapTrack_delete(ti_sysbios_heaps_HeapTrack_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_heaps_HeapTrack_Object__destruct__S, "ti_sysbios_heaps_HeapTrack_Object__destruct__S")
@@ -309,49 +303,31 @@ __extern xdc_Void ti_sysbios_heaps_HeapTrack_Params__init__S( xdc_Ptr dst, const
 #define ti_sysbios_heaps_HeapTrack_alloc ti_sysbios_heaps_HeapTrack_alloc__E
 xdc__CODESECT(ti_sysbios_heaps_HeapTrack_alloc__E, "ti_sysbios_heaps_HeapTrack_alloc")
 __extern xdc_Ptr ti_sysbios_heaps_HeapTrack_alloc__E( ti_sysbios_heaps_HeapTrack_Handle __inst, xdc_SizeT size, xdc_SizeT align, xdc_runtime_Error_Block *eb );
-xdc__CODESECT(ti_sysbios_heaps_HeapTrack_alloc__F, "ti_sysbios_heaps_HeapTrack_alloc")
-__extern xdc_Ptr ti_sysbios_heaps_HeapTrack_alloc__F( ti_sysbios_heaps_HeapTrack_Object *__inst, xdc_SizeT size, xdc_SizeT align, xdc_runtime_Error_Block *eb );
-__extern xdc_Ptr ti_sysbios_heaps_HeapTrack_alloc__R( ti_sysbios_heaps_HeapTrack_Handle __inst, xdc_SizeT size, xdc_SizeT align, xdc_runtime_Error_Block *eb );
 
 /* free__E */
 #define ti_sysbios_heaps_HeapTrack_free ti_sysbios_heaps_HeapTrack_free__E
 xdc__CODESECT(ti_sysbios_heaps_HeapTrack_free__E, "ti_sysbios_heaps_HeapTrack_free")
 __extern xdc_Void ti_sysbios_heaps_HeapTrack_free__E( ti_sysbios_heaps_HeapTrack_Handle __inst, xdc_Ptr block, xdc_SizeT size );
-xdc__CODESECT(ti_sysbios_heaps_HeapTrack_free__F, "ti_sysbios_heaps_HeapTrack_free")
-__extern xdc_Void ti_sysbios_heaps_HeapTrack_free__F( ti_sysbios_heaps_HeapTrack_Object *__inst, xdc_Ptr block, xdc_SizeT size );
-__extern xdc_Void ti_sysbios_heaps_HeapTrack_free__R( ti_sysbios_heaps_HeapTrack_Handle __inst, xdc_Ptr block, xdc_SizeT size );
 
 /* isBlocking__E */
 #define ti_sysbios_heaps_HeapTrack_isBlocking ti_sysbios_heaps_HeapTrack_isBlocking__E
 xdc__CODESECT(ti_sysbios_heaps_HeapTrack_isBlocking__E, "ti_sysbios_heaps_HeapTrack_isBlocking")
 __extern xdc_Bool ti_sysbios_heaps_HeapTrack_isBlocking__E( ti_sysbios_heaps_HeapTrack_Handle __inst );
-xdc__CODESECT(ti_sysbios_heaps_HeapTrack_isBlocking__F, "ti_sysbios_heaps_HeapTrack_isBlocking")
-__extern xdc_Bool ti_sysbios_heaps_HeapTrack_isBlocking__F( ti_sysbios_heaps_HeapTrack_Object *__inst );
-__extern xdc_Bool ti_sysbios_heaps_HeapTrack_isBlocking__R( ti_sysbios_heaps_HeapTrack_Handle __inst );
 
 /* getStats__E */
 #define ti_sysbios_heaps_HeapTrack_getStats ti_sysbios_heaps_HeapTrack_getStats__E
 xdc__CODESECT(ti_sysbios_heaps_HeapTrack_getStats__E, "ti_sysbios_heaps_HeapTrack_getStats")
 __extern xdc_Void ti_sysbios_heaps_HeapTrack_getStats__E( ti_sysbios_heaps_HeapTrack_Handle __inst, xdc_runtime_Memory_Stats *stats );
-xdc__CODESECT(ti_sysbios_heaps_HeapTrack_getStats__F, "ti_sysbios_heaps_HeapTrack_getStats")
-__extern xdc_Void ti_sysbios_heaps_HeapTrack_getStats__F( ti_sysbios_heaps_HeapTrack_Object *__inst, xdc_runtime_Memory_Stats *stats );
-__extern xdc_Void ti_sysbios_heaps_HeapTrack_getStats__R( ti_sysbios_heaps_HeapTrack_Handle __inst, xdc_runtime_Memory_Stats *stats );
 
 /* printTask__E */
 #define ti_sysbios_heaps_HeapTrack_printTask ti_sysbios_heaps_HeapTrack_printTask__E
 xdc__CODESECT(ti_sysbios_heaps_HeapTrack_printTask__E, "ti_sysbios_heaps_HeapTrack_printTask")
 __extern xdc_Void ti_sysbios_heaps_HeapTrack_printTask__E( ti_sysbios_knl_Task_Handle taskHandle );
-xdc__CODESECT(ti_sysbios_heaps_HeapTrack_printTask__F, "ti_sysbios_heaps_HeapTrack_printTask")
-__extern xdc_Void ti_sysbios_heaps_HeapTrack_printTask__F( ti_sysbios_knl_Task_Handle taskHandle );
-__extern xdc_Void ti_sysbios_heaps_HeapTrack_printTask__R( ti_sysbios_knl_Task_Handle taskHandle );
 
 /* printHeap__E */
 #define ti_sysbios_heaps_HeapTrack_printHeap ti_sysbios_heaps_HeapTrack_printHeap__E
 xdc__CODESECT(ti_sysbios_heaps_HeapTrack_printHeap__E, "ti_sysbios_heaps_HeapTrack_printHeap")
 __extern xdc_Void ti_sysbios_heaps_HeapTrack_printHeap__E( ti_sysbios_heaps_HeapTrack_Handle __inst );
-xdc__CODESECT(ti_sysbios_heaps_HeapTrack_printHeap__F, "ti_sysbios_heaps_HeapTrack_printHeap")
-__extern xdc_Void ti_sysbios_heaps_HeapTrack_printHeap__F( ti_sysbios_heaps_HeapTrack_Object *__inst );
-__extern xdc_Void ti_sysbios_heaps_HeapTrack_printHeap__R( ti_sysbios_heaps_HeapTrack_Handle __inst );
 
 /* printTrack__I */
 #define ti_sysbios_heaps_HeapTrack_printTrack ti_sysbios_heaps_HeapTrack_printTrack__I
@@ -476,7 +452,7 @@ static inline xdc_runtime_Types_Label *ti_sysbios_heaps_HeapTrack_Handle_label( 
 }
 
 /* Handle_name */
-static inline String ti_sysbios_heaps_HeapTrack_Handle_name( ti_sysbios_heaps_HeapTrack_Handle inst )
+static inline xdc_String ti_sysbios_heaps_HeapTrack_Handle_name( ti_sysbios_heaps_HeapTrack_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return ti_sysbios_heaps_HeapTrack_Handle__label__S(inst, &lab)->iname;
@@ -521,6 +497,8 @@ struct ti_sysbios_heaps_HeapTrack_Object {
     xdc_runtime_IHeap_Handle internalHeap;
     xdc_SizeT size;
     xdc_SizeT peak;
+    xdc_SizeT sizeWithoutTracker;
+    xdc_SizeT peakWithoutTracker;
     char __dummy;
 };
 

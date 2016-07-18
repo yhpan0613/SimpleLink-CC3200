@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A46
+ * @(#) xdc-B06
  */
 
 /*
@@ -101,6 +101,9 @@ typedef enum ti_sysbios_BIOS_LibType ti_sysbios_BIOS_LibType;
 
 /* StartupFuncPtr */
 typedef xdc_Void (*ti_sysbios_BIOS_StartupFuncPtr)(xdc_Void);
+
+/* version */
+#define ti_sysbios_BIOS_version (0x64500)
 
 
 /*
@@ -271,6 +274,15 @@ __extern __FAR__ const CT__ti_sysbios_BIOS_heapSection ti_sysbios_BIOS_heapSecti
 #define ti_sysbios_BIOS_heapTrackEnabled (ti_sysbios_BIOS_heapTrackEnabled__C)
 typedef xdc_Bool CT__ti_sysbios_BIOS_heapTrackEnabled;
 __extern __FAR__ const CT__ti_sysbios_BIOS_heapTrackEnabled ti_sysbios_BIOS_heapTrackEnabled__C;
+#endif
+
+/* setupSecureContext */
+#ifdef ti_sysbios_BIOS_setupSecureContext__D
+#define ti_sysbios_BIOS_setupSecureContext (ti_sysbios_BIOS_setupSecureContext__D)
+#else
+#define ti_sysbios_BIOS_setupSecureContext (ti_sysbios_BIOS_setupSecureContext__C)
+typedef xdc_Bool CT__ti_sysbios_BIOS_setupSecureContext;
+__extern __FAR__ const CT__ti_sysbios_BIOS_setupSecureContext ti_sysbios_BIOS_setupSecureContext__C;
 #endif
 
 /* useSK */
@@ -471,6 +483,7 @@ extern struct ti_sysbios_BIOS_Module_State__ ti_sysbios_BIOS_Module__state__V;
 #define BIOS_WAIT_FOREVER ti_sysbios_BIOS_WAIT_FOREVER
 #define BIOS_NO_WAIT ti_sysbios_BIOS_NO_WAIT
 #define BIOS_StartupFuncPtr ti_sysbios_BIOS_StartupFuncPtr
+#define BIOS_version ti_sysbios_BIOS_version
 #define BIOS_intSize ti_sysbios_BIOS_intSize
 #define BIOS_StartFuncPtr ti_sysbios_BIOS_StartFuncPtr
 #define BIOS_ExitFuncPtr ti_sysbios_BIOS_ExitFuncPtr
@@ -497,6 +510,7 @@ extern struct ti_sysbios_BIOS_Module_State__ ti_sysbios_BIOS_Module__state__V;
 #define BIOS_heapSize ti_sysbios_BIOS_heapSize
 #define BIOS_heapSection ti_sysbios_BIOS_heapSection
 #define BIOS_heapTrackEnabled ti_sysbios_BIOS_heapTrackEnabled
+#define BIOS_setupSecureContext ti_sysbios_BIOS_setupSecureContext
 #define BIOS_useSK ti_sysbios_BIOS_useSK
 #define BIOS_installedErrorHook ti_sysbios_BIOS_installedErrorHook
 #define BIOS_start ti_sysbios_BIOS_start

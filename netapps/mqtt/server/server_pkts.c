@@ -104,8 +104,7 @@ static struct client_ctx *cl_ctx_alloc(void)
         if(cl_ctx) {
                 free_ctxs = cl_ctx->next;
                 cl_ctx->next = NULL;
-        } else
-                USR_INFO("S: fatal, no free cl_ctx\n\r");
+        }
 
         return cl_ctx;
 }
@@ -183,8 +182,9 @@ static i32 cl_ctx_send(struct client_ctx *cl_ctx, u8 *buf, u32 len)
                 rv = MQP_ERR_NETWORK;
         }
 
-        USR_INFO("S: FH-B1 0x%02x, len %u to net %d: %s\n\r",
-                 *buf, len, cl_ctx->net, rv? "Sent" : "Fail");
+        USR_INFO("S: FH-B1 0x%02x, len %u to net %d: %s [@ %u]\n\r",
+                 *buf, len, cl_ctx->net, rv? "Sent" : "Fail",
+                 net_ops->time());
         return rv;
 }
 
@@ -676,16 +676,14 @@ bool proc_connect_rx(struct client_ctx *cl_ctx, struct mqtt_packet *mqp_raw)
 }
 
 
-static void recv_hvec_load(i32 *recv_hvec, u32 size, struct client_ctx *list)
+static u32 recv_hvec_load(i32 *recv_hvec, u32 size, struct client_ctx *list)
 {
         i32 i = 0;
 
         for(i = 0; (i < size) && (NULL != list); i++, list = list->next)
                 recv_hvec[i] = list->net;
 
-        recv_hvec[i] = -1;
-
-        return;
+        return i;
 }
 
 static bool process_recv(struct client_ctx *cl_ctx, struct mqtt_packet *mqp_raw)
@@ -693,8 +691,8 @@ static bool process_recv(struct client_ctx *cl_ctx, struct mqtt_packet *mqp_raw)
         u8 msg_type = mqp_raw->msg_type;
         bool rv = false;
 
-        USR_INFO("S: Rcvd msg Fix-Hdr (Byte1) 0x%02x from net %d\n\r",
-                 mqp_raw->fh_byte1, cl_ctx->net);
+        USR_INFO("S: Rcvd msg Fix-Hdr (Byte1) 0x%02x from net %d [@ %u]\n\r",
+                 mqp_raw->fh_byte1, cl_ctx->net, net_ops->time());
 
         if((MQTT_CONNECT != msg_type) ^ had_rcvd_conn_msg(cl_ctx))
                 goto process_recv_exit1; /* Proto Violation */
@@ -781,22 +779,21 @@ static void ka_sequence(u32 *secs2wait)
         return;
 }
 
-/* Put a new functiona name such as mk_new_ctx() or setup_ctx() and
-   processing to restrict limit number of connections.
-
-   Return value as well.
-*/
 static bool accept_ctx(i32 net, u32 wait_secs)
 {
-        struct client_ctx *cl_ctx = cl_ctx_alloc();
-        if(NULL == cl_ctx)
-                return false;
+        struct client_ctx *cl_ctx;
+
+        cl_ctx = cl_ctx_alloc();
+        if(NULL == cl_ctx) {
+                USR_INFO("S: No free cl_ctx, max # of clients reached \n\r");
+                return true;
+        }
 
         cl_ctx->net = net_ops->accept(net, cl_ctx->remote_ip,
                                       &cl_ctx->ip_length);
-        if(-1 == cl_ctx->net) {
+        if(0 > cl_ctx->net) {
                 cl_ctx_free(cl_ctx);
-                USR_INFO("S: failed to accept new NW connection\n\r");
+                USR_INFO("S: Fatal, couldn't accept new incoming conn \n\r");
                 return false;
         }
 
@@ -825,9 +822,6 @@ static struct client_ctx *net_cl_ctx_find(i32 net)
         return cl_ctx;
 }
 
-static i32 recv_hvec[MAX_NWCONN + 1 + 1 + 1]; /* LISTEN + LOOPBACK + VEC END */
-static i32 send_hvec  = -1;
-static i32 rsvd_hvec  = -1;
 static i32 listen_net = -1;
 
 static struct mqtt_packet rx_mqp;
@@ -848,7 +842,7 @@ static i32 proc_loopback_recv(i32 net)
 {
         u8 buf[LOOP_DLEN];
 
-        /* Thanks for waking-up thread and do nothing in this routine */
+        /* Thanks for waking-up the thread, but we do nothing in this */
         i32 rv = net_ops->recv_from(net, buf, LOOP_DLEN, NULL, NULL, 0);
         pending_trigs = false;
 
@@ -873,17 +867,17 @@ static void proc_net_data_recv(i32 net)
                 /* Working Principle: Only RX processing errors should be
                    reported as 'false'. Status of TX as a follow-up to RX
                    messages need not be reported by the xyz_rx() routines.
-                   Error observed in TX is either dealt in next iteration
-                   of RX loop.
+                   Error observed in TX is dealt in the next iteration of
+                   the RX loop.
                 */
                 if(false == process_recv(cl_ctx, &rx_mqp))
                         rv = MQP_ERR_CONTENT;
 
         if(rv < 0)
-                do_net_close_rx(cl_ctx, rv);
+                do_net_close_rx(cl_ctx, true);
 }
 
-static bool accept_and_recv_locked(i32 *recv_hnds, i32 n_hnds, u32 wait_secs)
+static bool proc_recv_hnds_locked(i32 *recv_hnds, i32 n_hnds, u32 wait_secs)
 {
         bool rv = true;
         i32 idx = 0;
@@ -891,7 +885,7 @@ static bool accept_and_recv_locked(i32 *recv_hnds, i32 n_hnds, u32 wait_secs)
         MUTEX_LOCKIN();
 
         for(idx = 0; (idx < n_hnds) && (rv == true); idx++) {
-                i32 net = recv_hvec[idx];
+                i32 net = recv_hnds[idx];
                 if(net == listen_net) {
                         rv = accept_ctx(listen_net, wait_secs);
                 } else if(loopback_port && (net == loopb_net)) {
@@ -907,12 +901,51 @@ static bool accept_and_recv_locked(i32 *recv_hnds, i32 n_hnds, u32 wait_secs)
         return rv;
 }
 
+static i32 net_hnds_mon_loop(u32 wait_secs)
+{
+        /* Desc. for addl. Recv hnds --> LISTEN + LOOPBACK + VEC END */
+        static i32 recv_hvec[MAX_NWCONN + 1 + 1 + 1];
+        static i32 send_hvec   = -1;
+        static i32 rsvd_hvec   = -1;
+
+        u32 secs2wait = 0;  /* Time-out across all active MQTT conns */
+        i32 n_hnds    = 0;
+
+        do {
+                i32 *r_hvec = recv_hvec + 0;
+
+                /* MQTT Timeouts: close expired conns; get time to next expiry */
+                ka_sequence(&secs2wait); 
+
+                /* Prepare an array of net handles to track. If the (intended)
+                   max number of the data connections have been reached,  then
+                   do not include the listener handle in the array. This setup
+                   will enable, at transport layer, ignoring of unwanted conn. */
+                n_hnds = (i32) recv_hvec_load(r_hvec, MAX_NWCONN, used_ctxs);
+                if(n_hnds < MAX_NWCONN)
+                        r_hvec[n_hnds++] = listen_net;
+
+                if(loopback_port)
+                        r_hvec[n_hnds++] = loopb_net;
+
+                r_hvec[n_hnds++] = -1; /* Mark end of the array of net handles */
+
+                n_hnds = net_ops->io_mon(recv_hvec, &send_hvec,
+                                         &rsvd_hvec, secs2wait);
+                if(n_hnds < 0)
+                        return MQP_ERR_LIBQUIT;
+
+                if(false == proc_recv_hnds_locked(recv_hvec, n_hnds, wait_secs))
+                        return MQP_ERR_LIBQUIT;
+
+        } while(1);
+
+}
+
 i32 mqtt_server_run(u32 wait_secs)   // TBD break into two functions
 {
-        u32 secs2wait = 0;
-        i32 n_hnds = 0;
 
-        USR_INFO("S: MQTT Server Run invoked ....\n\r");
+        USR_INFO("S: MQTT Server Run invoked 123....\n\r");
 
         if(NULL == net_ops)
                 return MQP_ERR_NET_OPS;
@@ -928,29 +961,7 @@ i32 mqtt_server_run(u32 wait_secs)   // TBD break into two functions
         if(-1 == listen_net)
                 return MQP_ERR_LIBQUIT;
 
-        do {
-                i32 *r_hvec = recv_hvec + 0;
-
-                *r_hvec++ = listen_net;
-                if(loopback_port)
-                        *r_hvec++ = loopb_net;
-
-                /* MQTT Timeouts: close expired conns; get time to next expiry */
-                ka_sequence(&secs2wait); 
-
-                /* Prepare array of net handles. Must've atleast listen handle */
-                //                recv_hvec_load(&recv_hvec[2], MAX_NWCONN + 1,  used_ctxs);
-                recv_hvec_load(r_hvec, MAX_NWCONN + 1,  used_ctxs);
-
-                n_hnds = net_ops->io_mon(recv_hvec, &send_hvec,
-                                         &rsvd_hvec, secs2wait);
-                if(n_hnds < 0)
-                        return MQP_ERR_LIBQUIT;
-
-                if(false == accept_and_recv_locked(recv_hvec, n_hnds, wait_secs))
-                        return MQP_ERR_LIBQUIT;
-
-        } while(1);
+        return net_hnds_mon_loop(wait_secs);
 }
 
 i32 mqtt_server_register_net_svc(const struct device_net_services *net)

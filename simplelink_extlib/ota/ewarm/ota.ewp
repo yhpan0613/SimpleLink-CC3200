@@ -249,11 +249,11 @@
         </option>
         <option>
           <name>IExtraOptionsCheck</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IExtraOptions</name>
-          <state></state>
+          <state>--diag_suppress Pa050</state>
         </option>
         <option>
           <name>CCLangConformance</name>
@@ -308,6 +308,7 @@
           <state>$PROJ_DIR$\..\..\..\simplelink\</state>
           <state>$PROJ_DIR$\..\..\..\simplelink\Include\</state>
           <state>$PROJ_DIR$\..\..\..\simplelink\Source\</state>
+		  <state>$PROJ_DIR$\..\..\..\simplelink_extlib\provisioninglib\</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>

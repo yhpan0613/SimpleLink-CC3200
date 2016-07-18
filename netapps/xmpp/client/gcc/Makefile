@@ -64,6 +64,7 @@ IPATH+=../../../common
 IPATH+=../../../../simplelink
 IPATH+=../../../../simplelink/source
 IPATH+=../../../../simplelink/include
+IPATH+=../../../../simplelink_extlib/provisioninglib
 
 #
 # The default rule, which causes the driver library to be built.

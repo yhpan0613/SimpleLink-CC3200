@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -176,9 +176,6 @@ __extern xdc_Bool ti_sysbios_family_arm_m3_IntrinsicsSupport_Module__startupDone
 #define ti_sysbios_family_arm_m3_IntrinsicsSupport_maxbit ti_sysbios_family_arm_m3_IntrinsicsSupport_maxbit__E
 xdc__CODESECT(ti_sysbios_family_arm_m3_IntrinsicsSupport_maxbit__E, "ti_sysbios_family_arm_m3_IntrinsicsSupport_maxbit")
 __extern xdc_UInt ti_sysbios_family_arm_m3_IntrinsicsSupport_maxbit__E( xdc_UInt bits );
-xdc__CODESECT(ti_sysbios_family_arm_m3_IntrinsicsSupport_maxbit__F, "ti_sysbios_family_arm_m3_IntrinsicsSupport_maxbit")
-__extern xdc_UInt ti_sysbios_family_arm_m3_IntrinsicsSupport_maxbit__F( xdc_UInt bits );
-__extern xdc_UInt ti_sysbios_family_arm_m3_IntrinsicsSupport_maxbit__R( xdc_UInt bits );
 
 
 /*

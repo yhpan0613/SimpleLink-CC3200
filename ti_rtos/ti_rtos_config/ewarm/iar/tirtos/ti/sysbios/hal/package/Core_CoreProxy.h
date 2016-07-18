@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -157,7 +157,7 @@ struct ti_sysbios_hal_Core_CoreProxy_Fxns__ {
     const xdc_runtime_Types_SysFxns2 *__sysp;
     xdc_UInt (*getId)(void);
     xdc_Void (*interruptCore)(xdc_UInt);
-    xdc_Void (*lock)(void);
+    xdc_IArg (*lock)(void);
     xdc_Void (*unlock)(void);
     xdc_UInt (*hwiDisable)(void);
     xdc_UInt (*hwiEnable)(void);
@@ -224,50 +224,36 @@ __extern xdc_Ptr ti_sysbios_hal_Core_CoreProxy_Proxy__delegate__S( void );
 #define ti_sysbios_hal_Core_CoreProxy_getId ti_sysbios_hal_Core_CoreProxy_getId__E
 xdc__CODESECT(ti_sysbios_hal_Core_CoreProxy_getId__E, "ti_sysbios_hal_Core_CoreProxy_getId")
 __extern xdc_UInt ti_sysbios_hal_Core_CoreProxy_getId__E( void );
-xdc__CODESECT(ti_sysbios_hal_Core_CoreProxy_getId__R, "ti_sysbios_hal_Core_CoreProxy_getId")
-__extern xdc_UInt ti_sysbios_hal_Core_CoreProxy_getId__R( void );
 
 /* interruptCore__E */
 #define ti_sysbios_hal_Core_CoreProxy_interruptCore ti_sysbios_hal_Core_CoreProxy_interruptCore__E
 xdc__CODESECT(ti_sysbios_hal_Core_CoreProxy_interruptCore__E, "ti_sysbios_hal_Core_CoreProxy_interruptCore")
 __extern xdc_Void ti_sysbios_hal_Core_CoreProxy_interruptCore__E( xdc_UInt coreId );
-xdc__CODESECT(ti_sysbios_hal_Core_CoreProxy_interruptCore__R, "ti_sysbios_hal_Core_CoreProxy_interruptCore")
-__extern xdc_Void ti_sysbios_hal_Core_CoreProxy_interruptCore__R( xdc_UInt coreId );
 
 /* lock__E */
 #define ti_sysbios_hal_Core_CoreProxy_lock ti_sysbios_hal_Core_CoreProxy_lock__E
 xdc__CODESECT(ti_sysbios_hal_Core_CoreProxy_lock__E, "ti_sysbios_hal_Core_CoreProxy_lock")
-__extern xdc_Void ti_sysbios_hal_Core_CoreProxy_lock__E( void );
-xdc__CODESECT(ti_sysbios_hal_Core_CoreProxy_lock__R, "ti_sysbios_hal_Core_CoreProxy_lock")
-__extern xdc_Void ti_sysbios_hal_Core_CoreProxy_lock__R( void );
+__extern xdc_IArg ti_sysbios_hal_Core_CoreProxy_lock__E( void );
 
 /* unlock__E */
 #define ti_sysbios_hal_Core_CoreProxy_unlock ti_sysbios_hal_Core_CoreProxy_unlock__E
 xdc__CODESECT(ti_sysbios_hal_Core_CoreProxy_unlock__E, "ti_sysbios_hal_Core_CoreProxy_unlock")
 __extern xdc_Void ti_sysbios_hal_Core_CoreProxy_unlock__E( void );
-xdc__CODESECT(ti_sysbios_hal_Core_CoreProxy_unlock__R, "ti_sysbios_hal_Core_CoreProxy_unlock")
-__extern xdc_Void ti_sysbios_hal_Core_CoreProxy_unlock__R( void );
 
 /* hwiDisable__E */
 #define ti_sysbios_hal_Core_CoreProxy_hwiDisable ti_sysbios_hal_Core_CoreProxy_hwiDisable__E
 xdc__CODESECT(ti_sysbios_hal_Core_CoreProxy_hwiDisable__E, "ti_sysbios_hal_Core_CoreProxy_hwiDisable")
 __extern xdc_UInt ti_sysbios_hal_Core_CoreProxy_hwiDisable__E( void );
-xdc__CODESECT(ti_sysbios_hal_Core_CoreProxy_hwiDisable__R, "ti_sysbios_hal_Core_CoreProxy_hwiDisable")
-__extern xdc_UInt ti_sysbios_hal_Core_CoreProxy_hwiDisable__R( void );
 
 /* hwiEnable__E */
 #define ti_sysbios_hal_Core_CoreProxy_hwiEnable ti_sysbios_hal_Core_CoreProxy_hwiEnable__E
 xdc__CODESECT(ti_sysbios_hal_Core_CoreProxy_hwiEnable__E, "ti_sysbios_hal_Core_CoreProxy_hwiEnable")
 __extern xdc_UInt ti_sysbios_hal_Core_CoreProxy_hwiEnable__E( void );
-xdc__CODESECT(ti_sysbios_hal_Core_CoreProxy_hwiEnable__R, "ti_sysbios_hal_Core_CoreProxy_hwiEnable")
-__extern xdc_UInt ti_sysbios_hal_Core_CoreProxy_hwiEnable__R( void );
 
 /* hwiRestore__E */
 #define ti_sysbios_hal_Core_CoreProxy_hwiRestore ti_sysbios_hal_Core_CoreProxy_hwiRestore__E
 xdc__CODESECT(ti_sysbios_hal_Core_CoreProxy_hwiRestore__E, "ti_sysbios_hal_Core_CoreProxy_hwiRestore")
 __extern xdc_Void ti_sysbios_hal_Core_CoreProxy_hwiRestore__E( xdc_UInt key );
-xdc__CODESECT(ti_sysbios_hal_Core_CoreProxy_hwiRestore__R, "ti_sysbios_hal_Core_CoreProxy_hwiRestore")
-__extern xdc_Void ti_sysbios_hal_Core_CoreProxy_hwiRestore__R( xdc_UInt key );
 
 
 /*

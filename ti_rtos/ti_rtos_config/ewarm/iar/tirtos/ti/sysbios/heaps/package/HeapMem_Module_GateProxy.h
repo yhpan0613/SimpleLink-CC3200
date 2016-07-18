@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -213,7 +213,7 @@ __extern xdc_Void ti_sysbios_heaps_HeapMem_Module_GateProxy_Object__delete__S( x
 
 /* delete */
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_Module_GateProxy_delete, "ti_sysbios_heaps_HeapMem_Module_GateProxy_delete")
-__extern Void ti_sysbios_heaps_HeapMem_Module_GateProxy_delete(ti_sysbios_heaps_HeapMem_Module_GateProxy_Handle *instp);
+__extern void ti_sysbios_heaps_HeapMem_Module_GateProxy_delete(ti_sysbios_heaps_HeapMem_Module_GateProxy_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_Module_GateProxy_Object__destruct__S, "ti_sysbios_heaps_HeapMem_Module_GateProxy_Object__destruct__S")
@@ -247,22 +247,16 @@ __extern xdc_Ptr ti_sysbios_heaps_HeapMem_Module_GateProxy_Proxy__delegate__S( v
 #define ti_sysbios_heaps_HeapMem_Module_GateProxy_query ti_sysbios_heaps_HeapMem_Module_GateProxy_query__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_Module_GateProxy_query__E, "ti_sysbios_heaps_HeapMem_Module_GateProxy_query")
 __extern xdc_Bool ti_sysbios_heaps_HeapMem_Module_GateProxy_query__E( xdc_Int qual );
-xdc__CODESECT(ti_sysbios_heaps_HeapMem_Module_GateProxy_query__R, "ti_sysbios_heaps_HeapMem_Module_GateProxy_query")
-__extern xdc_Bool ti_sysbios_heaps_HeapMem_Module_GateProxy_query__R( xdc_Int qual );
 
 /* enter__E */
 #define ti_sysbios_heaps_HeapMem_Module_GateProxy_enter ti_sysbios_heaps_HeapMem_Module_GateProxy_enter__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_Module_GateProxy_enter__E, "ti_sysbios_heaps_HeapMem_Module_GateProxy_enter")
 __extern xdc_IArg ti_sysbios_heaps_HeapMem_Module_GateProxy_enter__E( ti_sysbios_heaps_HeapMem_Module_GateProxy_Handle __inst );
-xdc__CODESECT(ti_sysbios_heaps_HeapMem_Module_GateProxy_enter__R, "ti_sysbios_heaps_HeapMem_Module_GateProxy_enter")
-__extern xdc_IArg ti_sysbios_heaps_HeapMem_Module_GateProxy_enter__R( ti_sysbios_heaps_HeapMem_Module_GateProxy_Handle __inst );
 
 /* leave__E */
 #define ti_sysbios_heaps_HeapMem_Module_GateProxy_leave ti_sysbios_heaps_HeapMem_Module_GateProxy_leave__E
 xdc__CODESECT(ti_sysbios_heaps_HeapMem_Module_GateProxy_leave__E, "ti_sysbios_heaps_HeapMem_Module_GateProxy_leave")
 __extern xdc_Void ti_sysbios_heaps_HeapMem_Module_GateProxy_leave__E( ti_sysbios_heaps_HeapMem_Module_GateProxy_Handle __inst, xdc_IArg key );
-xdc__CODESECT(ti_sysbios_heaps_HeapMem_Module_GateProxy_leave__R, "ti_sysbios_heaps_HeapMem_Module_GateProxy_leave")
-__extern xdc_Void ti_sysbios_heaps_HeapMem_Module_GateProxy_leave__R( ti_sysbios_heaps_HeapMem_Module_GateProxy_Handle __inst, xdc_IArg key );
 
 
 /*

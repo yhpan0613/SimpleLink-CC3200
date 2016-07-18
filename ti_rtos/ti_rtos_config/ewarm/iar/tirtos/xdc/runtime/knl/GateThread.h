@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A46
+ * @(#) xdc-B06
  */
 
 /*
@@ -235,7 +235,7 @@ __extern xdc_Void xdc_runtime_knl_GateThread_Object__delete__S( xdc_Ptr instp );
 
 /* delete */
 xdc__CODESECT(xdc_runtime_knl_GateThread_delete, "xdc_runtime_knl_GateThread_delete")
-__extern Void xdc_runtime_knl_GateThread_delete(xdc_runtime_knl_GateThread_Handle *instp);
+__extern void xdc_runtime_knl_GateThread_delete(xdc_runtime_knl_GateThread_Handle *instp);
 
 /* Object__destruct__S */
 xdc__CODESECT(xdc_runtime_knl_GateThread_Object__destruct__S, "xdc_runtime_knl_GateThread_Object__destruct__S")
@@ -394,7 +394,7 @@ static inline xdc_runtime_Types_Label *xdc_runtime_knl_GateThread_Handle_label( 
 }
 
 /* Handle_name */
-static inline String xdc_runtime_knl_GateThread_Handle_name( xdc_runtime_knl_GateThread_Handle inst )
+static inline xdc_String xdc_runtime_knl_GateThread_Handle_name( xdc_runtime_knl_GateThread_Handle inst )
 {
     xdc_runtime_Types_Label lab;
     return xdc_runtime_knl_GateThread_Handle__label__S(inst, &lab)->iname;
@@ -505,6 +505,6 @@ struct xdc_runtime_knl_GateThread_Object {
 #endif /* xdc_runtime_knl_GateThread__localnames__done */
 #endif
 /*
- *  @(#) xdc.runtime.knl; 1, 0, 0,298; 7-22-2014 09:52:34; /db/ztree/library/trees/xdc/xdc-A46x/src/packages/
+ *  @(#) xdc.runtime.knl; 1, 0, 0,0; 12-9-2015 17:36:59; /db/ztree/library/trees/xdc/xdc-B06/src/packages/
  */
 

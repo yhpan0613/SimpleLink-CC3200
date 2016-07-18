@@ -1,7 +1,7 @@
 /*
  * objInclusion.h - CC31xx/CC32xx Host Driver Implementation
  *
- * Copyright (C) 2014 Texas Instruments Incorporated - http://www.ti.com/ 
+ * Copyright (C) 2015 Texas Instruments Incorporated - http://www.ti.com/ 
  * 
  * 
  *  Redistribution and use in source and binary forms, with or without 
@@ -34,7 +34,7 @@
  *
 */
 
-#include <simplelink.h>
+#include "simplelink.h"
 
 #ifndef OBJINCLUSION_H_
 #define OBJINCLUSION_H_
@@ -299,6 +299,8 @@ extern "C" {
 #define _SL_INC_sl_Start                __dev
 
 #define _SL_INC_sl_Stop                 __dev
+
+#define _SL_INC_sl_Stop_WithNwpLpdsPoll __dev
 
 #define _SL_INC_sl_StatusGet            __dev
 

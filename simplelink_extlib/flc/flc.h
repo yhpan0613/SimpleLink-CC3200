@@ -27,11 +27,17 @@ extern "C"
 /******************************************************************************
    Image file names
 *******************************************************************************/
+#ifndef FAST_BOOT
 #define IMG_BOOT_INFO           "/sys/mcubootinfo.bin"
 #define IMG_FACTORY_DEFAULT     "/sys/mcuimg1.bin"
 #define IMG_USER_1              "/sys/mcuimg2.bin"
 #define IMG_USER_2              "/sys/mcuimg3.bin"
-
+#else
+#define IMG_BOOT_INFO           "/sys/mcureserved.bin"
+#define IMG_USER_1              "/sys/mcuimg.bin"
+#define IMG_USER_2              "/sys/mcuflpatch.bin"
+#endif
+  
 /******************************************************************************
    Image status
 *******************************************************************************/

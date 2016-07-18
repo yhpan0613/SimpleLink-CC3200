@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -209,8 +209,6 @@ __extern xdc_Ptr ti_sysbios_knl_Intrinsics_SupportProxy_Proxy__delegate__S( void
 #define ti_sysbios_knl_Intrinsics_SupportProxy_maxbit ti_sysbios_knl_Intrinsics_SupportProxy_maxbit__E
 xdc__CODESECT(ti_sysbios_knl_Intrinsics_SupportProxy_maxbit__E, "ti_sysbios_knl_Intrinsics_SupportProxy_maxbit")
 __extern xdc_UInt ti_sysbios_knl_Intrinsics_SupportProxy_maxbit__E( xdc_UInt bits );
-xdc__CODESECT(ti_sysbios_knl_Intrinsics_SupportProxy_maxbit__R, "ti_sysbios_knl_Intrinsics_SupportProxy_maxbit")
-__extern xdc_UInt ti_sysbios_knl_Intrinsics_SupportProxy_maxbit__R( xdc_UInt bits );
 
 
 /*

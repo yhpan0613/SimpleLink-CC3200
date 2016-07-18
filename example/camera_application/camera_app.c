@@ -487,8 +487,8 @@ void SimpleLinkWlanEventHandler(SlWlanEvent_t *pWlanEvent)
             pEventData = &pWlanEvent->EventData.STAandP2PModeDisconnected;
 
             // If the user has initiated 'Disconnect' request, 
-            //'reason_code' is SL_USER_INITIATED_DISCONNECTION 
-            if(SL_USER_INITIATED_DISCONNECTION == pEventData->reason_code)
+            //'reason_code' is SL_WLAN_DISCONNECT_USER_INITIATED_DISCONNECTION 
+            if(SL_WLAN_DISCONNECT_USER_INITIATED_DISCONNECTION == pEventData->reason_code)
             {
                 UART_PRINT("[WLAN EVENT]Device disconnected from the AP: %s,"
                 "BSSID: %x:%x:%x:%x:%x:%x on application's request \n\r",
@@ -574,6 +574,30 @@ void SimpleLinkNetAppEventHandler(SlNetAppEvent_t *pNetAppEvent)
     }
 }
 
+//*****************************************************************************
+//
+//! \brief This function handles General Events
+//!
+//! \param[in]     pDevEvent - Pointer to General Event Info
+//!
+//! \return None
+//!
+//*****************************************************************************
+void SimpleLinkGeneralEventHandler(SlDeviceEvent_t *pDevEvent)
+{
+    if(!pDevEvent)
+    {
+        return;
+    }
+
+    //
+    // Most of the general errors are not FATAL are are to be handled
+    // appropriately by the application
+    //
+    UART_PRINT("[GENERAL EVENT] - ID=[%d] Sender=[%d]\n\n",
+               pDevEvent->EventData.deviceEvent.status,
+               pDevEvent->EventData.deviceEvent.sender);
+}
 
 //*****************************************************************************
 //
@@ -618,8 +642,6 @@ void SimpleLinkSockEventHandler(SlSockEvent_t *pSock)
     }
 
 }
-
-
 
 //*****************************************************************************
 //
@@ -865,10 +887,9 @@ static void DMAConfig()
 {
     memset(g_image_buffer,0xF80F,sizeof(g_image_buffer));
     p_buffer = &g_image_buffer[0];
-    //
-    // Initilalize DMA 
-    //
-    UDMAInit();
+	
+    MAP_uDMAChannelAttributeDisable(UDMA_CH22_CAMERA, UDMA_ATTR_ALTSELECT);
+
     //
     // Setup ping-pong transfer
     //

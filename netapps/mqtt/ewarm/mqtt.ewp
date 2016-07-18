@@ -248,11 +248,11 @@
         </option>
         <option>
           <name>IExtraOptionsCheck</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IExtraOptions</name>
-          <state></state>
+          <state>--diag_suppress Pa050</state>
         </option>
         <option>
           <name>CCLangConformance</name>
@@ -305,15 +305,11 @@
           <state>$PROJ_DIR$\..\common\</state>
           <state>$PROJ_DIR$\..\platform\</state>
           <state>$PROJ_DIR$\..\include\</state>
-          <state>$PROJ_DIR$\..\..\..\simplelink\</state>
-          <state>$PROJ_DIR$\..\..\..\simplelink\source\</state>
           <state>$PROJ_DIR$\..\..\..\simplelink\include\</state>
           <state>$PROJ_DIR$\..\..\..\oslib\</state>
           <state>$PROJ_DIR$\..\..\..\driverlib\</state>
           <state>$PROJ_DIR$\..\..\..\inc\</state>
-          <state>$PROJ_DIR$\..\..\..\third_party\FreeRTOS\source\include\</state>
-          <state>$PROJ_DIR$\..\..\..\third_party\FreeRTOS\source\</state>
-          <state>$PROJ_DIR$\..\..\..\third_party\FreeRTOS\source\portable\IAR\ARM_CM4</state>
+		  <state>$PROJ_DIR$\..\..\..\simplelink_extlib\provisioninglib\</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -950,7 +946,7 @@
         </option>
         <option>
           <name>IarchiveOutput</name>
-          <state>D:\git\a0132167_SDK_1p1\source-1p1-rahul\netapps\mqtt\ewarm\client\Exe\mqtt.a</state>
+          <state>D:\R1\CC3200SDK_1.1.0\cc3200-sdk\netapps\mqtt\ewarm\client\Exe\mqtt.a</state>
         </option>
       </data>
     </settings>
@@ -1045,7 +1041,7 @@
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>7.20.1.7306</state>
+          <state>7.30.4.8186</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -1205,11 +1201,11 @@
         </option>
         <option>
           <name>IExtraOptionsCheck</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IExtraOptions</name>
-          <state></state>
+          <state>--diag_suppress Pa050</state>
         </option>
         <option>
           <name>CCLangConformance</name>
@@ -1264,15 +1260,11 @@
           <state>$PROJ_DIR$\..\include\</state>
           <state>$PROJ_DIR$\..\server\</state>
           <state>$PROJ_DIR$\..\platform\</state>
-          <state>$PROJ_DIR$\..\..\..\simplelink\</state>
-          <state>$PROJ_DIR$\..\..\..\simplelink\source\</state>
           <state>$PROJ_DIR$\..\..\..\simplelink\include\</state>
           <state>$PROJ_DIR$\..\..\..\oslib\</state>
           <state>$PROJ_DIR$\..\..\..\driverlib\</state>
           <state>$PROJ_DIR$\..\..\..\inc\</state>
-          <state>$PROJ_DIR$\..\..\..\third_party\FreeRTOS\source\include\</state>
-          <state>$PROJ_DIR$\..\..\..\third_party\FreeRTOS\source\</state>
-          <state>$PROJ_DIR$\..\..\..\third_party\FreeRTOS\source\portable\IAR\ARM_CM4</state>
+		  <state>$PROJ_DIR$\..\..\..\simplelink_extlib\provisioninglib\</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1909,7 +1901,7 @@
         </option>
         <option>
           <name>IarchiveOutput</name>
-          <state>D:\git\a0132167_NETAPPS\network_apps\netapps\mqtt\ewarm\client_server\Exe\mqtt.a</state>
+          <state>D:\R1\CC3200SDK_1.1.0\cc3200-sdk\netapps\mqtt\ewarm\client_server\Exe\mqtt.a</state>
         </option>
       </data>
     </settings>

@@ -7,7 +7,7 @@
         <srcFile name="package/cfg/app_pm4g.c"/>
     </sources>
     <configscripts>
-        <srcFile name="D:/TI/CC3200_git/gcc/source-1p1-rahul/ti_rtos/ti_rtos_config/app.cfg"/>
+        <srcFile name="D:/git/a0132167_cc3200_sdk_1.2.0/source-1p2-rahul/ti_rtos/ti_rtos_config/app.cfg"/>
     </configscripts>
     <makefiles>
         <srcFile name="package.mak" src="package.bld"/>
@@ -22,7 +22,7 @@
         <target name="gnu.targets.arm.M4"
             version="gnu.targets.arm.M4{1,0,4.9,3"
             rawVersion="4.9.3"
-            platform="ti.platforms.tiva:LM4F232H5QD"
+            platform="ti.platforms.tiva:TM4C1294NCPDT"
             isa="v7M4"
             suffix="m4g"
             rootDir="C:/cygwin"
@@ -44,7 +44,7 @@
         isPartial="false"
         xCfgScript="package/cfg/app_pm4g.cfg"
         xCfgPrefix="package/cfg/app_pm4g"
-        cfgScript="D:/TI/CC3200_git/gcc/source-1p1-rahul/ti_rtos/ti_rtos_config/app.cfg"
+        cfgScript="D:/git/a0132167_cc3200_sdk_1.2.0/source-1p2-rahul/ti_rtos/ti_rtos_config/app.cfg"
         cfgArgs="null"
         />
     </configurations>
@@ -56,7 +56,7 @@
         profile="release"
         xCfgScript="package/cfg/app_pm4g.cfg"
         xCfgPrefix="package/cfg/app_pm4g"
-        cfgScript="D:/TI/CC3200_git/gcc/source-1p1-rahul/ti_rtos/ti_rtos_config/app.cfg"
+        cfgScript="D:/git/a0132167_cc3200_sdk_1.2.0/source-1p2-rahul/ti_rtos/ti_rtos_config/app.cfg"
         cfgArgs="null"
         />
     </executables>

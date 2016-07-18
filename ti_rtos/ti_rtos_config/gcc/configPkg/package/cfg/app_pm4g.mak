@@ -15,7 +15,7 @@ package/cfg/app_pm4g.om4g: package/cfg/app_pm4g.c package/cfg/app_pm4g.mak
 	@$(RM) $@.dep
 	$(RM) $@
 	@$(MSG) clm4g $< ...
-	$(gnu.targets.arm.M4.rootDir)/bin/arm-none-eabi-gcc -c -MD -MF $@.dep -x c  -Wunused -Wunknown-pragmas -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -msoft-float -mabi=aapcs -g -Dfar= -D__DYNAMIC_REENT__   -Dxdc_cfg__xheader__='"configPkg/package/cfg/app_pm4g.h"'  -Dxdc_target_name__=M4 -Dxdc_target_types__=gnu/targets/arm/std.h -Dxdc_bld__profile_release -Dxdc_bld__vers_1_0_4_9_3  -O2  -IC:/ti/tirtos_simplelink_2_01_00_03/products/bios_6_40_03_39/packages/gnu/targets/arm//libs/install-native/arm-none-eabi/include   $(XDCINCS)  -o $@ $<
+	$(gnu.targets.arm.M4.rootDir)/bin/arm-none-eabi-gcc -c -MD -MF $@.dep -x c  -Wunused -Wunknown-pragmas -ffunction-sections -fdata-sections  -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -mabi=aapcs -g -Dfar= -D__DYNAMIC_REENT__   -Dxdc_cfg__xheader__='"configPkg/package/cfg/app_pm4g.h"'  -Dxdc_target_name__=M4 -Dxdc_target_types__=gnu/targets/arm/std.h -Dxdc_bld__profile_release -Dxdc_bld__vers_1_0_4_9_3  -O2  -IC:/ti/tirtos_cc32xx_2_15_00_17/products/bios_6_45_00_20/packages/gnu/targets/arm//libs/install-native/arm-none-eabi/include   $(XDCINCS)  -o $@ $<
 	-@$(FIXDEP) $@.dep $@.dep
 	
 package/cfg/app_pm4g.om4g: export LD_LIBRARY_PATH=
@@ -25,7 +25,7 @@ package/cfg/app_pm4g.sm4g: package/cfg/app_pm4g.c package/cfg/app_pm4g.mak
 	@$(RM) $@.dep
 	$(RM) $@
 	@$(MSG) clm4g -S $< ...
-	$(gnu.targets.arm.M4.rootDir)/bin/arm-none-eabi-gcc -c -MD -MF $@.dep -x c -S -Wunused -Wunknown-pragmas -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mthumb -msoft-float -mabi=aapcs -g -Dfar= -D__DYNAMIC_REENT__   -Dxdc_cfg__xheader__='"configPkg/package/cfg/app_pm4g.h"'  -Dxdc_target_name__=M4 -Dxdc_target_types__=gnu/targets/arm/std.h -Dxdc_bld__profile_release -Dxdc_bld__vers_1_0_4_9_3  -O2   $(XDCINCS)  -o $@ $<
+	$(gnu.targets.arm.M4.rootDir)/bin/arm-none-eabi-gcc -c -MD -MF $@.dep -x c -S -Wunused -Wunknown-pragmas -ffunction-sections -fdata-sections  -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -mabi=aapcs -g -Dfar= -D__DYNAMIC_REENT__   -Dxdc_cfg__xheader__='"configPkg/package/cfg/app_pm4g.h"'  -Dxdc_target_name__=M4 -Dxdc_target_types__=gnu/targets/arm/std.h -Dxdc_bld__profile_release -Dxdc_bld__vers_1_0_4_9_3  -O2   $(XDCINCS)  -o $@ $<
 	-@$(FIXDEP) $@.dep $@.dep
 	
 package/cfg/app_pm4g.sm4g: export LD_LIBRARY_PATH=

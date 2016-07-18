@@ -2,7 +2,7 @@
  *  Do not modify this file; it is automatically 
  *  generated and any modifications will be overwritten.
  *
- * @(#) xdc-A32
+ * @(#) xdc-B06
  */
 
 /*
@@ -214,65 +214,41 @@ __extern xdc_Bool ti_sysbios_hal_Cache_Module__startupDone__S( void );
 #define ti_sysbios_hal_Cache_enable ti_sysbios_hal_Cache_enable__E
 xdc__CODESECT(ti_sysbios_hal_Cache_enable__E, "ti_sysbios_hal_Cache_enable")
 __extern xdc_Void ti_sysbios_hal_Cache_enable__E( xdc_Bits16 type );
-xdc__CODESECT(ti_sysbios_hal_Cache_enable__F, "ti_sysbios_hal_Cache_enable")
-__extern xdc_Void ti_sysbios_hal_Cache_enable__F( xdc_Bits16 type );
-__extern xdc_Void ti_sysbios_hal_Cache_enable__R( xdc_Bits16 type );
 
 /* disable__E */
 #define ti_sysbios_hal_Cache_disable ti_sysbios_hal_Cache_disable__E
 xdc__CODESECT(ti_sysbios_hal_Cache_disable__E, "ti_sysbios_hal_Cache_disable")
 __extern xdc_Void ti_sysbios_hal_Cache_disable__E( xdc_Bits16 type );
-xdc__CODESECT(ti_sysbios_hal_Cache_disable__F, "ti_sysbios_hal_Cache_disable")
-__extern xdc_Void ti_sysbios_hal_Cache_disable__F( xdc_Bits16 type );
-__extern xdc_Void ti_sysbios_hal_Cache_disable__R( xdc_Bits16 type );
 
 /* inv__E */
 #define ti_sysbios_hal_Cache_inv ti_sysbios_hal_Cache_inv__E
 xdc__CODESECT(ti_sysbios_hal_Cache_inv__E, "ti_sysbios_hal_Cache_inv")
 __extern xdc_Void ti_sysbios_hal_Cache_inv__E( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
-xdc__CODESECT(ti_sysbios_hal_Cache_inv__F, "ti_sysbios_hal_Cache_inv")
-__extern xdc_Void ti_sysbios_hal_Cache_inv__F( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
-__extern xdc_Void ti_sysbios_hal_Cache_inv__R( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
 
 /* wb__E */
 #define ti_sysbios_hal_Cache_wb ti_sysbios_hal_Cache_wb__E
 xdc__CODESECT(ti_sysbios_hal_Cache_wb__E, "ti_sysbios_hal_Cache_wb")
 __extern xdc_Void ti_sysbios_hal_Cache_wb__E( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
-xdc__CODESECT(ti_sysbios_hal_Cache_wb__F, "ti_sysbios_hal_Cache_wb")
-__extern xdc_Void ti_sysbios_hal_Cache_wb__F( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
-__extern xdc_Void ti_sysbios_hal_Cache_wb__R( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
 
 /* wbInv__E */
 #define ti_sysbios_hal_Cache_wbInv ti_sysbios_hal_Cache_wbInv__E
 xdc__CODESECT(ti_sysbios_hal_Cache_wbInv__E, "ti_sysbios_hal_Cache_wbInv")
 __extern xdc_Void ti_sysbios_hal_Cache_wbInv__E( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
-xdc__CODESECT(ti_sysbios_hal_Cache_wbInv__F, "ti_sysbios_hal_Cache_wbInv")
-__extern xdc_Void ti_sysbios_hal_Cache_wbInv__F( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
-__extern xdc_Void ti_sysbios_hal_Cache_wbInv__R( xdc_Ptr blockPtr, xdc_SizeT byteCnt, xdc_Bits16 type, xdc_Bool wait );
 
 /* wbAll__E */
 #define ti_sysbios_hal_Cache_wbAll ti_sysbios_hal_Cache_wbAll__E
 xdc__CODESECT(ti_sysbios_hal_Cache_wbAll__E, "ti_sysbios_hal_Cache_wbAll")
 __extern xdc_Void ti_sysbios_hal_Cache_wbAll__E( void );
-xdc__CODESECT(ti_sysbios_hal_Cache_wbAll__F, "ti_sysbios_hal_Cache_wbAll")
-__extern xdc_Void ti_sysbios_hal_Cache_wbAll__F( void );
-__extern xdc_Void ti_sysbios_hal_Cache_wbAll__R( void );
 
 /* wbInvAll__E */
 #define ti_sysbios_hal_Cache_wbInvAll ti_sysbios_hal_Cache_wbInvAll__E
 xdc__CODESECT(ti_sysbios_hal_Cache_wbInvAll__E, "ti_sysbios_hal_Cache_wbInvAll")
 __extern xdc_Void ti_sysbios_hal_Cache_wbInvAll__E( void );
-xdc__CODESECT(ti_sysbios_hal_Cache_wbInvAll__F, "ti_sysbios_hal_Cache_wbInvAll")
-__extern xdc_Void ti_sysbios_hal_Cache_wbInvAll__F( void );
-__extern xdc_Void ti_sysbios_hal_Cache_wbInvAll__R( void );
 
 /* wait__E */
 #define ti_sysbios_hal_Cache_wait ti_sysbios_hal_Cache_wait__E
 xdc__CODESECT(ti_sysbios_hal_Cache_wait__E, "ti_sysbios_hal_Cache_wait")
 __extern xdc_Void ti_sysbios_hal_Cache_wait__E( void );
-xdc__CODESECT(ti_sysbios_hal_Cache_wait__F, "ti_sysbios_hal_Cache_wait")
-__extern xdc_Void ti_sysbios_hal_Cache_wait__F( void );
-__extern xdc_Void ti_sysbios_hal_Cache_wait__R( void );
 
 
 /*

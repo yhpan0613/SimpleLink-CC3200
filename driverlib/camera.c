@@ -227,7 +227,7 @@ void CameraXClkSet(unsigned long ulBase, unsigned char bXClkFlags)
   case CAM_XCLK_STABLE_HI : ulReg |= 0x00000001;
                             break;
 
-  case CAM_XCLK_DIV_BYPASS: ulReg |= 0x0000000F;
+  case CAM_XCLK_DIV_BYPASS: ulReg |= 0x0000001F;
                             break;
   }
 

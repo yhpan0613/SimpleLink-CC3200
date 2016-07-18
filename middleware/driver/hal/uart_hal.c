@@ -56,13 +56,13 @@ struct cc_uart_state{
 		struct cc_uart_config uart_config;
         /* reading related parameters */
         uint8_t *rd_buff;
-        uint8_t rd_num_byts;
+        uint32_t rd_num_byts;
         uint32_t rd_byts_done;
         enum cc_boolean rd_done;
 
         /* writing related parameters */
         uint8_t *wrt_buff;
-        uint8_t wrt_num_byts;
+        uint32_t wrt_num_byts;
         uint32_t wrt_byts_done;
         enum cc_boolean wrt_done;
 
@@ -260,14 +260,17 @@ void cc_uart_configure(const struct cc_uart_config *uart_config)
 
         return;
 }
-
+i8 is_uartstate_reset = 0;
 cc31xx_hndl cc_uart_init(const struct cc_uart_config *uart_config)
 {
         cc31xx_hndl hndl;
         struct cc_uart_state *uart_state_hndl;
 
         /* Reset the UART control structure once in the begining */
-        reset_uart_state();
+        if(!is_uartstate_reset) {
+                reset_uart_state();
+                is_uartstate_reset = 1;
+        };
 
         /* Check if the module is already in use */
         uart_state_hndl = check_uart_state_inuse(uart_config);

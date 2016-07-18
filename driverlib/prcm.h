@@ -70,7 +70,6 @@ unsigned long ulRstReg;
 //*****************************************************************************
 #define PRCM_RUN_MODE_CLK         0x00000001
 #define PRCM_SLP_MODE_CLK         0x00000100
-#define PRCM_DSLP_MODE_CLK        0x00010000
 
 //*****************************************************************************
 // Values that can be passed to PRCMSRAMRetentionEnable() and
@@ -85,7 +84,6 @@ unsigned long ulRstReg;
 // Values that can be passed to PRCMSRAMRetentionEnable() and
 // PRCMSRAMRetentionDisable() as ulModeFlags.
 //*****************************************************************************
-#define PRCM_SRAM_DSLP_RET        0x00000001
 #define PRCM_SRAM_LPDS_RET        0x00000002
 
 //*****************************************************************************
@@ -197,7 +195,6 @@ unsigned long ulRstReg;
 // API Function prototypes
 //
 //*****************************************************************************
-extern void PRCMSOCReset(void);
 extern void PRCMMCUReset(tBoolean bIncludeSubsystem);
 extern unsigned long PRCMSysResetCauseGet(void);
 
@@ -212,7 +209,6 @@ extern void PRCMI2SClockFreqSet(unsigned long ulI2CClkFreq);
 extern unsigned long PRCMPeripheralClockGet(unsigned long ulPeripheral);
 
 extern void PRCMSleepEnter(void);
-extern void PRCMDeepSleepEnter(void);
 
 extern void PRCMSRAMRetentionEnable(unsigned long ulSramColSel,
                                     unsigned long ulFlags);
@@ -261,6 +257,7 @@ extern unsigned long PRCMHIBRegRead(unsigned long ulRegAddr);
 extern void PRCMHIBRegWrite(unsigned long ulRegAddr, unsigned long ulValue);
 extern unsigned long PRCMCameraFreqSet(unsigned char ulDivider,
                                                 unsigned char ulWidth);
+extern void PRCMLPDSEnterKeepDebugIf(void);
 
 
 //*****************************************************************************
