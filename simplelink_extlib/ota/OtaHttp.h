@@ -46,8 +46,8 @@ _i32  http_skip_headers(_i16 sockId);
 _i32  http_build_request(_u8 *pHttpReq, _u8 *method, _u8 *host_name, _u8 *req_uri_prefix, _u8 *req_uri, _u8 *hdr_name, _u8 *hdr_val);
 _i16  http_connect_server(_u8 *ServerName, _i32 IpAddr, _i32 port, _i32 secured, _i32 nonBlocking);
 /* JSON */
-_i32  json_parse_rsrc_metadata_url(_u8 *media_response_buf, _u8 *media_url);
-_i32  json_parse_update_check_resp(_i16 sockId, RsrcData_t *pRsrcData, _u8 *read_buf, _i32 size);
+_i32  json_parse_rsrc_metadata_url(_u8 *media_response_buf, _u8 *media_url, _u8 *file_name);
+_i32  ota_parse_update_check_resp(_i16 sockId, RsrcData_t *pRsrcData, _u8 *read_buf, _i32 size);
 
 /* Services */
 _i32  sl_Recv_eagain(_i16 sockId, void *pBuf, _i32 Len, _i32 flags, _i32 max_eagain);

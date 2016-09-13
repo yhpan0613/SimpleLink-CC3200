@@ -360,85 +360,84 @@ _i32 json_parse_dropbox_metadata(_i16 sockId, RsrcData_t *pRsrcData, _u8 *read_b
 }
 */
 
-_i32 json_parse_update_check_resp(_i16 sockId, RsrcData_t *pRsrcData, _u8 *read_buf, _i32 size)
+/* 
+SERVICEPACK:{ota_1.0.1.6-2.6.0.5.ucf.ucf} 
+SP_SIZE:{25820}
+SP_SIGN:{ota_1.0.1.6-2.6.0.5.ucf.signed.bin}
+SIGN_SIZE:{256}
+MCU_IMG:{CC3200_MCU_1.2.3.img}
+MCU_SIZE:{1000}
+*/
+
+_i32 ota_parse_update_check_resp(_i16 sockId, RsrcData_t *pRsrcData, _u8 *read_buf, _i32 size)
 {
-    RsrcData_t rsrcData;
-    _u8 size_str[64];
-    _u8 *pBuf;
-    _i32 len;
     _u8 rsrcNum=0;
+	_u8 *pBuf;
+	_u8 size_str[64];
+	_i32 len;
 
-    pBuf = read_buf;
-    pBuf = (_u8 *)strstr((const char *)pBuf, "["); /* start of directory files */
-    if (pBuf == NULL)
-        return OTA_STATUS_ERROR;
+	pBuf = read_buf;
 
-    /* Skip to second list - ToDo parse full 2 bundle lists */
-    pBuf = (_u8 *)strstr((const char *)pBuf, "["); /* start of directory files */
-    if (pBuf == NULL)
-        return OTA_STATUS_ERROR;
+	pBuf = (_u8 *)strstr((const char *)pBuf, "SP_SIGN");
+	if(pBuf) {
+		
+		pBuf += strlen("SP_SIGN") + 2;
+		len = strstr((const char *)pBuf, "}") - (char *)pBuf;
+		strncpy ((char *)pRsrcData[rsrcNum].filename, (const char *)pBuf, len);
 
-    while (1)
-    {
-        pBuf = (_u8 *)strstr((const char *)pBuf, "{"); /* start of next file */
-        if (pBuf == NULL)
-            return OTA_STATUS_ERROR;
-        /* read more if no end of file record - between { } */
-        if ((_u8 *)strstr((const char *)pBuf, "}") <= pBuf) /* file recored end not found */
-        {
-            _i32 left_len = read_buf+size-pBuf;
-            strncpy((char *)read_buf, (const char *)pBuf, left_len); /* copy current file to start of read buffer */
-            size = sl_Recv_eagain(sockId, &read_buf[left_len], HTTP_RECV_BUF_LEN-left_len, 0, MAX_EAGAIN_RETRIES); /*Get media link */
-            pBuf = read_buf;
-            if ((_u8 *)strstr((const char *)pBuf, "}") <= pBuf) /* still not found, exit */
-            {
-                return OTA_STATUS_OK;
-            }
-        }
-        /* at this po_i32 we have all next file record */
+		pBuf += len;
 
-        /* Todo Add check response after each strstr!!!!! */
+		pBuf = (_u8 *)strstr((const char *)pBuf, "SIGN_SIZE");
+                pBuf += strlen("SIGN_SIZE") + 2;
+		len = strstr((const char *)pBuf, "}") - (char *)pBuf;
+		strncpy ((char *)size_str, (const char *)pBuf, len);
+		size_str[len] = 0;	
+		pRsrcData[rsrcNum].size = atol((char const *)size_str);
 
-        /* extract file size */
-        pBuf = (_u8 *)strstr((const char *)pBuf, "size"); /* "size": 1000, */
-        if (pBuf == NULL)
-            return OTA_STATUS_ERROR;
+		Report("Service Pack Signature: %s and its size: %d\r\n", pRsrcData[rsrcNum].filename, pRsrcData[rsrcNum].size);
 
-        pBuf += sizeof("size")+3;
-        len = strstr((const char *)pBuf, ",") - (char *)pBuf;
-        if (len <= 0)
-            return OTA_STATUS_ERROR;
-        strncpy ((char *)size_str, (const char *)pBuf, len);
-        size_str[len] = 0;
-        pBuf += len;
+		rsrcNum ++;
 
-        /* extract resource_id */
-        pBuf = (_u8 *)strstr((const char *)pBuf, "resource_id");  /* "resource_id": "<filename>", */
-        if (pBuf == NULL)
-            return OTA_STATUS_ERROR;
+		pBuf = (_u8 *)strstr((const char *)pBuf, "SERVICEPACK");
+		pBuf += strlen("SERVICEPACK") + 2;
+		len = strstr((const char *)pBuf, "}") - (char *)pBuf;
+		strncpy ((char *)pRsrcData[rsrcNum].filename, (const char *)pBuf, len);
 
-        pBuf += sizeof("resource_id")+3;
-        len = strstr((const char *)pBuf, "\"") - (char *)pBuf;
-        if (len <= 0)
-            return OTA_STATUS_ERROR;
-        strncpy ((char *)rsrcData.filename, (const char *)pBuf, len);
-        rsrcData.filename[len] = 0;
-        pBuf += len;
+		pBuf += len;
 
+		pBuf = (_u8 *)strstr((const char *)pBuf, "SP_SIZE");
+        pBuf += strlen("SP_SIZE") + 2;
+		len = strstr((const char *)pBuf, "}") - (char *)pBuf;
+		strncpy ((char *)size_str, (const char *)pBuf, len);
+		size_str[len] = 0;	
+		pRsrcData[rsrcNum].size = atol((char const *)size_str);
 
-        /* skip to end of list */
-        pBuf = (_u8 *)(1+strstr((const char *)pBuf, "}"));
+		Report("Service Pack Name: %s and its size: %d\r\n", pRsrcData[rsrcNum].filename, pRsrcData[rsrcNum].size);
+			
+		rsrcNum ++;
 
-        /* copy resource data to the list */
-        rsrcData.size = atol((char const *)size_str);
-        pRsrcData[rsrcNum++] = rsrcData;
-        Report("resource file=%s, size=%ld\r\n", rsrcData.filename, rsrcData.size);
+	}
 
-        /* end of file - last file doesn't have a , */
-        if (pBuf[0] != ',')
-            break;
-    }
-    return rsrcNum;
+	pBuf = (_u8 *)strstr((const char *)pBuf, "MCU_IMG");
+   	if(pBuf)
+   	{
+		pBuf += strlen("MCU_IMG") + 2;
+		len = strstr((const char *)pBuf, "}") - (char *)pBuf;
+		strncpy ((char *)pRsrcData[rsrcNum].filename, (const char *)pBuf, len);
+
+		pBuf += len;
+
+		pBuf = (_u8 *)strstr((const char *)pBuf, "MCU_SIZE");
+                pBuf += strlen("MCU_SIZE") + 2;
+		len = strstr((const char *)pBuf, "}") - (char *)pBuf;
+		strncpy ((char *)size_str, (const char *)pBuf, len);
+		size_str[len] = 0;	
+		pRsrcData[rsrcNum].size = atol((char const *)size_str);   	
+
+		Report("MCU IMAGE Name: %s and its size: %d\r\n", pRsrcData[rsrcNum].filename, pRsrcData[rsrcNum].size);
+   	}
+	
+    return rsrcNum + 1;
 }
 
 /*
@@ -450,25 +449,32 @@ _i32 json_parse_update_check_resp(_i16 sockId, RsrcData_t *pRsrcData, _u8 *read_
         "bytes": 244048,
     }
 */
-_i32 json_parse_rsrc_metadata_url(_u8 *media_response_buf, _u8 *media_url)
+_i32 json_parse_rsrc_metadata_url(_u8 *media_response_buf, _u8 *media_url, _u8 *file_name)
 {
     _u8 *pBuf = media_response_buf;
     _i32 len;
 
+	
+#if 0
     pBuf = (_u8 *)strstr((const char *)pBuf, "\r\n\r\n");  /* skip HTTP response header */
     if (pBuf == NULL)
         return OTA_STATUS_ERROR;
+#endif
 
     pBuf = (_u8 *)strstr((const char *)pBuf, "CDN_url");
+
+	Report("json_parse_rsrc_metadata_url pBuf is:%s\r\n", pBuf);
+
     if (pBuf == NULL)
         return OTA_STATUS_ERROR;
 
-    pBuf += 7;
-    len = strstr((const char *)pBuf, "\", ") - (char *)pBuf; /* ends with ", */
+    pBuf += 11;
+    len = strstr((const char *)pBuf, "\",") - (char *)pBuf; /* ends with ", */
     if (len <= 0)
         return OTA_STATUS_ERROR;
     strncpy ((char *)media_url, (const char *)pBuf, len);
-    media_url[len] = 0;
+	strncat((char *)media_url, (const char *)file_name, strlen(file_name));
+    media_url[len + strlen(file_name)] = 0;
 
     return OTA_STATUS_OK;
 }

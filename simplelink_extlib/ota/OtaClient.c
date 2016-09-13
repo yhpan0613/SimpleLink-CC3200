@@ -71,7 +71,7 @@ _i32 OtaClient_UpdateCheck(void *pvOtaClient, _u8 *pVendorStr)
     _u8 *response_buf = http_recv_buf();
 
     pOtaClient->pVendorStr = pVendorStr;
-    Report("OtaClient_UpdateCheck: call http_build_request %s\r\n", pOtaServerInfo->rest_update_chk);
+    //Report("OtaClient_UpdateCheck: call http_build_request %s\r\n", pOtaServerInfo->rest_update_chk);
 
 #ifdef TI_OTA_SERVER
     http_build_request (send_buf, "GET ", pOtaServerInfo->server_domain, pOtaServerInfo->rest_update_chk, NULL, NULL, NULL);
@@ -104,8 +104,10 @@ _i32 OtaClient_UpdateCheck(void *pvOtaClient, _u8 *pVendorStr)
         len += status;
     }
 
+	Report("Recv len:%d -- buf:%s--\r\n", len, response_buf);
+
 #ifdef TI_OTA_SERVER
-    numUpdates = json_parse_update_check_resp(pOtaClient->serverSockId, pOtaClient->pOtaCheckUpdateResponse->rsrcList, response_buf, len);
+    numUpdates = ota_parse_update_check_resp(pOtaClient->serverSockId, pOtaClient->pOtaCheckUpdateResponse->rsrcList, response_buf, len);
 #else
     numUpdates = json_parse_dropbox_metadata(pOtaClient->serverSockId, pOtaClient->pOtaCheckUpdateResponse->rsrcList, response_buf, len);
 #endif
@@ -171,7 +173,7 @@ _i32 OtaClient_ResourceMetadata(void *pvOtaClient, _u8 *resource_file_name, OtaF
     }
 
 #ifdef TI_OTA_SERVER
-    http_build_request (send_buf, "GET ",  pOtaServerInfo->server_domain, pOtaServerInfo->rest_rsrc_metadata, NULL,             , pOtaServerInfo->rest_hdr, pOtaServerInfo->rest_hdr_val);
+    http_build_request (send_buf, "GET ",  pOtaServerInfo->server_domain, pOtaServerInfo->rest_rsrc_metadata, NULL,    pOtaServerInfo->rest_hdr, pOtaServerInfo->rest_hdr_val);
 #else
     http_build_request (send_buf, "POST ", pOtaServerInfo->server_domain, pOtaServerInfo->rest_rsrc_metadata, resource_file_name, pOtaServerInfo->rest_hdr, pOtaServerInfo->rest_hdr_val);
 #endif
@@ -200,9 +202,9 @@ _i32 OtaClient_ResourceMetadata(void *pvOtaClient, _u8 *resource_file_name, OtaF
         }
         len += status;
     }
-
+	
 #ifdef TI_OTA_SERVER
-    status = json_parse_rsrc_metadata_url(response_buf, pMetadata->cdn_url);
+    status = json_parse_rsrc_metadata_url(response_buf, pMetadata->cdn_url, resource_file_name);
 #else
     status = json_parse_dropbox_media_url(response_buf, pMetadata->cdn_url);
 #endif
@@ -211,6 +213,8 @@ _i32 OtaClient_ResourceMetadata(void *pvOtaClient, _u8 *resource_file_name, OtaF
         Report("OtaClient_ResourceMetadata: Error media json_parse_media status=%ld\r\n", status);
         return OTA_STATUS_ERROR;
     }
+	else
+		Report("CDN URL is: %s\r\n", pMetadata->cdn_url);
 
     return OTA_STATUS_OK;
 }
@@ -228,13 +232,7 @@ _i32 OtaClient_ResourceNameConvert(void *pvOtaClient, _u8 *resource_file_name, O
     pMetadata->p_signature = NULL;
     pMetadata->flags = 0;
 
-    /* skip vendor string - as directory in the file name */
-    if (pOtaClient->pVendorStr)
-    {
-        pMetadata->p_file_name = &pMetadata->p_file_name[strlen((const char *)pOtaClient->pVendorStr)+1];  /* skip "/Vid00_Pid00_Ver00" */
-    }
-
-    if (pMetadata->p_file_name[1] != 'f') /* must start with 'f' flags */
+    if (pMetadata->p_file_name[0] != 'f') /* must start with 'f' flags */
     {
         Report("OtaClient_ResourceMetadata: ignore file name: %s, without f prefix\r\n", pMetadata->p_file_name);
         return OTA_STATUS_ERROR;
@@ -242,14 +240,14 @@ _i32 OtaClient_ResourceNameConvert(void *pvOtaClient, _u8 *resource_file_name, O
 
     /* extract file flags */
     file_flags = 0;
-    if ((pMetadata->p_file_name[2] >= 'a') && (pMetadata->p_file_name[2] <= 'f'))
-        file_flags |= (0xa + (pMetadata->p_file_name[2] - 'a')) << 4;
-    if ((pMetadata->p_file_name[2] >= '0') && (pMetadata->p_file_name[2] <= '9'))
-        file_flags |= (0x0 + (pMetadata->p_file_name[2] - '0')) << 4;
-    if ((pMetadata->p_file_name[3] >= 'a') && (pMetadata->p_file_name[2] <= 'f'))
-        file_flags |= 0xa + (pMetadata->p_file_name[3] - 'a');
-    if ((pMetadata->p_file_name[3] >= '0') && (pMetadata->p_file_name[2] <= '9'))
-        file_flags |= 0x0 + (pMetadata->p_file_name[3] - '0');
+    if ((pMetadata->p_file_name[1] >= 'a') && (pMetadata->p_file_name[1] <= 'f'))
+        file_flags |= (0xa + (pMetadata->p_file_name[1] - 'a')) << 4;
+    if ((pMetadata->p_file_name[1] >= '0') && (pMetadata->p_file_name[1] <= '9'))
+        file_flags |= (0x0 + (pMetadata->p_file_name[1] - '0')) << 4;
+    if ((pMetadata->p_file_name[2] >= 'a') && (pMetadata->p_file_name[1] <= 'f'))
+        file_flags |= 0xa + (pMetadata->p_file_name[2] - 'a');
+    if ((pMetadata->p_file_name[2] >= '0') && (pMetadata->p_file_name[1] <= '9'))
+        file_flags |= 0x0 + (pMetadata->p_file_name[2] - '0');
     /*file_flags = ((pMetadata->p_file_name[2] - '0') << 4) + (pMetadata->p_file_name[3] - '0'); */
     if (file_flags & 0x01) pMetadata->flags |= METADATA_FLAGS_SECURED;
     if (file_flags & 0x02) pMetadata->flags |= METADATA_FLAGS_SIGNATURE;
@@ -262,7 +260,7 @@ _i32 OtaClient_ResourceNameConvert(void *pvOtaClient, _u8 *resource_file_name, O
     Report("OtaClient_ResourceMetadata: file flags=%x,", file_flags);
 	Report("metadata flags=%x\r\n", pMetadata->flags);
     /* skip file flags */
-    pMetadata->p_file_name += 4;        /* skip "/f00" of /f00_sys_file.ext" */
+    pMetadata->p_file_name += 3;        /* skip "/f00" of /f00_sys_file.ext" */
     pMetadata->p_file_name[0] = '/';    /* convert "_sys" to "/sys_file.ext" */
 
     /* convert _sys_ to /sys/ */
@@ -275,6 +273,8 @@ _i32 OtaClient_ResourceNameConvert(void *pvOtaClient, _u8 *resource_file_name, O
         pMetadata->p_file_name += 1;        // skip "/"
     }
 
+	Report("OtaClient_ResourceMetadata: file=%s\r\n", pMetadata->p_file_name);
+	
     if (pMetadata->flags & METADATA_FLAGS_NOT_SFLASH_STORAGE)
     {
         if (pOtaClient->pFlcHostCb == NULL)

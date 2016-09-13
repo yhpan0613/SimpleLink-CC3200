@@ -205,6 +205,7 @@ _i32 _OpenStorageFile(CdnClient_t *pCdnClient, _u8 *file_name, _i32 file_size, _
         }
         else
         {
+        	Report("_OpenStorageFile: Signature file name: %s\r\n", pMetadata->signature_filename);
             status = _readSignature(pCdnClient, pMetadata->signature_filename, pMetadata);
             if (status < 0)
             {
@@ -332,7 +333,7 @@ _i32 CdnClient_Run(void *pvCdnClient)
             /* check EOF */
             if (endBuf > pCdnClient->recv_buf)
             {
-                Report("CdnClient_Run: End of file\r\n");
+                Report("CdnClient_Run: End of file and signature length is:%d\r\n", pCdnClient->pResourceMetadata->signature_len);
                 status = pFlcCb->pCloseFile(pCdnClient->lFileHandle, (_u8 *)pCdnClient->pResourceMetadata->p_cert_filename , (_u8 *)pCdnClient->pResourceMetadata->p_signature, pCdnClient->pResourceMetadata->signature_len);
                 if (status < 0)
                 {

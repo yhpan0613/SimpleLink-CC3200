@@ -252,7 +252,7 @@ _i32 sl_extLib_OtaRun(void *pvOtaApp)
                 Report("sl_extLib_OtaRun: -------- end of updates\r\n");
 
                 _WriteStatFile((_u8 *)pOtaApp->pStatistics, sizeof(g_OtaApp_statistics));
-                LogClient_ConnectAndPrint(pOtaApp->pvLogClient, pOtaApp->pOtaServerInfo, pOtaApp->vendorStr, pOtaApp->pStatistics);
+                //LogClient_ConnectAndPrint(pOtaApp->pvLogClient, pOtaApp->pOtaServerInfo, pOtaApp->vendorStr, pOtaApp->pStatistics);
 
                 status = RUN_STAT_DOWNLOAD_DONE;
                 return status;

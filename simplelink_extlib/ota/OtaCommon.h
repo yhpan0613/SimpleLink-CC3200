@@ -19,7 +19,7 @@
 extern "C" {
 #endif
 
-/* #define TI_OTA_SERVER */
+#define TI_OTA_SERVER
 
 /* General return values */
 #define OTA_STATUS_OK        0
