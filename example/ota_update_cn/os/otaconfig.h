@@ -36,14 +36,14 @@
 #define __OTA_H__
 
 
-#define OTA_SERVER_NAME                 "api.dropbox.com"
-#define OTA_SERVER_IP_ADDRESS           0x00000000
-#define OTA_SERVER_SECURED              1
-#define OTA_SERVER_REST_UPDATE_CHK      "/1/metadata/auto/" // returns files/folder list
-#define OTA_SERVER_REST_RSRC_METADATA   "/1/media/auto"     // returns A url that serves the media directly
+#define OTA_SERVER_NAME                 "api.simplelink.cn"
+#define OTA_SERVER_IP_ADDRESS           0x792897AD
+#define OTA_SERVER_SECURED              0
+#define OTA_SERVER_IMG_NAME_TXT      "/OTA/CC3200/img.txt" // returns files/folder list
+#define OTA_SERVER_REST_RSRC_METADATA   "/OTA/CC3200/ver.txt"     // returns A url that serves the media directly
 #define OTA_SERVER_REST_HDR             "Authorization: Bearer "
 #define OTA_SERVER_REST_HDR_VAL         "<dropbox access key>"
-#define LOG_SERVER_NAME                 "api-content.dropbox.com"
+#define LOG_SERVER_NAME                 "log.simplellink.cn"
 #define OTA_SERVER_REST_FILES_PUT       "/1/files_put/auto/"
 #define OTA_VENDOR_STRING               "Vid01_Pid00_Ver00"
 

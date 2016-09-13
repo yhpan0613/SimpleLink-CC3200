@@ -799,7 +799,7 @@ void DisplayRefresh()
 void DisplayTask(void *pvParameters)
 {
   while(1)
-  {
+  {  
     //
     // Clear screen
     //
@@ -944,7 +944,7 @@ int OTAServerInfoSet(void **pvOtaApp, char *vendorStr)
     g_otaOptServerInfo.ip_address = OTA_SERVER_IP_ADDRESS;
     g_otaOptServerInfo.secured_connection = OTA_SERVER_SECURED;
     strcpy((char *)g_otaOptServerInfo.server_domain, OTA_SERVER_NAME);
-    strcpy((char *)g_otaOptServerInfo.rest_update_chk, OTA_SERVER_REST_UPDATE_CHK);
+    strcpy((char *)g_otaOptServerInfo.rest_update_chk, OTA_SERVER_IMG_NAME_TXT);
     strcpy((char *)g_otaOptServerInfo.rest_rsrc_metadata, OTA_SERVER_REST_RSRC_METADATA);
     strcpy((char *)g_otaOptServerInfo.rest_hdr, OTA_SERVER_REST_HDR);
     strcpy((char *)g_otaOptServerInfo.rest_hdr_val, OTA_SERVER_REST_HDR_VAL);
@@ -987,7 +987,7 @@ void OTAUpdateTask(void *pvParameters)
     int SetCommitInt = 1;
     unsigned char ucVendorStr[50];
     unsigned long ulVendorStrLen;
-
+	
     //
     // Wait for sl_Start and wlan connect to complete
     //
@@ -1304,7 +1304,7 @@ void main()
   // Start the Print task
   //
   osi_TaskCreate(DisplayTask,
-                  (const signed char *)"Get NTP Time",
+                  (const signed char *)"Display TASK",
                   OSI_STACK_SIZE,
                   NULL,
                   1,
