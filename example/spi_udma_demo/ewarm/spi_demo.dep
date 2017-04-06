@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>1174935426</fileChecksum>
+  <configuration>
+    <name>Release</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\..\common\gpio_if.c</file>
+      <file>$PROJ_DIR$\..\pinmux.c</file>
+      <file>$PROJ_DIR$\..\..\common\timer_if.c</file>
+      <file>$PROJ_DIR$\..\..\common\uart_if.c</file>
+      <file>$PROJ_DIR$\..\..\common\udma_if.c</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$PROJ_DIR$\..\..\common\startup_ewarm.c</file>
+    </outputs>
+  </configuration>
+</project>
+
+
